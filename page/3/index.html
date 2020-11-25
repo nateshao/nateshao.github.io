@@ -219,6 +219,270 @@
 
 
   
+    <article id="post-js-01-入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/08/23/js-01-%E5%85%A5%E9%97%A8/" target="_blank">js-01-入门</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/08/23/js-01-%E5%85%A5%E9%97%A8/" class="archive-article-date">
+        <time datetime="2020-08-23T02:07:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>JavaScript 与 Java 是两种完全不同的语言，无论在概念上还是设计上。<br>  Java（由 Sun 发明）是更复杂的编程语言。ECMA-262 是 JavaScript 标准的官方名称。JavaScript 由 Brendan Eich 发明。它于 1995 年出现在 Netscape 中（该浏览器已停止更新），并于 1997 年被 ECMA（一个标准协会）采纳。</p>
+</blockquote>
+<h3 id="1-JavaScript引用方式"><a href="#1-JavaScript引用方式" class="headerlink" title="1. JavaScript引用方式"></a>1. JavaScript引用方式</h3><p>JavaScript的位置</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span> JavaScript标识放置<span class="tag">&lt;<span class="name">Head</span>&gt;</span>...<span class="tag">&lt;/<span class="name">Head</span>&gt;</span>头部之间<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> ODiv = <span class="built_in">document</span>.getElementById(<span class="string">&quot;context&quot;</span>);</span></span><br><span class="line"><span class="javascript">        	     <span class="built_in">console</span>.log(ODiv); <span class="comment">// 打印出null</span></span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;context&quot;</span>&gt;</span>你好<span class="tag">&lt;/<span class="name">div</span>&gt;</span>		</span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>嵌入式 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">script</span>&gt;</span>javascript语句;<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span>javascript语句;<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">- 外链式  </span><br><span class="line">```html</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/test.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>行内式  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:alert&#x27;hello&#x27;;&quot;</span>&gt;</span>test<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<script>
+console.log('你好！');
+</script>
+
+</li>
+</ul>
+<script>
+  document.write('你好！');
+</script>
+
+<script>
+  document.write('<script>alert(123);<\/script>');
+</script>
+
+<h3 id="2-JavaScript-输出"><a href="#2-JavaScript-输出" class="headerlink" title="2. JavaScript 输出"></a>2. JavaScript 输出</h3><ul>
+<li>使用 window.alert() 弹出警告框。</li>
+<li>使用 document.write() 方法将内容写到 HTML 文档中。</li>
+<li>使用 innerHTML 写入到 HTML 元素。</li>
+<li>使用 console.log() 写入到浏览器的控制台。</li>
+</ul>
+<h3 id="3-运算符"><a href="#3-运算符" class="headerlink" title="3. 运算符"></a>3. 运算符</h3><ul>
+<li>JavaScript：改变 HTML 内容<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function myFunction()</span><br><span class="line">&#123;</span><br><span class="line">	x=document.getElementById(&quot;demo&quot;);  // 找到元素</span><br><span class="line">	x.innerHTML=&quot;Hello JavaScript!&quot;;    // 改变内容</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;myFunction()&quot;</span>&gt;</span>点击这里<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>JavaScript：改变 HTML 图像</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  alert(<span class="number">220</span> + <span class="number">230</span>);             <span class="comment">// 输出结果：450</span></span></span><br><span class="line"><span class="javascript">  alert(<span class="number">2</span> * <span class="number">3</span> + <span class="number">25</span> / <span class="number">5</span> - <span class="number">1</span>);    <span class="comment">// 输出结果：10</span></span></span><br><span class="line"><span class="javascript">  alert(<span class="number">2</span> * (<span class="number">3</span> + <span class="number">25</span>) / <span class="number">5</span> - <span class="number">1</span>);  <span class="comment">// 输出结果：10.2</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;Hello&#x27;</span>);               <span class="comment">// 单引号字符串</span></span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&quot;Hello&quot;</span>);               <span class="comment">// 双引号字符串</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;22&#x27;</span> == <span class="string">&#x27;22&#x27;</span>);          <span class="comment">// 输出结果：true</span></span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;22&#x27;</span> == <span class="string">&#x27;33&#x27;</span>);          <span class="comment">// 输出结果：false</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;220&#x27;</span> + <span class="string">&#x27;230&#x27;</span>);                 <span class="comment">// 输出结果：220230</span></span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;220 + 230 = &#x27;</span> + <span class="number">220</span> + <span class="number">230</span>);    <span class="comment">// 输出结果：220 + 230 = 220230</span></span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;220 + 230 = &#x27;</span> + (<span class="number">220</span> + <span class="number">230</span>));  <span class="comment">// 输出结果：220 + 230 = 450</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">  if (22 &gt; 33) &#123;</span><br><span class="line"><span class="javascript">    alert(<span class="literal">true</span>);            <span class="comment">// 判断成立时执行此语句</span></span></span><br><span class="line"><span class="javascript">  &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">    alert(<span class="literal">false</span>);           <span class="comment">// 判断不成立时执行此语句</span></span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> num1 = <span class="number">22</span>;            <span class="comment">// 使用名称为num1的变量保存数字22</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> num2 = <span class="number">33</span>;            <span class="comment">// 使用名称为num2的变量保存数字33</span></span></span><br><span class="line"><span class="javascript">  alert(num1 + num2);       <span class="comment">// 输出结果：55</span></span></span><br><span class="line"><span class="javascript">  alert(num1 - num2);       <span class="comment">// 输出结果：-11</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> temp = num1;          <span class="comment">// 将变量num1的值赋给变量temp</span></span></span><br><span class="line"><span class="javascript">  num1 = num2;              <span class="comment">// 将变量num2的值赋给变量num1</span></span></span><br><span class="line"><span class="javascript">  num2 = temp;              <span class="comment">// 将变量temp的值赋给变量num2</span></span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;num1 = &#x27;</span> + num1 + <span class="string">&#x27;, num2 = &#x27;</span> + num2);    <span class="comment">// 输出结果：num1 = 33, num2 = 22</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.console;               <span class="comment">// 访问window对象的console属性</span></span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.document;              <span class="comment">// 访问window对象的document属性</span></span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.alert(<span class="string">&#x27;test&#x27;</span>);         <span class="comment">// 调用window对象的alert()方法</span></span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.prompt(<span class="string">&#x27;test&#x27;</span>);        <span class="comment">// 调用window对象的prompt()方法</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.console.log(<span class="string">&#x27;test&#x27;</span>);         <span class="comment">// 调用console对象的log()方法</span></span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.document.write(<span class="string">&#x27;test&#x27;</span>);      <span class="comment">// 调用document对象的write()方法</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;test&quot;</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> test = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;test&#x27;</span>);    <span class="comment">// 根据元素id创建元素对象</span></span></span><br><span class="line"><span class="javascript">    alert(test.innerHTML);                         <span class="comment">// 通过InnerHTML属性获取元素内容，输出结果：Hello</span></span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> str = <span class="string">&#x27;apple&#x27;</span>;                 <span class="comment">// 定义一个字符串</span></span></span><br><span class="line"><span class="javascript">  alert(str.length);                 <span class="comment">// 获取字符串长度，输出结果：5</span></span></span><br><span class="line"><span class="javascript">  alert(str.toUpperCase());          <span class="comment">// 获取转换大写后的结果，输出结果：APPLE</span></span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;aa&#x27;</span>.toUpperCase());         <span class="comment">// 直接调用字符串的成员方法，输出结果：AA</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="comment">// 创建对象</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> stu = &#123;&#125;;                      <span class="comment">// 创建一个名称为stu的空对象</span></span></span><br><span class="line"><span class="javascript">  <span class="comment">// 添加属性</span></span></span><br><span class="line"><span class="javascript">  stu.name = <span class="string">&#x27;小明&#x27;</span>;                 <span class="comment">// 为stu对象添加name属性</span></span></span><br><span class="line"><span class="javascript">  stu.gender = <span class="string">&#x27;男&#x27;</span>;                 <span class="comment">// 为stu对象添加gender属性</span></span></span><br><span class="line"><span class="javascript">  stu.age = <span class="number">18</span>;                      <span class="comment">// 为stu对象添加age属性</span></span></span><br><span class="line"><span class="javascript">  <span class="comment">// 访问属性</span></span></span><br><span class="line"><span class="javascript">  alert(stu.name);                   <span class="comment">// 访问stu对象的name属性，输出结果：小明</span></span></span><br><span class="line"><span class="javascript">  <span class="comment">// 添加方法</span></span></span><br><span class="line"><span class="javascript">  stu.introduce = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">return</span> <span class="string">&#x27;我叫&#x27;</span> + <span class="built_in">this</span>.name + <span class="string">&#x27;，今年&#x27;</span> + <span class="built_in">this</span>.age + <span class="string">&#x27;岁。&#x27;</span>;</span></span><br><span class="line">  &#125;;</span><br><span class="line"><span class="javascript">  <span class="comment">// 调用方法</span></span></span><br><span class="line"><span class="javascript">  alert(stu.introduce());            <span class="comment">// 输出结果：我叫小明，今年18岁。</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>case01-6 函数的定义与调用</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>计算1到100个数相加和<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">     /* </span><br><span class="line">      1:函数的定义</span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> <span class="title">funName</span> (<span class="params">参数<span class="number">1</span>, 参数<span class="number">2</span>, 参数<span class="number">3.</span>...</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">          <span class="comment">//函数体</span></span></span><br><span class="line">      &#125;</span><br><span class="line">      2:函数调用</span><br><span class="line">      funName(1,2,3);</span><br><span class="line">      */</span><br><span class="line"><span class="javascript">      <span class="comment">//1 定义一个getSum()函数</span></span></span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> <span class="title">getSum</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> sum = <span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span>; i++) &#123;</span></span><br><span class="line">              sum += i;</span><br><span class="line">          &#125;</span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.write(<span class="string">&#x27;1到100个数相加和是：&#x27;</span>+sum);</span></span><br><span class="line">      &#125;</span><br><span class="line"><span class="javascript">      <span class="comment">//2 调用getSum()函数</span></span></span><br><span class="line">      getSum();</span><br><span class="line">   <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>case01-7 自定义函数与调用</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">      /* 定义函数</span><br><span class="line"><span class="javascript">       <span class="function"><span class="keyword">function</span> <span class="title">funName</span> (<span class="params">a,b</span>) </span>&#123;</span></span><br><span class="line">          函数体</span><br><span class="line">        &#125;</span><br><span class="line">        在调用函数的时候，传入的参数叫做实参</span><br><span class="line">        funName(5, 6);</span><br><span class="line">      */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="comment">// 求n-m之间所有数的和</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// n,m  形式参数(形参)</span></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">getSum</span>(<span class="params">n, m</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> sum = <span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">for</span> (<span class="keyword">var</span> i = n; i &lt;= m; i++) &#123;</span></span><br><span class="line">                sum += i;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(n+<span class="string">&#x27;-&#x27;</span>+m+<span class="string">&#x27;之间的数相加为：&#x27;</span>+sum);</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        getSum(<span class="number">5</span>, <span class="number">10</span>); <span class="comment">// n=5,m=10 sum=0+5+6+7+8+9+10==45</span></span></span><br><span class="line"><span class="javascript">        getSum(<span class="number">100</span>,<span class="number">1000</span>);<span class="comment">// n=100,m=1000 sum=0+100+101+102+...+1000=495550</span></span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>case01-8 改变网页皮肤</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">value</span>=<span class="string">&quot;设为红色&quot;</span>  <span class="attr">onclick</span>=<span class="string">&quot;color(&#x27;red&#x27;)&quot;</span>&gt;</span>设为红色<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">value</span>=<span class="string">&quot;设为黄色&quot;</span>  <span class="attr">onclick</span>=<span class="string">&quot;color(&#x27;yellow&#x27;)&quot;</span>&gt;</span>设为黄色<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">value</span>=<span class="string">&quot;设为蓝色&quot;</span>  <span class="attr">onclick</span>=<span class="string">&quot;color(&#x27;blue&#x27;)&quot;</span>&gt;</span>设为蓝色<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">value</span>=<span class="string">&quot;设为绿色&quot;</span>  <span class="attr">onclick</span>=<span class="string">&quot;color(&#x27;green&#x27;)&quot;</span>&gt;</span>设为绿色<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">color</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.body.style.backgroundColor = e</span></span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>case01-9 验证用户名和密码</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">		<span class="comment">// 输入用户名和密码，如果正确，给出弹出框提示“登录成功”，如果不对，提示“输入错误”</span></span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> userName = prompt(<span class="string">&quot;请输入用户名&quot;</span>);</span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> passWord = prompt(<span class="string">&quot;请输入密码&quot;</span>);</span></span><br><span class="line"><span class="javascript">		<span class="keyword">if</span>(userName ==<span class="string">&#x27;admin&#x27;</span> &amp;&amp; passWord ==<span class="string">&#x27;123456&#x27;</span>)&#123;</span></span><br><span class="line"><span class="javascript">			alert(<span class="string">&#x27;登录成功&#x27;</span>)</span></span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"><span class="javascript">		<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">			alert(<span class="string">&#x27;用户名或密码输入错误&#x27;</span>)</span></span><br><span class="line">		&#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>case01-10 输出用户输入的信息</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> msg = prompt(<span class="string">&quot;请输入您的信息&quot;</span>); <span class="comment">// 输入框</span></span></span><br><span class="line"><span class="javascript">	<span class="built_in">document</span>.write(msg);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>case01-11 计算年龄小游戏</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;disp_year()&quot;</span> <span class="attr">value</span>=<span class="string">&quot;请输入您的出生年份&quot;</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">disp_year</span>(<span class="params"></span>)</span></span></span><br><span class="line">		  &#123;</span><br><span class="line"><span class="javascript">		   <span class="keyword">var</span> year=prompt(<span class="string">&quot;请输入您的出生年份&quot;</span>,<span class="string">&quot;&quot;</span>)</span></span><br><span class="line"><span class="javascript">		   <span class="keyword">if</span> (year!=<span class="literal">null</span> &amp;&amp; year!=<span class="string">&quot;&quot;</span>)</span></span><br><span class="line">		   &#123;</span><br><span class="line"><span class="javascript">				<span class="built_in">document</span>.write(<span class="string">&#x27;您今年&#x27;</span>+(<span class="number">2019</span>-year)+<span class="string">&#x27;岁&#x27;</span>)</span></span><br><span class="line">		    &#125;</span><br><span class="line">		  &#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端//" class="article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/08/23/js-01-%E5%85%A5%E9%97%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/08/23/hello-world/" target="_blank">Hello World</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/08/23/hello-world/" class="archive-article-date">
+        <time datetime="2020-08-22T16:33:13.665Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h2 id="上传博客"><a href="#上传博客" class="headerlink" title="上传博客"></a>上传博客</h2><ul>
+<li>可以hexo g -d 提交的仓库 ，或者hexo g 然后 git add . /git commit - “XX” / git push</li>
+</ul>
+<p>// 底部音乐</p>
+<div style="position:absolute; bottom: 0; right: 0;">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=29393038&auto=1&height=66"></iframe>
+</div>
+
+<p>//右上角Github图标<br><a target="_blank" rel="noopener" href="https://github.com/nateshao" class="github-corner" aria-label="View source on GitHub"><br>    <svg width="80"
+         height="80"
+         viewBox="0 0 250 250"
+         style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+         aria-hidden="true"><br>        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><br>        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+                                                                                                                                                                                                                                                                                                    fill="currentColor"
+                                                                                                                                                                                                                                                                                                    class="octo-body"><br>        </path><br>    </svg><br></a></p>
+<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
+</style>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/08/23/hello-world/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-docker-12-k8s部署SpringCloud" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1337,507 +1601,9 @@
 
 
   
-    <article id="post-接口测试-02-Jmeter" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/08/17/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95-02-Jmeter/" target="_blank">接口测试-02-Jmeter</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/08/17/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95-02-Jmeter/" class="archive-article-date">
-        <time datetime="2020-08-16T17:02:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="Jmeter-介绍"><a href="#Jmeter-介绍" class="headerlink" title="Jmeter 介绍"></a>Jmeter 介绍</h1><h1 id="1-Jmeter-是什么？"><a href="#1-Jmeter-是什么？" class="headerlink" title="1. Jmeter 是什么？"></a>1. Jmeter 是什么？</h1><h2 id="1-1-概念"><a href="#1-1-概念" class="headerlink" title="1.1 概念"></a>1.1 概念</h2><blockquote>
-<p>Jmeter：是Apche公司使用Java平台开发的一款测试工具。</p>
-</blockquote>
-<h5 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">接口测试</span><br><span class="line">性能测试：内在 ---&gt; 程序的算法 (程序运行的时间效率)</span><br><span class="line">压力测试：外在 ---&gt; 外在负载  (用户量)</span><br><span class="line">Web自动化测试</span><br><span class="line">数据库测试</span><br><span class="line">JAVA程序测试</span><br></pre></td></tr></table></figure>
-
-<h5 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">开源、免费</span><br><span class="line">支持多协议：http https ftp ftps</span><br><span class="line">小巧</span><br><span class="line">功能强大</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/1.jpg"></p>
-<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/2.jpg"></p>
-<h2 id="1-5-缺点"><a href="#1-5-缺点" class="headerlink" title="1.5 缺点"></a>1.5 缺点</h2><blockquote>
-<ol>
-<li><p>不支持IP欺骗</p>
-</li>
-<li><p>不支持前端测试。使用JMeter无法验证JS程序，也无法验证页面UI，所以要须要和Selenium配合来完成</p>
-</li>
-</ol>
-<p>Web2.0应用的测试</p>
-</blockquote>
-<h2 id="1-6-总结"><a href="#1-6-总结" class="headerlink" title="1.6 总结"></a>1.6 总结</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JMeter概念</span><br><span class="line">JMeter作用</span><br><span class="line">JMeter优点</span><br><span class="line">JMeter缺点</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="2-了解：配置-JMeter-运行环境（-JDK-、-JRE-、-JVM-）"><a href="#2-了解：配置-JMeter-运行环境（-JDK-、-JRE-、-JVM-）" class="headerlink" title="2. 了解：配置 JMeter 运行环境（ JDK 、 JRE 、 JVM ）"></a>2. 了解：配置 JMeter 运行环境（ JDK 、 JRE 、 JVM ）</h2><h4 id="2-1-JDK"><a href="#2-1-JDK" class="headerlink" title="2.1 JDK"></a>2.1 JDK</h4><blockquote>
-<p>JDK概念：java开发工具包，程序员使用。包含JRE和JVM。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">下载方式：</span><br><span class="line">	1. 官网下载地址：http:&#x2F;&#x2F;www.oracle.com&#x2F;</span><br><span class="line">	2. 百度搜索“JDK”关键字</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-2-JRE"><a href="#2-2-JRE" class="headerlink" title="2.2 JRE"></a>2.2 JRE</h4><blockquote>
-<p> JRE概念：JAVA程序运行环境，包含JVM和JVM运行时所需要的资源。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">下载方式：</span><br><span class="line">	<span class="number">1.</span> 官网下载地址：http:<span class="comment">//www.oracle.com/</span></span><br><span class="line">	<span class="number">2.</span> 百度搜索“JRE”关键字</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="2-3-JVM"><a href="#2-3-JVM" class="headerlink" title="2.3 JVM"></a>2.3 JVM</h4><blockquote>
-<p>JVM概念：Java虚拟机</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">无需下载，JDK或者JRE包含。</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/3.jpg"></p>
-<h4 id="2-4-JAVA-跨平台原理【扩展】"><a href="#2-4-JAVA-跨平台原理【扩展】" class="headerlink" title="2.4 JAVA 跨平台原理【扩展】"></a>2.4 JAVA 跨平台原理【扩展】</h4><blockquote>
-<p>总结： 对于测试人员，我们要记住，如果使用JMeter，必须要安装JDK或者JRE。</p>
-</blockquote>
-<h1 id="Jmeter-工具安装"><a href="#Jmeter-工具安装" class="headerlink" title="Jmeter 工具安装"></a>Jmeter 工具安装</h1><h2 id="2-Jmeter-下载与安装"><a href="#2-Jmeter-下载与安装" class="headerlink" title="2. Jmeter 下载与安装"></a>2. Jmeter 下载与安装</h2><h2 id="2-1-官网下载地址"><a href="#2-1-官网下载地址" class="headerlink" title="2.1 官网下载地址 :"></a>2.1 官网下载地址 :</h2><h5 id="http-jmeter-apache-org-download-jmeter-cgi"><a href="#http-jmeter-apache-org-download-jmeter-cgi" class="headerlink" title="http://jmeter.apache.org/download_jmeter.cgi"></a><a target="_blank" rel="noopener" href="http://jmeter.apache.org/download_jmeter.cgi">http://jmeter.apache.org/download_jmeter.cgi</a></h5><h5 id="下载示意图："><a href="#下载示意图：" class="headerlink" title="下载示意图："></a>下载示意图：<img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/4.jpg"></h5><blockquote>
-<p>注意：下载后，解压文件到任意目录，避免在一个有空格的路径安装Jmeter，这将导致远程测试出现问题</p>
-</blockquote>
-<h2 id="2-2-启动-JMeter-的两种方式："><a href="#2-2-启动-JMeter-的两种方式：" class="headerlink" title="2.2 启动 JMeter 的两种方式："></a>2.2 启动 JMeter 的两种方式：</h2><h5 id="进入bin目录"><a href="#进入bin目录" class="headerlink" title="进入bin目录"></a>进入bin目录</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 双击 ApacheJMeter.jar文件;</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 双击 Jmeter.bat文件;</span><br><span class="line"></span><br><span class="line">	i. 出现Jmeter不是内部或外部命令在环境变量PATH中添加Jmeter路径bin目录，</span><br><span class="line">	   比如（E:\测试\Tools\apache-jmeter-<span class="number">3.1</span>\bin）</span><br><span class="line">	ii. 出现<span class="string">&#x27;findstr&#x27;</span> 不是内部或外部命令，在PATH中添(%SystemRoot%/system32;%SystemRoot%;)</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 两种打开方式的区别</span><br><span class="line"><span class="number">4.</span> 发送桌面快捷方式</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-Jmeter-常用目录文件介绍"><a href="#3-Jmeter-常用目录文件介绍" class="headerlink" title="3 Jmeter 常用目录文件介绍"></a>3 Jmeter 常用目录文件介绍</h2><h3 id="3-1-Bin-目录"><a href="#3-1-Bin-目录" class="headerlink" title="3.1 Bin 目录"></a>3.1 Bin 目录</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Jmeter.bat：windows系统中JMeter的启动文件</span><br><span class="line">ApacheJMeter.jar Java环境下的JMeter启动文件</span><br><span class="line">Jmeter.log：日志文件</span><br><span class="line">Jmeter.sh：linux系统中JMeter的启动文件</span><br><span class="line">Jmeter.properties：系统配置文件</span><br><span class="line">Jmeter-server.bat：windows分布式测试要用到的服务器配置</span><br><span class="line">Jmeter-serve：linux分布式测试要用到的服务器配置</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-2-docs-目录-了解开源"><a href="#3-2-docs-目录-了解开源" class="headerlink" title="3.2 docs 目录 ( 了解开源 )"></a>3.2 docs 目录 ( 了解开源 )</h3><blockquote>
-<p>docs：是JMeter的java Doc，可打开api\index.html页面来查看;</p>
-</blockquote>
-<h3 id="3-3-printable-docs-目录"><a href="#3-3-printable-docs-目录" class="headerlink" title="3.3 printable_docs 目录"></a>3.3 printable_docs 目录</h3><blockquote>
-<p> printable_docs的usermanual子目录下的内容是JMeter的用户手册文档，其中usermanual 下 component_reference.html 是最常用到的核心元件帮助文档。</p>
-</blockquote>
-<blockquote>
-<p>注意： lib 文件夹也是一个常用文件夹，使用时再讲。</p>
-</blockquote>
-<h1 id="Jmeter-工具功能界面布局"><a href="#Jmeter-工具功能界面布局" class="headerlink" title="Jmeter 工具功能界面布局"></a>Jmeter 工具功能界面布局</h1><h5 id="熟悉测试计划面板"><a href="#熟悉测试计划面板" class="headerlink" title="熟悉测试计划面板"></a>熟悉测试计划面板</h5><h2 id="1-主界面布局"><a href="#1-主界面布局" class="headerlink" title="1. 主界面布局"></a>1. 主界面布局</h2><h5 id="JMeter的主界面布局分为标题栏、菜单栏、工具栏、树形标签栏和内容栏"><a href="#JMeter的主界面布局分为标题栏、菜单栏、工具栏、树形标签栏和内容栏" class="headerlink" title="JMeter的主界面布局分为标题栏、菜单栏、工具栏、树形标签栏和内容栏"></a>JMeter的主界面布局分为标题栏、菜单栏、工具栏、树形标签栏和内容栏</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">标题栏：主要显示计划信息及JMeter版本。</span><br><span class="line">菜单栏：全部的功能的都包含在菜单栏中。</span><br><span class="line">工具栏：工具栏中的按钮在菜单栏都可以找到，工具栏就相当于菜单栏常用功能的快捷按钮</span><br><span class="line">树形标签栏：树形标签栏通常用来显示测试用例（计划）相关的标签。</span><br><span class="line">内容栏：配合树形标签栏显示，树形标签中点击哪个标签，内容栏中就显示相应的内容和操作。</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/11.jpg" alt="11"></p>
-<h2 id="2-使用-JMeter-进行接口测试"><a href="#2-使用-JMeter-进行接口测试" class="headerlink" title="2. 使用 JMeter 进行接口测试"></a>2. 使用 JMeter 进行接口测试</h2><h2 id="遗留的问题："><a href="#遗留的问题：" class="headerlink" title="遗留的问题："></a>遗留的问题：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 需求对我们学院查询执行 <span class="number">100</span> 次，如何去做？</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> <span class="number">50</span>个请求同时请求如何操作？</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="使用-JMeter-的解决方案"><a href="#使用-JMeter-的解决方案" class="headerlink" title="使用 JMeter 的解决方案"></a>使用 JMeter 的解决方案</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 添加【测试计划】</span><br><span class="line"><span class="number">2.</span> 基于添加的测试计划添加【线程组】，循环次数设置为 <span class="number">100</span> 次</span><br><span class="line"><span class="number">3.</span> 在【取样器】中基于线程组添加HTTP请求</span><br><span class="line"><span class="number">4.</span> 在【监听器】基于线程组添加【察看结果树】</span><br><span class="line"><span class="number">5.</span> 在监听器基于线程组添加【聚合报告】</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-Test-Plan-测试计划"><a href="#3-Test-Plan-测试计划" class="headerlink" title="3. Test Plan( 测试计划 )"></a>3. Test Plan( 测试计划 )</h3><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/12.jpg" alt="12"></p>
-<h4 id="作用：-1"><a href="#作用：-1" class="headerlink" title="作用："></a>作用：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 本次测试所需要的【组件】都是基于测试计划添加；</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 本次测试所有组件的设置与执行都基于测试计划；</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>组件：完成指定功能代码段的封装；</p>
-</li>
-<li><p>选项：独立运行每个线程组</p>
-</li>
-<li><p>进程：是每个正在运行的应用程序。</p>
-</li>
-<li><p>线程：按照进程的指令去执行指定的代码。</p>
-</li>
-<li><p>线程组（多线程）：多个线程的组合。</p>
-</li>
-<li><p>线程组（多线程）的执行顺序是并行的。</p>
-</li>
-<li><p>勾选：让本次测试计划中所有线程组保持从上到下顺序执行</p>
-</li>
-<li><p>并发执行：多个线程同时进行 特点：执行结束的顺序和启动顺序不一定一致</p>
-</li>
-<li><p>顺序执行：按照线程的启动顺序挨个执行</p>
-</li>
-<li><p>默认情况下，线程组中的线程是并发执行的，每一个线程都要执行组内的http请求</p>
-</li>
-</ul>
-<blockquote>
-<p>Add directory or jar to classpath ：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">加载第三方jar包；比如：测试数据库时使用，加载数据库驱动jar包。</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-Threads-User-线程组-【重点】"><a href="#4-Threads-User-线程组-【重点】" class="headerlink" title="4. Threads(User) 线程组 【重点】"></a>4. Threads(User) 线程组 【重点】</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1) thread group(线程组)</span><br><span class="line">2) setup thread group【特殊线程组】</span><br><span class="line">3) teardown thread group【特殊线程组】</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-1-thread-group-线程组"><a href="#4-1-thread-group-线程组" class="headerlink" title="4.1 thread group( 线程组 )"></a>4.1 thread group( 线程组 )<img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/13.jpg" alt="13"></h4><blockquote>
-<p>作用 :  添加测试中使用的大多数组件</p>
-</blockquote>
-<h5 id="线程属性"><a href="#线程属性" class="headerlink" title="线程属性"></a>线程属性</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">线程数：虚拟用户数</span><br><span class="line">Ramp-<span class="function">Up <span class="title">Period</span><span class="params">(in serconds)</span>：启动虚拟全部用户数所需要的时间</span></span><br><span class="line"><span class="function">循环次数 ：指定次数或勾线永远</span></span><br><span class="line"><span class="function">调度器：勾选后，调度器配置才能使用；</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="调度器配置"><a href="#调度器配置" class="headerlink" title="调度器配置"></a>调度器配置</h5><ul>
-<li><p>持续时间（秒）：设置脚本压测持续时间</p>
-</li>
-<li><p>启动延迟（秒）：启动延迟时间</p>
-</li>
-</ul>
-<blockquote>
-<p>提示：为了理解setup thread、teardown thread两个线程组我们结合案例理解下</p>
-</blockquote>
-<h4 id="4-2-案例"><a href="#4-2-案例" class="headerlink" title="4.2 案例"></a>4.2 案例</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">通过thread group、setup thread group、teardown thread group 三个线程组去访问</span><br><span class="line">去访问查询所有学院接口.</span><br></pre></td></tr></table></figure>
-
-<h5 id="效果图："><a href="#效果图：" class="headerlink" title="效果图："></a>效果图：<img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/11111111111111.jpg"></h5><ul>
-<li>需求组件：</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">基于测试计划添加【线程组】</span><br><span class="line">基于线程组添加【HTTP请求】</span><br><span class="line">基于测试计划添加【setup thread group】线程组</span><br><span class="line">基于setup thread group添加HTTP请求</span><br><span class="line">基于测试计划添加【teardown thread group】线程组</span><br><span class="line">基于teardown thread group添加HTTP请求</span><br><span class="line">基于测试计划添加【察看结果树】</span><br></pre></td></tr></table></figure>
-
-<h5 id="组件设置细节："><a href="#组件设置细节：" class="headerlink" title="组件设置细节："></a>组件设置细节：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">测试计划勾选独立运行线程组</span><br><span class="line">HTTP请求：服务器地址 http:<span class="comment">//127.0.0.1:8000/api/departments/</span></span><br><span class="line">HTTP请求: 修改HTTP请求名称，以做区分</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="4-3-组件详解"><a href="#4-3-组件详解" class="headerlink" title="4.3 组件详解"></a>4.3 组件详解</h3><ol>
-<li><p>HTTP请求</p>
-</li>
-<li><p>察看结果树</p>
-</li>
-</ol>
-<h3 id="4-3-HTTP-请求"><a href="#4-3-HTTP-请求" class="headerlink" title="4.3 - HTTP 请求"></a>4.3 - HTTP 请求<img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/18.jpg" alt="18"></h3><h4 id="作用"><a href="#作用" class="headerlink" title="作用 :"></a>作用 :</h4><blockquote>
-<ol>
-<li><p>模拟前端或第三方软件向服务器发送请求;</p>
-</li>
-<li><p>设置请求时的方法和参数数据;</p>
-</li>
-</ol>
-</blockquote>
-<h4 id="参数详解："><a href="#参数详解：" class="headerlink" title="参数详解："></a>参数详解：</h4><ol>
-<li><p>名称：本属性用于标识一个取样器，建议使用一个有意义的名称。</p>
-</li>
-<li><p>服务器名称或IP ：HTTP请求发送的目标服务器名称或IP地址。</p>
-</li>
-<li><p>端口号：目标服务器的端口号，默认值为 80 。</p>
-</li>
-<li><p>协议：向目标服务器发送HTTP请求时的协议,可以是http或者是https ,默认值为http 。</p>
-</li>
-<li><p>方法：发送HTTP请求的方法，可用方法包括GET、POST、PUT、DELETE。</p>
-</li>
-<li><p>Content encoding ：内容的编码方式，默认值为iso8859；一般设置【UTF-8】</p>
-</li>
-<li><p>路径：目标URL路径（不包括服务器地址和端口）</p>
-</li>
-<li><p>同请求一起发送参数:请求时需要传递参数，如：学院资源list查询<br><a target="_blank" rel="noopener" href="http://127.0.0.1:8000/api/departments/?$dep_id_list=T01,T02,T03">http://127.0.0.1:8000/api/departments/?$dep_id_list=T01,T02,T03</a><br>参数名称：【$dep_id_list】<br>参数值：T01,T02,T03</p>
-</li>
-</ol>
-<h5 id="Body-Data-选项作用："><a href="#Body-Data-选项作用：" class="headerlink" title="Body Data 选项作用："></a>Body Data 选项作用：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> 1.新增或更新时需要传递JSON报文；如学院新增是的JSON报文填写位置：</span><br><span class="line"> &#123;</span><br><span class="line">&quot;data&quot;: [</span><br><span class="line">&#123;</span><br><span class="line">&quot;dep_id&quot;: &quot;T01&quot;,</span><br><span class="line">&quot;dep_name&quot;: &quot;Test学院&quot;,</span><br><span class="line">&quot;master_name&quot;: &quot;Test-Master&quot;,</span><br><span class="line">&quot;slogan&quot;: &quot;Here is Slogan&quot;</span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>【注意】：新增和更新时传入报文也需要设置Content-Type:application/json<br>告诉服务器我传的数据格式为JSON格式；<br>设置地点：配置元件–&gt;HTTP信息头管理器（用到的时候我们在讲解）</p>
-</blockquote>
-<h4 id="HTTP-请求总结："><a href="#HTTP-请求总结：" class="headerlink" title="HTTP 请求总结："></a>HTTP 请求总结：</h4><ol>
-<li><p>接口完整请求地址</p>
-</li>
-<li><p>JSON报文存放地址</p>
-</li>
-<li><p>设置默认请求数据格式</p>
-</li>
-</ol>
-<h3 id="4-3-察看结果树"><a href="#4-3-察看结果树" class="headerlink" title="4.3  察看结果树"></a>4.3  察看结果树<img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/31.jpg" alt="31"></h3><h4 id="作用：-2"><a href="#作用：-2" class="headerlink" title="作用："></a>作用：</h4><blockquote>
-<p>1.查看请求服务器时的请求信息;</p>
-<p>2.查看服务器响应数据;</p>
-<p>3.记录信息到指定文件;</p>
-</blockquote>
-<h4 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h4><ol>
-<li>文件名：存放服务器响应后的状态信息； 如：e:\查询所有response.txt</li>
-<li>取样结果：服务器响应的信息头信息；比如：响应代码，响应数据大小</li>
-<li>请求：查看向服务器请求时的信息；比如：请求地址、方法、数据等</li>
-<li>响应数据：查看服务器响应的数据；比如：获取资源时，返回的JSON数据</li>
-</ol>
-<h4 id="察看结果树总结："><a href="#察看结果树总结：" class="headerlink" title="察看结果树总结："></a>察看结果树总结：</h4><ol>
-<li><p>查看请求</p>
-</li>
-<li><p>查看响应</p>
-</li>
-<li><p>存储请求状态信息</p>
-</li>
-</ol>
-<h4 id="4-4-线程组总结："><a href="#4-4-线程组总结：" class="headerlink" title="4.4 线程组总结："></a>4.4 线程组总结：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setup thread group：一种特殊线程组，测试计划运行之前首先执行，一般做初始化操作</span><br><span class="line">teardown thread group：一种特殊线程组，测试计划运行结束时运行，一般做收尾工作</span><br><span class="line">thread group(线程组) ：线程组，我们测试计划中场景创建和实现都是基于此线程组</span><br></pre></td></tr></table></figure>
-
-<h3 id="元件"><a href="#元件" class="headerlink" title="元件"></a>元件</h3><blockquote>
-<p>概念：相同类似功能组件的集合称之为元件</p>
-</blockquote>
-<ol>
-<li><p>逻辑控制器</p>
-</li>
-<li><p>配置元件</p>
-</li>
-<li><p>定时器</p>
-</li>
-<li><p>前置处理器</p>
-</li>
-<li><p>Sampler</p>
-</li>
-<li><p>后置处理器</p>
-</li>
-<li><p>断言</p>
-</li>
-<li><p>监听器</p>
-</li>
-</ol>
-<h3 id="元件结论："><a href="#元件结论：" class="headerlink" title="元件结论："></a>元件结论：</h3><blockquote>
-<p>只学重要的、常用的</p>
-</blockquote>
-<h1 id="Jmeter-各元件中需要掌握元件"><a href="#Jmeter-各元件中需要掌握元件" class="headerlink" title="Jmeter 各元件中需要掌握元件"></a>Jmeter 各元件中需要掌握元件</h1><h5 id="整理出各大元件常用的重点组件"><a href="#整理出各大元件常用的重点组件" class="headerlink" title="整理出各大元件常用的重点组件"></a>整理出各大元件常用的重点组件</h5><h2 id="1-配置元件（-config-Element-）"><a href="#1-配置元件（-config-Element-）" class="headerlink" title="1. 配置元件（ config Element ）"></a>1. 配置元件（ config Element ）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1) CSV Data Set Config</span><br><span class="line">2) HTTP请求默认值</span><br><span class="line">3) HTTP信息头管理器</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-前置处理器（-Per-Processors-）"><a href="#2-前置处理器（-Per-Processors-）" class="headerlink" title="2. 前置处理器（ Per Processors ）"></a>2. 前置处理器（ Per Processors ）</h2><blockquote>
-<ol>
-<li>用户参数</li>
-</ol>
-</blockquote>
-<h2 id="3-定时器（-Timer-）"><a href="#3-定时器（-Timer-）" class="headerlink" title="3. 定时器（ Timer ）"></a>3. 定时器（ Timer ）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1) Synchronizing Timer</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-取样器（-sample-）"><a href="#4-取样器（-sample-）" class="headerlink" title="4. 取样器（ sample ）"></a>4. 取样器（ sample ）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1) HTTP请求</span><br><span class="line">2) JDBC Request</span><br><span class="line">3) Debug Sampler</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-后置处理器（-Post-Processors-）"><a href="#5-后置处理器（-Post-Processors-）" class="headerlink" title="5. 后置处理器（ Post Processors ）"></a>5. 后置处理器（ Post Processors ）</h2><h6 id="1-正则表达式提取器"><a href="#1-正则表达式提取器" class="headerlink" title="1) 正则表达式提取器"></a>1) 正则表达式提取器</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2) XPath Extractor</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-断言（-Assertions-）"><a href="#6-断言（-Assertions-）" class="headerlink" title="6. 断言（ Assertions ）"></a>6. 断言（ Assertions ）</h2><h6 id="1-响应断言"><a href="#1-响应断言" class="headerlink" title="1) 响应断言"></a>1) 响应断言</h6><h3 id="6-监听器（-Listener-）"><a href="#6-监听器（-Listener-）" class="headerlink" title="6. 监听器（ Listener ）"></a>6. 监听器（ Listener ）</h3><h6 id="1-察看结果树"><a href="#1-察看结果树" class="headerlink" title="1) 察看结果树"></a>1) 察看结果树</h6><h6 id="2-聚合报告"><a href="#2-聚合报告" class="headerlink" title="2) 聚合报告"></a>2) 聚合报告</h6><h6 id="3-断言结果"><a href="#3-断言结果" class="headerlink" title="3) 断言结果"></a>3) 断言结果</h6><h3 id="8-逻辑控制器"><a href="#8-逻辑控制器" class="headerlink" title="8. 逻辑控制器"></a>8. 逻辑控制器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1) 如果（If）控制器</span><br><span class="line">2) ForEach控制器</span><br><span class="line">3) 循环控制器</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>总结：正常来说，应该开始按照顺序一个组件一个组件的进行讲解。</p>
-<p>问题：每个组件都不能独立执行。都需要多个组件进行配合，才能够解决实际问题。</p>
-<p>解决方案：按照JMeter主要解决的问题点来讲解组件。</p>
-</blockquote>
-<h1 id="Jmeter-工具核心知识点"><a href="#Jmeter-工具核心知识点" class="headerlink" title="Jmeter 工具核心知识点"></a>Jmeter 工具核心知识点</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li><p>参数化：数据分离</p>
-</li>
-<li><p>数据库：连接数据库获取数据</p>
-</li>
-<li><p>关联：动态获取数据</p>
-</li>
-<li><p>集合点：掌握如何基于Jmeter并发测试</p>
-</li>
-<li><p>断言：判断自动化脚本执行成功或失败</p>
-</li>
-</ul>
-<h1 id="Jmeter-参数化"><a href="#Jmeter-参数化" class="headerlink" title="Jmeter 参数化"></a>Jmeter 参数化</h1><h5 id="学习掌握Jmeter中常用参数化方式"><a href="#学习掌握Jmeter中常用参数化方式" class="headerlink" title="学习掌握Jmeter中常用参数化方式"></a>学习掌握Jmeter中常用参数化方式</h5><h2 id="1-为什么要参数化？"><a href="#1-为什么要参数化？" class="headerlink" title="1. 为什么要参数化？"></a>1. 为什么要参数化？</h2><h2 id="1-1-需求新增-10-条数据"><a href="#1-1-需求新增-10-条数据" class="headerlink" title="1.1 需求新增 10 条数据"></a>1.1 需求新增 10 条数据</h2><h6 id="学院-新增"><a href="#学院-新增" class="headerlink" title="学院-新增"></a>学院-新增</h6><h6 id="1-请求方法：POST"><a href="#1-请求方法：POST" class="headerlink" title="1) 请求方法：POST"></a>1) 请求方法：POST</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">2) 请求地址：http:&#x2F;&#x2F;127.0.0.1:8000&#x2F;api&#x2F;departments&#x2F;</span><br><span class="line">3) 请求JOSN报文：</span><br><span class="line">4) 调用传入的json串如下（可新增多条，之间用,隔开）：</span><br><span class="line">&#123;</span><br><span class="line">&quot;data&quot;: [</span><br><span class="line">&#123;</span><br><span class="line">&quot;dep_id&quot;: &quot;T01&quot;,</span><br><span class="line">&quot;dep_name&quot;: &quot;Test学院&quot;,</span><br><span class="line">&quot;master_name&quot;: &quot;Test-Master&quot;,</span><br><span class="line">&quot;slogan&quot;: &quot;Here is Slogan&quot;</span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题 :"></a>问题 :</h2><blockquote>
-<ol>
-<li>键所对应的值都是写死的，只能手动更改</li>
-<li>无法解决新增大数量（ 1000 条）的问题</li>
-</ol>
-</blockquote>
-<h2 id="2-什么是参数化？"><a href="#2-什么是参数化？" class="headerlink" title="2. 什么是参数化？"></a>2. 什么是参数化？</h2><blockquote>
-<p>概念：根据需求动态获取数据并进行赋值的过程</p>
-</blockquote>
-<h2 id="在-Jmeter-中参数化常用方式："><a href="#在-Jmeter-中参数化常用方式：" class="headerlink" title="在 Jmeter 中参数化常用方式："></a>在 Jmeter 中参数化常用方式：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CSV Data Set Config</span><br><span class="line">用户参数</span><br><span class="line">用户定义的变量</span><br><span class="line">函数</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-CSV-Data-Set-Config-（数据集配置）"><a href="#1-CSV-Data-Set-Config-（数据集配置）" class="headerlink" title="1. CSV Data Set Config （数据集配置）"></a>1. CSV Data Set Config （数据集配置）</h2><blockquote>
-<p>概念：一种从外部读取数据功能的组件</p>
-</blockquote>
-<h3 id="1-1-实施方案分析"><a href="#1-1-实施方案分析" class="headerlink" title="1.1 实施方案分析"></a>1.1 实施方案分析</h3><h6 id="1-基于测试计划-gt-线程组"><a href="#1-基于测试计划-gt-线程组" class="headerlink" title="1. 基于测试计划-&gt;线程组"></a>1. 基于测试计划-&gt;线程组</h6><ol>
-<li>基于线程组-&gt;配置元件-&gt;CSV Data Set Config</li>
-<li>基于线程组-&gt;Sampler-&gt;HTTP请求</li>
-<li>基于测试计划-&gt;HTTP信息头管理器</li>
-<li>基于测试计划-&gt;监听器-&gt;察看结果树</li>
-</ol>
-<h3 id="1-2-组件要点分析"><a href="#1-2-组件要点分析" class="headerlink" title="1.2 组件要点分析"></a>1.2 组件要点分析</h3><h6 id="1-线程组-循环次数-10"><a href="#1-线程组-循环次数-10" class="headerlink" title="1. 线程组:循环次数 10"></a>1. 线程组:循环次数 10</h6><ol>
-<li>CSV Data Set Config 读取变量配置</li>
-<li>HTTP请求：Body Data填写(JSON报文) 方法(POST)</li>
-<li>参数化引用格式：${参数名} 如：${dep_id}</li>
-<li>HTTP信息头管理器：Content-Type:application/json;charset=utf-8</li>
-</ol>
-<h3 id="1-3-CSV-Data-Set-Config-参数配置图"><a href="#1-3-CSV-Data-Set-Config-参数配置图" class="headerlink" title="1.3 CSV Data Set Config 参数配置图"></a>1.3 CSV Data Set Config 参数配置图</h3><p>#####<img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/32.jpg" alt="32"></p>
-<ol>
-<li>Filename:文件路径+文件名+后缀名 如：d:/a.txt;</li>
-<li>File Encoding:文件编译字符编码，一般设置utf-8;</li>
-<li>Vaiable Names:读取参数后保存的变量名称;</li>
-<li>Delimiter:如文件中使用的是逗号分隔，则填写逗号；如使用的是TAB，则填写\t;</li>
-</ol>
-<h3 id="1-4-HTTP-信息头管理器-参数配置图"><a href="#1-4-HTTP-信息头管理器-参数配置图" class="headerlink" title="1.4 HTTP 信息头管理器 参数配置图"></a>1.4 HTTP 信息头管理器 参数配置图</h3><blockquote>
-<p>作用：告诉服务器请求的数据格式</p>
-</blockquote>
-<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/33.jpg" alt="33"></p>
-<ol>
-<li>Content-Type:指定请求信息格式-类型名称</li>
-<li>application/json:指定请求信息为-JSON格式</li>
-<li>charset=utf-8:字符编码</li>
-</ol>
-<h3 id="1-5-CSV-Data-Set-Config-总结："><a href="#1-5-CSV-Data-Set-Config-总结：" class="headerlink" title="1.5 CSV Data Set Config- 总结："></a>1.5 CSV Data Set Config- 总结：</h3><h6 id="1-参数化概念"><a href="#1-参数化概念" class="headerlink" title="1. 参数化概念"></a>1. 参数化概念</h6><ol>
-<li>CSV Data Set Config 配置参数设置</li>
-<li>参数化引用格式</li>
-<li>HTTP请求</li>
-<li>HTTP信息头管理器作用与设置</li>
-</ol>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">接口测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/软件测试//" class="article-tag-list-link color5">软件测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/17/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95-02-Jmeter/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker-01-安装docker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/08/16/docker-01-%E5%AE%89%E8%A3%85docker/" target="_blank">docker-01-安装docker</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/08/16/docker-01-%E5%AE%89%E8%A3%85docker/" class="archive-article-date">
-        <time datetime="2020-08-16T14:53:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <a id="more"></a>
-<h3 id="一、安装Docker"><a href="#一、安装Docker" class="headerlink" title="一、安装Docker"></a>一、安装Docker</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1、yum 包更新到最新 </span></span><br><span class="line">yum update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2、安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的 </span></span><br><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3、 设置yum源</span></span><br><span class="line">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line"><span class="meta">#</span><span class="bash"> 4、 安装docker，出现输入的界面都按 y </span></span><br><span class="line">yum install -y docker-ce</span><br><span class="line"><span class="meta">#</span><span class="bash"> 5、 查看docker版本，验证是否验证成功</span></span><br><span class="line">docker -v</span><br></pre></td></tr></table></figure>
-
-<h3 id="二、其他安装方式-推荐"><a href="#二、其他安装方式-推荐" class="headerlink" title="二、其他安装方式(推荐)"></a>二、其他安装方式(推荐)</h3><p>教程链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1e5c86accacb">https://www.jianshu.com/p/1e5c86accacb</a></p>
-<p>删除<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40461281/article/details/92617826">https://blog.csdn.net/weixin_40461281/article/details/92617826</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Docker//" class="article-tag-list-link color2">Docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/16/docker-01-%E5%AE%89%E8%A3%85docker/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
     </nav>
   
 

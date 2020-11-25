@@ -219,6 +219,548 @@
 
 
   
+    <article id="post-cloud-01-Eureka-Ribbon-hystrix" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/08/23/cloud-01-Eureka-Ribbon-hystrix/" target="_blank">cloud-01-Eureka-Ribbon-hystrix</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/08/23/cloud-01-Eureka-Ribbon-hystrix/" class="archive-article-date">
+        <time datetime="2020-08-23T06:05:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>cloud-01-Eureka-Ribbon-hystrix</p>
+    
+    <a class="article-more-a" href="/2020/08/23/cloud-01-Eureka-Ribbon-hystrix/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/微服务//" class="article-tag-list-link color4">微服务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/08/23/cloud-01-Eureka-Ribbon-hystrix/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-分布式RPC框架-Dubbo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/08/23/%E5%88%86%E5%B8%83%E5%BC%8FRPC%E6%A1%86%E6%9E%B6-Dubbo/" target="_blank">分布式RPC框架-Dubbo</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/08/23/%E5%88%86%E5%B8%83%E5%BC%8FRPC%E6%A1%86%E6%9E%B6-Dubbo/" class="archive-article-date">
+        <time datetime="2020-08-23T05:01:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="分布式RPC框架Apache-Dubbo"><a href="#分布式RPC框架Apache-Dubbo" class="headerlink" title="分布式RPC框架Apache Dubbo"></a>分布式RPC框架Apache Dubbo</h1><h2 id="0-分布式基础理论"><a href="#0-分布式基础理论" class="headerlink" title="0. 分布式基础理论"></a>0. 分布式基础理论</h2><p>什么是分布式系统？</p>
+<blockquote>
+<p>《分布式系统原理与范型》定义：“分布式系统是若干独立计算机的集合，这些计算机对于用户来说就像单个相关系统”分布式系统（distributed system）是建立在网络之上的软件系统。</p>
+</blockquote>
+<blockquote>
+<p>随着互联网的发展，网站应用的规模不断扩大，常规的垂直应用架构已无法应对，分布式服务架构以及流动计算架构势在必行，亟需<strong>一个治理系统</strong>确保架构有条不紊的演进。</p>
+</blockquote>
+<h2 id="1-软件架构的发展演变"><a href="#1-软件架构的发展演变" class="headerlink" title="1. 软件架构的发展演变"></a>1. 软件架构的发展演变</h2><p>软件架构的发展经历了由单体架构、垂直架构、SOA架构到微服务架构的演进过程，下面我们分别了解一下这几个架构。<img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/1.jpg"></p>
+<h3 id="1-1-单体架构"><a href="#1-1-单体架构" class="headerlink" title="1.1 单体架构"></a>1.1 单体架构</h3><blockquote>
+<p>当网站流量很小时，只需一个应用，将所有功能都部署在一起，以减少部署节点和成本。此时，用于简化增删改查工作量的数据访问框架(ORM)是关键。</p>
+</blockquote>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/1.png"><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/2.png" alt="2"></p>
+<blockquote>
+<p>适用于小型网站，小型管理系统，将所有功能都部署到一个功能里，简单易用。</p>
+</blockquote>
+<p>架构说明：</p>
+<p>​      全部功能集中在一个项目内（All in one）。</p>
+<p>架构优点：</p>
+<p>​      架构简单，前期开发成本低、开发周期短，适合小型项目。</p>
+<p>架构缺点：</p>
+<ol>
+<li>全部功能集成在一个工程中，对于大型项目不易开发、扩展和维护。</li>
+<li>技术栈受限，只能使用一种语言开发。</li>
+<li>系统性能扩展只能通过扩展集群节点，成本高。</li>
+</ol>
+<h3 id="1-2-垂直架构"><a href="#1-2-垂直架构" class="headerlink" title="1.2 垂直架构"></a>1.2 垂直架构</h3><blockquote>
+<p>当访问量逐渐增大，单一应用增加机器带来的加速度越来越小，将应用拆成互不相干的几个应用，以提升效率。此时，用于加速前端页面开发的Web框架(MVC)是关键。</p>
+</blockquote>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/123.png"></p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/18.png" alt="18"></p>
+<blockquote>
+<p>通过切分业务来实现各个模块独立部署，降低了维护和部署的难度，团队各司其职更易管理，性能扩展也更方便，更有针对性。</p>
+</blockquote>
+<p>架构说明：       </p>
+<p>​      按照业务进行切割，形成小的单体项目。</p>
+<p>架构优点：</p>
+<p>​      技术栈可扩展（不同的系统可以用不同的编程语言编写）。</p>
+<p>架构缺点：</p>
+<p>​       功能集中在一个项目中，不利于开发、扩展、维护。</p>
+<p>​       系统扩张只能通过集群的方式。</p>
+<p>​       项目之间功能冗余、数据冗余、耦合性强。</p>
+<h3 id="分布式服务架构"><a href="#分布式服务架构" class="headerlink" title="分布式服务架构"></a>分布式服务架构</h3><blockquote>
+<p>当垂直应用越来越多，应用之间交互不可避免，将核心业务抽取出来，作为独立的服务，逐渐形成稳定的服务中心，使前端应用能更快速的响应多变的市场需求。此时，用于提高业务复用及整合的**分布式服务框架(RPC)**是关键。</p>
+</blockquote>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/123321.png"></p>
+<h3 id="1-3-SOA架构"><a href="#1-3-SOA架构" class="headerlink" title="1.3 SOA架构"></a>1.3 SOA架构</h3><blockquote>
+<p> SOA全称为Service-Oriented Architecture，即面向服务的架构。它可以根据需求通过网络对松散耦合的粗粒度应用组件(服务)进行分布式部署、组合和使用。一个服务通常以独立的形式存在于操作系统进程中。</p>
+</blockquote>
+<p>站在功能的角度，把业务逻辑抽象成可复用的服务，通过服务的编排实现业务的快速再生，目的：把原先固有的业务功能转变为通用的业务服务，实现业务逻辑的快速复用。<img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/SOA.png" alt="SOA"></p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/19.png" alt="19"></p>
+<p>架构说明：</p>
+<p>​      将重复功能或模块抽取成组件的形式，对外提供服务，在项目与服务之间使用ESB（企业服务总线）的形式作为通信的桥梁。</p>
+<p>架构优点：</p>
+<p>​       重复功能或模块抽取为服务，提高开发效率。</p>
+<p>​       可重用性高。</p>
+<p>​       可维护性高。</p>
+<p>架构缺点：</p>
+<p>​       各系统之间业务不同，很难确认功能或模块是重复的。</p>
+<p>​       抽取服务的粒度大。</p>
+<p>​       系统和服务之间耦合度高。</p>
+<h3 id="RPC"><a href="#RPC" class="headerlink" title="RPC"></a>RPC</h3><ul>
+<li><strong>什么叫RPC</strong></li>
+</ul>
+<blockquote>
+<p>RPC【Remote Procedure Call】是指远程过程调用，是一种进程间通信方式，他是一种技术的思想，而不是规范。它允许程序调用另一个地址空间（通常是共享网络的另一台机器上）的过程或函数，而不用程序员显式编码这个远程调用的细节。即程序员无论是调用本地的还是远程的函数，本质上编写的调用代码基本相同。</p>
+</blockquote>
+<p>需要注意的是RPC并不是一个具体的技术，而是指整个网络远程调用过程。</p>
+<p>RPC是一个泛化的概念，严格来说一切远程过程调用手段都属于RPC范畴。各种开发语言都有自己的RPC框架。Java中的RPC框架比较多，广泛使用的有<strong>RMI、Hessian、Dubbo</strong>等。</p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/RPC.png" alt="RPC基本原理"></p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/RPC1.png"></p>
+<p>RPC两个核心模块：<strong>通讯，序列化</strong>。</p>
+<h3 id="1-4-微服务架构"><a href="#1-4-微服务架构" class="headerlink" title="1.4 微服务架构"></a>1.4 微服务架构</h3><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/20.png" alt="20"></p>
+<p>架构说明：</p>
+<p>​       将系统服务层完全独立出来，抽取为一个一个的微服务。</p>
+<p>​       抽取的粒度更细，遵循单一原则。</p>
+<p>​       采用轻量级框架协议传输。</p>
+<p>架构优点：</p>
+<p>​       服务拆分粒度更细，有利于提高开发效率。 </p>
+<p>​       可以针对不同服务制定对应的优化方案。</p>
+<p>​       适用于互联网时代，产品迭代周期更短。</p>
+<p>架构缺点：</p>
+<p>​      粒度太细导致服务太多，维护成本高。</p>
+<p>​      分布式系统开发的技术成本高，对团队的挑战大。</p>
+<h2 id="2-Apache-Dubbo概述"><a href="#2-Apache-Dubbo概述" class="headerlink" title="2. Apache Dubbo概述"></a>2. Apache Dubbo概述</h2><h3 id="2-1-Dubbo简介"><a href="#2-1-Dubbo简介" class="headerlink" title="2.1 Dubbo简介"></a>2.1 Dubbo简介</h3><p>Apache Dubbo是一款高性能的Java RPC框架。其前身是阿里巴巴公司开源的一个<strong>高性能、轻量级</strong>的开源Java RPC框架，可以和Spring框架无缝集成。</p>
+<p>Dubbo官网地址：<a target="_blank" rel="noopener" href="http://dubbo.apache.org/">http://dubbo.apache.org</a></p>
+<p>Dubbo提供了三大核心能力：<strong>面向接口的远程方法调用，智能容错和负载均衡，以及服务自动注册和发现。</strong></p>
+<h3 id="2-2-Dubbo架构"><a href="#2-2-Dubbo架构" class="headerlink" title="2.2 Dubbo架构"></a>2.2 Dubbo架构</h3><p>Dubbo架构图（Dubbo官方提供）如下：</p>
+<p><img src="http://dubbo.apache.org/img/architecture.png"></p>
+<p>节点角色说明：</p>
+<table>
+<thead>
+<tr>
+<th>节点</th>
+<th>角色名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Provider</td>
+<td>暴露服务的服务提供方</td>
+</tr>
+<tr>
+<td>Consumer</td>
+<td>调用远程服务的服务消费方</td>
+</tr>
+<tr>
+<td>Registry</td>
+<td>服务注册与发现的注册中心</td>
+</tr>
+<tr>
+<td>Monitor</td>
+<td>统计服务的调用次数和调用时间的监控中心</td>
+</tr>
+<tr>
+<td>Container</td>
+<td>服务运行容器</td>
+</tr>
+</tbody></table>
+<ul>
+<li>虚线都是异步访问，实线都是同步访问</li>
+<li>紫色虚线:在启动时完成的功能</li>
+<li>绿色虚线(实线)都是程序运行过程中执行的功能</li>
+</ul>
+<p>调用关系说明:</p>
+<ol start="0">
+<li>服务容器负责启动，加载，运行服务提供者。</li>
+<li>服务提供者在启动时，向注册中心注册自己提供的服务。</li>
+<li>服务消费者在启动时，向注册中心订阅自己所需的服务。</li>
+<li>注册中心返回服务提供者地址列表给消费者，如果有变更，注册中心将基于长连接推送变更数据给消费者。</li>
+<li>服务消费者，从提供者地址列表中，基于软负载均衡算法，选一台提供者进行调用，如果调用失败，再选另一台调用。</li>
+<li>服务消费者和提供者，在内存中累计调用次数和调用时间，定时每分钟发送一次统计数据到监控中心。</li>
+</ol>
+<h2 id="3-服务注册中心Zookeeper"><a href="#3-服务注册中心Zookeeper" class="headerlink" title="3. 服务注册中心Zookeeper"></a>3. 服务注册中心Zookeeper</h2><p>通过前面的Dubbo架构图可以看到，Registry（服务注册中心）在其中起着至关重要的作用。Dubbo官方推荐使用Zookeeper作为服务注册中心。</p>
+<h3 id="3-1-Zookeeper介绍"><a href="#3-1-Zookeeper介绍" class="headerlink" title="3.1 Zookeeper介绍"></a>3.1 Zookeeper介绍</h3><p>Zookeeper 是 Apache Hadoop 的子项目，是一个树型的目录服务，支持变更推送，适合作为 Dubbo 服务的注册中心，工业强度较高，可用于生产环境，并推荐使用 。</p>
+<p>为了便于理解Zookeeper的树型目录服务，我们先来看一下我们电脑的文件系统(也是一个树型目录结构)：</p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/4.png" alt="4"></p>
+<p>我的电脑可以分为多个盘符（例如C、D、E等），每个盘符下可以创建多个目录，每个目录下面可以创建文件，也可以创建子目录，最终构成了一个树型结构。通过这种树型结构的目录，我们可以将文件分门别类的进行存放，方便我们后期查找。而且磁盘上的每个文件都有一个唯一的访问路径，例如：C:\Windows\nateshao\hello.txt。</p>
+<p>Zookeeper树型目录服务：</p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/3.png" alt="3"></p>
+<p>流程说明：</p>
+<ul>
+<li>服务提供者(Provider)启动时: 向 <code>/dubbo/com.foo.BarService/providers</code> 目录下写入自己的 URL 地址</li>
+<li>服务消费者(Consumer)启动时: 订阅 <code>/dubbo/com.foo.BarService/providers</code> 目录下的提供者 URL 地址。并向 <code>/dubbo/com.foo.BarService/consumers</code> 目录下写入自己的 URL 地址</li>
+<li>监控中心(Monitor)启动时: 订阅 <code>/dubbo/com.foo.BarService</code> 目录下的所有提供者和消费者 URL 地址</li>
+</ul>
+<h3 id="3-2-安装Zookeeper-Linux"><a href="#3-2-安装Zookeeper-Linux" class="headerlink" title="3.2 安装Zookeeper(Linux)"></a>3.2 安装Zookeeper(Linux)</h3><p>下载地址：<a target="_blank" rel="noopener" href="http://archive.apache.org/dist/zookeeper/">http://archive.apache.org/dist/zookeeper/</a></p>
+<p>本课程使用的Zookeeper版本为3.4.6，下载完成后可以获得名称为zookeeper-3.4.6.tar.gz的压缩文件。</p>
+<p>安装步骤：</p>
+<ol>
+<li><p>第一步：安装 jdk（略）</p>
+</li>
+<li><p>第二步：把 zookeeper 的压缩包（zookeeper-3.4.6.tar.gz）上传到 linux 系统</p>
+</li>
+<li><p>第三步：解压缩压缩包  [root@VM_0_16_centos ~]# tar -zxvf zookeeper-3.4.6.tar.gz -C/usr/local</p>
+</li>
+<li><p>第四步：进入zookeeper-3.4.6目录，创建data目录  </p>
+<pre><code>mkdir data</code></pre>
+</li>
+<li><p>第五步：进入conf目录 ，把zoo_sample.cfg 改名为zoo.cfg</p>
+<pre><code>cd conf  </code></pre>
+<p> mv zoo_sample.cfg zoo.cfg</p>
+</li>
+<li><p>第六步：打开zoo.cfg文件,  修改data属性：dataDir=/root/zookeeper-3.4.6/data<img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/11.png" alt="zoo.cfg"></p>
+</li>
+</ol>
+<h3 id="3-3-启动、停止Zookeeper（Linux环境下）"><a href="#3-3-启动、停止Zookeeper（Linux环境下）" class="headerlink" title="3.3 启动、停止Zookeeper（Linux环境下）"></a>3.3 启动、停止Zookeeper（Linux环境下）</h3><p>进入Zookeeper的bin目录，启动服务命令</p>
+<blockquote>
+<p> ./zkServer.sh start     </p>
+</blockquote>
+<p>停止服务命令</p>
+<blockquote>
+<p>./zkServer.sh stop</p>
+</blockquote>
+<p>查看服务状态：</p>
+<blockquote>
+<p>./zkServer.sh status</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@VM_0_16_centos bin]# ./zkServer.sh start</span><br><span class="line">JMX enabled by default</span><br><span class="line">Using config: /usr/local/zookeeper-3.4.6/bin/../conf/zoo.cfg</span><br><span class="line">Starting zookeeper ... STARTED</span><br><span class="line">[root@VM_0_16_centos bin]# ./zkServer.sh status</span><br><span class="line">JMX enabled by default</span><br><span class="line">Using config: /usr/local/zookeeper-3.4.6/bin/../conf/zoo.cfg</span><br><span class="line">Mode: standalone</span><br><span class="line">[root@VM_0_16_centos bin]# ./zkServer.sh stop</span><br></pre></td></tr></table></figure>
+
+<h3 id="Windows环境下"><a href="#Windows环境下" class="headerlink" title="Windows环境下"></a>Windows环境下</h3><table>
+<thead>
+<tr>
+<th>1、下载zookeeper  网址 <a target="_blank" rel="noopener" href="https://archive.apache.org/dist/zookeeper/zookeeper-3.4.13/">https://archive.apache.org/dist/zookeeper/zookeeper-3.4.13/</a></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>2、解压zookeeper</strong>  解压运行zkServer.cmd ，初次运行会报错，没有zoo.cfg配置文件</td>
+</tr>
+<tr>
+<td><strong>3、修改zoo.cfg配置文件</strong>  将conf下的zoo_sample.cfg复制一份改名为zoo.cfg即可。  注意几个重要位置：  dataDir=./  临时数据存储的目录（可写相对路径）  clientPort=2181  zookeeper的端口号  修改完成后再次启动zookeeper</td>
+</tr>
+<tr>
+<td><strong>4、使用zkCli.cmd测试</strong>  ls /：列出zookeeper根下保存的所有节点  create –e /nateshao  happyqixi：创建一个nateshao节点，值为happyqixi 。get  /nateshao：获取/nateshao节点的值</td>
+</tr>
+</tbody></table>
+<p>进入Zookeeper的bin目录，启动服务命令</p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/%E5%8F%8C%E5%87%BB.png">获取根目录下的节点</p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/22.png"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[zk: localhost:2181(CONNECTED) 1] ls  /</span><br><span class="line">[zookeeper]</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建节点 七夕快乐</span></span><br><span class="line">[zk: localhost:2181(CONNECTED) 2] create -e /nateshao happyqixi</span><br><span class="line">Created /nateshao</span><br><span class="line"><span class="meta">#</span><span class="bash"> 获取</span></span><br><span class="line">[zk: localhost:2181(CONNECTED) 3] get /nateshao</span><br><span class="line">happyqixi</span><br><span class="line">cZxid = 0x4</span><br><span class="line">ctime = Tue Aug 25 22:28:43 CST 2020</span><br><span class="line">mZxid = 0x4</span><br><span class="line">mtime = Tue Aug 25 22:28:43 CST 2020</span><br><span class="line">pZxid = 0x4</span><br><span class="line">cversion = 0</span><br><span class="line">dataVersion = 0</span><br><span class="line">aclVersion = 0</span><br><span class="line">ephemeralOwner = 0x17425fcc0900000</span><br><span class="line">dataLength = 9</span><br><span class="line">numChildren = 0</span><br><span class="line">[zk: localhost:2181(CONNECTED) 4]</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="【windows】-安装dubbo-admin管理控制台"><a href="#【windows】-安装dubbo-admin管理控制台" class="headerlink" title="【windows】-安装dubbo-admin管理控制台"></a>【windows】-安装dubbo-admin管理控制台</h3><p>dubbo本身并不是一个服务软件。它其实就是一个jar包能够帮你的java程序连接到zookeeper，并利用zookeeper消费、提供服务。所以你不用在Linux上启动什么dubbo服务。</p>
+<p>但是为了让用户更好的管理监控众多的dubbo服务，官方提供了一个可视化的监控程序，不过这个监控即使不装也不影响使用。</p>
+<table>
+<thead>
+<tr>
+<th>1、下载dubbo-admin  <a target="_blank" rel="noopener" href="https://github.com/apache/incubator-dubbo-ops![](https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/%E4%B8%8B%E8%BD%BD.png)">https://github.com/apache/incubator-dubbo-ops![](https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/下载.png)</a></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>2、进入目录</strong>，修改dubbo-admin配置  修改 src\main\resources\application.properties  指定zookeeper地址         <img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/%E4%BF%AE%E6%94%B9.png"></td>
+</tr>
+<tr>
+<td><strong>3、打包dubbo-admin</strong>  mvn clean package -Dmaven.test.skip=true</td>
+</tr>
+<tr>
+<td><strong>4、运行dubbo-admin</strong>  java -jar dubbo-admin-0.0.1-SNAPSHOT.jar  <strong>注意：【有可能控制台看着启动了，但是网页打不开，需要在控制台按下ctrl+c即可】</strong>  默认使用root/root 登陆   <img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/root1.png" alt="root1"></td>
+</tr>
+</tbody></table>
+<h2 id="4-Dubbo快速入门"><a href="#4-Dubbo快速入门" class="headerlink" title="4. Dubbo快速入门"></a>4. Dubbo快速入门</h2><p>Dubbo作为一个RPC框架，其最核心的功能就是要实现跨网络的远程调用。本小节就是要创建两个应用，一个作为服务的提供方，一个作为服务的消费方。通过Dubbo来实现服务消费方远程调用服务提供方的方法。</p>
+<h3 id="4-1-服务提供方开发"><a href="#4-1-服务提供方开发" class="headerlink" title="4.1 服务提供方开发"></a>4.1 服务提供方开发</h3><p>开发步骤：</p>
+<p>（1）创建maven工程（打包方式为war）dubbodemo_provider，在pom.xml文件中导入如下坐标</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">spring.version</span>&gt;</span>5.0.5.RELEASE<span class="tag">&lt;/<span class="name">spring.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-beans<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-aspects<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-jms<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context-support<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- dubbo相关 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>dubbo<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.6.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.zookeeper<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>zookeeper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.sgroschupf<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>zkclient<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javassist<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javassist<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.12.1.GA<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.47<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.maven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat7-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 指定端口 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">port</span>&gt;</span>8081<span class="tag">&lt;/<span class="name">port</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 请求路径 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">path</span>&gt;</span>/<span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）配置web.xml文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">web-app</span> <span class="meta-keyword">PUBLIC</span></span></span><br><span class="line"><span class="meta"> <span class="meta-string">&quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;</span></span></span><br><span class="line"><span class="meta"> <span class="meta-string">&quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>Archetype Created Web Application<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext*.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>（3）创建服务接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.service;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HelloService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（4）创建服务实现类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.service.impl;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.dubbo.config.annotation.Service;</span><br><span class="line"><span class="keyword">import</span> com.itheima.service.HelloService;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServiceImpl</span> <span class="keyword">implements</span> <span class="title">HelloService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello &quot;</span> + name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：服务实现类上使用的Service注解是Dubbo提供的，用于对外发布服务</p>
+<p>（5）在src/main/resources下创建applicationContext-service.xml </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">	    <span class="attr">xmlns:p</span>=<span class="string">&quot;http://www.springframework.org/schema/p&quot;</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/context&quot;</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:dubbo</span>=<span class="string">&quot;http://code.alibabatech.com/schema/dubbo&quot;</span></span></span><br><span class="line"><span class="tag">	    <span class="attr">xmlns:mvc</span>=<span class="string">&quot;http://www.springframework.org/schema/mvc&quot;</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">		http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">         http://www.springframework.org/schema/mvc</span></span></span><br><span class="line"><span class="tag"><span class="string">         http://www.springframework.org/schema/mvc/spring-mvc.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">         http://code.alibabatech.com/schema/dubbo</span></span></span><br><span class="line"><span class="tag"><span class="string">         http://code.alibabatech.com/schema/dubbo/dubbo.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">         http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">         http://www.springframework.org/schema/context/spring-context.xsd&quot;</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 当前应用名称，用于注册中心计算应用间依赖关系，注意：消费者和提供者应用名不要一样 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">&quot;dubbodemo_provider&quot;</span> /&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 连接服务注册中心zookeeper ip为zookeeper所在服务器的ip地址--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">&quot;zookeeper://192.168.134.129:2181&quot;</span>/&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 注册  协议和port   端口默认是20880 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dubbo:protocol</span> <span class="attr">name</span>=<span class="string">&quot;dubbo&quot;</span> <span class="attr">port</span>=<span class="string">&quot;20881&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">dubbo:protocol</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 扫描指定包，加入@Service注解的类会被发布为服务  --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dubbo:annotation</span> <span class="attr">package</span>=<span class="string">&quot;com.itheima.service.impl&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（6）启动服务</p>
+<p>tomcat7:run</p>
+<h3 id="4-2-服务消费方开发"><a href="#4-2-服务消费方开发" class="headerlink" title="4.2 服务消费方开发"></a>4.2 服务消费方开发</h3><p>开发步骤：</p>
+<p>（1）创建maven工程（打包方式为war）dubbodemo_consumer，pom.xml配置和上面服务提供者相同，只需要将Tomcat插件的端口号改为8082即可</p>
+<p>（2）配置web.xml文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">web-app</span> <span class="meta-keyword">PUBLIC</span></span></span><br><span class="line"><span class="meta"> <span class="meta-string">&quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;</span></span></span><br><span class="line"><span class="meta"> <span class="meta-string">&quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>Archetype Created Web Application<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定加载的配置文件 ，通过参数contextConfigLocation加载 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext-web.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.do<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（3）将服务提供者工程中的HelloService接口复制到当前工程</p>
+<p>（4）编写Controller</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.controller;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.dubbo.config.annotation.Reference;</span><br><span class="line"><span class="keyword">import</span> com.itheima.service.HelloService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/demo&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Reference</span></span><br><span class="line">    <span class="keyword">private</span> HelloService helloService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/hello&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="comment">//远程调用</span></span><br><span class="line">        String result = helloService.sayHello(name);</span><br><span class="line">        System.out.println(result);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：Controller中注入HelloService使用的是Dubbo提供的@Reference注解</p>
+<p>（5）在src/main/resources下创建applicationContext-web.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xmlns:p</span>=<span class="string">&quot;http://www.springframework.org/schema/p&quot;</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/context&quot;</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xmlns:dubbo</span>=<span class="string">&quot;http://code.alibabatech.com/schema/dubbo&quot;</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xmlns:mvc</span>=<span class="string">&quot;http://www.springframework.org/schema/mvc&quot;</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">			http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">			http://www.springframework.org/schema/mvc</span></span></span><br><span class="line"><span class="tag"><span class="string">			http://www.springframework.org/schema/mvc/spring-mvc.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">			http://code.alibabatech.com/schema/dubbo</span></span></span><br><span class="line"><span class="tag"><span class="string">			http://code.alibabatech.com/schema/dubbo/dubbo.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">			http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">			http://www.springframework.org/schema/context/spring-context.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- 当前应用名称，用于注册中心计算应用间依赖关系，注意：消费者和提供者应用名不要一样 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">&quot;dubbodemo-consumer&quot;</span> /&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 连接服务注册中心zookeeper ip为zookeeper所在服务器的ip地址--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">&quot;zookeeper://192.168.134.129:2181&quot;</span>/&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 扫描的方式暴露接口  --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dubbo:annotation</span> <span class="attr">package</span>=<span class="string">&quot;com.itheima.controller&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（6）运行测试</p>
+<p>tomcat7:run启动</p>
+<p>在浏览器输入<a target="_blank" rel="noopener" href="http://localhost:8082/demo/hello.do?name=Jack%EF%BC%8C%E6%9F%A5%E7%9C%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C">http://localhost:8082/demo/hello.do?name=Jack，查看浏览器输出结果</a></p>
+<p><strong>思考一：</strong>上面的Dubbo入门案例中我们是将HelloService接口从服务提供者工程(dubbodemo_provider)复制到服务消费者工程(dubbodemo_consumer)中，这种做法是否合适？还有没有更好的方式？</p>
+<p><strong>答：</strong>这种做法显然是不好的，同一个接口被复制了两份，不利于后期维护。更好的方式是单独创建一个maven工程，将此接口创建在这个maven工程中。需要依赖此接口的工程只需要在自己工程的pom.xml文件中引入maven坐标即可。</p>
+<p><strong>思考二：</strong>在服务消费者工程(dubbodemo_consumer)中只是引用了HelloService接口，并没有提供实现类，Dubbo是如何做到远程调用的？</p>
+<p><strong>答：</strong>Dubbo底层是基于代理技术为HelloService接口创建代理对象，远程调用是通过此代理对象完成的。可以通过开发工具的debug功能查看此代理对象的内部结构。另外，Dubbo实现网络传输底层是基于Netty框架完成的。</p>
+<p><strong>思考三：</strong>上面的Dubbo入门案例中我们使用Zookeeper作为服务注册中心，服务提供者需要将自己的服务信息注册到Zookeeper，服务消费者需要从Zookeeper订阅自己所需要的服务，此时Zookeeper服务就变得非常重要了，那如何防止Zookeeper单点故障呢？</p>
+<p><strong>答：</strong>Zookeeper其实是支持集群模式的，可以配置Zookeeper集群来达到Zookeeper服务的高可用，防止出现单点故障。</p>
+<h2 id="5-Dubbo管理控制台"><a href="#5-Dubbo管理控制台" class="headerlink" title="5. Dubbo管理控制台"></a>5. Dubbo管理控制台</h2><p>我们在开发时，需要知道Zookeeper注册中心都注册了哪些服务，有哪些消费者来消费这些服务。我们可以通过部署一个管理中心来实现。其实管理中心就是一个web应用，部署到tomcat即可。</p>
+<h3 id="5-1-安装"><a href="#5-1-安装" class="headerlink" title="5.1 安装"></a>5.1 安装</h3><p>安装步骤：</p>
+<p>（1）将资料中的dubbo-admin-2.6.0.war文件复制到tomcat的webapps目录下</p>
+<p>（2）启动tomcat，此war文件会自动解压</p>
+<p>（3）修改WEB-INF下的dubbo.properties文件，注意dubbo.registry.address对应的值需要对应当前使用的Zookeeper的ip地址和端口号</p>
+<p>​    dubbo.registry.address=zookeeper://192.168.134.129:2181<br>​    dubbo.admin.root.password=root<br>​    dubbo.admin.guest.password=guest</p>
+<p>（4）重启tomcat</p>
+<h3 id="5-2-使用"><a href="#5-2-使用" class="headerlink" title="5.2 使用"></a>5.2 使用</h3><p>操作步骤：</p>
+<p>（1）访问<a target="_blank" rel="noopener" href="http://localhost:8080/dubbo-admin-2.6.0/%EF%BC%8C%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D(root)%E5%92%8C%E5%AF%86%E7%A0%81(root)">http://localhost:8080/dubbo-admin-2.6.0/，输入用户名(root)和密码(root)</a></p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/5.png" alt="5"></p>
+<p>（2）启动服务提供者工程和服务消费者工程，可以在查看到对应的信息</p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/6.png" alt="6"></p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/7.png" alt="7"></p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/8.png" alt="8"></p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/9.png" alt="9"></p>
+<h2 id="6-Dubbo相关配置说明"><a href="#6-Dubbo相关配置说明" class="headerlink" title="6. Dubbo相关配置说明"></a>6. Dubbo相关配置说明</h2><h3 id="6-1-包扫描"><a href="#6-1-包扫描" class="headerlink" title="6.1 包扫描"></a>6.1 包扫描</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dubbo:annotation</span> <span class="attr">package</span>=<span class="string">&quot;com.itheima.service&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>服务提供者和服务消费者都需要配置，表示包扫描，作用是扫描指定包(包括子包)下的类。</p>
+<p>如果不使用包扫描，也可以通过如下配置的方式来发布服务：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;helloService&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.itheima.service.impl.HelloServiceImpl&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:service</span> <span class="attr">interface</span>=<span class="string">&quot;com.itheima.api.HelloService&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;helloService&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>作为服务消费者，可以通过如下配置来引用服务：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 生成远程服务代理，可以和本地bean一样使用helloService --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:reference</span> <span class="attr">id</span>=<span class="string">&quot;helloService&quot;</span> <span class="attr">interface</span>=<span class="string">&quot;com.itheima.api.HelloService&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上面这种方式发布和引用服务，一个配置项(<a href="dubbo:service">dubbo:service</a>、<a href="dubbo:reference">dubbo:reference</a>)只能发布或者引用一个服务，如果有多个服务，这种方式就比较繁琐了。推荐使用包扫描方式。</p>
+<h3 id="6-2-协议"><a href="#6-2-协议" class="headerlink" title="6.2 协议"></a>6.2 协议</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dubbo:protocol</span> <span class="attr">name</span>=<span class="string">&quot;dubbo&quot;</span> <span class="attr">port</span>=<span class="string">&quot;20880&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>一般在服务提供者一方配置，可以指定使用的协议名称和端口号。</p>
+<p>其中Dubbo支持的协议有：dubbo、rmi、hessian、http、webservice、rest、redis等。</p>
+<p>推荐使用的是dubbo协议。</p>
+<p>dubbo 协议采用单一长连接和 NIO 异步通讯，适合于小数据量大并发的服务调用，以及服务消费者机器数远大于服务提供者机器数的情况。不适合传送大数据量的服务，比如传文件，传视频等，除非请求量很低。</p>
+<p>也可以在同一个工程中配置多个协议，不同服务可以使用不同的协议，例如：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 多协议配置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:protocol</span> <span class="attr">name</span>=<span class="string">&quot;dubbo&quot;</span> <span class="attr">port</span>=<span class="string">&quot;20880&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:protocol</span> <span class="attr">name</span>=<span class="string">&quot;rmi&quot;</span> <span class="attr">port</span>=<span class="string">&quot;1099&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 使用dubbo协议暴露服务 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:service</span> <span class="attr">interface</span>=<span class="string">&quot;com.itheima.api.HelloService&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;helloService&quot;</span> <span class="attr">protocol</span>=<span class="string">&quot;dubbo&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 使用rmi协议暴露服务 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:service</span> <span class="attr">interface</span>=<span class="string">&quot;com.itheima.api.DemoService&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;demoService&quot;</span> <span class="attr">protocol</span>=<span class="string">&quot;rmi&quot;</span> /&gt;</span> </span><br></pre></td></tr></table></figure>
+
+<h3 id="6-3-启动时检查"><a href="#6-3-启动时检查" class="headerlink" title="6.3 启动时检查"></a>6.3 启动时检查</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dubbo:consumer</span> <span class="attr">check</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上面这个配置需要配置在服务消费者一方，如果不配置默认check值为true。Dubbo 缺省会在启动时检查依赖的服务是否可用，不可用时会抛出异常，阻止 Spring 初始化完成，以便上线时，能及早发现问题。可以通过将check值改为false来关闭检查。</p>
+<p>建议在开发阶段将check值设置为false，在生产环境下改为true。</p>
+<h3 id="6-4-负载均衡"><a href="#6-4-负载均衡" class="headerlink" title="6.4 负载均衡"></a>6.4 负载均衡</h3><p>负载均衡（Load Balance）：其实就是将请求分摊到多个操作单元上进行执行，从而共同完成工作任务。</p>
+<p>在集群负载均衡时，Dubbo 提供了多种均衡策略（包括随机、轮询、最少活跃调用数、一致性Hash），缺省为random随机调用。</p>
+<p>配置负载均衡策略，既可以在服务提供者一方配置，也可以在服务消费者一方配置，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/demo&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">    <span class="comment">//在服务消费者一方配置负载均衡策略</span></span><br><span class="line">    <span class="meta">@Reference(check = false,loadbalance = &quot;random&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> HelloService helloService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/hello&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="comment">//远程调用</span></span><br><span class="line">        String result = helloService.sayHello(name);</span><br><span class="line">        System.out.println(result);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在服务提供者一方配置负载均衡</span></span><br><span class="line"><span class="meta">@Service(loadbalance = &quot;random&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServiceImpl</span> <span class="keyword">implements</span> <span class="title">HelloService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello &quot;</span> + name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以通过启动多个服务提供者来观察Dubbo负载均衡效果。</p>
+<p>注意：因为我们是在一台机器上启动多个服务提供者，所以需要修改tomcat的端口号和Dubbo服务的端口号来防止端口冲突。</p>
+<p>在实际生产环境中，多个服务提供者是分别部署在不同的机器上，所以不存在端口冲突问题。</p>
+<h2 id="7-解决Dubbo无法发布被事务代理的Service问题"><a href="#7-解决Dubbo无法发布被事务代理的Service问题" class="headerlink" title="7. 解决Dubbo无法发布被事务代理的Service问题"></a>7. 解决Dubbo无法发布被事务代理的Service问题</h2><p>前面我们已经完成了Dubbo的入门案例，通过入门案例我们可以看到通过Dubbo提供的标签配置就可以进行包扫描，扫描到@Service注解的类就可以被发布为服务。</p>
+<p>但是我们如果在服务提供者类上加入@Transactional事务控制注解后，服务就发布不成功了。原因是事务控制的底层原理是为服务提供者类创建代理对象，而默认情况下Spring是基于JDK动态代理方式创建代理对象，而此代理对象的完整类名为com.sun.proxy.$Proxy42（最后两位数字不是固定的），导致Dubbo在发布服务前进行包匹配时无法完成匹配，进而没有进行服务的发布。</p>
+<h3 id="7-1-问题展示"><a href="#7-1-问题展示" class="headerlink" title="7.1 问题展示"></a>7.1 问题展示</h3><p>在入门案例的服务提供者dubbodemo_provider工程基础上进行展示</p>
+<p>操作步骤：</p>
+<p>（1）在pom.xml文件中增加maven坐标</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.47<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）在applicationContext-service.xml配置文件中加入数据源、事务管理器、开启事务注解的相关配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--数据源--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span> <span class="attr">destroy-method</span>=<span class="string">&quot;close&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;root&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;root&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driverClassName&quot;</span> <span class="attr">value</span>=<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;jdbc:mysql://localhost:3306/test&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 事务管理器  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;transactionManager&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;dataSource&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--开启事务控制的注解支持--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">&quot;transactionManager&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上面连接的数据库可以自行创建</p>
+<p>（3）在HelloServiceImpl类上加入@Transactional注解</p>
+<p>（4）启动服务提供者和服务消费者，并访问</p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/12.png" alt="12"></p>
+<p>上面的错误为没有可用的服务提供者</p>
+<p>查看dubbo管理控制台发现服务并没有发布，如下：</p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/13.png" alt="13"></p>
+<p>可以通过断点调试的方式查看Dubbo执行过程，Dubbo通过AnnotationBean的postProcessAfterInitialization方法进行处理</p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/14.png" alt="14"></p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/15.png" alt="15"></p>
+<h3 id="7-2-解决方案"><a href="#7-2-解决方案" class="headerlink" title="7.2 解决方案"></a>7.2 解决方案</h3><p>通过上面的断点调试可以看到，在HelloServiceImpl类上加入事务注解后，Spring会为此类基于JDK动态代理技术创建代理对象，创建的代理对象完整类名为com.sun.proxy.$Proxy35，导致Dubbo在进行包匹配时没有成功（因为我们在发布服务时扫描的包为com.itheima.service），所以后面真正发布服务的代码没有执行。</p>
+<p>解决方式操作步骤：</p>
+<p>（1）修改applicationContext-service.xml配置文件，开启事务控制注解支持时指定proxy-target-class属性，值为true。其作用是使用cglib代理方式为Service类创建代理对象</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--开启事务控制的注解支持--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">&quot;transactionManager&quot;</span> <span class="attr">proxy-target-class</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/17.png" alt="17"></p>
+<p>（2）修改HelloServiceImpl类，在Service注解中加入interfaceClass属性，值为HelloService.class，作用是指定服务的接口类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service(interfaceClass = HelloService.class)</span></span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServiceImpl</span> <span class="keyword">implements</span> <span class="title">HelloService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello &quot;</span> + name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此处也是必须要修改的，否则会导致发布的服务接口为SpringProxy，而不是HelloService接口，如下：</p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/16.png" alt="16"></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    <div class="article-pop-out tagcloud">
+      <i class="icon-tuding"></i>
+      <a class="article-tag-list-link color3">置顶</a>
+    </div>
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/dubbo//" class="article-tag-list-link color1">dubbo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/08/23/%E5%88%86%E5%B8%83%E5%BC%8FRPC%E6%A1%86%E6%9E%B6-Dubbo/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-你回去了解一下RESTful风格" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1954,273 +2496,9 @@
 
 
   
-    <article id="post-js-01-入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/08/23/js-01-%E5%85%A5%E9%97%A8/" target="_blank">js-01-入门</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/08/23/js-01-%E5%85%A5%E9%97%A8/" class="archive-article-date">
-        <time datetime="2020-08-23T02:07:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>JavaScript 与 Java 是两种完全不同的语言，无论在概念上还是设计上。<br>  Java（由 Sun 发明）是更复杂的编程语言。ECMA-262 是 JavaScript 标准的官方名称。JavaScript 由 Brendan Eich 发明。它于 1995 年出现在 Netscape 中（该浏览器已停止更新），并于 1997 年被 ECMA（一个标准协会）采纳。</p>
-</blockquote>
-<h3 id="1-JavaScript引用方式"><a href="#1-JavaScript引用方式" class="headerlink" title="1. JavaScript引用方式"></a>1. JavaScript引用方式</h3><p>JavaScript的位置</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span> JavaScript标识放置<span class="tag">&lt;<span class="name">Head</span>&gt;</span>...<span class="tag">&lt;/<span class="name">Head</span>&gt;</span>头部之间<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> ODiv = <span class="built_in">document</span>.getElementById(<span class="string">&quot;context&quot;</span>);</span></span><br><span class="line"><span class="javascript">        	     <span class="built_in">console</span>.log(ODiv); <span class="comment">// 打印出null</span></span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;context&quot;</span>&gt;</span>你好<span class="tag">&lt;/<span class="name">div</span>&gt;</span>		</span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>嵌入式 </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">script</span>&gt;</span>javascript语句;<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span>javascript语句;<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">- 外链式  </span><br><span class="line">```html</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/test.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>行内式  </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:alert&#x27;hello&#x27;;&quot;</span>&gt;</span>test<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<script>
-console.log('你好！');
-</script>
-
-</li>
-</ul>
-<script>
-  document.write('你好！');
-</script>
-
-<script>
-  document.write('<script>alert(123);<\/script>');
-</script>
-
-<h3 id="2-JavaScript-输出"><a href="#2-JavaScript-输出" class="headerlink" title="2. JavaScript 输出"></a>2. JavaScript 输出</h3><ul>
-<li>使用 window.alert() 弹出警告框。</li>
-<li>使用 document.write() 方法将内容写到 HTML 文档中。</li>
-<li>使用 innerHTML 写入到 HTML 元素。</li>
-<li>使用 console.log() 写入到浏览器的控制台。</li>
-</ul>
-<h3 id="3-运算符"><a href="#3-运算符" class="headerlink" title="3. 运算符"></a>3. 运算符</h3><ul>
-<li>JavaScript：改变 HTML 内容<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function myFunction()</span><br><span class="line">&#123;</span><br><span class="line">	x=document.getElementById(&quot;demo&quot;);  // 找到元素</span><br><span class="line">	x.innerHTML=&quot;Hello JavaScript!&quot;;    // 改变内容</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;myFunction()&quot;</span>&gt;</span>点击这里<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>JavaScript：改变 HTML 图像</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  alert(<span class="number">220</span> + <span class="number">230</span>);             <span class="comment">// 输出结果：450</span></span></span><br><span class="line"><span class="javascript">  alert(<span class="number">2</span> * <span class="number">3</span> + <span class="number">25</span> / <span class="number">5</span> - <span class="number">1</span>);    <span class="comment">// 输出结果：10</span></span></span><br><span class="line"><span class="javascript">  alert(<span class="number">2</span> * (<span class="number">3</span> + <span class="number">25</span>) / <span class="number">5</span> - <span class="number">1</span>);  <span class="comment">// 输出结果：10.2</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;Hello&#x27;</span>);               <span class="comment">// 单引号字符串</span></span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&quot;Hello&quot;</span>);               <span class="comment">// 双引号字符串</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;22&#x27;</span> == <span class="string">&#x27;22&#x27;</span>);          <span class="comment">// 输出结果：true</span></span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;22&#x27;</span> == <span class="string">&#x27;33&#x27;</span>);          <span class="comment">// 输出结果：false</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;220&#x27;</span> + <span class="string">&#x27;230&#x27;</span>);                 <span class="comment">// 输出结果：220230</span></span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;220 + 230 = &#x27;</span> + <span class="number">220</span> + <span class="number">230</span>);    <span class="comment">// 输出结果：220 + 230 = 220230</span></span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;220 + 230 = &#x27;</span> + (<span class="number">220</span> + <span class="number">230</span>));  <span class="comment">// 输出结果：220 + 230 = 450</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">  if (22 &gt; 33) &#123;</span><br><span class="line"><span class="javascript">    alert(<span class="literal">true</span>);            <span class="comment">// 判断成立时执行此语句</span></span></span><br><span class="line"><span class="javascript">  &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">    alert(<span class="literal">false</span>);           <span class="comment">// 判断不成立时执行此语句</span></span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> num1 = <span class="number">22</span>;            <span class="comment">// 使用名称为num1的变量保存数字22</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> num2 = <span class="number">33</span>;            <span class="comment">// 使用名称为num2的变量保存数字33</span></span></span><br><span class="line"><span class="javascript">  alert(num1 + num2);       <span class="comment">// 输出结果：55</span></span></span><br><span class="line"><span class="javascript">  alert(num1 - num2);       <span class="comment">// 输出结果：-11</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> temp = num1;          <span class="comment">// 将变量num1的值赋给变量temp</span></span></span><br><span class="line"><span class="javascript">  num1 = num2;              <span class="comment">// 将变量num2的值赋给变量num1</span></span></span><br><span class="line"><span class="javascript">  num2 = temp;              <span class="comment">// 将变量temp的值赋给变量num2</span></span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;num1 = &#x27;</span> + num1 + <span class="string">&#x27;, num2 = &#x27;</span> + num2);    <span class="comment">// 输出结果：num1 = 33, num2 = 22</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.console;               <span class="comment">// 访问window对象的console属性</span></span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.document;              <span class="comment">// 访问window对象的document属性</span></span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.alert(<span class="string">&#x27;test&#x27;</span>);         <span class="comment">// 调用window对象的alert()方法</span></span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.prompt(<span class="string">&#x27;test&#x27;</span>);        <span class="comment">// 调用window对象的prompt()方法</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.console.log(<span class="string">&#x27;test&#x27;</span>);         <span class="comment">// 调用console对象的log()方法</span></span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.document.write(<span class="string">&#x27;test&#x27;</span>);      <span class="comment">// 调用document对象的write()方法</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;test&quot;</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> test = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;test&#x27;</span>);    <span class="comment">// 根据元素id创建元素对象</span></span></span><br><span class="line"><span class="javascript">    alert(test.innerHTML);                         <span class="comment">// 通过InnerHTML属性获取元素内容，输出结果：Hello</span></span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> str = <span class="string">&#x27;apple&#x27;</span>;                 <span class="comment">// 定义一个字符串</span></span></span><br><span class="line"><span class="javascript">  alert(str.length);                 <span class="comment">// 获取字符串长度，输出结果：5</span></span></span><br><span class="line"><span class="javascript">  alert(str.toUpperCase());          <span class="comment">// 获取转换大写后的结果，输出结果：APPLE</span></span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;aa&#x27;</span>.toUpperCase());         <span class="comment">// 直接调用字符串的成员方法，输出结果：AA</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="comment">// 创建对象</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> stu = &#123;&#125;;                      <span class="comment">// 创建一个名称为stu的空对象</span></span></span><br><span class="line"><span class="javascript">  <span class="comment">// 添加属性</span></span></span><br><span class="line"><span class="javascript">  stu.name = <span class="string">&#x27;小明&#x27;</span>;                 <span class="comment">// 为stu对象添加name属性</span></span></span><br><span class="line"><span class="javascript">  stu.gender = <span class="string">&#x27;男&#x27;</span>;                 <span class="comment">// 为stu对象添加gender属性</span></span></span><br><span class="line"><span class="javascript">  stu.age = <span class="number">18</span>;                      <span class="comment">// 为stu对象添加age属性</span></span></span><br><span class="line"><span class="javascript">  <span class="comment">// 访问属性</span></span></span><br><span class="line"><span class="javascript">  alert(stu.name);                   <span class="comment">// 访问stu对象的name属性，输出结果：小明</span></span></span><br><span class="line"><span class="javascript">  <span class="comment">// 添加方法</span></span></span><br><span class="line"><span class="javascript">  stu.introduce = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">return</span> <span class="string">&#x27;我叫&#x27;</span> + <span class="built_in">this</span>.name + <span class="string">&#x27;，今年&#x27;</span> + <span class="built_in">this</span>.age + <span class="string">&#x27;岁。&#x27;</span>;</span></span><br><span class="line">  &#125;;</span><br><span class="line"><span class="javascript">  <span class="comment">// 调用方法</span></span></span><br><span class="line"><span class="javascript">  alert(stu.introduce());            <span class="comment">// 输出结果：我叫小明，今年18岁。</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>case01-6 函数的定义与调用</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>计算1到100个数相加和<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">     /* </span><br><span class="line">      1:函数的定义</span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> <span class="title">funName</span> (<span class="params">参数<span class="number">1</span>, 参数<span class="number">2</span>, 参数<span class="number">3.</span>...</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">          <span class="comment">//函数体</span></span></span><br><span class="line">      &#125;</span><br><span class="line">      2:函数调用</span><br><span class="line">      funName(1,2,3);</span><br><span class="line">      */</span><br><span class="line"><span class="javascript">      <span class="comment">//1 定义一个getSum()函数</span></span></span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> <span class="title">getSum</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> sum = <span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span>; i++) &#123;</span></span><br><span class="line">              sum += i;</span><br><span class="line">          &#125;</span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.write(<span class="string">&#x27;1到100个数相加和是：&#x27;</span>+sum);</span></span><br><span class="line">      &#125;</span><br><span class="line"><span class="javascript">      <span class="comment">//2 调用getSum()函数</span></span></span><br><span class="line">      getSum();</span><br><span class="line">   <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>case01-7 自定义函数与调用</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">      /* 定义函数</span><br><span class="line"><span class="javascript">       <span class="function"><span class="keyword">function</span> <span class="title">funName</span> (<span class="params">a,b</span>) </span>&#123;</span></span><br><span class="line">          函数体</span><br><span class="line">        &#125;</span><br><span class="line">        在调用函数的时候，传入的参数叫做实参</span><br><span class="line">        funName(5, 6);</span><br><span class="line">      */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="comment">// 求n-m之间所有数的和</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// n,m  形式参数(形参)</span></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">getSum</span>(<span class="params">n, m</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> sum = <span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">for</span> (<span class="keyword">var</span> i = n; i &lt;= m; i++) &#123;</span></span><br><span class="line">                sum += i;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(n+<span class="string">&#x27;-&#x27;</span>+m+<span class="string">&#x27;之间的数相加为：&#x27;</span>+sum);</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        getSum(<span class="number">5</span>, <span class="number">10</span>); <span class="comment">// n=5,m=10 sum=0+5+6+7+8+9+10==45</span></span></span><br><span class="line"><span class="javascript">        getSum(<span class="number">100</span>,<span class="number">1000</span>);<span class="comment">// n=100,m=1000 sum=0+100+101+102+...+1000=495550</span></span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>case01-8 改变网页皮肤</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">value</span>=<span class="string">&quot;设为红色&quot;</span>  <span class="attr">onclick</span>=<span class="string">&quot;color(&#x27;red&#x27;)&quot;</span>&gt;</span>设为红色<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">value</span>=<span class="string">&quot;设为黄色&quot;</span>  <span class="attr">onclick</span>=<span class="string">&quot;color(&#x27;yellow&#x27;)&quot;</span>&gt;</span>设为黄色<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">value</span>=<span class="string">&quot;设为蓝色&quot;</span>  <span class="attr">onclick</span>=<span class="string">&quot;color(&#x27;blue&#x27;)&quot;</span>&gt;</span>设为蓝色<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">value</span>=<span class="string">&quot;设为绿色&quot;</span>  <span class="attr">onclick</span>=<span class="string">&quot;color(&#x27;green&#x27;)&quot;</span>&gt;</span>设为绿色<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">color</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.body.style.backgroundColor = e</span></span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>case01-9 验证用户名和密码</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">		<span class="comment">// 输入用户名和密码，如果正确，给出弹出框提示“登录成功”，如果不对，提示“输入错误”</span></span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> userName = prompt(<span class="string">&quot;请输入用户名&quot;</span>);</span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> passWord = prompt(<span class="string">&quot;请输入密码&quot;</span>);</span></span><br><span class="line"><span class="javascript">		<span class="keyword">if</span>(userName ==<span class="string">&#x27;admin&#x27;</span> &amp;&amp; passWord ==<span class="string">&#x27;123456&#x27;</span>)&#123;</span></span><br><span class="line"><span class="javascript">			alert(<span class="string">&#x27;登录成功&#x27;</span>)</span></span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"><span class="javascript">		<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">			alert(<span class="string">&#x27;用户名或密码输入错误&#x27;</span>)</span></span><br><span class="line">		&#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>case01-10 输出用户输入的信息</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> msg = prompt(<span class="string">&quot;请输入您的信息&quot;</span>); <span class="comment">// 输入框</span></span></span><br><span class="line"><span class="javascript">	<span class="built_in">document</span>.write(msg);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>case01-11 计算年龄小游戏</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;disp_year()&quot;</span> <span class="attr">value</span>=<span class="string">&quot;请输入您的出生年份&quot;</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">disp_year</span>(<span class="params"></span>)</span></span></span><br><span class="line">		  &#123;</span><br><span class="line"><span class="javascript">		   <span class="keyword">var</span> year=prompt(<span class="string">&quot;请输入您的出生年份&quot;</span>,<span class="string">&quot;&quot;</span>)</span></span><br><span class="line"><span class="javascript">		   <span class="keyword">if</span> (year!=<span class="literal">null</span> &amp;&amp; year!=<span class="string">&quot;&quot;</span>)</span></span><br><span class="line">		   &#123;</span><br><span class="line"><span class="javascript">				<span class="built_in">document</span>.write(<span class="string">&#x27;您今年&#x27;</span>+(<span class="number">2019</span>-year)+<span class="string">&#x27;岁&#x27;</span>)</span></span><br><span class="line">		    &#125;</span><br><span class="line">		  &#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端//" class="article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/23/js-01-%E5%85%A5%E9%97%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/08/23/hello-world/" target="_blank">Hello World</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/08/23/hello-world/" class="archive-article-date">
-        <time datetime="2020-08-22T16:33:13.665Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<h2 id="上传博客"><a href="#上传博客" class="headerlink" title="上传博客"></a>上传博客</h2><ul>
-<li>可以hexo g -d 提交的仓库 ，或者hexo g 然后 git add . /git commit - “XX” / git push</li>
-</ul>
-<p>// 底部音乐</p>
-<div style="position:absolute; bottom: 0; right: 0;">
-    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=29393038&auto=1&height=66"></iframe>
-</div>
-
-<p>//右上角Github图标<br><a target="_blank" rel="noopener" href="https://github.com/nateshao" class="github-corner" aria-label="View source on GitHub"><br>    <svg width="80"
-         height="80"
-         viewBox="0 0 250 250"
-         style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
-         aria-hidden="true"><br>        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><br>        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-                                                                                                                                                                                                                                                                                                    fill="currentColor"
-                                                                                                                                                                                                                                                                                                    class="octo-body"><br>        </path><br>    </svg><br></a></p>
-<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
-</style>
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/23/hello-world/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 

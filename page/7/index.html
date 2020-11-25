@@ -219,6 +219,661 @@
 
 
   
+    <article id="post-Java基础21-IO字符流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8021-IO%E5%AD%97%E7%AC%A6%E6%B5%81/" target="_blank">Java基础21-IO字符流</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/06/16/Java%E5%9F%BA%E7%A1%8021-IO%E5%AD%97%E7%AC%A6%E6%B5%81/" class="archive-article-date">
+        <time datetime="2020-06-16T04:19:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="21-01-IO流-字符流FileReader"><a href="#21-01-IO流-字符流FileReader" class="headerlink" title="21.01_IO流(字符流FileReader)"></a>21.01_IO流(字符流FileReader)</h2><ul>
+<li><p>1.字符流是什么</p>
+<ul>
+<li>字符流是可以直接读写字符的IO流</li>
+<li>字符流读取字符, 就要先读取到字节数据, 然后转为字符. 如果要写出字符, 需要把字符转为字节再写出.    </li>
+</ul>
+</li>
+<li><p>2.FileReader</p>
+<ul>
+<li>FileReader类的read()方法可以按照字符大小读取</li>
+</ul>
+</li>
+<li><pre><code>  FileReader fr = new FileReader(&quot;aaa.txt&quot;);                //创建输入流对象,关联aaa.txt
+  int ch;
+  while((ch = fr.read()) != -1) &#123;                            //将读到的字符赋值给ch
+      System.out.println((char)ch);                        //将读到的字符强转后打印
+  &#125;
+
+  fr.close();                                                //关流 </code></pre>
+</li>
+</ul>
+<h2 id="21-02-IO流-字符流FileWriter"><a href="#21-02-IO流-字符流FileWriter" class="headerlink" title="21.02_IO流(字符流FileWriter)"></a>21.02_IO流(字符流FileWriter)</h2><ul>
+<li><p>FileWriter类的write()方法可以自动把字符转为字节写出</p>
+<pre><code>  FileWriter fw = new FileWriter(&quot;aaa.txt&quot;);
+  fw.write(&quot;aaa&quot;);
+  fw.close();</code></pre>
+</li>
+</ul>
+<h2 id="21-03-IO流-字符流的拷贝"><a href="#21-03-IO流-字符流的拷贝" class="headerlink" title="21.03_IO流(字符流的拷贝)"></a>21.03_IO流(字符流的拷贝)</h2><pre><code>FileReader fr = new FileReader(&quot;a.txt&quot;);
+FileWriter fw = new FileWriter(&quot;b.txt&quot;);
+
+int ch;
+while((ch = fr.read()) != -1) &#123;
+    fw.write(ch);
+&#125;
+
+fr.close();
+fw.close();</code></pre>
+<h3 id="21-04-IO流-什么情况下使用字符流"><a href="#21-04-IO流-什么情况下使用字符流" class="headerlink" title="21.04_IO流(什么情况下使用字符流)"></a>21.04_IO流(什么情况下使用字符流)</h3><ul>
+<li>字符流也可以拷贝文本文件, 但不推荐使用. 因为读取时会把字节转为字符, 写出时还要把字符转回字节.</li>
+<li>程序需要读取一段文本, 或者需要写出一段文本的时候可以使用字符流</li>
+<li>读取的时候是按照字符的大小读取的,不会出现半个中文</li>
+<li>写出的时候可以直接将字符串写出,不用转换为字节数组</li>
+</ul>
+<h3 id="21-05-IO流-字符流是否可以拷贝非纯文本的文件"><a href="#21-05-IO流-字符流是否可以拷贝非纯文本的文件" class="headerlink" title="21.05_IO流(字符流是否可以拷贝非纯文本的文件)"></a>21.05_IO流(字符流是否可以拷贝非纯文本的文件)</h3><ul>
+<li>不可以拷贝非纯文本的文件</li>
+<li>因为在读的时候会将字节转换为字符,在转换过程中,可能找不到对应的字符,就会用?代替,写出的时候会将字符转换成字节写出去</li>
+<li>如果是?,直接写出,这样写出之后的文件就乱了,看不了了  </li>
+</ul>
+<h3 id="21-06-IO流-自定义字符数组的拷贝"><a href="#21-06-IO流-自定义字符数组的拷贝" class="headerlink" title="21.06_IO流(自定义字符数组的拷贝)"></a>21.06_IO流(自定义字符数组的拷贝)</h3><ul>
+<li><p>   FileReader fr = new FileReader(“aaa.txt”);            //创建字符输入流,关联aaa.txt<br>   FileWriter fw = new FileWriter(“bbb.txt”);            //创建字符输出流,关联bbb.txt</p>
+<p>   int len;<br>   char[] arr = new char[1024*8];                        //创建字符数组<br>   while((len = fr.read(arr)) != -1) {                    //将数据读到字符数组中</p>
+<pre><code>   fw.write(arr, 0, len);                            //从字符数组将数据写到文件上</code></pre>
+<p>   }</p>
+<p>   fr.close();                                            //关流释放资源<br>   fw.close();    </p>
+</li>
+</ul>
+<h3 id="21-07-IO流-带缓冲的字符流"><a href="#21-07-IO流-带缓冲的字符流" class="headerlink" title="21.07_IO流(带缓冲的字符流)"></a>21.07_IO流(带缓冲的字符流)</h3><ul>
+<li><p>BufferedReader的read()方法读取字符时会一次读取若干字符到缓冲区, 然后逐个返回给程序, 降低读取文件的次数, 提高效率</p>
+</li>
+<li><p>BufferedWriter的write()方法写出字符时会先写到缓冲区, 缓冲区写满时才会写到文件, 降低写文件的次数, 提高效率</p>
+</li>
+<li><pre><code>  BufferedReader br = new BufferedReader(new FileReader(&quot;aaa.txt&quot;));    //创建字符输入流对象,关联aaa.txt
+  BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;bbb.txt&quot;));    //创建字符输出流对象,关联bbb.txt
+
+  int ch;                
+  while((ch = br.read()) != -1) &#123;        //read一次,会先将缓冲区读满,从缓冲去中一个一个的返给临时变量ch
+      bw.write(ch);                    //write一次,是将数据装到字符数组,装满后再一起写出去
+  &#125;
+
+  br.close();                            //关流
+  bw.close();  </code></pre>
+</li>
+</ul>
+<h3 id="21-08-IO流-readLine-和newLine-方法"><a href="#21-08-IO流-readLine-和newLine-方法" class="headerlink" title="21.08_IO流(readLine()和newLine()方法)"></a>21.08_IO流(readLine()和newLine()方法)</h3><ul>
+<li><p>BufferedReader的readLine()方法可以读取一行字符(不包含换行符号)</p>
+</li>
+<li><p>BufferedWriter的newLine()可以输出一个跨平台的换行符号”\r\n”</p>
+</li>
+<li><pre><code>  BufferedReader br = new BufferedReader(new FileReader(&quot;aaa.txt&quot;));
+  BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;bbb.txt&quot;));
+  String line;
+  while((line = br.readLine()) != null) &#123;
+      bw.write(line);
+      //bw.write(&quot;\r\n&quot;);                    //只支持windows系统
+      bw.newLine();                        //跨平台的
+  &#125;
+
+  br.close();
+  bw.close(); </code></pre>
+</li>
+</ul>
+<h3 id="21-09-IO流-将文本反转"><a href="#21-09-IO流-将文本反转" class="headerlink" title="21.09_IO流(将文本反转)"></a>21.09_IO流(将文本反转)</h3><ul>
+<li>将一个文本文档上的文本反转,第一行和倒数第一行交换,第二行和倒数第二行交换</li>
+</ul>
+<h3 id="21-10-IO流-LineNumberReader"><a href="#21-10-IO流-LineNumberReader" class="headerlink" title="21.10_IO流(LineNumberReader)"></a>21.10_IO流(LineNumberReader)</h3><ul>
+<li><p>LineNumberReader是BufferedReader的子类, 具有相同的功能, 并且可以统计行号</p>
+<ul>
+<li>调用getLineNumber()方法可以获取当前行号</li>
+<li>调用setLineNumber()方法可以设置当前行号</li>
+</ul>
+</li>
+<li><pre><code>  LineNumberReader lnr = new LineNumberReader(new FileReader(&quot;aaa.txt&quot;));
+  String line;
+  lnr.setLineNumber(100);                                    //设置行号
+  while((line = lnr.readLine()) != null) &#123;
+      System.out.println(lnr.getLineNumber() + &quot;:&quot; + line);//获取行号
+  &#125;
+
+  lnr.close(); </code></pre>
+</li>
+</ul>
+<h3 id="21-11-IO流-装饰设计模式"><a href="#21-11-IO流-装饰设计模式" class="headerlink" title="21.11_IO流(装饰设计模式)"></a>21.11_IO流(装饰设计模式)</h3><ul>
+<li><pre><code>  interface Coder &#123;
+      public void code();
+  &#125;
+
+  class Student implements Coder &#123;
+
+      @Override
+      public void code() &#123;
+          System.out.println(&quot;javase&quot;);
+          System.out.println(&quot;javaweb&quot;);
+      &#125;
+
+  &#125;
+
+  class HeiMaStudent implements Coder &#123;
+      private Student s;                        //获取到被包装的类的引用
+      public HeiMaStudent(Student s) &#123;        //通过构造函数创建对象的时候,传入被包装的对象
+          this.s = s;
+      &#125;
+      @Override
+      public void code() &#123;                    //对其原有功能进行升级
+          s.code();
+          System.out.println(&quot;数据库&quot;);
+          System.out.println(&quot;ssh&quot;);
+          System.out.println(&quot;安卓&quot;);
+          System.out.println(&quot;.....&quot;);
+      &#125;
+
+  &#125; </code></pre>
+</li>
+</ul>
+<h3 id="21-12-IO流-使用指定的码表读写字符"><a href="#21-12-IO流-使用指定的码表读写字符" class="headerlink" title="21.12_IO流(使用指定的码表读写字符)"></a>21.12_IO流(使用指定的码表读写字符)</h3><ul>
+<li><p>FileReader是使用默认码表读取文件, 如果需要使用指定码表读取, 那么可以使用InputStreamReader(字节流,编码表)</p>
+</li>
+<li><p>FileWriter是使用默认码表写出文件, 如果需要使用指定码表写出, 那么可以使用OutputStreamWriter(字节流,编码表)</p>
+</li>
+<li><pre><code>  BufferedReader br =                                     //高效的用指定的编码表读
+          new BufferedReader(new InputStreamReader(new FileInputStream(&quot;UTF-8.txt&quot;), &quot;UTF-8&quot;));
+  BufferedWriter bw =                                     //高效的用指定的编码表写
+          new BufferedWriter(new OutputStreamWriter(new FileOutputStream(&quot;GBK.txt&quot;), &quot;GBK&quot;));
+  int ch;
+  while((ch = br.read()) != -1) &#123;
+      bw.write(ch);
+  &#125;
+
+  br.close();
+  bw.close();</code></pre>
+<h3 id="21-13-IO流-转换流图解"><a href="#21-13-IO流-转换流图解" class="headerlink" title="21.13_IO流(转换流图解)"></a>21.13_IO流(转换流图解)</h3></li>
+<li><p>画图分析转换流</p>
+</li>
+</ul>
+<h3 id="21-14-IO流-获取文本上字符出现的次数"><a href="#21-14-IO流-获取文本上字符出现的次数" class="headerlink" title="21.14_IO流(获取文本上字符出现的次数)"></a>21.14_IO流(获取文本上字符出现的次数)</h3><ul>
+<li>获取一个文本上每个字符出现的次数,将结果写在times.txt上</li>
+</ul>
+<h3 id="21-15-IO流-试用版软件"><a href="#21-15-IO流-试用版软件" class="headerlink" title="21.15_IO流(试用版软件)"></a>21.15_IO流(试用版软件)</h3><ul>
+<li>当我们下载一个试用版软件,没有购买正版的时候,每执行一次就会提醒我们还有多少次使用机会用学过的IO流知识,模拟试用版软件,试用10次机会,执行一次就提示一次您还有几次机会,如果次数到了提示请购买正版</li>
+</ul>
+<h3 id="21-16-File类-递归"><a href="#21-16-File类-递归" class="headerlink" title="21.16_File类(递归)"></a>21.16_File类(递归)</h3><ul>
+<li>5的阶乘    </li>
+</ul>
+<h3 id="21-17-File类-练习"><a href="#21-17-File类-练习" class="headerlink" title="21.17_File类(练习)"></a>21.17_File类(练习)</h3><ul>
+<li>需求:从键盘输入接收一个文件夹路径,打印出该文件夹下所有的.java文件名</li>
+</ul>
+<h3 id="21-18-IO流-总结"><a href="#21-18-IO流-总结" class="headerlink" title="21.18_IO流(总结)"></a>21.18_IO流(总结)</h3><ul>
+<li>1.会用BufferedReader读取GBK码表和UTF-8码表的字符</li>
+<li>2.会用BufferedWriter写出字符到GBK码表和UTF-8码表的文件中</li>
+<li>3.会使用BufferedReader从键盘读取一行</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/后端//" class="article-tag-list-link color3">后端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8021-IO%E5%AD%97%E7%AC%A6%E6%B5%81/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java基础20-IO字节流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8020-IO%E5%AD%97%E8%8A%82%E6%B5%81/" target="_blank">Java基础20-IO字节流</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/06/16/Java%E5%9F%BA%E7%A1%8020-IO%E5%AD%97%E8%8A%82%E6%B5%81/" class="archive-article-date">
+        <time datetime="2020-06-16T04:17:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="20-01-IO流-IO流概述及其分类"><a href="#20-01-IO流-IO流概述及其分类" class="headerlink" title="20.01_IO流(IO流概述及其分类)"></a>20.01_IO流(IO流概述及其分类)</h3><ul>
+<li>1.概念<ul>
+<li>IO流用来处理设备之间的数据传输</li>
+<li>Java对数据的操作是通过流的方式</li>
+<li>Java用于操作流的类都在IO包中</li>
+<li>流按流向分为两种：输入流，输出流。</li>
+<li>流按操作类型分为两种：<ul>
+<li><strong>字节流</strong> : 字节流可以操作任何数据,因为在计算机中任何数据都是以字节的形式存储的</li>
+<li><strong>字符流</strong> : 字符流只能操作纯字符数据，比较方便。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2.IO流常用父类<ul>
+<li>字节流的抽象父类：<ul>
+<li>InputStream </li>
+<li>OutputStream</li>
+</ul>
+</li>
+<li>字符流的抽象父类：<ul>
+<li>Reader </li>
+<li>Writer        </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>3.IO程序书写<ul>
+<li>使用前，导入IO包中的类</li>
+<li>使用时，进行IO异常处理</li>
+<li>使用后，释放资源</li>
+</ul>
+</li>
+</ul>
+<h3 id="20-02-IO流-FileInputStream"><a href="#20-02-IO流-FileInputStream" class="headerlink" title="20.02_IO流(FileInputStream)"></a>20.02_IO流(FileInputStream)</h3><ul>
+<li><p>read()一次读取一个字节</p>
+</li>
+<li><pre><code>  FileInputStream fis = new FileInputStream(&quot;aaa.txt&quot;);    //创建一个文件输入流对象,并关联aaa.txt
+  int b;                                                    //定义变量,记录每次读到的字节
+  while((b = fis.read()) != -1) &#123;                            //将每次读到的字节赋值给b并判断是否是-1
+      System.out.println(b);                                //打印每一个字节
+  &#125;
+
+  fis.close();                                            //关闭流释放资源</code></pre>
+<h3 id="20-03-IO流-read-方法返回值为什么是int"><a href="#20-03-IO流-read-方法返回值为什么是int" class="headerlink" title="20.03_IO流(read()方法返回值为什么是int)"></a>20.03_IO流(read()方法返回值为什么是int)</h3></li>
+<li><p>read()方法读取的是一个字节,为什么返回是int,而不是byte</p>
+</li>
+<li><pre><code>  因为字节输入流可以操作任意类型的文件,比如图片音频等,这些文件底层都是以二进制形式的存储的,如果每次读取都返回byte,有可能在读到中间的时候遇到111111111
+  那么这11111111是byte类型的-1,我们的程序是遇到-1就会停止不读了,后面的数据就读不到了,所以在读取的时候用int类型接收,如果11111111会在其前面补上
+  24个0凑足4个字节,那么byte类型的-1就变成int类型的255了这样可以保证整个数据读完,而结束标记的-1就是int类型</code></pre>
+<h3 id="20-04-IO流-FileOutputStream"><a href="#20-04-IO流-FileOutputStream" class="headerlink" title="20.04_IO流(FileOutputStream)"></a>20.04_IO流(FileOutputStream)</h3></li>
+<li><p>write()一次写出一个字节</p>
+</li>
+<li><pre><code>  FileOutputStream fos = new FileOutputStream(&quot;bbb.txt&quot;);    //如果没有bbb.txt,会创建出一个
+  //fos.write(97);                        //虽然写出的是一个int数,但是在写出的时候会将前面的24个0去掉,所以写出的是一个byte
+  fos.write(98);
+  fos.write(99);
+  fos.close();</code></pre>
+<h3 id="20-05-IO流-FileOutputStream追加"><a href="#20-05-IO流-FileOutputStream追加" class="headerlink" title="20.05_IO流(FileOutputStream追加)"></a>20.05_IO流(FileOutputStream追加)</h3></li>
+<li><p>A:案例演示</p>
+<ul>
+<li>FileOutputStream的构造方法写出数据如何实现数据的追加写入</li>
+</ul>
+</li>
+<li><pre><code>  FileOutputStream fos = new FileOutputStream(&quot;bbb.txt&quot;,true);    //如果没有bbb.txt,会创建出一个
+  //fos.write(97);                        //虽然写出的是一个int数,但是在写出的时候会将前面的24个0去掉,所以写出的一个byte
+  fos.write(98);
+  fos.write(99);
+  fos.close();</code></pre>
+</li>
+</ul>
+<h3 id="20-06-IO流-拷贝图片"><a href="#20-06-IO流-拷贝图片" class="headerlink" title="20.06_IO流(拷贝图片)"></a>20.06_IO流(拷贝图片)</h3><ul>
+<li><p>FileInputStream读取</p>
+</li>
+<li><p>FileOutputStream写出</p>
+<pre><code>  FileInputStream fis = new FileInputStream(&quot;致青春.mp3&quot;);    //创建输入流对象,关联致青春.mp3
+  FileOutputStream fos = new FileOutputStream(&quot;copy.mp3&quot;);//创建输出流对象,关联copy.mp3
+
+  int b;
+  while((b = fis.read()) != -1) &#123;
+      fos.write(b);
+  &#125;
+
+  fis.close();
+  fos.close();</code></pre>
+</li>
+</ul>
+<h3 id="20-07-IO流-拷贝音频文件画原理图"><a href="#20-07-IO流-拷贝音频文件画原理图" class="headerlink" title="20.07_IO流(拷贝音频文件画原理图)"></a>20.07_IO流(拷贝音频文件画原理图)</h3><ul>
+<li>A:案例演示<ul>
+<li>字节流一次读写一个字节复制音频</li>
+</ul>
+</li>
+<li>弊端:效率太低</li>
+</ul>
+<h3 id="20-08-IO流-字节数组拷贝之available-方法"><a href="#20-08-IO流-字节数组拷贝之available-方法" class="headerlink" title="20.08_IO流(字节数组拷贝之available()方法)"></a>20.08_IO流(字节数组拷贝之available()方法)</h3><ul>
+<li><p>A:案例演示</p>
+<ul>
+<li>int read(byte[] b):一次读取一个字节数组</li>
+<li>write(byte[] b):一次写出一个字节数组</li>
+<li>available()获取读的文件所有的字节个数</li>
+</ul>
+</li>
+<li><p>弊端:有可能会内存溢出 </p>
+<pre><code>  FileInputStream fis = new FileInputStream(&quot;致青春.mp3&quot;);
+  FileOutputStream fos = new FileOutputStream(&quot;copy.mp3&quot;);
+  byte[] arr = new byte[fis.available()];                    //根据文件大小做一个字节数组
+  fis.read(arr);                                            //将文件上的所有字节读取到数组中
+  fos.write(arr);                                            //将数组中的所有字节一次写到了文件上
+  fis.close();
+  fos.close();</code></pre>
+</li>
+</ul>
+<h3 id="20-09-IO流-定义小数组"><a href="#20-09-IO流-定义小数组" class="headerlink" title="20.09_IO流(定义小数组)"></a>20.09_IO流(定义小数组)</h3><ul>
+<li>write(byte[] b)</li>
+<li>write(byte[] b, int off, int len)写出有效的字节个数</li>
+</ul>
+<h3 id="20-10-IO流-定义小数组的标准格式"><a href="#20-10-IO流-定义小数组的标准格式" class="headerlink" title="20.10_IO流(定义小数组的标准格式)"></a>20.10_IO流(定义小数组的标准格式)</h3><ul>
+<li><p>A:案例演示</p>
+<ul>
+<li><p>字节流一次读写一个字节数组复制图片和视频<br>  FileInputStream fis = new FileInputStream(“致青春.mp3”);<br>  FileOutputStream fos = new FileOutputStream(“copy.mp3”);<br>  int len;<br>  byte[] arr = new byte[1024 * 8];                    //自定义字节数组</p>
+<p>  while((len = fis.read(arr)) != -1) {</p>
+<pre><code>  //fos.write(arr);
+  fos.write(arr, 0, len);                            //写出字节数组写出有效个字节个数</code></pre>
+<p>  }</p>
+<p>  fis.close();<br>  fos.close();</p>
+<h3 id="20-11-IO流-BufferedInputStream和BufferOutputStream拷贝"><a href="#20-11-IO流-BufferedInputStream和BufferOutputStream拷贝" class="headerlink" title="20.11_IO流(BufferedInputStream和BufferOutputStream拷贝)"></a>20.11_IO流(BufferedInputStream和BufferOutputStream拷贝)</h3></li>
+</ul>
+</li>
+<li><p>A:缓冲思想</p>
+<ul>
+<li>字节流一次读写一个数组的速度明显比一次读写一个字节的速度快很多，</li>
+<li>这是加入了数组这样的缓冲区效果，java本身在设计的时候，</li>
+<li>也考虑到了这样的设计思想(装饰设计模式后面讲解)，所以提供了字节缓冲区流</li>
+</ul>
+</li>
+<li><p>B.BufferedInputStream</p>
+<ul>
+<li>BufferedInputStream内置了一个缓冲区(数组)</li>
+<li>从BufferedInputStream中读取一个字节时</li>
+<li>BufferedInputStream会一次性从文件中读取8192个, 存在缓冲区中, 返回给程序一个</li>
+<li>程序再次读取时, 就不用找文件了, 直接从缓冲区中获取</li>
+<li>直到缓冲区中所有的都被使用过, 才重新从文件中读取8192个</li>
+</ul>
+</li>
+<li><p>C.BufferedOutputStream</p>
+<ul>
+<li>BufferedOutputStream也内置了一个缓冲区(数组)</li>
+<li>程序向流中写出字节时, 不会直接写到文件, 先写到缓冲区中</li>
+<li>直到缓冲区写满, BufferedOutputStream才会把缓冲区中的数据一次性写到文件里</li>
+</ul>
+</li>
+<li><p>D.拷贝的代码 </p>
+<pre><code>  FileInputStream fis = new FileInputStream(&quot;致青春.mp3&quot;);        //创建文件输入流对象,关联致青春.mp3
+  BufferedInputStream bis = new BufferedInputStream(fis);            //创建缓冲区对fis装饰
+  FileOutputStream fos = new FileOutputStream(&quot;copy.mp3&quot;);        //创建输出流对象,关联copy.mp3
+  BufferedOutputStream bos = new BufferedOutputStream(fos);        //创建缓冲区对fos装饰
+
+  int b;
+  while((b = bis.read()) != -1) &#123;        
+      bos.write(b);
+  &#125;
+
+  bis.close();                        //只关装饰后的对象即可
+  bos.close();</code></pre>
+</li>
+<li><p>E.小数组的读写和带Buffered的读取哪个更快?</p>
+<ul>
+<li>定义小数组如果是8192个字节大小和Buffered比较的话</li>
+<li>定义小数组会略胜一筹,因为读和写操作的是同一个数组</li>
+<li>而Buffered操作的是两个数组</li>
+</ul>
+</li>
+</ul>
+<h3 id="20-12-IO流-flush和close方法的区别"><a href="#20-12-IO流-flush和close方法的区别" class="headerlink" title="20.12_IO流(flush和close方法的区别)"></a>20.12_IO流(flush和close方法的区别)</h3><ul>
+<li>flush()方法<ul>
+<li>用来刷新缓冲区的,刷新后可以再次写出 </li>
+</ul>
+</li>
+<li>close()方法<ul>
+<li>用来关闭流释放资源的的,如果是带缓冲区的流对象的close()方法,不但会关闭流,还会再关闭流之前刷新缓冲区,关闭后不能再写出 <h3 id="20-13-IO流-字节流读写中文"><a href="#20-13-IO流-字节流读写中文" class="headerlink" title="20.13_IO流(字节流读写中文)"></a>20.13_IO流(字节流读写中文)</h3></li>
+</ul>
+</li>
+<li>字节流读取中文的问题<ul>
+<li>字节流在读中文的时候有可能会读到半个中文,造成乱码 </li>
+</ul>
+</li>
+<li>字节流写出中文的问题<ul>
+<li>字节流直接操作的字节,所以写出中文必须将字符串转换成字节数组 </li>
+<li>写出回车换行 write(“\r\n”.getBytes());</li>
+</ul>
+</li>
+</ul>
+<h3 id="20-14-IO流-流的标准处理异常代码1-6版本及其以前"><a href="#20-14-IO流-流的标准处理异常代码1-6版本及其以前" class="headerlink" title="20.14_IO流(流的标准处理异常代码1.6版本及其以前)"></a>20.14_IO流(流的标准处理异常代码1.6版本及其以前)</h3><ul>
+<li><p>try finally嵌套</p>
+<pre><code>  FileInputStream fis = null;
+  FileOutputStream fos = null;
+  try &#123;
+      fis = new FileInputStream(&quot;aaa.txt&quot;);
+      fos = new FileOutputStream(&quot;bbb.txt&quot;);
+      int b;
+      while((b = fis.read()) != -1) &#123;
+          fos.write(b);
+      &#125;
+  &#125; finally &#123;
+      try &#123;
+          if(fis != null)
+              fis.close();
+      &#125;finally &#123;
+          if(fos != null)
+              fos.close();
+      &#125;
+  &#125;</code></pre>
+</li>
+</ul>
+<h3 id="20-15-IO流-流的标准处理异常代码1-7版本"><a href="#20-15-IO流-流的标准处理异常代码1-7版本" class="headerlink" title="20.15_IO流(流的标准处理异常代码1.7版本)"></a>20.15_IO流(流的标准处理异常代码1.7版本)</h3><ul>
+<li><p>try close</p>
+<pre><code>  try(
+      FileInputStream fis = new FileInputStream(&quot;aaa.txt&quot;);
+      FileOutputStream fos = new FileOutputStream(&quot;bbb.txt&quot;);
+      MyClose mc = new MyClose();
+  )&#123;
+      int b;
+      while((b = fis.read()) != -1) &#123;
+          fos.write(b);
+      &#125;
+  &#125;</code></pre>
+</li>
+<li><p>原理</p>
+<ul>
+<li>在try()中创建的流对象必须实现了AutoCloseable这个接口,</li>
+<li>如果实现了,在try后面的{}(读写代码)执行后就会自动调用,流对象的close方法将流关掉 </li>
+</ul>
+</li>
+</ul>
+<h3 id="20-16-IO流-图片加密"><a href="#20-16-IO流-图片加密" class="headerlink" title="20.16_IO流(图片加密)"></a>20.16_IO流(图片加密)</h3><ul>
+<li><p>给图片加密</p>
+<pre><code>  BufferedInputStream bis = new BufferedInputStream(new FileInputStream(&quot;a.jpg&quot;));
+  BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(&quot;b.jpg&quot;));
+
+  int b;
+  while((b = bis.read()) != -1) &#123;
+      bos.write(b ^ 123);
+  &#125;
+
+  bis.close();
+  bos.close();</code></pre>
+</li>
+</ul>
+<h3 id="20-17-IO流-拷贝文件"><a href="#20-17-IO流-拷贝文件" class="headerlink" title="20.17_IO流(拷贝文件)"></a>20.17_IO流(拷贝文件)</h3><ul>
+<li><p>在控制台录入文件的路径,将文件拷贝到当前项目下</p>
+<pre><code>  Scanner sc = new Scanner(System.in);
+  System.out.println(&quot;请输入一个文件路径&quot;);
+  String line = sc.nextLine();                //将键盘录入的文件路径存储在line中
+  File file = new File(line);                    //封装成File对象
+  FileInputStream fis = new FileInputStream(file);
+  FileOutputStream fos = new FileOutputStream(file.getName());
+
+  int len;
+  byte[] arr = new byte[8192];                //定义缓冲区
+  while((len = fis.read(arr)) != -1) &#123;
+      fos.write(arr,0,len);
+  &#125;
+
+  fis.close();
+  fos.close();</code></pre>
+</li>
+</ul>
+<h3 id="20-18-IO流-录入数据拷贝到文件"><a href="#20-18-IO流-录入数据拷贝到文件" class="headerlink" title="20.18_IO流(录入数据拷贝到文件)"></a>20.18_IO流(录入数据拷贝到文件)</h3><ul>
+<li><p>将键盘录入的数据拷贝到当前项目下的text.txt文件中,键盘录入数据当遇到quit时就退出</p>
+<pre><code>  Scanner sc = new Scanner(System.in);
+  FileOutputStream fos = new FileOutputStream(&quot;text.txt&quot;);
+  System.out.println(&quot;请输入:&quot;);
+  while(true) &#123;
+      String line = sc.nextLine();
+      if(&quot;quit&quot;.equals(line))
+          break;
+      fos.write(line.getBytes());
+      fos.write(&quot;\r\n&quot;.getBytes());
+  &#125;
+
+  fos.close();</code></pre>
+</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/后端//" class="article-tag-list-link color3">后端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8020-IO%E5%AD%97%E8%8A%82%E6%B5%81/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java基础19-异常-IO流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2710,843 +3365,9 @@
 
 
   
-    <article id="post-Java基础11-Eclipse-Object" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8011-Eclipse-Object/" target="_blank">Java基础11-Eclipse-Object</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/06/16/Java%E5%9F%BA%E7%A1%8011-Eclipse-Object/" class="archive-article-date">
-        <time datetime="2020-06-15T23:47:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="11-01-Java开发工具-常见开发工具介绍-了解"><a href="#11-01-Java开发工具-常见开发工具介绍-了解" class="headerlink" title="11.01_Java开发工具(常见开发工具介绍)(了解)"></a>11.01_Java开发工具(常见开发工具介绍)(了解)</h3><ul>
-<li>A:操作系统自带的记事本软件</li>
-<li>B:高级记事本软件</li>
-<li>C:集成开发环境 IDE<ul>
-<li>(Integrated Development Environment)</li>
-</ul>
-</li>
-<li>D:Eclipse和MyEclipse的区别<ul>
-<li>a:Eclipse是一种可扩展的开放源代码的IDE。</li>
-<li>b:Eclipse的特点描述<ul>
-<li>免费</li>
-<li>纯Java语言编写</li>
-<li>免安装</li>
-<li>扩展性强</li>
-</ul>
-</li>
-<li>c:MyEclipse<ul>
-<li>在Eclipse基础上追加的功能性插件，对插件<strong>收费</strong></li>
-<li>在WEB开发中提供强大的系统架构平台</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>E:下载 <a target="_blank" rel="noopener" href="http://eclipse.org/">http://eclipse.org/</a><ul>
-<li>org是非盈利团体 </li>
-</ul>
-</li>
-<li>F:安装<ul>
-<li>绿色版    解压就可以使用(Eclipse)</li>
-<li>安装版   双击运行,一路next即可(JDK)</li>
-</ul>
-</li>
-<li>G:卸载<ul>
-<li>绿色版    直接删除文件夹即可</li>
-<li>安装版 专业卸载软件或者控制面板添加删除程序</li>
-</ul>
-</li>
-</ul>
-<h3 id="11-02-Java开发工具-Eclipse中HelloWorld案例以及汉化-了解"><a href="#11-02-Java开发工具-Eclipse中HelloWorld案例以及汉化-了解" class="headerlink" title="11.02_Java开发工具(Eclipse中HelloWorld案例以及汉化)(了解)"></a>11.02_Java开发工具(Eclipse中HelloWorld案例以及汉化)(了解)</h3><ul>
-<li>A:选择工作空间<ul>
-<li>工作空间  其实就是我们写的源代码所在的目录</li>
-</ul>
-</li>
-<li>B:用Eclipse来完成一个HelloWorld案例<ul>
-<li>代码以项目为基本单位</li>
-<li>创建项目</li>
-<li>创建包</li>
-<li>创建类</li>
-<li>编写代码</li>
-</ul>
-</li>
-<li>C:编译和运行</li>
-<li>D:Eclipse的汉化<ul>
-<li>从Eclipse3.5开始，安装目录下就多了一个dropins目录,只要将插件解压后放到到该目录即可。</li>
-<li>同理，这种方式卸载插件也是特别的方便，推荐这种方式</li>
-</ul>
-</li>
-<li>E:语法检查提示<ul>
-<li>红色波浪线<ul>
-<li>必须处理,否则编译通不过</li>
-</ul>
-</li>
-<li>黄色波浪线    <ul>
-<li>可以不搭理他 </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="11-03-Java开发工具-Eclipse的视窗和视图概述-了解"><a href="#11-03-Java开发工具-Eclipse的视窗和视图概述-了解" class="headerlink" title="11.03_Java开发工具(Eclipse的视窗和视图概述)(了解)"></a>11.03_Java开发工具(Eclipse的视窗和视图概述)(了解)</h3><ul>
-<li>A:视窗  每一个基本的窗体被称为视窗<ul>
-<li>PackageExplorer  显示项目结构，包，类，及资源</li>
-<li>Outline   显示类的结构，方便查找，识别，修改</li>
-<li>Console  程序运行的结果在该窗口显示</li>
-<li>Hierarchy 显示Java继承层次结构，选中类后F4</li>
-</ul>
-</li>
-<li>B:视图  是由某些视窗的组合而成的<ul>
-<li>Java视图</li>
-<li>Debug视图</li>
-</ul>
-</li>
-</ul>
-<h3 id="11-04-Java开发工具-Eclipse工作空间的基本配置-掌握"><a href="#11-04-Java开发工具-Eclipse工作空间的基本配置-掌握" class="headerlink" title="11.04_Java开发工具(Eclipse工作空间的基本配置)(掌握)"></a>11.04_Java开发工具(Eclipse工作空间的基本配置)(掌握)</h3><ul>
-<li>A:程序的编译和运行的环境配置(一般不改)<ul>
-<li>window – Preferences – Java</li>
-<li>编译环境：Compiler    默认选中的就是最高版本。</li>
-<li>运行环境：Installed JREs    默认会找你安装的那个JDK。建议配置了Java的环境变量。</li>
-<li>问题：<ul>
-<li>低编译，高运行。可以。</li>
-<li>高编译，低运行。不可以。</li>
-<li>建议，编译和运行的版本一致。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>B:如何去掉默认注释?<ul>
-<li>window – Preferences – Java – Code Style – Code Templates</li>
-<li>选择你不想要的内容，通过右边Edit编辑。</li>
-<li>注意：请只删除注释部分，不是注释部分的不要删除。</li>
-</ul>
-</li>
-<li>C:行号的显示和隐藏<ul>
-<li>显示：在代码区域的最左边的空白区域，右键 – Show Line Numbers即可。</li>
-<li>隐藏：把上面的动作再做一次。</li>
-</ul>
-</li>
-<li>D:字体大小及颜色<ul>
-<li>a:Java代码区域的字体大小和颜色：<ul>
-<li>window – Preferences – General – Appearance – Colors And Fonts –Java修改 – Java Edit Text Font</li>
-</ul>
-</li>
-<li>b:控制台<ul>
-<li>window – Preferences – General – Appearance – Colors And Fonts – Debug – Console font</li>
-</ul>
-</li>
-<li>c:其他文件<ul>
-<li>window – Preferences – General – Appearance – Colors And Fonts – Basic – Text Font</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>E:窗体给弄乱了，怎么办?<ul>
-<li>window – Reset Perspective</li>
-</ul>
-</li>
-<li>F:控制台找不到了，怎么办?<ul>
-<li>Window–Show View—Console</li>
-</ul>
-</li>
-<li>G:取消悬浮提示<ul>
-<li>window – Preferences – Java–Editor–Hovers。右边将Combined Hover勾去掉。</li>
-<li>这样代码的悬浮框就不会自动出现了。如果想看提示，将光标悬浮在代码上，按F2即可。</li>
-</ul>
-</li>
-</ul>
-<h3 id="11-05-Java开发工具-Eclipse中内容辅助键的使用-掌握"><a href="#11-05-Java开发工具-Eclipse中内容辅助键的使用-掌握" class="headerlink" title="11.05_Java开发工具(Eclipse中内容辅助键的使用)(掌握)"></a>11.05_Java开发工具(Eclipse中内容辅助键的使用)(掌握)</h3><ul>
-<li>A:Alt+/ 起提示作用</li>
-<li>B:main+alt+/,syso+alt+/,给出其他提示</li>
-<li>C:补充输出语句,选中需要输出的部分,alt+/选择最后一项即可</li>
-<li>C:定义自己的alt + /<ul>
-<li>windows–perference-Java-Editor-Templates–New</li>
-</ul>
-</li>
-</ul>
-<h3 id="11-06-Java开发工具-Eclipse中快捷键的使用-掌握"><a href="#11-06-Java开发工具-Eclipse中快捷键的使用-掌握" class="headerlink" title="11.06_Java开发工具(Eclipse中快捷键的使用)(掌握)"></a>11.06_Java开发工具(Eclipse中快捷键的使用)(掌握)</h3><ul>
-<li>A:新建 ctrl + n</li>
-<li>B:格式化  ctrl+shift+f</li>
-<li>C:导入包  ctrl+shift+o </li>
-<li>D:注释  ctrl+/,ctrl+shift+/,ctrl+shift+\</li>
-<li>E:代码上下移动 选中代码alt+上/下箭头</li>
-<li>F:查看源码  选中类名(F3或者Ctrl+鼠标点击)</li>
-<li>G:查找具体的类 ctrl + shift + t</li>
-<li>H:查找具体类的具体方法 ctrl + o</li>
-<li>I:给建议 ctrl+1,根据右边生成左边的数据类型,生成方法</li>
-<li>J:删除代码 ctrl + d</li>
-<li>K:抽取方法alt + shift + m </li>
-<li>L:改名alt + shift + r </li>
-<li></li>
-</ul>
-<h3 id="11-07-Java开发工具-Eclipse中如何提高开发效率-掌握"><a href="#11-07-Java开发工具-Eclipse中如何提高开发效率-掌握" class="headerlink" title="11.07_Java开发工具(Eclipse中如何提高开发效率)(掌握)"></a>11.07_Java开发工具(Eclipse中如何提高开发效率)(掌握)</h3><ul>
-<li>alt + shift + s</li>
-<li>A:自动生成构造方法</li>
-<li>B:自动生成get/set方法</li>
-</ul>
-<h3 id="11-08-Java开发工具-Eclipse中一个标准学生类及其测试-掌握"><a href="#11-08-Java开发工具-Eclipse中一个标准学生类及其测试-掌握" class="headerlink" title="11.08_Java开发工具(Eclipse中一个标准学生类及其测试)(掌握)"></a>11.08_Java开发工具(Eclipse中一个标准学生类及其测试)(掌握)</h3><ul>
-<li>A:案例演示<ul>
-<li>用Eclipse实现标准学生类及其测试</li>
-</ul>
-</li>
-</ul>
-<h3 id="11-09-Java开发工具-Eclipse中接口抽象类具体类代码体现-掌握"><a href="#11-09-Java开发工具-Eclipse中接口抽象类具体类代码体现-掌握" class="headerlink" title="11.09_Java开发工具(Eclipse中接口抽象类具体类代码体现)(掌握)"></a>11.09_Java开发工具(Eclipse中接口抽象类具体类代码体现)(掌握)</h3><ul>
-<li>A:案例演示<ul>
-<li>用Eclipse实现接口抽象类具体类代码</li>
-</ul>
-</li>
-</ul>
-<h3 id="11-10-Java开发工具-Eclipse中如何生成jar包并导入到项目中-了解"><a href="#11-10-Java开发工具-Eclipse中如何生成jar包并导入到项目中-了解" class="headerlink" title="11.10_Java开发工具(Eclipse中如何生成jar包并导入到项目中)(了解)"></a>11.10_Java开发工具(Eclipse中如何生成jar包并导入到项目中)(了解)</h3><ul>
-<li>A:<strong>jar是什么</strong>?<ul>
-<li>jar是多个class文件的压缩包。</li>
-</ul>
-</li>
-<li>B:<strong>jar有什么用</strong>?<ul>
-<li>用别人写好的东西    </li>
-</ul>
-</li>
-<li>C:打jar包<ul>
-<li>选中项目–右键–Export–Java–Jar–自己指定一个路径和一个名称–Finish</li>
-</ul>
-</li>
-<li>D:导入jar包<ul>
-<li>复制到项目路径下并添加至构建路径。</li>
-</ul>
-</li>
-</ul>
-<p>###11.11_Java开发工具(Eclipse中如何删除项目和导入项目)(掌握)</p>
-<ul>
-<li>A:删除项目<ul>
-<li>选中项目 – 右键 – 删除<ul>
-<li>从项目区域中删除</li>
-<li>从硬盘上删除</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>B:导入项目<ul>
-<li>在项目区域右键找到import</li>
-<li>找到General，展开，并找到</li>
-<li>Existing Projects into Workspace</li>
-<li>点击next,然后选择你要导入的项目</li>
-<li>注意：这里选择的是项目名称</li>
-</ul>
-</li>
-</ul>
-<h3 id="11-12-Java开发工具-Eclipse中断点调试的基本使用-了解"><a href="#11-12-Java开发工具-Eclipse中断点调试的基本使用-了解" class="headerlink" title="11.12_Java开发工具(Eclipse中断点调试的基本使用)(了解)"></a>11.12_Java开发工具(Eclipse中断点调试的基本使用)(了解)</h3><ul>
-<li><p>A:Debug的作用</p>
-<ul>
-<li>调试程序</li>
-<li>查看程序执行流程</li>
-</ul>
-</li>
-<li><p>B:如何查看程序执行流程        </p>
-<ul>
-<li><p>什么是断点：</p>
-<ul>
-<li>就是一个标记，从哪里开始。</li>
-</ul>
-</li>
-<li><p>如何设置断点：</p>
-<ul>
-<li>你想看哪里的程序，你就在那个有效程序的左边双击即可。</li>
-</ul>
-</li>
-<li><p>在哪里设置断点：</p>
-<ul>
-<li>哪里不会点哪里。</li>
-<li>目前：我们就在每个方法的第一条有效语句上都加。</li>
-</ul>
-</li>
-<li><p>如何运行设置断点后的程序：</p>
-<ul>
-<li>右键 – Debug as – Java Application</li>
-</ul>
-</li>
-<li><p>看哪些地方：</p>
-<ul>
-<li>Debug：断点测试的地方<ul>
-<li>在这个地方，记住F6，或者点击也可以。一次看一行的执行过程。</li>
-</ul>
-</li>
-<li>Variables：查看程序的变量变化</li>
-<li>ForDemo：被查看的源文件</li>
-<li>Console：控制台</li>
-</ul>
-</li>
-<li><p>如何去断点：</p>
-<ul>
-<li>a:再次双击即可</li>
-<li>b:找到Debug视图，Variables界面，找到Breakpoints，并点击，然后看到所有的断点，最后点击那个双叉。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="11-13-Java开发工具-Eclipse查看Java中参数传递问题-了解"><a href="#11-13-Java开发工具-Eclipse查看Java中参数传递问题-了解" class="headerlink" title="11.13_Java开发工具(Eclipse查看Java中参数传递问题)(了解)"></a>11.13_Java开发工具(Eclipse查看Java中参数传递问题)(了解)</h3><ul>
-<li>A:断点演示<ul>
-<li>断点查看Java中参数传递问题</li>
-</ul>
-</li>
-</ul>
-<h3 id="11-14-常见对象-API概述-了解"><a href="#11-14-常见对象-API概述-了解" class="headerlink" title="11.14_常见对象(API概述)(了解)"></a>11.14_常见对象(API概述)(了解)</h3><ul>
-<li>A:API(Application Programming Interface) <ul>
-<li>应用程序编程接口</li>
-</ul>
-</li>
-<li>B:Java API<ul>
-<li>就是Java提供给我们使用的类，这些类将底层的实现封装了起来，</li>
-<li>我们不需要关心这些类是如何实现的，只需要学习这些类如何使用。</li>
-</ul>
-</li>
-</ul>
-<h3 id="11-15-常见对象-Object类的概述-了解"><a href="#11-15-常见对象-Object类的概述-了解" class="headerlink" title="11.15_常见对象(Object类的概述)(了解)"></a>11.15_常见对象(Object类的概述)(了解)</h3><ul>
-<li>A:Object类概述<ul>
-<li>类层次结构的根类</li>
-<li>所有类都直接或者间接的继承自该类</li>
-</ul>
-</li>
-<li>B:构造方法<ul>
-<li>public Object()</li>
-<li>回想面向对象中为什么说：</li>
-<li>子类的构造方法默认访问的是父类的无参构造方法</li>
-</ul>
-</li>
-</ul>
-<h3 id="11-16-常见对象-Object类的hashCode-方法-了解"><a href="#11-16-常见对象-Object类的hashCode-方法-了解" class="headerlink" title="11.16_常见对象(Object类的hashCode()方法)(了解)"></a>11.16_常见对象(Object类的hashCode()方法)(了解)</h3><ul>
-<li>A:案例演示<ul>
-<li>public int hashCode()</li>
-<li>a:返回该对象的哈希码值。默认情况下，该方法会根据对象的地址来计算。</li>
-<li>b:不同对象的，hashCode()一般来说不会相同。但是，同一个对象的hashCode()值肯定相同。</li>
-</ul>
-</li>
-</ul>
-<h3 id="11-17-常见对象-Object类的getClass-方法-在反射的时候掌握"><a href="#11-17-常见对象-Object类的getClass-方法-在反射的时候掌握" class="headerlink" title="11.17_常见对象(Object类的getClass()方法)(在反射的时候掌握)"></a>11.17_常见对象(Object类的getClass()方法)(在反射的时候掌握)</h3><ul>
-<li>A:案例演示<ul>
-<li>public final Class getClass()</li>
-<li>a:返回此 Object 的运行时类。</li>
-<li>b:可以通过Class类中的一个方法，获取对象的真实类的全名称。    <ul>
-<li>public String getName()</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="11-18-常见对象-Object类的toString-方法-掌握"><a href="#11-18-常见对象-Object类的toString-方法-掌握" class="headerlink" title="11.18_常见对象(Object类的toString()方法)(掌握)"></a>11.18_常见对象(Object类的toString()方法)(掌握)</h3><ul>
-<li><p>A:案例演示</p>
-<ul>
-<li>public String toString()</li>
-<li>a:返回该对象的字符串表示。</li>
-</ul>
-</li>
-<li><pre><code>  public Stirng toString() &#123;
-      return name + &quot;,&quot; + age;
-  &#125;</code></pre>
-<ul>
-<li>b:它的值等于： <ul>
-<li>getClass().getName() + “@” + Integer.toHexString(hashCode()) </li>
-</ul>
-</li>
-<li>c:由于默认情况下的数据对我们来说没有意义，一般建议重写该方法。</li>
-</ul>
-</li>
-<li><p>B:最终版</p>
-<ul>
-<li>自动生成</li>
-</ul>
-</li>
-</ul>
-<h3 id="11-19-常见对象-Object类的equals-方法-掌握"><a href="#11-19-常见对象-Object类的equals-方法-掌握" class="headerlink" title="11.19_常见对象(Object类的equals()方法)(掌握)"></a>11.19_常见对象(Object类的equals()方法)(掌握)</h3><ul>
-<li>A:案例演示<ul>
-<li>a:指示其他某个对象是否与此对象“相等”。 </li>
-<li>b:默认情况下比较的是对象的引用是否相同。</li>
-<li>c:由于比较对象的引用没有意义，一般建议重写该方法。</li>
-</ul>
-</li>
-</ul>
-<h3 id="11-20-常见对象-号和equals方法的区别-掌握"><a href="#11-20-常见对象-号和equals方法的区别-掌握" class="headerlink" title="11.20_常见对象(==号和equals方法的区别)(掌握)"></a>11.20_常见对象(<strong>==号和equals方法的区别</strong>)(掌握)</h3><ul>
-<li>==是一个比较运算符号,既可以比较基本数据类型,也可以比较引用数据类型,基本数据类型比较的是值,引用数据类型比较的是地址值</li>
-<li>equals方法是一个方法,只能比较引用数据类型,所有的对象都会继承Object类中的方法,如果没有重写Object类中的equals方法,equals方法和==号比较引用数据类型无区别,重写后的equals方法比较的是对象中的属性</li>
-</ul>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/后端//" class="article-tag-list-link color3">后端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8011-Eclipse-Object/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java基础10-面向对象-匿名内部类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/06/15/Java%E5%9F%BA%E7%A1%8010-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB/" target="_blank">Java基础10-面向对象-匿名内部类</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/06/15/Java%E5%9F%BA%E7%A1%8010-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB/" class="archive-article-date">
-        <time datetime="2020-06-15T15:32:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><img src="https://mateshao.oss-cn-shenzhen.aliyuncs.com/Java%E5%9F%BA%E7%A1%80/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E5%A4%9A%E6%80%81%E4%B8%AD%E7%9A%84%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F.png"><br><img src="https://mateshao.oss-cn-shenzhen.aliyuncs.com/Java%E5%9F%BA%E7%A1%80/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E5%A4%9A%E6%80%81%E4%B8%AD%E7%9A%84%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95.png"></p>
-<h2 id="10-01-面向对象-package关键字的概述及作用"><a href="#10-01-面向对象-package关键字的概述及作用" class="headerlink" title="10.01_面向对象(package关键字的概述及作用)"></a>10.01_面向对象(package关键字的概述及作用)</h2><ul>
-<li><p>A:为什么要有包</p>
-<ul>
-<li>将字节码(.class)进行分类存放 </li>
-<li>包其实就是文件夹</li>
-</ul>
-</li>
-<li><p>B:包的概述</p>
-</li>
-<li><p>  举例：</p>
-<pre><code>  学生：增加，删除，修改，查询
-  老师：增加，删除，修改，查询
-  ...
-
-  方案1：按照功能分
-      com.stj.add
-          AddStudent
-          AddTeacher
-      com.stj.delete
-          DeleteStudent
-          DeleteTeacher
-      com.stj.update
-          UpdateStudent
-          UpdateTeacher
-      com.stj.find
-          FindStudent
-          FindTeacher
-
-  方案2：按照模块分
-      com.heima.teacher
-          AddTeacher
-          DeleteTeacher
-          UpdateTeacher
-          FindTeacher
-      com.stj.student
-          AddStudent
-          DeleteStudent
-          UpdateStudent
-          FindStudent</code></pre>
-<h3 id="10-02-面向对象-包的定义及注意事项-掌握"><a href="#10-02-面向对象-包的定义及注意事项-掌握" class="headerlink" title="10.02_面向对象(包的定义及注意事项)(掌握)"></a>10.02_面向对象(包的定义及注意事项)(掌握)</h3></li>
-<li><p>A:定义包的格式</p>
-<ul>
-<li>package 包名;</li>
-<li>多级包用.分开即可</li>
-</ul>
-</li>
-<li><p>B:定义包的注意事项</p>
-<ul>
-<li>A:package语句必须是程序的第一条可执行的代码</li>
-<li>B:package语句在一个java文件中只能有一个</li>
-<li>C:如果没有package，默认表示无包名</li>
-</ul>
-</li>
-<li><p>C:案例演示</p>
-<ul>
-<li>包的定义及注意事项</li>
-</ul>
-</li>
-</ul>
-<h3 id="10-03-面向对象-带包的类编译和运行-掌握"><a href="#10-03-面向对象-带包的类编译和运行-掌握" class="headerlink" title="10.03_面向对象(带包的类编译和运行)(掌握)"></a>10.03_面向对象(带包的类编译和运行)(掌握)</h3><ul>
-<li>A:如何编译运行带包的类<ul>
-<li>a:javac编译的时候带上-d即可<ul>
-<li>javac -d . HelloWorld.java</li>
-</ul>
-</li>
-<li>b:通过java命令执行。<ul>
-<li>java 包名.HellWord<h3 id="10-04-面向对象-不同包下类之间的访问-掌握"><a href="#10-04-面向对象-不同包下类之间的访问-掌握" class="headerlink" title="10.04_面向对象(不同包下类之间的访问)(掌握)"></a>10.04_面向对象(不同包下类之间的访问)(掌握)</h3></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>A:案例演示<ul>
-<li>不同包下类之间的访问</li>
-</ul>
-</li>
-</ul>
-<h3 id="10-05-面向对象-import关键字的概述和使用-掌握"><a href="#10-05-面向对象-import关键字的概述和使用-掌握" class="headerlink" title="10.05_面向对象(import关键字的概述和使用)(掌握)"></a>10.05_面向对象(import关键字的概述和使用)(掌握)</h3><ul>
-<li>A:案例演示<ul>
-<li>为什么要有import<ul>
-<li>其实就是让有包的类对调用者可见,不用写全类名了 </li>
-</ul>
-</li>
-</ul>
-</li>
-<li>B:导包格式<ul>
-<li>import 包名;</li>
-<li>注意：</li>
-<li>这种方式导入是到类的名称。</li>
-<li>虽然可以最后写*，但是不建议。</li>
-</ul>
-</li>
-<li>C:package,import,class有没有顺序关系(面试题)</li>
-</ul>
-<h3 id="10-06-面向对象-四种权限修饰符的测试-掌握"><a href="#10-06-面向对象-四种权限修饰符的测试-掌握" class="headerlink" title="10.06_面向对象(四种权限修饰符的测试)(掌握)"></a>10.06_面向对象(四种权限修饰符的测试)(掌握)</h3><ul>
-<li>A:案例演示<ul>
-<li>四种权限修饰符</li>
-</ul>
-</li>
-<li>B:结论</li>
-<li><pre><code>              本类     同一个包下(子类和无关类)    不同包下(子类)    不同包下(无关类)
-  private     Y        
-  默认            Y        Y
-  protected    Y        Y                            Y
-  public        Y        Y                            Y                Y</code></pre>
-</li>
-</ul>
-<h3 id="10-07-面向对象-类及其组成所使用的常见修饰符-掌握"><a href="#10-07-面向对象-类及其组成所使用的常见修饰符-掌握" class="headerlink" title="10.07_面向对象(类及其组成所使用的常见修饰符)(掌握)"></a>10.07_面向对象(类及其组成所使用的常见修饰符)(掌握)</h3><ul>
-<li><p>A:修饰符：</p>
-<ul>
-<li>权限修饰符：private，默认的，protected，public</li>
-<li>状态修饰符：static，final</li>
-<li>抽象修饰符：abstract</li>
-</ul>
-</li>
-<li><p>B:类：</p>
-<ul>
-<li><p>权限修饰符：默认修饰符，public</p>
-</li>
-<li><p>状态修饰符：final</p>
-</li>
-<li><p>抽象修饰符：abstract</p>
-</li>
-<li><p>用的最多的就是：public</p>
-</li>
-</ul>
-</li>
-<li><p>C:成员变量：</p>
-<ul>
-<li><p>权限修饰符：private，默认的，protected，public</p>
-</li>
-<li><p>状态修饰符：static，final</p>
-</li>
-<li><p>用的最多的就是：private</p>
-</li>
-</ul>
-</li>
-<li><p>D:构造方法：</p>
-<ul>
-<li><p>权限修饰符：private，默认的，protected，public</p>
-</li>
-<li><p>用的最多的就是：public</p>
-</li>
-</ul>
-</li>
-<li><p>E:成员方法：</p>
-<ul>
-<li><p>权限修饰符：private，默认的，protected，public</p>
-</li>
-<li><p>状态修饰符：static，final</p>
-</li>
-<li><p>抽象修饰符：abstract</p>
-</li>
-<li><p>用的最多的就是：public</p>
-</li>
-</ul>
-</li>
-<li><p>F:除此以外的组合规则：</p>
-<ul>
-<li>成员变量：public static final 接口</li>
-<li>成员方法：<ul>
-<li>public static </li>
-<li>public abstract</li>
-<li>public final</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="10-08-面向对象-内部类概述和访问特点-了解"><a href="#10-08-面向对象-内部类概述和访问特点-了解" class="headerlink" title="10.08_面向对象(内部类概述和访问特点)(了解)"></a>10.08_面向对象(内部类概述和访问特点)(了解)</h3><ul>
-<li>A:内部类概述</li>
-<li>B:内部类访问特点<ul>
-<li>a:内部类可以直接访问外部类的成员，包括私有。</li>
-<li>b:外部类要访问内部类的成员，必须创建对象。</li>
-<li>外部类名.内部类名 对象名 = 外部类对象.内部类对象;</li>
-</ul>
-</li>
-<li>C:案例演示<ul>
-<li>内部类极其访问特点</li>
-</ul>
-</li>
-</ul>
-<h3 id="10-09-面向对象-成员内部类私有使用-了解"><a href="#10-09-面向对象-成员内部类私有使用-了解" class="headerlink" title="10.09_面向对象(成员内部类私有使用)(了解)"></a>10.09_面向对象(成员内部类私有使用)(了解)</h3><ul>
-<li>private</li>
-</ul>
-<h3 id="10-10-面向对象-静态成员内部类-了解"><a href="#10-10-面向对象-静态成员内部类-了解" class="headerlink" title="10.10_面向对象(静态成员内部类)(了解)"></a>10.10_面向对象(静态成员内部类)(了解)</h3><ul>
-<li>static</li>
-<li>B:成员内部类被静态修饰后的访问方式是:<ul>
-<li>外部类名.内部类名 对象名 = 外部类名.内部类对象;</li>
-</ul>
-</li>
-</ul>
-<h3 id="10-11-面向对象-成员内部类的面试题-掌握"><a href="#10-11-面向对象-成员内部类的面试题-掌握" class="headerlink" title="10.11_面向对象(成员内部类的面试题)(掌握)"></a>10.11_面向对象(成员内部类的面试题)(掌握)</h3><ul>
-<li><p>A:面试题</p>
-</li>
-<li><pre><code>  要求：使用已知的变量，在控制台输出30，20，10。
-
-  class Outer &#123;
-      public int num = 10;
-      class Inner &#123;
-          public int num = 20;
-          public void show() &#123;
-              int num = 30;
-              System.out.println(?);
-              System.out.println(??);
-              System.out.println(???);
-          &#125;
-      &#125;
-  &#125;
-  class InnerClassTest &#123;
-      public static void main(String[] args) &#123;
-          Outer.Inner oi = new Outer().new Inner();
-          oi.show();
-      &#125;    
-  &#125;</code></pre>
-</li>
-</ul>
-<h3 id="10-12-面向对象-局部内部类访问局部变量的问题-掌握"><a href="#10-12-面向对象-局部内部类访问局部变量的问题-掌握" class="headerlink" title="10.12_面向对象(局部内部类访问局部变量的问题)(掌握)"></a>10.12_面向对象(局部内部类访问局部变量的问题)(掌握)</h3><ul>
-<li><p>A:案例演示</p>
-<ul>
-<li><p>局部内部类访问局部变量必须用final修饰</p>
-</li>
-<li><p>局部内部类在访问他所在方法中的局部变量必须用final修饰,为什么?<br>  因为当调用这个方法时,局部变量如果没有用final修饰,他的生命周期和方法的生命周期是一样的,<br>  当方法弹栈,这个局部变量也会消失,那么如果局部内部类对象还没有马上消失想用这个局部变量,<br>  就没有了,如果用final修饰会在类加载的时候进入常量池,即使方法弹栈,常量池的常量还在,<br>  也可以继续使用</p>
-<p>  但是jdk1.8取消了这个事情,所以我认为这是个bug,虽然取消,如果在书写代码时候,没有手动添加,系统底层也会默给你final</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="10-13-面向对象-匿名内部类的格式和理解"><a href="#10-13-面向对象-匿名内部类的格式和理解" class="headerlink" title="10.13_面向对象(匿名内部类的格式和理解)"></a>10.13_面向对象(匿名内部类的格式和理解)</h3><ul>
-<li>A:匿名内部类<ul>
-<li>就是内部类的简化写法。</li>
-</ul>
-</li>
-<li>B:前提：存在一个类或者接口<ul>
-<li>这里的类可以是具体类也可以是抽象类。</li>
-</ul>
-</li>
-<li>C:格式：</li>
-<li><pre><code>  new 类名或者接口名()&#123;
-      重写方法;
-  &#125;</code></pre>
-</li>
-<li>D:本质是什么呢?<ul>
-<li>是一个继承了该类或者实现了该接口的子类匿名对象。</li>
-</ul>
-</li>
-<li>E:案例演示<ul>
-<li>按照要求来一个匿名内部类</li>
-</ul>
-</li>
-</ul>
-<h3 id="10-14-面向对象-匿名内部类重写多个方法调用"><a href="#10-14-面向对象-匿名内部类重写多个方法调用" class="headerlink" title="10.14_面向对象(匿名内部类重写多个方法调用)"></a>10.14_面向对象(匿名内部类重写多个方法调用)</h3><ul>
-<li>A:案例演示<ul>
-<li>匿名内部类的方法调用</li>
-</ul>
-</li>
-</ul>
-<h3 id="10-15-面向对象-匿名内部类在开发中的应用"><a href="#10-15-面向对象-匿名内部类在开发中的应用" class="headerlink" title="10.15_面向对象(匿名内部类在开发中的应用)"></a>10.15_面向对象(匿名内部类在开发中的应用)</h3><ul>
-<li><p>A:代码如下</p>
-</li>
-<li><pre><code>  //这里写抽象类，接口都行
-  abstract class Person &#123;
-      public abstract void show();
-  &#125;
-
-  class PersonDemo &#123;
-      public void method(Person p) &#123;
-          p.show();
-      &#125;
-  &#125;
-
-  class PersonTest &#123;
-      public static void main(String[] args) &#123;
-          //如何调用PersonDemo中的method方法呢?
-          PersonDemo pd = new PersonDemo ();
-
-      &#125;
-  &#125;</code></pre>
-</li>
-</ul>
-<h3 id="10-16-面向对象-匿名内部类的面试题"><a href="#10-16-面向对象-匿名内部类的面试题" class="headerlink" title="10.16_面向对象(匿名内部类的面试题)"></a>10.16_面向对象(匿名内部类的面试题)</h3><ul>
-<li>A:面试题</li>
-<li><pre><code>  按照要求，补齐代码
-  interface Inter &#123; void show(); &#125;
-  class Outer &#123; //补齐代码 &#125;
-  class OuterDemo &#123;
-      public static void main(String[] args) &#123;
-            Outer.method().show();
-        &#125;
-  &#125;
-  要求在控制台输出”HelloWorld”</code></pre>
-</li>
-</ul>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/后端//" class="article-tag-list-link color3">后端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/06/15/Java%E5%9F%BA%E7%A1%8010-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/">Next &amp;raquo;</a>
     </nav>
   
 

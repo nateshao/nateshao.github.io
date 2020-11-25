@@ -219,6 +219,782 @@
 
 
   
+    <article id="post-Jquery" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/06/18/Jquery/" target="_blank">Jquery</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/06/18/Jquery/" class="archive-article-date">
+        <time datetime="2020-06-18T01:45:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-18</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h4 id="使用JQuery完成页面定时弹出广告"><a href="#使用JQuery完成页面定时弹出广告" class="headerlink" title="使用JQuery完成页面定时弹出广告"></a>使用JQuery完成页面定时弹出广告</h4><p>定时器: </p>
+<p>​    setInterval     clearInterval</p>
+<p>​    setTimeout    clearTimeout</p>
+<p>显示:  img.style.display  = “block”</p>
+<p>隐藏:  img.style.display  = “none”</p>
+<p>img 对象</p>
+<p>​    style属性:  style对象</p>
+<h4 id="使用JQuery完成表格的隔行换色"><a href="#使用JQuery完成表格的隔行换色" class="headerlink" title="使用JQuery完成表格的隔行换色"></a>使用JQuery完成表格的隔行换色</h4><p>获得所有的行</p>
+<p>​    table.rows[]</p>
+<p>修改行的颜色</p>
+<p>​    row.bgColor =”red”</p>
+<p>​    row.style.backgroundColor = “black”</p>
+<p>​    row.style.background = “red”</p>
+<p>​    “background-color:red”</p>
+<p>​    “background:red”</p>
+<h4 id="使用JQuery完成复选框的全选效果"><a href="#使用JQuery完成复选框的全选效果" class="headerlink" title="使用JQuery完成复选框的全选效果"></a>使用JQuery完成复选框的全选效果</h4><p>checked属性</p>
+<p>如何获取所有复选框:</p>
+<p>​    document.getElementsByName   get Elements  By Name  数据库里面</p>
+<h4 id="使用JQuery完成省市联动效果"><a href="#使用JQuery完成省市联动效果" class="headerlink" title="使用JQuery完成省市联动效果"></a>使用JQuery完成省市联动效果</h4><p>​    JS中的数组:  [“城市”]</p>
+<p>​    new Array()</p>
+<p>​    DOM树操作:</p>
+<p>​        创建节点:  document.createElement</p>
+<p>​        创建文本节点: document.createTextNode</p>
+<p>​        添加节点:  appendChild</p>
+<h4 id="使用JQuery完成下列列表左右选择"><a href="#使用JQuery完成下列列表左右选择" class="headerlink" title="使用JQuery完成下列列表左右选择"></a>使用JQuery完成下列列表左右选择</h4><p>​    select下拉列表</p>
+<p>​    multiple 允许多选</p>
+<p>​    ondblclick : 双击事件</p>
+<p>​    for循环遍历,一边遍历一边移除出现的问题</p>
+<h4 id="使用JQuery完成表单的校验-扩展"><a href="#使用JQuery完成表单的校验-扩展" class="headerlink" title="使用JQuery完成表单的校验(扩展)"></a>使用JQuery完成表单的校验(扩展)</h4><p>​    事件:</p>
+<p>​    获得焦点事件: onfocus</p>
+<p>​    失去焦点事件: onblur</p>
+<p>​    按键抬起事件: onkeyup</p>
+<p>​    鼠标移入:  onmouseenter</p>
+<p>​    鼠标移出: onmouseout</p>
+<p>​    JS引入外部文件 : script </p>
+<h3 id="今日目标："><a href="#今日目标：" class="headerlink" title="今日目标："></a>今日目标：</h3><h4 id="掌握JQuery的基本使用"><a href="#掌握JQuery的基本使用" class="headerlink" title="掌握JQuery的基本使用"></a>掌握JQuery的基本使用</h4><h4 id="掌握JQuery的基本选择器-层次选择器"><a href="#掌握JQuery的基本选择器-层次选择器" class="headerlink" title="掌握JQuery的基本选择器,层次选择器"></a>掌握JQuery的基本选择器,层次选择器</h4><h4 id="会使用JQuery完成DOM的基本操作"><a href="#会使用JQuery完成DOM的基本操作" class="headerlink" title="会使用JQuery完成DOM的基本操作"></a>会使用JQuery完成DOM的基本操作</h4><h3 id="1-使用JQuery完成页面定时弹出广告"><a href="#1-使用JQuery完成页面定时弹出广告" class="headerlink" title="1. 使用JQuery完成页面定时弹出广告"></a>1. 使用JQuery完成页面定时弹出广告</h3><h4 id="1-1-需求分析："><a href="#1-1-需求分析：" class="headerlink" title="1.1 需求分析："></a>1.1 需求分析：</h4><p>当用户打开界面，3秒钟之后弹出广告，这个广告显示5秒钟，隐藏广告</p>
+<h4 id="1-2-技术分析"><a href="#1-2-技术分析" class="headerlink" title="1.2 技术分析"></a>1.2 技术分析</h4><p>定时器: setTimeout </p>
+<p>显示和隐藏:  style.display = “block/none”</p>
+<p>什么JQuery:</p>
+<p>jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（<em>或JavaScript框架</em>）。jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。</p>
+<p>jQuery的核心特性可以总结为：具有独特的链式语法和短小清晰的多功能接口；具有高效灵活的css选择器，并且可对CSS选择器进行扩展；拥有便捷的插件扩展机制和丰富的插件。jQuery兼容各种主流浏览器，如IE 6.0+、FF 1.5+、Safari 2.0+、Opera 9.0+等</p>
+<p>JQuery的作用:</p>
+<p>​    1. <strong>写更少的代码,做更多的事情: write Less ,Do more</strong></p>
+<pre><code>2. 将我们页面的JS代码和HTML页面代码进行分离</code></pre>
+<p>为什么学习JQuery:</p>
+<p>​    提高我们的工作效率</p>
+<p>JQ的入门</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">			<span class="comment">//js文档加载完成的事件</span></span></span><br><span class="line"><span class="javascript">			<span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				alert(<span class="string">&quot;window.onload   111&quot;</span>);</span></span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line"><span class="javascript">			<span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				alert(<span class="string">&quot;window.onload   222&quot;</span>);</span></span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line"><span class="javascript">			<span class="comment">/*文档加载完成的事件*/</span></span></span><br><span class="line"><span class="javascript">			jQuery(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">			 	alert(<span class="string">&quot;jQuery(document).ready(function()&quot;</span>);</span></span><br><span class="line">			&#125;);</span><br><span class="line">			/*</span><br><span class="line">			 	jQuery  简写成 $</span><br><span class="line">			 */</span><br><span class="line"><span class="javascript">			$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">			 	alert(<span class="string">&quot;$(document).ready(function()&quot;</span>);</span></span><br><span class="line">			&#125;);</span><br><span class="line">			</span><br><span class="line">			/*</span><br><span class="line">				最简单的写法 </span><br><span class="line">			*/</span><br><span class="line"><span class="javascript">			$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				alert(<span class="string">&quot;$(function()&#123;&quot;</span>);</span></span><br><span class="line">			&#125;);</span><br><span class="line">			</span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>【JQ中根据ID查找元素】</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">全都是根据选择器去找的</span><br><span class="line">#ID&#123;&#125;</span><br><span class="line">.类名&#123;&#125;</span><br><span class="line">$(&quot;#ID的名称&quot;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>【JQ和JS之间的转换】</p>
+<ul>
+<li>JQ对象,只能调用JQ的属性和方法</li>
+<li>JS对象 只能调用JS的属性和方法</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function changeJS()&#123;</span><br><span class="line">				var div = document.getElementById(&quot;div1&quot;);</span><br><span class="line">//				div.innerHTML = &quot;JS成功修改了内容&quot;</span><br><span class="line">				//将JS对象转成JQ对象</span><br><span class="line">				$(div).html(&quot;转成JQ对象来修改内容&quot;)</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			$(function()&#123;</span><br><span class="line">				//给按钮绑定事件</span><br><span class="line">				$(&quot;#btn2&quot;).click(function()&#123;</span><br><span class="line">					//找到div1</span><br><span class="line">//					$(&quot;#div1&quot;).html(&quot;JQ方式成功修改了内容&quot;);</span><br><span class="line">					//将JQ对象转成JS对象来调用</span><br><span class="line">					var $div = $(&quot;#div1&quot;);</span><br><span class="line">//					var jsDiv = $div.get(0);</span><br><span class="line">					var jsDiv = $div[0];</span><br><span class="line">					jsDiv.innerHTML=&quot;jq转成JS对象成功&quot;;</span><br><span class="line">				&#125;);</span><br><span class="line">			&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>JQ的开发步骤: (将我们页面的JS代码和HTML页面代码进行分离)</p>
+<pre><code>1. 导入JQ相关的文件
+2.  文档加载完成事件: $(function)  : 页面初始化的操作: 绑定事件, 启动页面定时器
+3. 确定相关操作的事件
+4. 事件触发函数
+5. 函数里面再去操作相关的元素</code></pre>
+<p>显示和隐藏  img.style.display</p>
+<p>【JQ中的动画效果】</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">show()</span><br><span class="line">hide()</span><br><span class="line">slideUp</span><br><span class="line">slideDown</span><br><span class="line">fadeIn</span><br><span class="line">fadeOut</span><br><span class="line">animate : 自定义动画</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-3-步骤分析："><a href="#1-3-步骤分析：" class="headerlink" title="1.3 步骤分析："></a>1.3 步骤分析：</h4><ol>
+<li>导入JQ的文件</li>
+<li>编写JQ的文档加载事件</li>
+<li>启动定时器 setTimeout(“”,3000);</li>
+<li>编写显示广告的函数</li>
+<li>在显示广告里面再启动一个定时器</li>
+<li>编写隐藏广告的函数</li>
+</ol>
+<h4 id="1-4-代码实现"><a href="#1-4-代码实现" class="headerlink" title="1.4 代码实现"></a>1.4 代码实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">			<span class="comment">//显示广告</span></span></span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">showAd</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				$(<span class="string">&quot;#img1&quot;</span>).slideDown(<span class="number">2000</span>);</span></span><br><span class="line"><span class="javascript">				<span class="built_in">setTimeout</span>(<span class="string">&quot;hideAd()&quot;</span>,<span class="number">3000</span>);</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="javascript">			<span class="comment">//隐藏广告</span></span></span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">hideAd</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				$(<span class="string">&quot;#img1&quot;</span>).slideUp(<span class="number">2000</span>);</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="javascript">			$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="built_in">setTimeout</span>(<span class="string">&quot;showAd()&quot;</span>,<span class="number">3000</span>);</span></span><br><span class="line">			&#125;);</span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="JQuery中的选择器"><a href="#JQuery中的选择器" class="headerlink" title="JQuery中的选择器"></a>JQuery中的选择器</h3><p>让我们能够更加精确找到我们要操作的元素    </p>
+<h5 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h5><ul>
+<li>ID选择器 :     #ID的名称</li>
+<li>类选择器:     以 . 开头  .类名</li>
+<li>元素选择器:    标签的名称</li>
+<li>通配符选择器:   * </li>
+<li>选择器,选择器:  选择器1,选择器2</li>
+</ul>
+<h5 id="基本选择器的案例"><a href="#基本选择器的案例" class="headerlink" title="基本选择器的案例"></a>基本选择器的案例</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">		- ID选择器 :     #ID的名称</span><br><span class="line">		- 类选择器:     以 . 开头  .类名</span><br><span class="line">		- 元素选择器:    标签的名称</span><br><span class="line">		- 通配符选择器:   * </span><br><span class="line">		- 选择器,选择器:  选择器<span class="number">1</span>,选择器<span class="number">2</span></span><br><span class="line">	--&gt;</span><br><span class="line">	&lt;script&gt;</span><br><span class="line">		<span class="comment">//文档加载事件,页面初始化的操作</span></span><br><span class="line">		$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="comment">//初始化操作: 给按钮绑定事件</span></span><br><span class="line">			$(<span class="string">&quot;#btn1&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">				$(<span class="string">&quot;#two&quot;</span>).css(<span class="string">&quot;background-color&quot;</span>,<span class="string">&quot;palegreen&quot;</span>);					</span><br><span class="line">			&#125;);</span><br><span class="line">			</span><br><span class="line">			<span class="comment">//找出mini类的所有元素</span></span><br><span class="line">			$(<span class="string">&quot;#btn2&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">				$(<span class="string">&quot;.mini&quot;</span>).css(<span class="string">&quot;background-color&quot;</span>,<span class="string">&quot;palegreen&quot;</span>);					</span><br><span class="line">			&#125;);</span><br><span class="line">			$(<span class="string">&quot;#btn3&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">				$(<span class="string">&quot;div&quot;</span>).css(<span class="string">&quot;background-color&quot;</span>,<span class="string">&quot;palegreen&quot;</span>);					</span><br><span class="line">			&#125;);</span><br><span class="line">			$(<span class="string">&quot;#btn4&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">				$(<span class="string">&quot;*&quot;</span>).css(<span class="string">&quot;background-color&quot;</span>,<span class="string">&quot;palegreen&quot;</span>);</span><br><span class="line">				</span><br><span class="line">			&#125;);</span><br><span class="line">			<span class="comment">/*选择器分组*/</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment">//找出mini类 和 span元素</span></span><br><span class="line">			$(<span class="string">&quot;#btn5&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">				$(<span class="string">&quot;.mini,span&quot;</span>).css(<span class="string">&quot;background-color&quot;</span>,<span class="string">&quot;palegreen&quot;</span>);</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;);</span><br><span class="line">	&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="JQ中的层级选择器"><a href="#JQ中的层级选择器" class="headerlink" title="JQ中的层级选择器"></a>JQ中的层级选择器</h5><ul>
+<li>子元素选择器:   选择器1 &gt; 选择器2</li>
+<li>后代选择器:  选择器1 儿孙</li>
+<li>相邻兄弟选择器 :  选择器1 + 选择器2 : 找出紧挨着的一个弟弟</li>
+<li>找出所有弟弟:  选择器1~ 选择器2   : 找出所有的弟弟</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">			<span class="comment">//文档加载事件,页面初始化的操作</span></span></span><br><span class="line"><span class="javascript">			$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//初始化操作: 给按钮绑定事件</span></span></span><br><span class="line"><span class="javascript">				<span class="comment">//找出body下面的子div   </span></span></span><br><span class="line"><span class="javascript">				$(<span class="string">&quot;#btn1&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">					$(<span class="string">&quot;body &gt; div&quot;</span>).css(<span class="string">&quot;background-color&quot;</span>,<span class="string">&quot;palegreen&quot;</span>);					</span></span><br><span class="line">				&#125;);</span><br><span class="line"><span class="javascript">				<span class="comment">//找出body下面的所有div</span></span></span><br><span class="line"><span class="javascript">				$(<span class="string">&quot;#btn2&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">					$(<span class="string">&quot;body div&quot;</span>).css(<span class="string">&quot;background-color&quot;</span>,<span class="string">&quot;palegreen&quot;</span>);					</span></span><br><span class="line">				&#125;);</span><br><span class="line"><span class="javascript">				$(<span class="string">&quot;#btn3&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">					$(<span class="string">&quot;#one+div&quot;</span>).css(<span class="string">&quot;background-color&quot;</span>,<span class="string">&quot;palegreen&quot;</span>);					</span></span><br><span class="line">				&#125;);</span><br><span class="line"><span class="javascript">				$(<span class="string">&quot;#btn4&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">					$(<span class="string">&quot;#two~div&quot;</span>).css(<span class="string">&quot;background-color&quot;</span>,<span class="string">&quot;palegreen&quot;</span>);					</span></span><br><span class="line">				&#125;);</span><br><span class="line">				</span><br><span class="line">			&#125;);</span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="JQ中的基本过滤器"><a href="#JQ中的基本过滤器" class="headerlink" title="JQ中的基本过滤器"></a>JQ中的基本过滤器</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">	$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">		/<span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span></span></span><br><span class="line"><span class="javascript">	<span class="comment">//文档加载事件,页面初始化的操作</span></span></span><br><span class="line"><span class="javascript">	$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line">		</span><br><span class="line"><span class="javascript">		<span class="comment">//初始化操作: 给按钮绑定事件</span></span></span><br><span class="line"><span class="javascript">		<span class="comment">//过滤出所有div中第一个元素</span></span></span><br><span class="line"><span class="javascript">		$(<span class="string">&quot;#btn1&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">			$(<span class="string">&quot;div:first&quot;</span>).css(<span class="string">&quot;background-color&quot;</span>,<span class="string">&quot;palegreen&quot;</span>);					</span></span><br><span class="line">		&#125;);</span><br><span class="line">		</span><br><span class="line"><span class="javascript">		<span class="comment">//过滤出所有div中偶数位的div</span></span></span><br><span class="line"><span class="javascript">		$(<span class="string">&quot;#btn2&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">			$(<span class="string">&quot;div:even&quot;</span>).css(<span class="string">&quot;background-color&quot;</span>,<span class="string">&quot;palegreen&quot;</span>);					</span></span><br><span class="line">		&#125;);</span><br><span class="line"><span class="javascript">		$(<span class="string">&quot;#btn3&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">			$(<span class="string">&quot;div:odd&quot;</span>).css(<span class="string">&quot;background-color&quot;</span>,<span class="string">&quot;palegreen&quot;</span>);					</span></span><br><span class="line">		&#125;);</span><br><span class="line"><span class="javascript">		$(<span class="string">&quot;#btn4&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">			$(<span class="string">&quot;div:gt(2)&quot;</span>).css(<span class="string">&quot;background-color&quot;</span>,<span class="string">&quot;palegreen&quot;</span>);					</span></span><br><span class="line">		&#125;);</span><br><span class="line">	</span><br><span class="line">	&#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="JQ中的属性选择器"><a href="#JQ中的属性选择器" class="headerlink" title="JQ中的属性选择器"></a>JQ中的属性选择器</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">		//找到有name属性的input</span><br><span class="line">		$(&quot;#btn1&quot;).click(function()&#123;</span><br><span class="line">			$(&quot;input[name]&quot;).attr(&quot;checked&quot;,true);</span><br><span class="line">		&#125;);</span><br><span class="line">		$(&quot;#btn2&quot;).click(function()&#123;</span><br><span class="line">			$(&quot;input[name=&#x27;accept&#x27;]&quot;).attr(&quot;checked&quot;,true);</span><br><span class="line">		&#125;);</span><br><span class="line">		$(&quot;#btn3&quot;).click(function()&#123;</span><br><span class="line">			$(&quot;input[name=&#x27;newsletter&#x27;][value=&#x27;Hot Fuzz&#x27;]&quot;).attr(&quot;checked&quot;,true);</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="JQ中的表单过滤器"><a href="#JQ中的表单过滤器" class="headerlink" title="JQ中的表单过滤器"></a>JQ中的表单过滤器</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="comment">//1.文档加载事件	</span></span></span><br><span class="line"><span class="javascript">  $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    $(<span class="string">&quot;:text&quot;</span>).css(<span class="string">&quot;background-color&quot;</span>,<span class="string">&quot;pink&quot;</span>);</span></span><br><span class="line">  &#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>上午的内容回顾:</p>
+<p>什么是JQ:  write less , do more: 写更少的代码,做更多的事</p>
+<p>​    javascript函数库</p>
+<p>1.11版本</p>
+<p>定时器:</p>
+<p>动画效果:</p>
+<p>​    show : 显示</p>
+<p>​    hide : 隐藏</p>
+<p>​    slideDown: </p>
+<p>​    slideUp: 向上滑动</p>
+<p>​    fadeIn</p>
+<p>​    fadeOut</p>
+<p>JQ选择器:</p>
+<p>基本选择器:</p>
+<p>​    ID选择器:  #ID的名字</p>
+<p>​    类选择器:  .类名</p>
+<p>​    元素选择器:   标签名称</p>
+<p>​    通配符选择器:  *</p>
+<p>​    选择器分组:  选择器1,选择器2</p>
+<p>层级选择器:</p>
+<p>​    后代选择器:  选择器1 儿孙</p>
+<p>​    子元素选择器: 选择器1 &gt; 儿子</p>
+<p>​    相邻兄弟选择器:  选择器1 + 选择器2  找出紧挨着它的弟弟</p>
+<p>​    所有弟弟选择器:  选择器1~选择器2  找出所有弟弟</p>
+<p>基本过滤器:</p>
+<p>​    选择器:first  : 找出的是第一个</p>
+<p>​    :last  </p>
+<p>​    :even   找出索引为偶数</p>
+<p>​    :odd    找出奇数索引</p>
+<p>​    :gt(index) :  大于索引</p>
+<p>​    :lt(index)   小于</p>
+<p>​    :eq(index)  等于</p>
+<p>属性选择器:</p>
+<p>​    选择器[href]  : 单个属性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">选择器[href][title] : 多个属性</span><br><span class="line">选择器[href][title=&#x27;test&#x27;] : 多个属性,包含值</span><br></pre></td></tr></table></figure>
+
+<p>表单过滤器:</p>
+<p>​    :input   找出所有输入项:  input  textarea  select </p>
+<p>​    :text </p>
+<p>​    :password  </p>
+<p>表单对象属性:</p>
+<p>​    找出select中被选中的那一项:</p>
+<p>​    option:selected</p>
+<p>JQ的开发步骤:</p>
+<pre><code>1. 导入JQ相关的包
+2. 文档加载文成的事件:  页面初始化:  绑定事件, 启动定时器
+3.  确定事件
+4. 实现事件索要触发的函数
+5. 函数里面再去操作我们要操作的元素</code></pre>
+<h3 id="使用JQ完成表格的隔行换色"><a href="#使用JQ完成表格的隔行换色" class="headerlink" title="使用JQ完成表格的隔行换色"></a>使用JQ完成表格的隔行换色</h3><h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析:"></a>需求分析:</h4><p>在我们的实际开发过程中,我们的表格如果所有的行都是一样的话,很容易看花眼,所以我们需要让我们的表格隔行换色</p>
+<h4 id="技术分析"><a href="#技术分析" class="headerlink" title="技术分析:"></a>技术分析:</h4><p>获取所有行 table.rows</p>
+<p>遍历所有行</p>
+<p>根据行号去修改每一行的背景颜色: bgColor</p>
+<p>​    style.backgroundColor = “red”</p>
+<h4 id="步骤分析"><a href="#步骤分析" class="headerlink" title="步骤分析:"></a>步骤分析:</h4><ol>
+<li>导入JQ的包</li>
+<li>文档加载完成函数: 页面初始化</li>
+<li>获得所有的行 :   元素选择器</li>
+<li>根据行号去修改颜色</li>
+</ol>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现:"></a>代码实现:</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">	$(function()&#123;</span><br><span class="line">				//获得所有的行 :   元素选择器</span><br><span class="line">				$(&quot;tbody &gt; tr:even&quot;).css(&quot;background-color&quot;,&quot;#CCCCCC&quot;);</span><br><span class="line">				//修改基数行</span><br><span class="line">				$(&quot;tbody &gt; tr:odd&quot;).css(&quot;background-color&quot;,&quot;#FFF38F&quot;);</span><br><span class="line">//				$(&quot;tbody &gt; tr&quot;).css(&quot;background-color&quot;,&quot;#FFF38F&quot;);</span><br><span class="line">				</span><br><span class="line">				</span><br><span class="line">			&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="使用JQuery完成表单的全选全不选功能"><a href="#使用JQuery完成表单的全选全不选功能" class="headerlink" title="使用JQuery完成表单的全选全不选功能"></a>使用JQuery完成表单的全选全不选功能</h3><h4 id="需求分析-1"><a href="#需求分析-1" class="headerlink" title="需求分析"></a>需求分析</h4><p>​    在我们对表格处理的时,有些情况下,我们需要对表格进行批量处理,</p>
+<h4 id="技术分析-1"><a href="#技术分析-1" class="headerlink" title="技术分析:"></a>技术分析:</h4><h4 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现:"></a>代码实现:</h4><h3 id="使用JQ完成省市联动效果"><a href="#使用JQ完成省市联动效果" class="headerlink" title="使用JQ完成省市联动效果"></a>使用JQ完成省市联动效果</h3><h4 id="需求分析-2"><a href="#需求分析-2" class="headerlink" title="需求分析:"></a>需求分析:</h4><p>​    在我们的注册表单中,通常我们需要知道用户的籍贯,需要一个给用选择的项,当用户选中了省份之后,列出省下面所有的城市</p>
+<h4 id="技术分析-2"><a href="#技术分析-2" class="headerlink" title="技术分析:"></a>技术分析:</h4><ol>
+<li><p>准备工作 : 城市信息的数据</p>
+</li>
+<li><p>添加节点 :  appendChild (JS)</p>
+<ol>
+<li>append  :  添加子元素到末尾</li>
+<li>appendTo  : 给自己找一个爹,将自己添加到别人家里</li>
+<li>prepend : 在子元素前面添加</li>
+<li>after :   在自己的后面添加一个兄弟</li>
+</ol>
+</li>
+<li><p>遍历的操作:</p>
+<p>​    </p>
+</li>
+</ol>
+<h4 id="步骤分析-1"><a href="#步骤分析-1" class="headerlink" title="步骤分析:"></a>步骤分析:</h4><ol>
+<li>导入JQ的文件</li>
+<li>文档加载事件:页面初始化</li>
+<li>进一步确定事件:  change事件</li>
+<li>函数: 得到当前选中省份</li>
+<li>得到城市, 遍历城市数据</li>
+<li>将遍历出来的城市添加到城市的select中</li>
+</ol>
+<h4 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现:"></a>代码实现:</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">				$(<span class="string">&quot;#province&quot;</span>).change(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="comment">//					alert(this.value);</span></span><br><span class="line">					<span class="comment">//得到城市信息</span></span><br><span class="line">					<span class="keyword">var</span> cities = provinces[<span class="built_in">this</span>.value];</span><br><span class="line">					<span class="comment">//清空城市select中的option</span></span><br><span class="line">					<span class="comment">/*var $city = $(&quot;#city&quot;);</span></span><br><span class="line"><span class="comment">					//将JQ对象转成JS对象</span></span><br><span class="line"><span class="comment">					var citySelect = $city.get(0)</span></span><br><span class="line"><span class="comment">					citySelect.options.length = 0;*/</span></span><br><span class="line">					</span><br><span class="line">					$(<span class="string">&quot;#city&quot;</span>).empty();  <span class="comment">//采用JQ的方式清空</span></span><br><span class="line">					<span class="comment">//遍历城市数据</span></span><br><span class="line">					$(cities).each(<span class="function"><span class="keyword">function</span>(<span class="params">i,n</span>)</span>&#123;</span><br><span class="line">						$(<span class="string">&quot;#city&quot;</span>).append(<span class="string">&quot;&lt;option&gt;&quot;</span>+n+<span class="string">&quot;&lt;/option&gt;&quot;</span>);</span><br><span class="line">					&#125;);</span><br><span class="line">				&#125;);</span><br><span class="line">			&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="使用JQ完成下拉列表左右选择"><a href="#使用JQ完成下拉列表左右选择" class="headerlink" title="使用JQ完成下拉列表左右选择"></a>使用JQ完成下拉列表左右选择</h4><h4 id="需求分析-3"><a href="#需求分析-3" class="headerlink" title="需求分析"></a>需求分析</h4><p>我们的商品通常包含已经有了的, 还有没有的,现在我们需要有一个页面用于动态编辑这些商品</p>
+<h4 id="技术分析-3"><a href="#技术分析-3" class="headerlink" title="技术分析"></a>技术分析</h4><h4 id="步骤分析-2"><a href="#步骤分析-2" class="headerlink" title="步骤分析"></a>步骤分析</h4><pre><code>1. 导入JQ的文件
+2. 文档加载函数 :页面初始化
+3.确定事件 :　点击事件　onclick
+4. 事件触发函数
+1. 移动被选中的那一项到右边</code></pre>
+<h4 id="代码实现-3"><a href="#代码实现-3" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;../js/jquery-1.11.0.js&quot;</span> &gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		$(<span class="string">&quot;#a1&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="comment">//找到被选中的那一项</span></span><br><span class="line">			<span class="comment">//将被选中项添加到右边</span></span><br><span class="line">			$(<span class="string">&quot;#rightSelect&quot;</span>).append($(<span class="string">&quot;#leftSelect option:selected&quot;</span>));</span><br><span class="line">		&#125;);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//将左边所有商品移动到右边</span></span><br><span class="line">		$(<span class="string">&quot;#a2&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			$(<span class="string">&quot;#rightSelect&quot;</span>).append($(<span class="string">&quot;#leftSelect option&quot;</span>));</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="今天内容总结"><a href="#今天内容总结" class="headerlink" title="今天内容总结:"></a>今天内容总结:</h4><p>定时器</p>
+<p>动画效果: show  hide  slideDown  slideUp fadeIn  fadeOut  animate</p>
+<p>基本选择器:</p>
+<p>​    ID选择器: #ID名称</p>
+<p>​    类选择器: .类名</p>
+<p>​    元素选择器: 元素/标签名称</p>
+<p>​    通配符选择器:  *  找出所有页面元素 包含页面上所有的标签</p>
+<p>​    选择器分组 :   选择器1, 选择器2      [选择器1,选择器2]</p>
+<p>层级选择器:</p>
+<p>​    后代选择器:  选择器1 选择器2  找出所有的后代,儿子孙子曾孙</p>
+<p>​    子元素选择器: 选择器1 &gt;选择器2  找出所有儿子</p>
+<p>​    相邻兄弟选择器:  选择器1+选择器2  : 找出紧挨着自己那个弟弟</p>
+<p>​    兄弟选择器 :　　　选择器1~选择器2  :  找出所有的弟弟</p>
+<p>属性选择器:</p>
+<p>​    选择器[属性名称]</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">选择器[属性名称][属性名名]</span><br><span class="line">选择器[属性名称=&#x27;属性值&#x27;][属性名称=&#x27;属性值&#x27;][属性名称=&#x27;属性值&#x27;]</span><br></pre></td></tr></table></figure>
+
+
+
+<p>表单选择器:</p>
+<p>​    :input   找出所有的输入项 : 不单单找出input  textarea select </p>
+<p>​    :text  找出type类型为 text</p>
+<p>​    :password</p>
+<p>基本过滤器:</p>
+<p>​    :even</p>
+<p>​    :odd</p>
+<p>​    :gt</p>
+<p>​    :lt</p>
+<p>​    :eq</p>
+<p>​    :first</p>
+<p>​    :last</p>
+<p>表单对象属性:</p>
+<p>​    :selected</p>
+<p>​    :checked</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$(function)  : 文档加载完成的事件</span><br><span class="line">css()  : 	修改css样式</span><br><span class="line">prop() :    修改属性/ 获取属性</span><br><span class="line">html() :    修改innerHTML</span><br><span class="line"></span><br><span class="line">append : 	给自己添加子节点</span><br><span class="line">appendTo :  将自己添加到别人家,给自己找一个爹</span><br><span class="line">prepend :   在自己最前面添加子节点</span><br><span class="line">after	:   在自己后面添加一个兄弟</span><br><span class="line">empty	:   清空所有子节点</span><br><span class="line"></span><br><span class="line">$(cities).each(function(i,n)&#123;</span><br><span class="line">  	</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">$.each(arr,function(i,n)&#123;</span><br><span class="line">  </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">**了解, 熟悉, 熟练, 精通** </span><br><span class="line"></span><br><span class="line">经过一个项目,将所有学过串起来</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h4 id="使用JQ完成表单的校验-扩展"><a href="#使用JQ完成表单的校验-扩展" class="headerlink" title="使用JQ完成表单的校验(扩展)"></a>使用JQ完成表单的校验(扩展)</h4><h4 id="需求分析-4"><a href="#需求分析-4" class="headerlink" title="需求分析"></a>需求分析</h4><p>在用户提交表单的时候, 我们最好是能够在用户数据提交给服务器之前去做一次校验,防止服务器压力过大,并且需要给用户一个友好提示</p>
+<h4 id="技术分析-4"><a href="#技术分析-4" class="headerlink" title="技术分析"></a>技术分析</h4><ul>
+<li>trigger</li>
+<li>triggerHandler</li>
+<li>is()</li>
+</ul>
+<h4 id="步骤分析-3"><a href="#步骤分析-3" class="headerlink" title="步骤分析"></a>步骤分析</h4><ol>
+<li>首先给必填项,添加尾部添加一个小红点</li>
+<li>获取用户输入的信息,做相应的校验</li>
+<li>事件: 获得焦点, 失去焦点, 按键抬起</li>
+<li>表单提交的事件</li>
+</ol>
+<h4 id="代码实现-4"><a href="#代码实现-4" class="headerlink" title="代码实现"></a>代码实现</h4>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端//" class="article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/06/18/Jquery/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CSS-Js入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/06/18/CSS-Js%E5%85%A5%E9%97%A8/" target="_blank">CSS-Js入门</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/06/18/CSS-Js%E5%85%A5%E9%97%A8/" class="archive-article-date">
+        <time datetime="2020-06-18T01:23:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-18</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <a id="more"></a>
+<ul>
+<li>了解CSS的概念</li>
+<li>了解CSS的引入方式</li>
+<li>了解CSS的基本用法和常用的选择器</li>
+<li>了解CSS的盒子模型，悬浮和定位</li>
+<li>了解JS的概念</li>
+<li>掌握JS的基本语法，数据类型，能够使用JS完成简单的页面交互</li>
+</ul>
+<p><img src="https://mateshao.oss-cn-shenzhen.aliyuncs.com/%E5%89%8D%E7%AB%AF/CSS%26JS.png"><br>html内容简单回顾</p>
+<p>什么HTML : 超文本标记语言</p>
+<p>p标签: 段落标签</p>
+<p>br标签: 简单换行</p>
+<p>h1-h6: 标题标签</p>
+<p>hr标签: 水平分割线, 华丽的分割线</p>
+<p>font标签: color属性改变颜色 , size</p>
+<p>b标签: 加粗</p>
+<p>i标签: 斜体</p>
+<p>strong标签: 带语义的加粗</p>
+<p>em标签: 斜体标签,带语义</p>
+<p>img标签: 图片标签 显示图片</p>
+<p>​    src: 指定图片路径(相对路径)</p>
+<p>​    width: 宽度</p>
+<p>​    height: 高度</p>
+<p>​    alt: 图片加载失败时的提示</p>
+<p>相对路径:</p>
+<p>​    ./  代表当前路径</p>
+<p>​    ../ 代表的是上一级路径</p>
+<p>​    ../../  代表的是上上一级路径</p>
+<p>ul标签: 无序列表</p>
+<p>ol标签: 有序列表</p>
+<p>li标签: 列表项</p>
+<p>a标签: 超链接标签:</p>
+<p>​    target: 打开方式</p>
+<p>​    href:  指定要跳转的链接地址</p>
+<p>table标签:  table &gt; tr &gt; td</p>
+<p>tr标签: 行</p>
+<p>td标签: 列</p>
+<p>​    合并行: rowspan</p>
+<p>​    合并列: colspan</p>
+<p>网站注册案例:</p>
+<p>​    form 标签: 表单标签,主要是用来向服务器提交数据</p>
+<p>​        method: 提交方式 get  post</p>
+<p>​        action : 提交的路径</p>
+<p>​    input 标签:</p>
+<p>​            type: </p>
+<p>​                password: 密码框</p>
+<p>​                text : 文本</p>
+<p>​                submit:  提交</p>
+<p>​                button:  普通的按钮</p>
+<p>​                reset:  重置按钮</p>
+<p>​                radio: 单选按钮 设置name属性让它们是一组</p>
+<p>​                checkbox: 复选按钮 </p>
+<p>​                email:</p>
+<p>​                date:</p>
+<p>​                tel:</p>
+<p>frameset : 框架标签</p>
+<p>​    rows:</p>
+<p>​    cols:</p>
+<p>frame:  </p>
+<h3 id="使用CSS完成网站首页的优化"><a href="#使用CSS完成网站首页的优化" class="headerlink" title="使用CSS完成网站首页的优化"></a>使用CSS完成网站首页的优化</h3><h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析:"></a>需求分析:</h4><p>​    由于我们昨天使用表格布局存在缺陷,那么我们要来考虑使用DIV+CSS来对页面进行优化</p>
+<p>表格布局的缺陷:</p>
+<pre><code>1. 嵌套层级太多, 一旦出现嵌套顺序错乱, 整个页面达不到预期效果
+2.  采用表格布局,页面不够灵活, 动其中某一块,整个表格布局的结构全都要变</code></pre>
+<h4 id="技术分析"><a href="#技术分析" class="headerlink" title="技术分析"></a>技术分析</h4><p>HTML的块标签:</p>
+<p>​    div标签: 默认占一行,自动换行</p>
+<p>​    span标签:  内容显示在同一行</p>
+<p>CSS概述:</p>
+<p>​    Cascading Style Sheets : 层叠样式表</p>
+<p>​        红砖, 抹了一层水泥, 白灰</p>
+<p>主要用作用:</p>
+<p>​    用来美化我们的HTML页面的</p>
+<p>​    HTML 决定网页的骨架    ,CSS  化妆</p>
+<p>​    将页面的HTML和美化进行分离</p>
+<p>CSS的简单语法:</p>
+<p>​    在一个style标签中,去编写CSS内容,最好将style标签写在这个head标签中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">  选择器&#123;</span><br><span class="line">    属性名称:属性的值;</span><br><span class="line">    属性名称2: 属性的值2;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>CSS选择器: 帮助我们找到我们要修饰的标签或者元素</p>
+<p>元素选择:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">元素的名称&#123;</span><br><span class="line">  属性名称:属性的值;</span><br><span class="line">  属性名称:属性的值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ID选择器:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">以#号开头  ID在整个页面中必须是唯一的s</span><br><span class="line">#ID的名称&#123;</span><br><span class="line">  属性名称:属性的值;</span><br><span class="line">  属性名称:属性的值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>类选择器:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">以 . 开头 </span><br><span class="line">.类的名称&#123;</span><br><span class="line">   属性名称:属性的值;</span><br><span class="line">  	属性名称:属性的值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>CSS的引入方式:</p>
+<p>​    外部样式: 通过link标签引入一个外部的css文件</p>
+<p>​    内部样式: 直接在style标签内编写CSS代码</p>
+<p>​    行内样式: 直接在标签中添加一个style属性, 编写CSS样式</p>
+<p>CSS浮动 : 浮动的元素会脱离正常的文档流,在正常的文档流中不占空间</p>
+<pre><code>            float属性:
+                left
+                right
+
+            clear属性: 清除浮动
+                both : 两边都不允许浮动
+                left: 左边不允许浮动
+                right : 右边不允许浮动
+            流式布局</code></pre>
+<h4 id="步骤分析"><a href="#步骤分析" class="headerlink" title="步骤分析:"></a>步骤分析:</h4><ol>
+<li>创一个最外层div</li>
+<li>第一部份: LOGO部分: 嵌套三个div</li>
+<li>第二部分: 导航栏部分 : 放置5个超链接</li>
+<li>第三部分: 轮播图 </li>
+<li>第四部分: </li>
+<li>第五部分: 直接放一张图片</li>
+<li>第六部分: 抄第四部分的</li>
+<li>第七部分: 放置一张图片</li>
+<li>第八部分: 放一堆超链接</li>
+</ol>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现:"></a>代码实现:</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">			</span><br><span class="line"><span class="css">			<span class="selector-class">.logo</span>&#123;</span></span><br><span class="line">				float: left;</span><br><span class="line">				width: 33%;</span><br><span class="line">				/*border-width: 1px;</span><br><span class="line">				border-style: solid;</span><br><span class="line">				border-color: red;*/</span><br><span class="line">				height: 60px;</span><br><span class="line">				line-height: 60px;</span><br><span class="line"><span class="css">		<span class="comment">/*		border: 1px solid red;*/</span></span></span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line"><span class="css">			<span class="selector-class">.amenu</span>&#123;</span></span><br><span class="line">				color: white;</span><br><span class="line">				text-decoration: none;</span><br><span class="line">				height: 50px;</span><br><span class="line">				line-height: 50px;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line"><span class="css">			<span class="selector-class">.product</span>&#123;</span></span><br><span class="line">				float: left; text-align: center; width: 16%; height: 240px;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">			1. 创一个最外层div</span></span><br><span class="line"><span class="comment">			2. 第一部份: LOGO部分: 嵌套三个div</span></span><br><span class="line"><span class="comment">			3. 第二部分: 导航栏部分 : 放置5个超链接</span></span><br><span class="line"><span class="comment">			4. 第三部分: 轮播图 </span></span><br><span class="line"><span class="comment">			5. 第四部分: </span></span><br><span class="line"><span class="comment">			6. 第五部分: 直接放一张图片</span></span><br><span class="line"><span class="comment">			7. 第六部分: 抄第四部分的</span></span><br><span class="line"><span class="comment">			8. 第七部分: 放置一张图片</span></span><br><span class="line"><span class="comment">			9. 第八部分: 放一堆超链接</span></span><br><span class="line"><span class="comment">		--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!--2. 第一部份: LOGO部分: 嵌套三个div--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;logo&quot;</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../img/logo2.png&quot;</span>/&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;logo&quot;</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../img/header.png&quot;</span>/&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;logo&quot;</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>购物车<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">				</span><br><span class="line">			<span class="comment">&lt;!--清除浮动--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;clear: both;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">			<span class="comment">&lt;!--3. 第二部分: 导航栏部分 : 放置5个超链接--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: black; height: 50px;&quot;</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">class</span>=<span class="string">&quot;amenu&quot;</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">class</span>=<span class="string">&quot;amenu&quot;</span>&gt;</span>手机数码<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">class</span>=<span class="string">&quot;amenu&quot;</span>&gt;</span>电脑办公<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">class</span>=<span class="string">&quot;amenu&quot;</span>&gt;</span>鞋靴箱包<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">class</span>=<span class="string">&quot;amenu&quot;</span>&gt;</span>香烟酒水<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">				</span><br><span class="line">			<span class="comment">&lt;!--4. 第三部分: 轮播图--&gt;</span> </span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../img/1.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!--5. 第四部分:--&gt;</span> </span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span>&gt;</span>最新商品<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../img/title2.jpg&quot;</span>/&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">				</span><br><span class="line">				<span class="comment">&lt;!--左侧广告图--&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width: 15%; height: 480px;  float: left;&quot;</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/big01.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span>/&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">                	右侧商品</span></span><br><span class="line"><span class="comment">                --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width: 84%; height: 480px;float: left;&quot;</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;height: 240px; width: 50%; float: left;&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/middle01.jpg&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> /&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					</span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment">&lt;!--6. 第五部分: 直接放一张图片--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/ad.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!--7. 第六部分: 抄第四部分的--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span>&gt;</span>最新商品<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../img/title2.jpg&quot;</span>/&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">				</span><br><span class="line">				<span class="comment">&lt;!--左侧广告图--&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width: 15%; height: 480px;  float: left;&quot;</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/big01.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span>/&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">                	右侧商品</span></span><br><span class="line"><span class="comment">                --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width: 84%; height: 480px;float: left;&quot;</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;height: 240px; width: 50%; float: left;&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/middle01.jpg&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> /&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;product&quot;</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../products/hao/small08.jpg&quot;</span> /&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span>&gt;</span>高压锅<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red;&quot;</span>&gt;</span>$998<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					</span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment">&lt;!--8. 第七部分: 放置一张图片--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../img/footer.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!--9. 第八部分: 放一堆超链接--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span></span><br><span class="line">				        </span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>关于我们<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>联系我们<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>招贤纳士<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>法律声明<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>友情链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>支付方式<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>配送方式<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>服务声明<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>广告声明<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					</span><br><span class="line">					<span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">					</span><br><span class="line">					Copyright © 2005-2016 传智商城 版权所有</span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展:"></a>扩展:</h4><ul>
+<li><p>CSS的优先级</p>
+<p>按照选择器搜索精确度来编写:             行内样式 &gt; ID选择器 &gt; 类选择器  &gt; 元素选择器</p>
+<p>就近原则: 哪个离得近,就选用哪个的样式</p>
+</li>
+</ul>
+<p>  CSS: 层叠样式表</p>
+<p>  主要作用:</p>
+<pre><code>  1. 美化页面
+  2. 将页面美化和HTML代码进行分离,提高代码的服用型</code></pre>
+<ul>
+<li><p>选择器:</p>
+<ul>
+<li>元素选择器: 标签的名称{}</li>
+<li>类选择器:   以. 开头  .类的名称</li>
+<li>ID选择器:  以#开头 ,   #ID的名称  (ID必须是页面上面唯一) </li>
+</ul>
+</li>
+<li><p>CSS浮动:</p>
+<ul>
+<li><p>float : left, right  不再占有正常文档流中的空间 , 流式布局</p>
+</li>
+<li><p>clear : both  left right</p>
+<p>​</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>CSS中的其它选择器</p>
+<ul>
+<li><p>选择器分组: 选择器1,选择器2{ 属性的名称:属性的值}</p>
+</li>
+<li><p>属性选择器:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a[title]</span><br><span class="line">a[titile=&#x27;aaa&#x27;]</span><br><span class="line">a[href][title]</span><br><span class="line">a[href][title=&#x27;aaa&#x27;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>后代选择器: 爷爷选择器  孙子选择器   找出所有的后代</p>
+</li>
+<li><p>子元素选择器:  父选择器  &gt; 儿子选择器</p>
+</li>
+<li><p>伪类选择器: 通常都是用在A标签上</p>
+</li>
+</ul>
+<p>​</p>
+<p>​</p>
+</li>
+</ul>
+<h3 id="使用DIV-CSS完成注册页面的优化"><a href="#使用DIV-CSS完成注册页面的优化" class="headerlink" title="使用DIV+CSS完成注册页面的优化"></a>使用DIV+CSS完成注册页面的优化</h3><h4 id="需求分析-1"><a href="#需求分析-1" class="headerlink" title="需求分析"></a>需求分析</h4><p>由于我们的注册页面也是用table布局的,存在与首页同样的问题,所以我们需要使用div+css对我们的注册页面进行美化</p>
+<p>总共是5部分内容</p>
+<h4 id="技术分析-1"><a href="#技术分析-1" class="headerlink" title="技术分析"></a>技术分析</h4><p>CSS的盒子模型: 万物皆盒子</p>
+<p>内边距:  </p>
+<p>padding-top:</p>
+<p>padding-right:</p>
+<p>padding-bottom:</p>
+<p>padding-left:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">padding:10px;  上下左右都是10px</span><br><span class="line">padding:10px 20px;  上下是10px 左右是20px</span><br><span class="line">padding: 10px 20px 30px;  上 10px 右20px  下30px  左20px</span><br><span class="line">padding: 10px 20px 30px 40px;  上右下左, 顺时针的方向</span><br></pre></td></tr></table></figure>
+
+
+
+<p>外边距:</p>
+<p>margin-top:</p>
+<p>margin-right:</p>
+<p>margin-bottom:</p>
+<p>margin-left: </p>
+<p>CSS绝对定位:</p>
+<p>​    position: absolute</p>
+<p>​    top: 控制距离顶部的位置</p>
+<p>​    left: 控制距离左边的位置</p>
+<h4 id="步骤分析-1"><a href="#步骤分析-1" class="headerlink" title="步骤分析:"></a>步骤分析:</h4><ol>
+<li>总共是5部分</li>
+<li>第一部分是LOGO部分</li>
+<li>第二部分是导航菜单</li>
+<li>第三部分是注册部分</li>
+<li>第四部分是FOOTER图片</li>
+<li>第五部分是一堆超链接</li>
+</ol>
+<h4 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现:"></a>代码实现:</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		 <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;../css/main.css&quot;</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">			1. 总共是5部分</span></span><br><span class="line"><span class="comment">			2. 第一部分是LOGO部分</span></span><br><span class="line"><span class="comment">			3. 第二部分是导航菜单</span></span><br><span class="line"><span class="comment">			4. 第三部分是注册部分</span></span><br><span class="line"><span class="comment">			5. 第四部分是FOOTER图片</span></span><br><span class="line"><span class="comment">			6. 第五部分是一堆超链接</span></span><br><span class="line"><span class="comment">		--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment">&lt;!--2. 第一部分是LOGO部分--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;logo&quot;</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../img/logo2.png&quot;</span> /&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;logo&quot;</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../img/header.png&quot;</span> /&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;logo&quot;</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>购物车<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment">&lt;!--清除浮动--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;clear: both;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!--3. 第二部分是导航菜单--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: black; height: 50px;&quot;</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">class</span>=<span class="string">&quot;amenu&quot;</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">class</span>=<span class="string">&quot;amenu&quot;</span>&gt;</span>手机数码<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">class</span>=<span class="string">&quot;amenu&quot;</span>&gt;</span>电脑办公<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">class</span>=<span class="string">&quot;amenu&quot;</span>&gt;</span>鞋靴箱包<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">class</span>=<span class="string">&quot;amenu&quot;</span>&gt;</span>香烟酒水<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!--4. 第三部分是注册部分--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background: url(../image/regist_bg.jpg);height: 500px;&quot;</span>&gt;</span></span><br><span class="line">				</span><br><span class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position:absolute;top:200px;left:350px;border: 5px solid darkgray;width: 50%;height: 50%;background-color: white;&quot;</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">table</span> <span class="attr">width</span>=<span class="string">&quot;60%&quot;</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">&quot;blue&quot;</span> <span class="attr">size</span>=<span class="string">&quot;6&quot;</span>&gt;</span>会员注册<span class="tag">&lt;/<span class="name">font</span>&gt;</span>USER REGISTER<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">							</span><br><span class="line">						<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span>用户名:<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>/&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span>密码:<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span>/&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span>确认密码:<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span>/&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span>email:<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;email&quot;</span>/&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span>姓名:<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>/&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span>性别:<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>/&gt;</span> 男</span><br><span class="line">							<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>/&gt;</span> 女</span><br><span class="line">							<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>/&gt;</span> 妖</span><br><span class="line">							<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span>出生日期:<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;date&quot;</span>/&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span>验证码:<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>/&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;注册&quot;</span>/&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">				</span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment">&lt;!--5. 第四部分是FOOTER图片--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../img/footer.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!--9. 第四部分: 放一堆超链接--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span></span><br><span class="line">				        </span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>关于我们<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>联系我们<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>招贤纳士<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>法律声明<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>友情链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>支付方式<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>配送方式<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>服务声明<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>广告声明<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">					</span><br><span class="line">					<span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">					</span><br><span class="line">					Copyright © 2005-2016 传智商城 版权所有</span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="CSS部分的回顾"><a href="#CSS部分的回顾" class="headerlink" title="CSS部分的回顾:"></a>CSS部分的回顾:</h3><p>​    CSS: 层叠样式表.</p>
+<p>​    CSS作用: 美化页面,提高代码的复用性</p>
+<p>​    选择器:</p>
+<p>​        需要掌握的:</p>
+<p>​            元素选择器: 标签的名称</p>
+<p>​            类选择器:  以 . 开头</p>
+<p>​            ID选择器: 以#开头,  #ID的名称  ID必须是唯一的</p>
+<p>​        优先级: 按照选择精确度: 行内样式  &gt; ID选择器 &gt; 类选择器 &gt; 元素选择器</p>
+<p>​                就近原则</p>
+<p>​        扩展选择器:</p>
+<p>​            选择器分组:  选择器1,选择器2   以逗号隔开</p>
+<p>​            后代选择器:  爷爷 孙子   中间以空格隔开</p>
+<p>​            子元素选择器:  爸爸 &gt; 儿子 </p>
+<p>​            属性选择器:   选择器[属性的名称=’’]</p>
+<p>​            伪类选择器:  超链接标签上使用  </p>
+<p>​     浮动: float属性  left right</p>
+<p>​     清除浮动: clear: both left right</p>
+<p>​    </p>
+<p>​    盒子模型:  顺时针 : 上右下左</p>
+<p>​        padding : 内边距 ,控制的是盒子内容的距离</p>
+<p>​        margin : 外边距 控制盒子与盒子之间的距离</p>
+<p>​    绝对定位:</p>
+<p>​        position: absolute</p>
+<p>​        top:</p>
+<p>​        left:</p>
+<h3 id="使用JS完成简单的数据校验"><a href="#使用JS完成简单的数据校验" class="headerlink" title="使用JS完成简单的数据校验"></a>使用JS完成简单的数据校验</h3><h4 id="需求分析-2"><a href="#需求分析-2" class="headerlink" title="需求分析"></a>需求分析</h4><p>使用JS完成对注册页面的简单数据校验,不允许出现用户名或密码为空的情况</p>
+<h4 id="技术分析-2"><a href="#技术分析-2" class="headerlink" title="技术分析"></a>技术分析</h4><h5 id="JavaScript概述"><a href="#JavaScript概述" class="headerlink" title="JavaScript概述"></a>JavaScript概述</h5><p>什么是javascript: JavaScript一种直译式脚本语言，</p>
+<p>什么是脚本语言?</p>
+<p>​    java源代码 —-&gt; 编译成.class文件 —–&gt; java虚拟机中才能执行</p>
+<p>​    脚本语言:   源码  ——– &gt; 解释执行</p>
+<p>​    js由我们的浏览器来解释执行</p>
+<p>HTML: 决定了页面的框架  </p>
+<p>CSS: 用来美化我们的页面</p>
+<p>JS:    提供用户的交互的</p>
+<h5 id="JS的组成"><a href="#JS的组成" class="headerlink" title="JS的组成:"></a>JS的组成:</h5><p>ECMAScript : 核心部分 ,定义js的语法规范</p>
+<p>DOM: document Object Model 文档对象模型 , 主要是用来管理页面的</p>
+<p>BOM : Browser Object Model  浏览器对象模型, 前进,后退,页面刷新, 地址栏, 历史记录, 屏幕宽高</p>
+<h5 id="JS的语法"><a href="#JS的语法" class="headerlink" title="JS的语法:"></a>JS的语法:</h5><p>变量弱类型: var i = true</p>
+<p>区分大小写</p>
+<p>语句结束之后的分号 ,可以有,也可以没有</p>
+<p>写在script标签</p>
+<h5 id="JS的数据类型"><a href="#JS的数据类型" class="headerlink" title="JS的数据类型:"></a>JS的数据类型:</h5><ul>
+<li>基本类型<ul>
+<li>string</li>
+<li>number</li>
+<li>boolean </li>
+<li>undefine</li>
+<li>null</li>
+</ul>
+</li>
+<li>引用类型<ul>
+<li>对象, 内置对象</li>
+</ul>
+</li>
+<li>类型转换<ul>
+<li>js内部自动转换 </li>
+</ul>
+</li>
+</ul>
+<h5 id="JS的运算符和语句"><a href="#JS的运算符和语句" class="headerlink" title="JS的运算符和语句:"></a>JS的运算符和语句:</h5><ul>
+<li>运算符和java 一样<ul>
+<li>“===” 全等号: 值和类型都必须相等</li>
+<li>== 值相等就可以了</li>
+</ul>
+</li>
+<li>语句和java 一样</li>
+</ul>
+<h5 id="JS的输出"><a href="#JS的输出" class="headerlink" title="JS的输出"></a>JS的输出</h5><ul>
+<li>alert()  直接弹框</li>
+<li>document.write()  向页面输出</li>
+<li>console.log() 向控制台输出</li>
+<li>innerHTML:  向页面输出</li>
+</ul>
+<ul>
+<li>获取页面元素: document.getElementById(“id的名称”);</li>
+</ul>
+<p>JS声明变量:</p>
+<p>​    var 变量的名称 = 变量的值</p>
+<p>JS声明函数:</p>
+<p>​    var 函数的名称 = function(){    </p>
+<p>​    }</p>
+<p>​    </p>
+<p>​    function 函数的名称(){</p>
+<p>​    }</p>
+<h4 id="JS的开发步骤"><a href="#JS的开发步骤" class="headerlink" title="JS的开发步骤"></a>JS的开发步骤</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 确定事件</span><br><span class="line">2. 通常事件都会出发一个函数</span><br><span class="line">3. 函数里面通常都会去操作页面元素,做一些交互动作</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="步骤分析-2"><a href="#步骤分析-2" class="headerlink" title="步骤分析:"></a>步骤分析:</h4><h4 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">			/*</span><br><span class="line">				1. 确认事件: 表单提交事件 onsubmit事件 </span><br><span class="line">				2. 事件所要触发的函数: checkForm</span><br><span class="line">				3. 函数中要干点事情</span><br><span class="line">					1. 校验用户名, 用户不能为空, 长度不能小于6位</span><br><span class="line">						1.获取到用户输入的值</span><br><span class="line">			*/</span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">checkForm</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//获取用户名输入项</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> inputObj = <span class="built_in">document</span>.getElementById(<span class="string">&quot;username&quot;</span>);</span></span><br><span class="line"><span class="javascript">				<span class="comment">//获取输入项的值</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> uValue = inputObj.value;</span></span><br><span class="line"><span class="javascript"><span class="comment">//				alert(uValue);</span></span></span><br><span class="line"><span class="javascript">				<span class="comment">//用户名长度不能6位 &quot;&quot;</span></span></span><br><span class="line">				if(uValue.length &lt; 6 )&#123;</span><br><span class="line"><span class="javascript">					alert(<span class="string">&quot;对不起,您的长度太短!&quot;</span>);</span></span><br><span class="line"><span class="javascript">					<span class="keyword">return</span> <span class="literal">false</span>;	</span></span><br><span class="line">				&#125;</span><br><span class="line"><span class="javascript">				<span class="comment">//密码长度大于6 和确认必须一致</span></span></span><br><span class="line">				</span><br><span class="line"><span class="javascript">				<span class="comment">//获取密码框输入的值</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> input_password = <span class="built_in">document</span>.getElementById(<span class="string">&quot;password&quot;</span>);</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> uPass = input_password.value;</span></span><br><span class="line">				</span><br><span class="line">				if(uPass.length &lt; 6)&#123;</span><br><span class="line"><span class="javascript">					alert(<span class="string">&quot;对不起,您还是太短啦!&quot;</span>);</span></span><br><span class="line"><span class="javascript">					<span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line"><span class="javascript">				<span class="comment">//获取确认密码框的值</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> input_repassword = <span class="built_in">document</span>.getElementById(<span class="string">&quot;repassword&quot;</span>);</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> uRePass = input_repassword.value;</span></span><br><span class="line">				if(uPass != uRePass)&#123;</span><br><span class="line"><span class="javascript">					alert(<span class="string">&quot;对不起,两次密码不一致!&quot;</span>);</span></span><br><span class="line"><span class="javascript">					<span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line"><span class="javascript">				<span class="comment">//校验手机号</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> input_mobile = <span class="built_in">document</span>.getElementById(<span class="string">&quot;mobile&quot;</span>);</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> uMobile = input_mobile.value;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">if</span>(!<span class="regexp">/^[1][3578][0-9]&#123;9&#125;$/</span>.test(uMobile))&#123;</span></span><br><span class="line">					</span><br><span class="line"><span class="javascript">					alert(<span class="string">&quot;对不起,您的手机号无法识别!&quot;</span>);</span></span><br><span class="line">					</span><br><span class="line"><span class="javascript">					<span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line"><span class="javascript">				<span class="comment">//校验邮箱: /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> inputEmail = <span class="built_in">document</span>.getElementById(<span class="string">&quot;email&quot;</span>);</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> uEmail = inputEmail.value;</span></span><br><span class="line">				</span><br><span class="line"><span class="javascript">				<span class="keyword">if</span>(!<span class="regexp">/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/</span>.test(uEmail))&#123;</span></span><br><span class="line"><span class="javascript">					alert(<span class="string">&quot;对不起,邮箱不合法&quot;</span>);</span></span><br><span class="line"><span class="javascript">					<span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">				&#125;			</span><br><span class="line"><span class="javascript">				<span class="keyword">return</span> <span class="literal">true</span>;</span></span><br><span class="line">			&#125;	</span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;JS开发步骤.html&quot;</span> <span class="attr">onsubmit</span>=<span class="string">&quot;return checkForm()&quot;</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span>用户名:<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>  /&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span>密码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;password&quot;</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span>  /&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span>确认密码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;repassword&quot;</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span>  /&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span>手机号码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;mobile&quot;</span>  <span class="attr">type</span>=<span class="string">&quot;number&quot;</span>  /&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span>邮箱:<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;email&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>  /&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;注册&quot;</span>  /&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>javascript :  它是一门脚本语言 , 直接解释执行的语言</p>
+<p>javascript: </p>
+<p>​    ECMAScript : 定义的语法</p>
+<p>​    DOM: document Object Model </p>
+<p>​    BOM: 浏览器对象模型</p>
+<p>会定义变量: var  变量的名称 = 变量的值</p>
+<p>会定义函数:  </p>
+<p>​    function 函数的名称(参数的名称){</p>
+<p>​    }</p>
+<h3 id="使用JS完成图片的轮播效果"><a href="#使用JS完成图片的轮播效果" class="headerlink" title="使用JS完成图片的轮播效果"></a>使用JS完成图片的轮播效果</h3><h4 id="需求分析-3"><a href="#需求分析-3" class="headerlink" title="需求分析"></a>需求分析</h4><p>在我们的网站首页,通常需要有一块区域,用来显示广告,但是这块区域如果仅仅显示一张图片肯定是不够的, 故我们需要采用动态循环播放我们所有的广告. 显示效果照抄黑马程序员的网站首页</p>
+<h4 id="技术分析-3"><a href="#技术分析-3" class="headerlink" title="技术分析:"></a>技术分析:</h4><h3 id="步骤分析-3"><a href="#步骤分析-3" class="headerlink" title="步骤分析:"></a>步骤分析:</h3><h4 id="代码实现-3"><a href="#代码实现-3" class="headerlink" title="代码实现:"></a>代码实现:</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">			/* 当页面加载完成的时候, 动态切换图片</span><br><span class="line">				 1.确定事件:</span><br><span class="line">				 2.事件所要触发的函数</span><br><span class="line">			 */</span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> index = <span class="number">1</span>;</span></span><br><span class="line"><span class="javascript">			<span class="comment">//切换图片的函数</span></span></span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">changeAd</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//获取要操作的img</span></span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> img = <span class="built_in">document</span>.getElementById(<span class="string">&quot;imgAd&quot;</span>);</span></span><br><span class="line"><span class="javascript">				img.src = <span class="string">&quot;../img/&quot;</span>+(index%<span class="number">3</span>+<span class="number">1</span>)+<span class="string">&quot;.jpg&quot;</span>;  <span class="comment">//0,1,2    //1,2,3</span></span></span><br><span class="line">				index++;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//启动定时器</span></span></span><br><span class="line"><span class="javascript">				<span class="built_in">setInterval</span>(<span class="string">&quot;changeAd()&quot;</span>,<span class="number">3000</span>);</span></span><br><span class="line">			&#125;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">&quot;init()&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../img/1.jpg&quot;</span> <span class="attr">id</span>=<span class="string">&quot;imgAd&quot;</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端//" class="article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/06/18/CSS-Js%E5%85%A5%E9%97%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-HTML入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2515,664 +3291,9 @@ oos.close();</code></pre>
 
 
   
-    <article id="post-Java基础21-IO字符流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8021-IO%E5%AD%97%E7%AC%A6%E6%B5%81/" target="_blank">Java基础21-IO字符流</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/06/16/Java%E5%9F%BA%E7%A1%8021-IO%E5%AD%97%E7%AC%A6%E6%B5%81/" class="archive-article-date">
-        <time datetime="2020-06-16T04:19:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="21-01-IO流-字符流FileReader"><a href="#21-01-IO流-字符流FileReader" class="headerlink" title="21.01_IO流(字符流FileReader)"></a>21.01_IO流(字符流FileReader)</h2><ul>
-<li><p>1.字符流是什么</p>
-<ul>
-<li>字符流是可以直接读写字符的IO流</li>
-<li>字符流读取字符, 就要先读取到字节数据, 然后转为字符. 如果要写出字符, 需要把字符转为字节再写出.    </li>
-</ul>
-</li>
-<li><p>2.FileReader</p>
-<ul>
-<li>FileReader类的read()方法可以按照字符大小读取</li>
-</ul>
-</li>
-<li><pre><code>  FileReader fr = new FileReader(&quot;aaa.txt&quot;);                //创建输入流对象,关联aaa.txt
-  int ch;
-  while((ch = fr.read()) != -1) &#123;                            //将读到的字符赋值给ch
-      System.out.println((char)ch);                        //将读到的字符强转后打印
-  &#125;
-
-  fr.close();                                                //关流 </code></pre>
-</li>
-</ul>
-<h2 id="21-02-IO流-字符流FileWriter"><a href="#21-02-IO流-字符流FileWriter" class="headerlink" title="21.02_IO流(字符流FileWriter)"></a>21.02_IO流(字符流FileWriter)</h2><ul>
-<li><p>FileWriter类的write()方法可以自动把字符转为字节写出</p>
-<pre><code>  FileWriter fw = new FileWriter(&quot;aaa.txt&quot;);
-  fw.write(&quot;aaa&quot;);
-  fw.close();</code></pre>
-</li>
-</ul>
-<h2 id="21-03-IO流-字符流的拷贝"><a href="#21-03-IO流-字符流的拷贝" class="headerlink" title="21.03_IO流(字符流的拷贝)"></a>21.03_IO流(字符流的拷贝)</h2><pre><code>FileReader fr = new FileReader(&quot;a.txt&quot;);
-FileWriter fw = new FileWriter(&quot;b.txt&quot;);
-
-int ch;
-while((ch = fr.read()) != -1) &#123;
-    fw.write(ch);
-&#125;
-
-fr.close();
-fw.close();</code></pre>
-<h3 id="21-04-IO流-什么情况下使用字符流"><a href="#21-04-IO流-什么情况下使用字符流" class="headerlink" title="21.04_IO流(什么情况下使用字符流)"></a>21.04_IO流(什么情况下使用字符流)</h3><ul>
-<li>字符流也可以拷贝文本文件, 但不推荐使用. 因为读取时会把字节转为字符, 写出时还要把字符转回字节.</li>
-<li>程序需要读取一段文本, 或者需要写出一段文本的时候可以使用字符流</li>
-<li>读取的时候是按照字符的大小读取的,不会出现半个中文</li>
-<li>写出的时候可以直接将字符串写出,不用转换为字节数组</li>
-</ul>
-<h3 id="21-05-IO流-字符流是否可以拷贝非纯文本的文件"><a href="#21-05-IO流-字符流是否可以拷贝非纯文本的文件" class="headerlink" title="21.05_IO流(字符流是否可以拷贝非纯文本的文件)"></a>21.05_IO流(字符流是否可以拷贝非纯文本的文件)</h3><ul>
-<li>不可以拷贝非纯文本的文件</li>
-<li>因为在读的时候会将字节转换为字符,在转换过程中,可能找不到对应的字符,就会用?代替,写出的时候会将字符转换成字节写出去</li>
-<li>如果是?,直接写出,这样写出之后的文件就乱了,看不了了  </li>
-</ul>
-<h3 id="21-06-IO流-自定义字符数组的拷贝"><a href="#21-06-IO流-自定义字符数组的拷贝" class="headerlink" title="21.06_IO流(自定义字符数组的拷贝)"></a>21.06_IO流(自定义字符数组的拷贝)</h3><ul>
-<li><p>   FileReader fr = new FileReader(“aaa.txt”);            //创建字符输入流,关联aaa.txt<br>   FileWriter fw = new FileWriter(“bbb.txt”);            //创建字符输出流,关联bbb.txt</p>
-<p>   int len;<br>   char[] arr = new char[1024*8];                        //创建字符数组<br>   while((len = fr.read(arr)) != -1) {                    //将数据读到字符数组中</p>
-<pre><code>   fw.write(arr, 0, len);                            //从字符数组将数据写到文件上</code></pre>
-<p>   }</p>
-<p>   fr.close();                                            //关流释放资源<br>   fw.close();    </p>
-</li>
-</ul>
-<h3 id="21-07-IO流-带缓冲的字符流"><a href="#21-07-IO流-带缓冲的字符流" class="headerlink" title="21.07_IO流(带缓冲的字符流)"></a>21.07_IO流(带缓冲的字符流)</h3><ul>
-<li><p>BufferedReader的read()方法读取字符时会一次读取若干字符到缓冲区, 然后逐个返回给程序, 降低读取文件的次数, 提高效率</p>
-</li>
-<li><p>BufferedWriter的write()方法写出字符时会先写到缓冲区, 缓冲区写满时才会写到文件, 降低写文件的次数, 提高效率</p>
-</li>
-<li><pre><code>  BufferedReader br = new BufferedReader(new FileReader(&quot;aaa.txt&quot;));    //创建字符输入流对象,关联aaa.txt
-  BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;bbb.txt&quot;));    //创建字符输出流对象,关联bbb.txt
-
-  int ch;                
-  while((ch = br.read()) != -1) &#123;        //read一次,会先将缓冲区读满,从缓冲去中一个一个的返给临时变量ch
-      bw.write(ch);                    //write一次,是将数据装到字符数组,装满后再一起写出去
-  &#125;
-
-  br.close();                            //关流
-  bw.close();  </code></pre>
-</li>
-</ul>
-<h3 id="21-08-IO流-readLine-和newLine-方法"><a href="#21-08-IO流-readLine-和newLine-方法" class="headerlink" title="21.08_IO流(readLine()和newLine()方法)"></a>21.08_IO流(readLine()和newLine()方法)</h3><ul>
-<li><p>BufferedReader的readLine()方法可以读取一行字符(不包含换行符号)</p>
-</li>
-<li><p>BufferedWriter的newLine()可以输出一个跨平台的换行符号”\r\n”</p>
-</li>
-<li><pre><code>  BufferedReader br = new BufferedReader(new FileReader(&quot;aaa.txt&quot;));
-  BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;bbb.txt&quot;));
-  String line;
-  while((line = br.readLine()) != null) &#123;
-      bw.write(line);
-      //bw.write(&quot;\r\n&quot;);                    //只支持windows系统
-      bw.newLine();                        //跨平台的
-  &#125;
-
-  br.close();
-  bw.close(); </code></pre>
-</li>
-</ul>
-<h3 id="21-09-IO流-将文本反转"><a href="#21-09-IO流-将文本反转" class="headerlink" title="21.09_IO流(将文本反转)"></a>21.09_IO流(将文本反转)</h3><ul>
-<li>将一个文本文档上的文本反转,第一行和倒数第一行交换,第二行和倒数第二行交换</li>
-</ul>
-<h3 id="21-10-IO流-LineNumberReader"><a href="#21-10-IO流-LineNumberReader" class="headerlink" title="21.10_IO流(LineNumberReader)"></a>21.10_IO流(LineNumberReader)</h3><ul>
-<li><p>LineNumberReader是BufferedReader的子类, 具有相同的功能, 并且可以统计行号</p>
-<ul>
-<li>调用getLineNumber()方法可以获取当前行号</li>
-<li>调用setLineNumber()方法可以设置当前行号</li>
-</ul>
-</li>
-<li><pre><code>  LineNumberReader lnr = new LineNumberReader(new FileReader(&quot;aaa.txt&quot;));
-  String line;
-  lnr.setLineNumber(100);                                    //设置行号
-  while((line = lnr.readLine()) != null) &#123;
-      System.out.println(lnr.getLineNumber() + &quot;:&quot; + line);//获取行号
-  &#125;
-
-  lnr.close(); </code></pre>
-</li>
-</ul>
-<h3 id="21-11-IO流-装饰设计模式"><a href="#21-11-IO流-装饰设计模式" class="headerlink" title="21.11_IO流(装饰设计模式)"></a>21.11_IO流(装饰设计模式)</h3><ul>
-<li><pre><code>  interface Coder &#123;
-      public void code();
-  &#125;
-
-  class Student implements Coder &#123;
-
-      @Override
-      public void code() &#123;
-          System.out.println(&quot;javase&quot;);
-          System.out.println(&quot;javaweb&quot;);
-      &#125;
-
-  &#125;
-
-  class HeiMaStudent implements Coder &#123;
-      private Student s;                        //获取到被包装的类的引用
-      public HeiMaStudent(Student s) &#123;        //通过构造函数创建对象的时候,传入被包装的对象
-          this.s = s;
-      &#125;
-      @Override
-      public void code() &#123;                    //对其原有功能进行升级
-          s.code();
-          System.out.println(&quot;数据库&quot;);
-          System.out.println(&quot;ssh&quot;);
-          System.out.println(&quot;安卓&quot;);
-          System.out.println(&quot;.....&quot;);
-      &#125;
-
-  &#125; </code></pre>
-</li>
-</ul>
-<h3 id="21-12-IO流-使用指定的码表读写字符"><a href="#21-12-IO流-使用指定的码表读写字符" class="headerlink" title="21.12_IO流(使用指定的码表读写字符)"></a>21.12_IO流(使用指定的码表读写字符)</h3><ul>
-<li><p>FileReader是使用默认码表读取文件, 如果需要使用指定码表读取, 那么可以使用InputStreamReader(字节流,编码表)</p>
-</li>
-<li><p>FileWriter是使用默认码表写出文件, 如果需要使用指定码表写出, 那么可以使用OutputStreamWriter(字节流,编码表)</p>
-</li>
-<li><pre><code>  BufferedReader br =                                     //高效的用指定的编码表读
-          new BufferedReader(new InputStreamReader(new FileInputStream(&quot;UTF-8.txt&quot;), &quot;UTF-8&quot;));
-  BufferedWriter bw =                                     //高效的用指定的编码表写
-          new BufferedWriter(new OutputStreamWriter(new FileOutputStream(&quot;GBK.txt&quot;), &quot;GBK&quot;));
-  int ch;
-  while((ch = br.read()) != -1) &#123;
-      bw.write(ch);
-  &#125;
-
-  br.close();
-  bw.close();</code></pre>
-<h3 id="21-13-IO流-转换流图解"><a href="#21-13-IO流-转换流图解" class="headerlink" title="21.13_IO流(转换流图解)"></a>21.13_IO流(转换流图解)</h3></li>
-<li><p>画图分析转换流</p>
-</li>
-</ul>
-<h3 id="21-14-IO流-获取文本上字符出现的次数"><a href="#21-14-IO流-获取文本上字符出现的次数" class="headerlink" title="21.14_IO流(获取文本上字符出现的次数)"></a>21.14_IO流(获取文本上字符出现的次数)</h3><ul>
-<li>获取一个文本上每个字符出现的次数,将结果写在times.txt上</li>
-</ul>
-<h3 id="21-15-IO流-试用版软件"><a href="#21-15-IO流-试用版软件" class="headerlink" title="21.15_IO流(试用版软件)"></a>21.15_IO流(试用版软件)</h3><ul>
-<li>当我们下载一个试用版软件,没有购买正版的时候,每执行一次就会提醒我们还有多少次使用机会用学过的IO流知识,模拟试用版软件,试用10次机会,执行一次就提示一次您还有几次机会,如果次数到了提示请购买正版</li>
-</ul>
-<h3 id="21-16-File类-递归"><a href="#21-16-File类-递归" class="headerlink" title="21.16_File类(递归)"></a>21.16_File类(递归)</h3><ul>
-<li>5的阶乘    </li>
-</ul>
-<h3 id="21-17-File类-练习"><a href="#21-17-File类-练习" class="headerlink" title="21.17_File类(练习)"></a>21.17_File类(练习)</h3><ul>
-<li>需求:从键盘输入接收一个文件夹路径,打印出该文件夹下所有的.java文件名</li>
-</ul>
-<h3 id="21-18-IO流-总结"><a href="#21-18-IO流-总结" class="headerlink" title="21.18_IO流(总结)"></a>21.18_IO流(总结)</h3><ul>
-<li>1.会用BufferedReader读取GBK码表和UTF-8码表的字符</li>
-<li>2.会用BufferedWriter写出字符到GBK码表和UTF-8码表的文件中</li>
-<li>3.会使用BufferedReader从键盘读取一行</li>
-</ul>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/后端//" class="article-tag-list-link color3">后端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8021-IO%E5%AD%97%E7%AC%A6%E6%B5%81/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java基础20-IO字节流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8020-IO%E5%AD%97%E8%8A%82%E6%B5%81/" target="_blank">Java基础20-IO字节流</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/06/16/Java%E5%9F%BA%E7%A1%8020-IO%E5%AD%97%E8%8A%82%E6%B5%81/" class="archive-article-date">
-        <time datetime="2020-06-16T04:17:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="20-01-IO流-IO流概述及其分类"><a href="#20-01-IO流-IO流概述及其分类" class="headerlink" title="20.01_IO流(IO流概述及其分类)"></a>20.01_IO流(IO流概述及其分类)</h3><ul>
-<li>1.概念<ul>
-<li>IO流用来处理设备之间的数据传输</li>
-<li>Java对数据的操作是通过流的方式</li>
-<li>Java用于操作流的类都在IO包中</li>
-<li>流按流向分为两种：输入流，输出流。</li>
-<li>流按操作类型分为两种：<ul>
-<li><strong>字节流</strong> : 字节流可以操作任何数据,因为在计算机中任何数据都是以字节的形式存储的</li>
-<li><strong>字符流</strong> : 字符流只能操作纯字符数据，比较方便。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>2.IO流常用父类<ul>
-<li>字节流的抽象父类：<ul>
-<li>InputStream </li>
-<li>OutputStream</li>
-</ul>
-</li>
-<li>字符流的抽象父类：<ul>
-<li>Reader </li>
-<li>Writer        </li>
-</ul>
-</li>
-</ul>
-</li>
-<li>3.IO程序书写<ul>
-<li>使用前，导入IO包中的类</li>
-<li>使用时，进行IO异常处理</li>
-<li>使用后，释放资源</li>
-</ul>
-</li>
-</ul>
-<h3 id="20-02-IO流-FileInputStream"><a href="#20-02-IO流-FileInputStream" class="headerlink" title="20.02_IO流(FileInputStream)"></a>20.02_IO流(FileInputStream)</h3><ul>
-<li><p>read()一次读取一个字节</p>
-</li>
-<li><pre><code>  FileInputStream fis = new FileInputStream(&quot;aaa.txt&quot;);    //创建一个文件输入流对象,并关联aaa.txt
-  int b;                                                    //定义变量,记录每次读到的字节
-  while((b = fis.read()) != -1) &#123;                            //将每次读到的字节赋值给b并判断是否是-1
-      System.out.println(b);                                //打印每一个字节
-  &#125;
-
-  fis.close();                                            //关闭流释放资源</code></pre>
-<h3 id="20-03-IO流-read-方法返回值为什么是int"><a href="#20-03-IO流-read-方法返回值为什么是int" class="headerlink" title="20.03_IO流(read()方法返回值为什么是int)"></a>20.03_IO流(read()方法返回值为什么是int)</h3></li>
-<li><p>read()方法读取的是一个字节,为什么返回是int,而不是byte</p>
-</li>
-<li><pre><code>  因为字节输入流可以操作任意类型的文件,比如图片音频等,这些文件底层都是以二进制形式的存储的,如果每次读取都返回byte,有可能在读到中间的时候遇到111111111
-  那么这11111111是byte类型的-1,我们的程序是遇到-1就会停止不读了,后面的数据就读不到了,所以在读取的时候用int类型接收,如果11111111会在其前面补上
-  24个0凑足4个字节,那么byte类型的-1就变成int类型的255了这样可以保证整个数据读完,而结束标记的-1就是int类型</code></pre>
-<h3 id="20-04-IO流-FileOutputStream"><a href="#20-04-IO流-FileOutputStream" class="headerlink" title="20.04_IO流(FileOutputStream)"></a>20.04_IO流(FileOutputStream)</h3></li>
-<li><p>write()一次写出一个字节</p>
-</li>
-<li><pre><code>  FileOutputStream fos = new FileOutputStream(&quot;bbb.txt&quot;);    //如果没有bbb.txt,会创建出一个
-  //fos.write(97);                        //虽然写出的是一个int数,但是在写出的时候会将前面的24个0去掉,所以写出的是一个byte
-  fos.write(98);
-  fos.write(99);
-  fos.close();</code></pre>
-<h3 id="20-05-IO流-FileOutputStream追加"><a href="#20-05-IO流-FileOutputStream追加" class="headerlink" title="20.05_IO流(FileOutputStream追加)"></a>20.05_IO流(FileOutputStream追加)</h3></li>
-<li><p>A:案例演示</p>
-<ul>
-<li>FileOutputStream的构造方法写出数据如何实现数据的追加写入</li>
-</ul>
-</li>
-<li><pre><code>  FileOutputStream fos = new FileOutputStream(&quot;bbb.txt&quot;,true);    //如果没有bbb.txt,会创建出一个
-  //fos.write(97);                        //虽然写出的是一个int数,但是在写出的时候会将前面的24个0去掉,所以写出的一个byte
-  fos.write(98);
-  fos.write(99);
-  fos.close();</code></pre>
-</li>
-</ul>
-<h3 id="20-06-IO流-拷贝图片"><a href="#20-06-IO流-拷贝图片" class="headerlink" title="20.06_IO流(拷贝图片)"></a>20.06_IO流(拷贝图片)</h3><ul>
-<li><p>FileInputStream读取</p>
-</li>
-<li><p>FileOutputStream写出</p>
-<pre><code>  FileInputStream fis = new FileInputStream(&quot;致青春.mp3&quot;);    //创建输入流对象,关联致青春.mp3
-  FileOutputStream fos = new FileOutputStream(&quot;copy.mp3&quot;);//创建输出流对象,关联copy.mp3
-
-  int b;
-  while((b = fis.read()) != -1) &#123;
-      fos.write(b);
-  &#125;
-
-  fis.close();
-  fos.close();</code></pre>
-</li>
-</ul>
-<h3 id="20-07-IO流-拷贝音频文件画原理图"><a href="#20-07-IO流-拷贝音频文件画原理图" class="headerlink" title="20.07_IO流(拷贝音频文件画原理图)"></a>20.07_IO流(拷贝音频文件画原理图)</h3><ul>
-<li>A:案例演示<ul>
-<li>字节流一次读写一个字节复制音频</li>
-</ul>
-</li>
-<li>弊端:效率太低</li>
-</ul>
-<h3 id="20-08-IO流-字节数组拷贝之available-方法"><a href="#20-08-IO流-字节数组拷贝之available-方法" class="headerlink" title="20.08_IO流(字节数组拷贝之available()方法)"></a>20.08_IO流(字节数组拷贝之available()方法)</h3><ul>
-<li><p>A:案例演示</p>
-<ul>
-<li>int read(byte[] b):一次读取一个字节数组</li>
-<li>write(byte[] b):一次写出一个字节数组</li>
-<li>available()获取读的文件所有的字节个数</li>
-</ul>
-</li>
-<li><p>弊端:有可能会内存溢出 </p>
-<pre><code>  FileInputStream fis = new FileInputStream(&quot;致青春.mp3&quot;);
-  FileOutputStream fos = new FileOutputStream(&quot;copy.mp3&quot;);
-  byte[] arr = new byte[fis.available()];                    //根据文件大小做一个字节数组
-  fis.read(arr);                                            //将文件上的所有字节读取到数组中
-  fos.write(arr);                                            //将数组中的所有字节一次写到了文件上
-  fis.close();
-  fos.close();</code></pre>
-</li>
-</ul>
-<h3 id="20-09-IO流-定义小数组"><a href="#20-09-IO流-定义小数组" class="headerlink" title="20.09_IO流(定义小数组)"></a>20.09_IO流(定义小数组)</h3><ul>
-<li>write(byte[] b)</li>
-<li>write(byte[] b, int off, int len)写出有效的字节个数</li>
-</ul>
-<h3 id="20-10-IO流-定义小数组的标准格式"><a href="#20-10-IO流-定义小数组的标准格式" class="headerlink" title="20.10_IO流(定义小数组的标准格式)"></a>20.10_IO流(定义小数组的标准格式)</h3><ul>
-<li><p>A:案例演示</p>
-<ul>
-<li><p>字节流一次读写一个字节数组复制图片和视频<br>  FileInputStream fis = new FileInputStream(“致青春.mp3”);<br>  FileOutputStream fos = new FileOutputStream(“copy.mp3”);<br>  int len;<br>  byte[] arr = new byte[1024 * 8];                    //自定义字节数组</p>
-<p>  while((len = fis.read(arr)) != -1) {</p>
-<pre><code>  //fos.write(arr);
-  fos.write(arr, 0, len);                            //写出字节数组写出有效个字节个数</code></pre>
-<p>  }</p>
-<p>  fis.close();<br>  fos.close();</p>
-<h3 id="20-11-IO流-BufferedInputStream和BufferOutputStream拷贝"><a href="#20-11-IO流-BufferedInputStream和BufferOutputStream拷贝" class="headerlink" title="20.11_IO流(BufferedInputStream和BufferOutputStream拷贝)"></a>20.11_IO流(BufferedInputStream和BufferOutputStream拷贝)</h3></li>
-</ul>
-</li>
-<li><p>A:缓冲思想</p>
-<ul>
-<li>字节流一次读写一个数组的速度明显比一次读写一个字节的速度快很多，</li>
-<li>这是加入了数组这样的缓冲区效果，java本身在设计的时候，</li>
-<li>也考虑到了这样的设计思想(装饰设计模式后面讲解)，所以提供了字节缓冲区流</li>
-</ul>
-</li>
-<li><p>B.BufferedInputStream</p>
-<ul>
-<li>BufferedInputStream内置了一个缓冲区(数组)</li>
-<li>从BufferedInputStream中读取一个字节时</li>
-<li>BufferedInputStream会一次性从文件中读取8192个, 存在缓冲区中, 返回给程序一个</li>
-<li>程序再次读取时, 就不用找文件了, 直接从缓冲区中获取</li>
-<li>直到缓冲区中所有的都被使用过, 才重新从文件中读取8192个</li>
-</ul>
-</li>
-<li><p>C.BufferedOutputStream</p>
-<ul>
-<li>BufferedOutputStream也内置了一个缓冲区(数组)</li>
-<li>程序向流中写出字节时, 不会直接写到文件, 先写到缓冲区中</li>
-<li>直到缓冲区写满, BufferedOutputStream才会把缓冲区中的数据一次性写到文件里</li>
-</ul>
-</li>
-<li><p>D.拷贝的代码 </p>
-<pre><code>  FileInputStream fis = new FileInputStream(&quot;致青春.mp3&quot;);        //创建文件输入流对象,关联致青春.mp3
-  BufferedInputStream bis = new BufferedInputStream(fis);            //创建缓冲区对fis装饰
-  FileOutputStream fos = new FileOutputStream(&quot;copy.mp3&quot;);        //创建输出流对象,关联copy.mp3
-  BufferedOutputStream bos = new BufferedOutputStream(fos);        //创建缓冲区对fos装饰
-
-  int b;
-  while((b = bis.read()) != -1) &#123;        
-      bos.write(b);
-  &#125;
-
-  bis.close();                        //只关装饰后的对象即可
-  bos.close();</code></pre>
-</li>
-<li><p>E.小数组的读写和带Buffered的读取哪个更快?</p>
-<ul>
-<li>定义小数组如果是8192个字节大小和Buffered比较的话</li>
-<li>定义小数组会略胜一筹,因为读和写操作的是同一个数组</li>
-<li>而Buffered操作的是两个数组</li>
-</ul>
-</li>
-</ul>
-<h3 id="20-12-IO流-flush和close方法的区别"><a href="#20-12-IO流-flush和close方法的区别" class="headerlink" title="20.12_IO流(flush和close方法的区别)"></a>20.12_IO流(flush和close方法的区别)</h3><ul>
-<li>flush()方法<ul>
-<li>用来刷新缓冲区的,刷新后可以再次写出 </li>
-</ul>
-</li>
-<li>close()方法<ul>
-<li>用来关闭流释放资源的的,如果是带缓冲区的流对象的close()方法,不但会关闭流,还会再关闭流之前刷新缓冲区,关闭后不能再写出 <h3 id="20-13-IO流-字节流读写中文"><a href="#20-13-IO流-字节流读写中文" class="headerlink" title="20.13_IO流(字节流读写中文)"></a>20.13_IO流(字节流读写中文)</h3></li>
-</ul>
-</li>
-<li>字节流读取中文的问题<ul>
-<li>字节流在读中文的时候有可能会读到半个中文,造成乱码 </li>
-</ul>
-</li>
-<li>字节流写出中文的问题<ul>
-<li>字节流直接操作的字节,所以写出中文必须将字符串转换成字节数组 </li>
-<li>写出回车换行 write(“\r\n”.getBytes());</li>
-</ul>
-</li>
-</ul>
-<h3 id="20-14-IO流-流的标准处理异常代码1-6版本及其以前"><a href="#20-14-IO流-流的标准处理异常代码1-6版本及其以前" class="headerlink" title="20.14_IO流(流的标准处理异常代码1.6版本及其以前)"></a>20.14_IO流(流的标准处理异常代码1.6版本及其以前)</h3><ul>
-<li><p>try finally嵌套</p>
-<pre><code>  FileInputStream fis = null;
-  FileOutputStream fos = null;
-  try &#123;
-      fis = new FileInputStream(&quot;aaa.txt&quot;);
-      fos = new FileOutputStream(&quot;bbb.txt&quot;);
-      int b;
-      while((b = fis.read()) != -1) &#123;
-          fos.write(b);
-      &#125;
-  &#125; finally &#123;
-      try &#123;
-          if(fis != null)
-              fis.close();
-      &#125;finally &#123;
-          if(fos != null)
-              fos.close();
-      &#125;
-  &#125;</code></pre>
-</li>
-</ul>
-<h3 id="20-15-IO流-流的标准处理异常代码1-7版本"><a href="#20-15-IO流-流的标准处理异常代码1-7版本" class="headerlink" title="20.15_IO流(流的标准处理异常代码1.7版本)"></a>20.15_IO流(流的标准处理异常代码1.7版本)</h3><ul>
-<li><p>try close</p>
-<pre><code>  try(
-      FileInputStream fis = new FileInputStream(&quot;aaa.txt&quot;);
-      FileOutputStream fos = new FileOutputStream(&quot;bbb.txt&quot;);
-      MyClose mc = new MyClose();
-  )&#123;
-      int b;
-      while((b = fis.read()) != -1) &#123;
-          fos.write(b);
-      &#125;
-  &#125;</code></pre>
-</li>
-<li><p>原理</p>
-<ul>
-<li>在try()中创建的流对象必须实现了AutoCloseable这个接口,</li>
-<li>如果实现了,在try后面的{}(读写代码)执行后就会自动调用,流对象的close方法将流关掉 </li>
-</ul>
-</li>
-</ul>
-<h3 id="20-16-IO流-图片加密"><a href="#20-16-IO流-图片加密" class="headerlink" title="20.16_IO流(图片加密)"></a>20.16_IO流(图片加密)</h3><ul>
-<li><p>给图片加密</p>
-<pre><code>  BufferedInputStream bis = new BufferedInputStream(new FileInputStream(&quot;a.jpg&quot;));
-  BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(&quot;b.jpg&quot;));
-
-  int b;
-  while((b = bis.read()) != -1) &#123;
-      bos.write(b ^ 123);
-  &#125;
-
-  bis.close();
-  bos.close();</code></pre>
-</li>
-</ul>
-<h3 id="20-17-IO流-拷贝文件"><a href="#20-17-IO流-拷贝文件" class="headerlink" title="20.17_IO流(拷贝文件)"></a>20.17_IO流(拷贝文件)</h3><ul>
-<li><p>在控制台录入文件的路径,将文件拷贝到当前项目下</p>
-<pre><code>  Scanner sc = new Scanner(System.in);
-  System.out.println(&quot;请输入一个文件路径&quot;);
-  String line = sc.nextLine();                //将键盘录入的文件路径存储在line中
-  File file = new File(line);                    //封装成File对象
-  FileInputStream fis = new FileInputStream(file);
-  FileOutputStream fos = new FileOutputStream(file.getName());
-
-  int len;
-  byte[] arr = new byte[8192];                //定义缓冲区
-  while((len = fis.read(arr)) != -1) &#123;
-      fos.write(arr,0,len);
-  &#125;
-
-  fis.close();
-  fos.close();</code></pre>
-</li>
-</ul>
-<h3 id="20-18-IO流-录入数据拷贝到文件"><a href="#20-18-IO流-录入数据拷贝到文件" class="headerlink" title="20.18_IO流(录入数据拷贝到文件)"></a>20.18_IO流(录入数据拷贝到文件)</h3><ul>
-<li><p>将键盘录入的数据拷贝到当前项目下的text.txt文件中,键盘录入数据当遇到quit时就退出</p>
-<pre><code>  Scanner sc = new Scanner(System.in);
-  FileOutputStream fos = new FileOutputStream(&quot;text.txt&quot;);
-  System.out.println(&quot;请输入:&quot;);
-  while(true) &#123;
-      String line = sc.nextLine();
-      if(&quot;quit&quot;.equals(line))
-          break;
-      fos.write(line.getBytes());
-      fos.write(&quot;\r\n&quot;.getBytes());
-  &#125;
-
-  fos.close();</code></pre>
-</li>
-</ul>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/后端//" class="article-tag-list-link color3">后端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8020-IO%E5%AD%97%E8%8A%82%E6%B5%81/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/">Next &amp;raquo;</a>
     </nav>
   
 
