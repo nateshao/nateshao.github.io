@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>商业网络介绍</title>
+      <link href="/2020/11/29/%E5%95%86%E4%B8%9A%E7%BD%91%E7%BB%9C%E4%BB%8B%E7%BB%8D/"/>
+      <url>/2020/11/29/%E5%95%86%E4%B8%9A%E7%BD%91%E7%BB%9C%E4%BB%8B%E7%BB%8D/</url>
+      
+        <content type="html"><![CDATA[<h2 id="服务器长什么样"><a href="#服务器长什么样" class="headerlink" title="服务器长什么样"></a>服务器长什么样</h2><p>服务器介绍<br>（1）外观，可插拔硬盘<br>（2)  尺寸，2U的机器<br>（3）背部，可插拔设计<br>（4）服务器拆开，内部结构<br>（5）ECC内存 </p><h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><pre><code>（1） 域名的 分级介绍         www.baidu.com        www.linux.org        www.tianya.cn         www.by.gov.cn        www.gdpi.edu.cn</code></pre><p>​<br>    （2）国内域名购买<br>        <a href="https://www.dnspod.cn/">https://www.dnspod.cn</a><br>        <a href="https://wanwang.aliyun.com/">https://wanwang.aliyun.com</a> </p><pre><code>（3）国外域名购买    http://www.godaddy.com     https://www.namesilo.com （4）域名解析    www.dnspod.cn     演示 （5）域名知识     A记录    AAAA记录     CNAME     MX记录    TXT记录    不同线路-IP地址单独设置     TTL  过期时间：按秒计算的 （6）域名备案 （国内法律规定）    ICP备案 ：非盈利性网站，备案 即可     ICP证 ：盈利性网站，必须是 证     以 百度 为例子，看他的备案    以  https://www.bilibili.com 为例     &lt;1&gt; 备案是要提交到服务器提供商那边    你在哪里买的服务器，就需要把备案信息提交到那里    你换个服务器提供商，备案需要重新做一次    &lt;2&gt; 必须网站先上线，然后去备案，备案之后才能正常访问    &lt;3&gt; 没有备案的网站会被服务商屏蔽 ，无法访问</code></pre><h2 id="服务器租用、托管"><a href="#服务器租用、托管" class="headerlink" title="服务器租用、托管"></a>服务器租用、托管</h2><pre><code>（1）网络分类        电信、联通、移动、教育网、教育网IPv6         铁通、吉通、长城宽带（2）机房分类        单线机房        多线机房        BGP机房        淘宝搜索：租服务器 （3）普通机房 vs 高防机房         普通机房：防护比较弱，如果遭受大量攻击，直接就关闭你的服务器        高防机房：有专业的硬件防火墙，可以承受大量的攻击，但是要收费 （4）租带宽，送服务器         如果你对服务器的要求不高，那不用自己买服务器        直接租就可以了，服务器 + 带宽 一起租了        租 100MB 带宽，普通服务器你要什么他们给你配，基本上他们都有</code></pre><h2 id="在家里搭服务器可不可以？"><a href="#在家里搭服务器可不可以？" class="headerlink" title="在家里搭服务器可不可以？"></a>在家里搭服务器可不可以？</h2><pre><code>理论上-可以80/443 端口被封，不能用这两个端口下行带宽/上行带宽不对等做服务器，最重要是上行带宽没有外网IP，彻底不行 如果量大了，会有法律问题</code></pre><h2 id="租服务器"><a href="#租服务器" class="headerlink" title="租服务器"></a>租服务器</h2><pre><code>（1）阿里云、腾讯云         https://www.aliyun.com        https://cloud.tencent.com/product/cvm（2）国内服务商        https://www.51idc.com        https://www.west.cn（3）淘宝上找        淘宝搜索  租服务器 </code></pre><h2 id="虚拟机服务器"><a href="#虚拟机服务器" class="headerlink" title="虚拟机服务器"></a>虚拟机服务器</h2><pre><code>虚拟主机： 只能用于 php VPS-Openvz： 半虚拟化服务器，不能修改内核设置，其他和虚拟机类似VPS-KVM：全虚拟化服务器 ，可以修改内核设置VPS-HyperV：贵，性能一般，主要用于 Windows 国内在淘宝上买就行 国外低价服务器 搬瓦工--不推荐，用的中国人太多了，经常被封杀 https://virmach.com https://www.linode.com超低价VPS OpenVZ-96MB内存-250GB流量一个月   6.99美金 - 3年 --人民币大概 60元https://www.sentris.net/billing/cart.php?gid=18KVM-512MB内存-200Mbps带宽  1047卢布--1年--人民币 90元 https://justhost.ru/</code></pre><p>​    </p><h2 id="CDN的使用"><a href="#CDN的使用" class="headerlink" title="CDN的使用"></a>CDN的使用</h2><pre><code>国内付费CDN： 蓝汛         基本上 优酷、爱奇艺、B站、... 都是买的蓝汛的服务http://www.chinacache.com/免费的CDN百度云加速    https://su.baidu.com加速乐        https://defense.yunaq.com 国外免费CDNwww.cloudflare.com</code></pre><p>​<br>​    </p><p>​    </p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JVM线上故障排查基本操作</title>
       <link href="/2020/11/23/JVM%E7%BA%BF%E4%B8%8A%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
       <url>/2020/11/23/JVM%E7%BA%BF%E4%B8%8A%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>

@@ -6,7 +6,7 @@
   <link href="https://nate-lin.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://nate-lin.gitee.io/"/>
-  <updated>2020-11-23T15:31:47.650Z</updated>
+  <updated>2020-11-29T13:22:58.229Z</updated>
   <id>https://nate-lin.gitee.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>商业网络介绍</title>
+    <link href="https://nate-lin.gitee.io/2020/11/29/%E5%95%86%E4%B8%9A%E7%BD%91%E7%BB%9C%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://nate-lin.gitee.io/2020/11/29/%E5%95%86%E4%B8%9A%E7%BD%91%E7%BB%9C%E4%BB%8B%E7%BB%8D/</id>
+    <published>2020-11-29T13:21:13.000Z</published>
+    <updated>2020-11-29T13:22:58.229Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="服务器长什么样"><a href="#服务器长什么样" class="headerlink" title="服务器长什么样"></a>服务器长什么样</h2><p>服务器介绍<br>（1）外观，可插拔硬盘<br>（2)  尺寸，2U的机器<br>（3）背部，可插拔设计<br>（4）服务器拆开，内部结构<br>（5）ECC内存 </p><h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><pre><code>（1） 域名的 分级介绍         www.baidu.com        www.linux.org        www.tianya.cn         www.by.gov.cn        www.gdpi.edu.cn</code></pre><p>​<br>    （2）国内域名购买<br>        <a href="https://www.dnspod.cn/">https://www.dnspod.cn</a><br>        <a href="https://wanwang.aliyun.com/">https://wanwang.aliyun.com</a> </p><pre><code>（3）国外域名购买    http://www.godaddy.com     https://www.namesilo.com （4）域名解析    www.dnspod.cn     演示 （5）域名知识     A记录    AAAA记录     CNAME     MX记录    TXT记录    不同线路-IP地址单独设置     TTL  过期时间：按秒计算的 （6）域名备案 （国内法律规定）    ICP备案 ：非盈利性网站，备案 即可     ICP证 ：盈利性网站，必须是 证     以 百度 为例子，看他的备案    以  https://www.bilibili.com 为例     &lt;1&gt; 备案是要提交到服务器提供商那边    你在哪里买的服务器，就需要把备案信息提交到那里    你换个服务器提供商，备案需要重新做一次    &lt;2&gt; 必须网站先上线，然后去备案，备案之后才能正常访问    &lt;3&gt; 没有备案的网站会被服务商屏蔽 ，无法访问</code></pre><h2 id="服务器租用、托管"><a href="#服务器租用、托管" class="headerlink" title="服务器租用、托管"></a>服务器租用、托管</h2><pre><code>（1）网络分类        电信、联通、移动、教育网、教育网IPv6         铁通、吉通、长城宽带（2）机房分类        单线机房        多线机房        BGP机房        淘宝搜索：租服务器 （3）普通机房 vs 高防机房         普通机房：防护比较弱，如果遭受大量攻击，直接就关闭你的服务器        高防机房：有专业的硬件防火墙，可以承受大量的攻击，但是要收费 （4）租带宽，送服务器         如果你对服务器的要求不高，那不用自己买服务器        直接租就可以了，服务器 + 带宽 一起租了        租 100MB 带宽，普通服务器你要什么他们给你配，基本上他们都有</code></pre><h2 id="在家里搭服务器可不可以？"><a href="#在家里搭服务器可不可以？" class="headerlink" title="在家里搭服务器可不可以？"></a>在家里搭服务器可不可以？</h2><pre><code>理论上-可以80/443 端口被封，不能用这两个端口下行带宽/上行带宽不对等做服务器，最重要是上行带宽没有外网IP，彻底不行 如果量大了，会有法律问题</code></pre><h2 id="租服务器"><a href="#租服务器" class="headerlink" title="租服务器"></a>租服务器</h2><pre><code>（1）阿里云、腾讯云         https://www.aliyun.com        https://cloud.tencent.com/product/cvm（2）国内服务商        https://www.51idc.com        https://www.west.cn（3）淘宝上找        淘宝搜索  租服务器 </code></pre><h2 id="虚拟机服务器"><a href="#虚拟机服务器" class="headerlink" title="虚拟机服务器"></a>虚拟机服务器</h2><pre><code>虚拟主机： 只能用于 php VPS-Openvz： 半虚拟化服务器，不能修改内核设置，其他和虚拟机类似VPS-KVM：全虚拟化服务器 ，可以修改内核设置VPS-HyperV：贵，性能一般，主要用于 Windows 国内在淘宝上买就行 国外低价服务器 搬瓦工--不推荐，用的中国人太多了，经常被封杀 https://virmach.com https://www.linode.com超低价VPS OpenVZ-96MB内存-250GB流量一个月   6.99美金 - 3年 --人民币大概 60元https://www.sentris.net/billing/cart.php?gid=18KVM-512MB内存-200Mbps带宽  1047卢布--1年--人民币 90元 https://justhost.ru/</code></pre><p>​    </p><h2 id="CDN的使用"><a href="#CDN的使用" class="headerlink" title="CDN的使用"></a>CDN的使用</h2><pre><code>国内付费CDN： 蓝汛         基本上 优酷、爱奇艺、B站、... 都是买的蓝汛的服务http://www.chinacache.com/免费的CDN百度云加速    https://su.baidu.com加速乐        https://defense.yunaq.com 国外免费CDNwww.cloudflare.com</code></pre><p>​<br>​    </p><p>​    </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;服务器长什么样&quot;&gt;&lt;a href=&quot;#服务器长什么样&quot; class=&quot;headerlink&quot; title=&quot;服务器长什么样&quot;&gt;&lt;/a&gt;服务器长什么样&lt;/h2&gt;&lt;p&gt;服务器介绍&lt;br&gt;（1）外观，可插拔硬盘&lt;br&gt;（2)  尺寸，2U的机器&lt;br&gt;（3）背部，可插拔</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>JVM线上故障排查基本操作</title>
@@ -438,31 +458,6 @@
       
     <summary type="html">&lt;h2 id=&quot;JavaScript-对象&quot;&gt;&lt;a href=&quot;#JavaScript-对象&quot; class=&quot;headerlink&quot; title=&quot;JavaScript 对象&quot;&gt;&lt;/a&gt;JavaScript 对象&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;JavaScript 对象</summary>
-      
-    
-    
-    
-    <category term="前端" scheme="https://nate-lin.gitee.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="js" scheme="https://nate-lin.gitee.io/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js-02-基本语法</title>
-    <link href="https://nate-lin.gitee.io/2020/08/23/js-02-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
-    <id>https://nate-lin.gitee.io/2020/08/23/js-02-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</id>
-    <published>2020-08-23T02:07:58.000Z</published>
-    <updated>2020-08-23T02:13:05.227Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="第二章-JavaScript-语法"><a href="#第二章-JavaScript-语法" class="headerlink" title="第二章 JavaScript 语法"></a>第二章 JavaScript 语法</h2><blockquote><p>JavaScript 是一个脚本语言。它是一个轻量级，但功能强大的编程语言。</p></blockquote><ul><li>程序中调试是测试，查找及减少bug(错误)的过程。</li><li>一个好的编程习惯是，在代码开始处，统一对需要的变量进行声明。</li><li>JavaScript 变量均为对象。当您声明一个变量时，就创建了一个新的对象。</li></ul><h3 id="JavaScript-字面量"><a href="#JavaScript-字面量" class="headerlink" title="JavaScript 字面量"></a>JavaScript 字面量</h3><blockquote><p>在编程语言中，一般固定值称为字面量，如 3.14。数字（Number）字面量 可以是整数或者是小数，或者是科学计数(e)。<br>3.14,1001,123e5</p></blockquote><ul><li>字符串（String）字面量 可以使用单引号或双引号:”John Doe”或者’John Doe’</li><li>数组（Array）字面量 定义一个数组：[40, 100, 1, 5, 25, 10]</li><li>对象（Object）字面量 定义一个对象：{firstName:”John”, lastName:”Doe”, age:50, eyeColor:”blue”}</li><li>函数（Function）字面量 定义一个函数：function myFunction(a, b) { return a * b;}</li></ul><h3 id="JavaScript-变量"><a href="#JavaScript-变量" class="headerlink" title="JavaScript 变量"></a>JavaScript 变量</h3><blockquote><p>在编程语言中，变量用于存储数据值。JavaScript 使用关键字 var 来定义变量， 使用等号来为变量赋值：<br>var x, length   x = 5  length = 6</p></blockquote><ul><li>变量可以通过变量名访问。在指令式语言中，变量通常是可变的。字面量是一个恒定的值。</li><li>变量是一个名称。字面量是一个值。<h3 id="JavaScript-关键字"><a href="#JavaScript-关键字" class="headerlink" title="JavaScript 关键字"></a>JavaScript 关键字</h3><blockquote><p>JavaScript 同样保留了一些关键字，这些关键字在当前的语言版本中并没有使用，但在以后 JavaScript 扩展中会用到。以下是 JavaScript 中最​​重要的保留字（按字母顺序）：</p></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">abstractelseinstanceofsuper</span><br><span class="line">booleanenumintswitch</span><br><span class="line">breakexportinterfacesynchronized</span><br><span class="line">byteextendsletthis</span><br><span class="line">casefalselongthrow</span><br><span class="line">catchfinalnativethrows</span><br><span class="line">charfinallynewtransient</span><br><span class="line">classfloatnulltrue</span><br><span class="line">constforpackagetry</span><br><span class="line">continuefunctionprivatetypeof</span><br><span class="line">debuggergotoprotectedvar</span><br><span class="line">defaultifpublicvoid</span><br><span class="line">deleteimplementsreturnvolatile</span><br><span class="line">doimportshortwhile</span><br><span class="line">doubleinstaticwith</span><br></pre></td></tr></table></figure><h3 id="JavaScript-数据类型"><a href="#JavaScript-数据类型" class="headerlink" title="JavaScript 数据类型"></a>JavaScript 数据类型</h3></li></ul><ol><li>值类型(基本类型)：字符串（String）、数字(Number)、布尔(Boolean)、对空（Null）、未定义（Undefined）、Symbol。</li><li>引用数据类型：对象(Object)、数组(Array)、函数(Function)。<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var x;               // x 为 undefined</span><br><span class="line">var x = 5;           // 现在 x 为数字</span><br><span class="line">var x = &quot;John&quot;;      // 现在 x 为字符串</span><br><span class="line">var length = 16;                                  // Number 通过数字字面量赋值</span><br><span class="line">var points = x * 10;                              // Number 通过表达式字面量赋值</span><br><span class="line">var lastName = &quot;Johnson&quot;;                         // String 通过字符串字面量赋值</span><br><span class="line">var lastName = &#x27;Johnson&#x27;;                         //字符串可以是引号中的任意文本。您可以使用单引号或双引号：</span><br><span class="line">var cars = [&quot;Saab&quot;, &quot;Volvo&quot;, &quot;BMW&quot;];              // Array  通过数组字面量赋值</span><br><span class="line">var person = &#123;firstName:&quot;John&quot;, lastName:&quot;Doe&quot;&#125;;  // Object 通过对象字面量赋值</span><br></pre></td></tr></table></figure><h3 id="JavaScript-布尔"><a href="#JavaScript-布尔" class="headerlink" title="JavaScript 布尔"></a>JavaScript 布尔</h3><blockquote><p>布尔（逻辑）只能有两个值：true 或 false。<br>var x=true;<br>var y=false;</p></blockquote></li></ol><h3 id="JavaScript-数组"><a href="#JavaScript-数组" class="headerlink" title="JavaScript 数组"></a>JavaScript 数组</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">下面的代码创建名为 cars 的数组：</span><br><span class="line">var cars=new Array();</span><br><span class="line">cars[0]=&quot;Saab&quot;;</span><br><span class="line">cars[1]=&quot;Volvo&quot;;</span><br><span class="line">cars[2]=&quot;BMW&quot;;</span><br><span class="line"> 或者 (condensed array):</span><br><span class="line"> var cars=new Array(&quot;Saab&quot;,&quot;Volvo&quot;,&quot;BMW&quot;);</span><br></pre></td></tr></table></figure><h3 id="Undefined-和-Null"><a href="#Undefined-和-Null" class="headerlink" title="Undefined 和 Null"></a>Undefined 和 Null</h3><ul><li>Undefined 这个值表示变量不含有值。</li><li>可以通过将变量的值设置为 null 来清空变量。</li></ul><h3 id="声明变量类型"><a href="#声明变量类型" class="headerlink" title="声明变量类型"></a>声明变量类型</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">当您声明新变量时，可以使用关键词 &quot;new&quot; 来声明其类型：</span><br><span class="line">var carname = new String;</span><br><span class="line">var x = new Number;</span><br><span class="line">var y = new Boolean;</span><br><span class="line">var cars = new Array;</span><br><span class="line">var person= new Object;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;第二章-JavaScript-语法&quot;&gt;&lt;a href=&quot;#第二章-JavaScript-语法&quot; class=&quot;headerlink&quot; title=&quot;第二章 JavaScript 语法&quot;&gt;&lt;/a&gt;第二章 JavaScript 语法&lt;/h2&gt;&lt;blockquote&gt;
-</summary>
       
     
     

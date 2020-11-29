@@ -219,6 +219,332 @@
 
 
   
+    <article id="post-Java基础12-String类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8012-String%E7%B1%BB/" target="_blank">Java基础12-String类</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/06/16/Java%E5%9F%BA%E7%A1%8012-String%E7%B1%BB/" class="archive-article-date">
+        <time datetime="2020-06-16T00:11:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="12-01-常见对象-Scanner的概述和方法介绍-掌握"><a href="#12-01-常见对象-Scanner的概述和方法介绍-掌握" class="headerlink" title="12.01_常见对象(Scanner的概述和方法介绍)(掌握)"></a>12.01_常见对象(Scanner的概述和方法介绍)(掌握)</h2><ul>
+<li><p>A:Scanner的概述</p>
+</li>
+<li><p>B:Scanner的构造方法原理</p>
+<ul>
+<li>Scanner(InputStream source)</li>
+<li>System类下有一个静态的字段：<ul>
+<li>public static final InputStream in; 标准的输入流，对应着键盘录入。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>C:一般方法</p>
+<ul>
+<li>hasNextXxx()  判断是否还有下一个输入项,其中Xxx可以是Int,Double等。如果需要判断是否包含下一个字符串，则可以省略Xxx</li>
+<li>nextXxx()  获取下一个输入项。Xxx的含义和上个方法中的Xxx相同,默认情况下，Scanner使用空格，回车等作为分隔符</li>
+</ul>
+</li>
+</ul>
+<h2 id="12-02-常见对象-Scanner获取数据出现的小问题及解决方案-掌握"><a href="#12-02-常见对象-Scanner获取数据出现的小问题及解决方案-掌握" class="headerlink" title="12.02_常见对象(Scanner获取数据出现的小问题及解决方案)(掌握)"></a>12.02_常见对象(Scanner获取数据出现的小问题及解决方案)(掌握)</h2><ul>
+<li>A:两个常用的方法：<ul>
+<li>public int nextInt():获取一个int类型的值</li>
+<li>public String nextLine():获取一个String类型的值</li>
+</ul>
+</li>
+<li>B:案例演示<ul>
+<li>a:先演示获取多个int值，多个String值的情况</li>
+<li>b:再演示先获取int值，然后获取String值出现问题</li>
+<li>c:问题解决方案<ul>
+<li>第一种：先获取一个数值后，在创建一个新的键盘录入对象获取字符串。</li>
+<li>第二种：把所有的数据都先按照字符串获取，然后要什么，你就对应的转换为什么。(后面讲)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="12-03-常见对象-String类的概述-掌握"><a href="#12-03-常见对象-String类的概述-掌握" class="headerlink" title="12.03_常见对象(String类的概述)(掌握)"></a>12.03_常见对象(String类的概述)(掌握)</h2><ul>
+<li><p>A:String类的概述    </p>
+<ul>
+<li><p>通过JDK提供的API，查看String类的说明</p>
+</li>
+<li><p>可以看到这样的两句话。</p>
+<ul>
+<li>a:字符串字面值”abc”也可以看成是一个字符串对象。</li>
+<li>b:字符串是常量，一旦被赋值，就不能被改变。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="12-04-常见对象-String类的构造方法-掌握"><a href="#12-04-常见对象-String类的构造方法-掌握" class="headerlink" title="12.04_常见对象(String类的构造方法)(掌握)"></a>12.04_常见对象(String类的构造方法)(掌握)</h2><ul>
+<li>A:常见构造方法<ul>
+<li>public String():空构造</li>
+<li>public String(byte[] bytes):把字节数组转成字符串</li>
+<li>public String(byte[] bytes,int index,int length):把字节数组的一部分转成字符串</li>
+<li>public String(char[] value):把字符数组转成字符串</li>
+<li>public String(char[] value,int index,int count):把字符数组的一部分转成字符串</li>
+<li>public String(String original):把字符串常量值转成字符串</li>
+</ul>
+</li>
+<li>B:案例演示    <ul>
+<li>演示String类的常见构造方法</li>
+</ul>
+</li>
+</ul>
+<h3 id="12-05-常见对象-String类的常见面试题-掌握"><a href="#12-05-常见对象-String类的常见面试题-掌握" class="headerlink" title="12.05_常见对象(String类的常见面试题)(掌握)"></a>12.05_常见对象(String类的常见面试题)(掌握)</h3><ul>
+<li>1.判断定义为String类型的s1和s2是否相等<ul>
+<li>String s1 = “abc”;</li>
+<li>String s2 = “abc”;</li>
+<li>System.out.println(s1 == s2);         true            </li>
+<li>System.out.println(s1.equals(s2));     true    </li>
+</ul>
+</li>
+<li>2.下面这句话在内存中创建了几个对象?<ul>
+<li>String s1 = new String(“abc”);        2    </li>
+</ul>
+</li>
+<li>3.判断定义为String类型的s1和s2是否相等<ul>
+<li>String s1 = new String(“abc”);            </li>
+<li>String s2 = “abc”;</li>
+<li>System.out.println(s1 == s2);            false</li>
+<li>System.out.println(s1.equals(s2));    true</li>
+</ul>
+</li>
+<li>4.判断定义为String类型的s1和s2是否相等<ul>
+<li>String s1 = “a” + “b” + “c”;</li>
+<li>String s2 = “abc”;                    </li>
+<li>System.out.println(s1 == s2);            true</li>
+<li>System.out.println(s1.equals(s2));    true</li>
+</ul>
+</li>
+<li>5.判断定义为String类型的s1和s2是否相等<ul>
+<li>String s1 = “ab”;</li>
+<li>String s2 = “abc”;</li>
+<li>String s3 = s1 + “c”;</li>
+<li>System.out.println(s3 == s2);         false</li>
+<li>System.out.println(s3.equals(s2));    true</li>
+</ul>
+</li>
+</ul>
+<h3 id="12-06-常见对象-String类的判断功能-掌握"><a href="#12-06-常见对象-String类的判断功能-掌握" class="headerlink" title="12.06_常见对象(String类的判断功能)(掌握)"></a>12.06_常见对象(<strong>String类的判断功能</strong>)(掌握)</h3><ul>
+<li>A:String类的判断功能<ul>
+<li>boolean equals(Object obj):比较字符串的内容是否相同,区分大小写</li>
+<li>boolean equalsIgnoreCase(String str):比较字符串的内容是否相同,忽略大小写</li>
+<li>boolean contains(String str):判断大字符串中是否包含小字符串</li>
+<li>boolean startsWith(String str):判断字符串是否以某个指定的字符串开头</li>
+<li>boolean endsWith(String str):判断字符串是否以某个指定的字符串结尾</li>
+<li>boolean isEmpty():判断字符串是否为空。</li>
+</ul>
+</li>
+</ul>
+<h3 id="12-07-常见对象-模拟用户登录-掌握"><a href="#12-07-常见对象-模拟用户登录-掌握" class="headerlink" title="12.07_常见对象(模拟用户登录)(掌握)"></a>12.07_常见对象(模拟用户登录)(掌握)</h3><ul>
+<li>A:案例演示<ul>
+<li>需求：模拟登录,给三次机会,并提示还有几次。</li>
+<li>用户名和密码都是admin<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * * A:案例演示</span></span><br><span class="line"><span class="comment">		* 需求：模拟登录,给三次机会,并提示还有几次。</span></span><br><span class="line"><span class="comment">		* 用户名和密码都是admin</span></span><br><span class="line"><span class="comment">		* 分析:</span></span><br><span class="line"><span class="comment">		* 1,模拟登录,需要键盘录入,Scanner</span></span><br><span class="line"><span class="comment">		* 2,给三次机会,需要循环,for</span></span><br><span class="line"><span class="comment">		* 3,并提示有几次,需要判断,if</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner sc = <span class="keyword">new</span> Scanner(System.in);		<span class="comment">//创建键盘录入对象</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;请输入用户名:&quot;</span>);</span><br><span class="line">			String userName = sc.nextLine();			<span class="comment">//将键盘录入的用户名存储在userName中</span></span><br><span class="line">			System.out.println(<span class="string">&quot;请输入密码:&quot;</span>);</span><br><span class="line">			String password = sc.nextLine();			<span class="comment">//将键盘录入的密码存储在password中</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment">//如果是字符串常量和字符串变量比较,通常都是字符串常量调用方法,将变量当作参数传递,防止空指针异常</span></span><br><span class="line">			<span class="keyword">if</span>(<span class="string">&quot;admin&quot;</span>.equals(userName) &amp;&amp; <span class="string">&quot;admin&quot;</span>.equals(password)) &#123;</span><br><span class="line">				System.out.println(<span class="string">&quot;欢迎&quot;</span> + userName + <span class="string">&quot;登录&quot;</span>);</span><br><span class="line">				<span class="keyword">break</span>;									<span class="comment">//跳出循环</span></span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">if</span>(i == <span class="number">2</span>) &#123;</span><br><span class="line">					System.out.println(<span class="string">&quot;您的错误次数已到,请明天再来吧&quot;</span>);</span><br><span class="line">				&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">					System.out.println(<span class="string">&quot;录入错误,您还有&quot;</span> + (<span class="number">2</span>-i) + <span class="string">&quot;次机会&quot;</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="12-08-常见对象-String类的获取功能-掌握"><a href="#12-08-常见对象-String类的获取功能-掌握" class="headerlink" title="12.08_常见对象(String类的获取功能)(掌握)"></a>12.08_常见对象(String类的获取功能)(掌握)</h3></li>
+</ul>
+</li>
+<li>A:String类的获取功能<ul>
+<li>int length():获取字符串的长度。</li>
+<li>char charAt(int index):获取指定索引位置的字符</li>
+<li>int indexOf(int ch):返回指定字符在此字符串中第一次出现处的索引。</li>
+<li>int indexOf(String str):返回指定字符串在此字符串中第一次出现处的索引。</li>
+<li>int indexOf(int ch,int fromIndex):返回指定字符在此字符串中从指定位置后第一次出现处的索引。</li>
+<li>int indexOf(String str,int fromIndex):返回指定字符串在此字符串中从指定位置后第一次出现处的索引。</li>
+<li>lastIndexOf</li>
+<li>String substring(int start):从指定位置开始截取字符串,默认到末尾。</li>
+<li>String substring(int start,int end):从指定位置开始到指定位置结束截取字符串。</li>
+</ul>
+</li>
+</ul>
+<h3 id="12-09-常见对象-字符串的遍历-掌握"><a href="#12-09-常见对象-字符串的遍历-掌握" class="headerlink" title="12.09_常见对象(字符串的遍历)(掌握)"></a>12.09_常见对象(字符串的遍历)(掌握)</h3><ul>
+<li>A:案例演示<ul>
+<li>需求：遍历字符串</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * * A:案例演示</span></span><br><span class="line"><span class="comment">	 * 需求：遍历字符串</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		String s = <span class="string">&quot;nateshao&quot;</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;			<span class="comment">//通过for循环获取到字符串中每个字符的索引</span></span><br><span class="line">			<span class="comment">/*char c = s.charAt(i);</span></span><br><span class="line"><span class="comment">			System.out.println(c);*/</span></span><br><span class="line">			System.out.println(s.charAt(i));			<span class="comment">//通过索引获取每一个字符	</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="12-10-常见对象-统计不同类型字符个数-掌握"><a href="#12-10-常见对象-统计不同类型字符个数-掌握" class="headerlink" title="12.10_常见对象(统计不同类型字符个数)(掌握)"></a>12.10_常见对象(统计不同类型字符个数)(掌握)</h3><ul>
+<li><p>A:案例演示</p>
+<ul>
+<li>需求：统计一个字符串中大写字母字符，小写字母字符，数字字符出现的次数,其他字符出现的次数。</li>
+<li>ABCDEabcd123456!@#$%^<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test3</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * A:案例演示</span></span><br><span class="line"><span class="comment">		* 需求：统计一个字符串中大写字母字符，小写字母字符，数字字符出现的次数,其他字符出现的次数。</span></span><br><span class="line"><span class="comment">		* ABCDEabcd123456!@#$%^</span></span><br><span class="line"><span class="comment">		* 分析:字符串是有字符组成的,而字符的值都是有范围的,通过范围来判断是否包含该字符</span></span><br><span class="line"><span class="comment">		* 如果包含就让计数器变量自增</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		String s = <span class="string">&quot;ABCDEabcd123456!@#$%^&quot;</span>;</span><br><span class="line">		<span class="keyword">int</span> big = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> small = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> other = <span class="number">0</span>;</span><br><span class="line">		<span class="comment">//1,获取每一个字符,通过for循环遍历</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">			<span class="keyword">char</span> c = s.charAt(i);						<span class="comment">//通过索引获取每一个字符</span></span><br><span class="line">			<span class="comment">//2,判断字符是否在这个范围内</span></span><br><span class="line">			<span class="keyword">if</span>(c &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; c &lt;= <span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">				big++;									<span class="comment">//如果满足是大写字母,就让其对应的变量自增</span></span><br><span class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(c &gt;= <span class="string">&#x27;a&#x27;</span> &amp;&amp; c &lt;= <span class="string">&#x27;z&#x27;</span>) &#123;</span><br><span class="line">				small++;</span><br><span class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(c &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; c &lt;= <span class="string">&#x27;9&#x27;</span>) &#123;</span><br><span class="line">				num++;</span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">				other++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//3,打印每一个计数器的结果</span></span><br><span class="line">		System.out.println(s + <span class="string">&quot;中大写字母有:&quot;</span> + big + <span class="string">&quot;个,小写字母有:&quot;</span> + small + <span class="string">&quot;个,数字字符:&quot;</span> </span><br><span class="line">		+ num + <span class="string">&quot;个,其他字符:&quot;</span> + other + <span class="string">&quot;个&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="12-11-常见对象-String类的转换功能-掌握"><a href="#12-11-常见对象-String类的转换功能-掌握" class="headerlink" title="12.11_常见对象(String类的转换功能)(掌握)"></a>12.11_常见对象(String类的转换功能)(掌握)</h3></li>
+</ul>
+</li>
+<li><p>A:String的转换功能：</p>
+<ul>
+<li><p>byte[] getBytes():把字符串转换为字节数组。</p>
+</li>
+<li><p>char[] toCharArray():把字符串转换为字符数组。</p>
+</li>
+<li><p>static String valueOf(char[] chs):把字符数组转成字符串。</p>
+</li>
+<li><p>static String valueOf(int i):把int类型的数据转成字符串。</p>
+<ul>
+<li>注意：String类的valueOf方法可以把任意类型的数据转成字符串</li>
+</ul>
+</li>
+<li><p>String toLowerCase():把字符串转成小写。(了解)</p>
+</li>
+<li><p>String toUpperCase():把字符串转成大写。</p>
+</li>
+<li><p>String concat(String str):把字符串拼接。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="12-12-常见对象-按要求转换字符-链式编程掌握"><a href="#12-12-常见对象-按要求转换字符-链式编程掌握" class="headerlink" title="12.12_常见对象(按要求转换字符)(链式编程掌握)"></a>12.12_常见对象(按要求转换字符)(链式编程掌握)</h3><ul>
+<li>A:案例演示<ul>
+<li>需求：把一个字符串的首字母转成大写，其余为小写。(只考虑英文大小写字母字符)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test4</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		String s = <span class="string">&quot;woaiHEImaniaima&quot;</span>;</span><br><span class="line">		String s2 = s.substring(<span class="number">0</span>, <span class="number">1</span>).toUpperCase().concat(s.substring(<span class="number">1</span>).toLowerCase());</span><br><span class="line">		System.out.println(s2);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="12-13-常见对象-把数组转成字符串"><a href="#12-13-常见对象-把数组转成字符串" class="headerlink" title="12.13_常见对象(把数组转成字符串)"></a>12.13_常见对象(把数组转成字符串)</h3><ul>
+<li>A:案例演示<ul>
+<li>需求：把数组中的数据按照指定个格式拼接成一个字符串<ul>
+<li>举例：<ul>
+<li>int[] arr = {1,2,3};    </li>
+</ul>
+</li>
+<li>输出结果：<ul>
+<li>“[1, 2, 3]”<h3 id="12-14-常见对象-String类的其他功能"><a href="#12-14-常见对象-String类的其他功能" class="headerlink" title="12.14_常见对象(String类的其他功能)"></a>12.14_常见对象(String类的其他功能)</h3></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A:String的替换功能及案例演示<ul>
+<li>String replace(char old,char new)</li>
+<li>String replace(String old,String new)</li>
+</ul>
+</li>
+<li>B:String的去除字符串两空格及案例演示<ul>
+<li>String trim()</li>
+</ul>
+</li>
+<li>C:String的按字典顺序比较两个字符串及案例演示<ul>
+<li>int compareTo(String str)(暂时不用掌握)</li>
+<li>int compareToIgnoreCase(String str)(了解)</li>
+</ul>
+</li>
+</ul>
+<h3 id="12-15-常见对象-字符串反转"><a href="#12-15-常见对象-字符串反转" class="headerlink" title="12.15_常见对象(字符串反转)"></a>12.15_常见对象(字符串反转)</h3><ul>
+<li>A:案例演示<ul>
+<li>需求：把字符串反转<ul>
+<li>举例：键盘录入”abc”        </li>
+<li>输出结果：”cba”</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="12-16-常见对象-在大串中查找小串出现的次数思路图解"><a href="#12-16-常见对象-在大串中查找小串出现的次数思路图解" class="headerlink" title="12.16_常见对象(在大串中查找小串出现的次数思路图解)"></a>12.16_常见对象(在大串中查找小串出现的次数思路图解)</h3><ul>
+<li>A:画图演示<ul>
+<li>需求：统计大串中小串出现的次数</li>
+<li>这里的大串和小串可以自己根据情况给出</li>
+</ul>
+</li>
+</ul>
+<h3 id="12-17-常见对象-在大串中查找小串出现的次数代码实现"><a href="#12-17-常见对象-在大串中查找小串出现的次数代码实现" class="headerlink" title="12.17_常见对象(在大串中查找小串出现的次数代码实现)"></a>12.17_常见对象(在大串中查找小串出现的次数代码实现)</h3><ul>
+<li>A:案例演示    <ul>
+<li>统计大串中小串出现的次数</li>
+</ul>
+</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/后端//" class="article-tag-list-link color3">后端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8012-String%E7%B1%BB/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java基础11-Eclipse-Object" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2912,115 +3238,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/05/22/Java%E5%9F%BA%E7%A1%8007-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E6%96%B9%E6%B3%95/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java基础06-二维数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/05/22/Java%E5%9F%BA%E7%A1%8006-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/" target="_blank">Java基础06-二维数组</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/05/22/Java%E5%9F%BA%E7%A1%8006-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/" class="archive-article-date">
-        <time datetime="2020-05-22T07:50:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="Demo1-Array"><a href="#Demo1-Array" class="headerlink" title="Demo1_Array"></a>Demo1_Array</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* A:二维数组概述</span></span><br><span class="line"><span class="comment">* B:二维数组格式1</span></span><br><span class="line"><span class="comment">	* int[][] arr = new int[3][2]; </span></span><br><span class="line"><span class="comment">* C:二维数组格式1的解释</span></span><br><span class="line"><span class="comment">* D:注意事项</span></span><br><span class="line"><span class="comment">	* a:以下格式也可以表示二维数组</span></span><br><span class="line"><span class="comment">		* 1:数据类型 数组名[][] = new 数据类型[m][n];</span></span><br><span class="line"><span class="comment">		* 2:数据类型[] 数组名[] = new 数据类型[m][n];</span></span><br><span class="line"><span class="comment">	* B:注意下面定义的区别</span></span><br><span class="line"><span class="comment">	* </span></span><br><span class="line"><span class="comment">			int x;</span></span><br><span class="line"><span class="comment">			int y;</span></span><br><span class="line"><span class="comment">			int x,y;</span></span><br><span class="line"><span class="comment">			</span></span><br><span class="line"><span class="comment">			int[] x;</span></span><br><span class="line"><span class="comment">			int[] y[];</span></span><br><span class="line"><span class="comment">			</span></span><br><span class="line"><span class="comment">			int[] x,y[];	x是一维数组,y是二维数组</span></span><br><span class="line"><span class="comment">* E:案例演示</span></span><br><span class="line"><span class="comment">	* 定义二维数组，输出二维数组名称，一维数组名称，一个元素</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo1_Array</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[][] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][<span class="number">2</span>];</span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		这是一个二维数组</span></span><br><span class="line"><span class="comment">		这个二维数组中有3个一维数组</span></span><br><span class="line"><span class="comment">		每个一维数组中有2个元素</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">		[[I@7852e922									//二维数组的地址值</span></span><br><span class="line"><span class="comment">		[I@4e25154f									//一维数组的地址值</span></span><br><span class="line"><span class="comment">		0											//元素值</span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">		System.out.println(arr);					<span class="comment">//二维数组</span></span><br><span class="line">		System.out.println(arr[<span class="number">0</span>]);					<span class="comment">//二维数组中的第一个一维数组</span></span><br><span class="line">		System.out.println(arr[<span class="number">0</span>][<span class="number">0</span>]);				<span class="comment">//二维数组中的第一个一维数组的第一个元素</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="Demo2-Array"><a href="#Demo2-Array" class="headerlink" title="Demo2_Array"></a>Demo2_Array</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* A:画图演示</span></span><br><span class="line"><span class="comment">	* 画图讲解上面的二维数组名称，一维数组名称，一个元素的值的问题</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo2_Array</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[][] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][<span class="number">2</span>];</span><br><span class="line">		System.out.println(arr);					<span class="comment">//打印二维数组</span></span><br><span class="line">		System.out.println(arr[<span class="number">0</span>]);					<span class="comment">//打印二维数组中的第一个一维数组</span></span><br><span class="line">		System.out.println(arr[<span class="number">0</span>][<span class="number">0</span>]);				<span class="comment">//打印二维数组中的第一个一维数组中的第一个元素</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://mateshao.oss-cn-shenzhen.aliyuncs.com/Java%E5%9F%BA%E7%A1%80/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%86%85%E5%AD%98%E5%9B%BE1.png"></p>
-<h4 id="Demo3-Array"><a href="#Demo3-Array" class="headerlink" title="Demo3_Array"></a>Demo3_Array</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* A:二维数组格式2</span></span><br><span class="line"><span class="comment">	* int[][] arr = new int[3][]; </span></span><br><span class="line"><span class="comment">* B:二维数组格式2的解释</span></span><br><span class="line"><span class="comment">* C:案例演示</span></span><br><span class="line"><span class="comment">	* 讲解格式，输出数据，并画内存图</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo3_Array</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[][] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][];				<span class="comment">//这是一个二维数组,这个二维数组中有三个一维数组,三个一维数组都没有被赋值</span></span><br><span class="line">		</span><br><span class="line">		System.out.println(arr[<span class="number">0</span>]);    <span class="comment">// null</span></span><br><span class="line">		System.out.println(arr[<span class="number">1</span>]);    <span class="comment">// null</span></span><br><span class="line">		System.out.println(arr[<span class="number">2</span>]);    <span class="comment">// null</span></span><br><span class="line">		arr[<span class="number">0</span>] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];					<span class="comment">//第一个一维数组中可以存储三个int值</span></span><br><span class="line">		arr[<span class="number">1</span>] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];					<span class="comment">//第二个一维数组中可以存储五个int值</span></span><br><span class="line">		System.out.println(<span class="string">&quot;------------------&quot;</span>);</span><br><span class="line">		System.out.println(arr[<span class="number">0</span>]);     <span class="comment">//[I@7852e922</span></span><br><span class="line">		System.out.println(arr[<span class="number">1</span>]);     <span class="comment">//[I@4e25154f</span></span><br><span class="line">		System.out.println(arr[<span class="number">2</span>]);     <span class="comment">//null</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://mateshao.oss-cn-shenzhen.aliyuncs.com/Java%E5%9F%BA%E7%A1%80/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%86%85%E5%AD%98%E5%9B%BE2.png"></p>
-<h4 id="Demo4-Array"><a href="#Demo4-Array" class="headerlink" title="Demo4_Array"></a>Demo4_Array</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* A:二维数组格式3</span></span><br><span class="line"><span class="comment">	* int[][] arr = &#123;&#123;1,2,3&#125;,&#123;4,5&#125;,&#123;6,7,8,9&#125;&#125;; </span></span><br><span class="line"><span class="comment">* B:二维数组格式3的解释</span></span><br><span class="line"><span class="comment">* C:案例演示</span></span><br><span class="line"><span class="comment">	* 讲解格式，输出数据，并画内存图</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo4_Array</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[][] arr = &#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;,&#123;<span class="number">4</span>,<span class="number">5</span>&#125;,&#123;<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;&#125;; <span class="comment">//这是一个二维数组,这个二维数组中每个大括号都代表一个一维数组</span></span><br><span class="line">		System.out.println(arr);				<span class="comment">//[[I@19bb25a,二维数组的地址值</span></span><br><span class="line">		System.out.println(arr[<span class="number">0</span>]);				<span class="comment">//[I@da6bf4,一维数组的地址值</span></span><br><span class="line">		System.out.println(arr[<span class="number">0</span>][<span class="number">0</span>]);			<span class="comment">//1,一维数组中的元素值</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://mateshao.oss-cn-shenzhen.aliyuncs.com/Java%E5%9F%BA%E7%A1%80/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%86%85%E5%AD%98%E5%9B%BE3.png"></p>
-<h4 id="Test1-Array"><a href="#Test1-Array" class="headerlink" title="Test1_Array"></a>Test1_Array</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* A:案例演示</span></span><br><span class="line"><span class="comment">	* 需求：二维数组遍历</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	* 外循环控制的是二维数组的长度，其实就是一维数组的个数。</span></span><br><span class="line"><span class="comment">	* 内循环控制的是一维数组的长度。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test1_Array</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[][] arr = &#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;,&#123;<span class="number">4</span>,<span class="number">5</span>&#125;,&#123;<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; arr.length ;i++ ) &#123;			<span class="comment">//获取到每个二维数组中的一维数组</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; arr[i].length ;j++ ) &#123;	<span class="comment">//获取每个一维数组中的元素</span></span><br><span class="line">				System.out.print(arr[i][j] + <span class="string">&quot; &quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="Test2-Array"><a href="#Test2-Array" class="headerlink" title="Test2_Array"></a>Test2_Array</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* A:案例演示</span></span><br><span class="line"><span class="comment">* </span></span><br><span class="line"><span class="comment">		需求：公司年销售额求和</span></span><br><span class="line"><span class="comment">		某公司按照季度和月份统计的数据如下：单位(万元)</span></span><br><span class="line"><span class="comment">		第一季度：22,66,44</span></span><br><span class="line"><span class="comment">		第二季度：77,33,88</span></span><br><span class="line"><span class="comment">		第三季度：25,45,65</span></span><br><span class="line"><span class="comment">		第四季度：11,66,99</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test2_Array</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[][] arr = &#123;&#123;<span class="number">22</span>,<span class="number">66</span>,<span class="number">44</span>&#125;,&#123;<span class="number">77</span>,<span class="number">33</span>,<span class="number">88</span>&#125;,&#123;<span class="number">25</span>,<span class="number">45</span>,<span class="number">65</span>&#125;,&#123;<span class="number">11</span>,<span class="number">66</span>,<span class="number">99</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> sum = <span class="number">0</span>;									<span class="comment">//定义变量,记录每次相加的结果</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; arr.length ;i++ ) &#123;			<span class="comment">//获取每一个一维数组</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; arr[i].length ;j++ ) &#123;	<span class="comment">//获取每一个一维数组中的元素</span></span><br><span class="line">				sum = sum + arr[i][j];					<span class="comment">//累加</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		System.out.println(sum);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="Test3-Array"><a href="#Test3-Array" class="headerlink" title="Test3_Array"></a>Test3_Array</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">基本数据类型的值传递,不改变原值,因为调用后就会弹栈,局部变量随之消失</span></span><br><span class="line"><span class="comment">引用数据类型的值传递,改变原值,因为即使方法弹栈,但是堆内存数组对象还在,可以通过地址继续访问</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Java中到底是传值还是传址</span></span><br><span class="line"><span class="comment">1,既是传值,也是传地址,基本数据类型传递的值,引用数据类型传递的地址</span></span><br><span class="line"><span class="comment">2,java中只有传值,因为地址值也是值(出去面试都说这种,支持者是高司令(java之父))</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test3_Array</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">/*int a = 10;</span></span><br><span class="line"><span class="comment">		int b = 20;</span></span><br><span class="line"><span class="comment">		System.out.println(&quot;a:&quot;+a+&quot;,b:&quot;+b);			//a = 10,b = 20</span></span><br><span class="line"><span class="comment">		change(a,b);</span></span><br><span class="line"><span class="comment">		System.out.println(&quot;a:&quot;+a+&quot;,b:&quot;+b);			//?*/</span>a = <span class="number">10</span>,b = <span class="number">20</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">		change(arr);</span><br><span class="line">		System.out.println(arr[<span class="number">1</span>]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span>&#123;		<span class="comment">//a = 10, b= 20</span></span><br><span class="line">		System.out.println(<span class="string">&quot;a:&quot;</span>+a+<span class="string">&quot;,b:&quot;</span>+b);			<span class="comment">//a = 10,b = 20</span></span><br><span class="line">		a = b;										<span class="comment">//a = 20</span></span><br><span class="line">		b = a + b;									<span class="comment">//b = 40</span></span><br><span class="line">		System.out.println(<span class="string">&quot;a:&quot;</span>+a+<span class="string">&quot;,b:&quot;</span>+b);			<span class="comment">//a = 20, b = 40</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;			<span class="comment">//1,4,3,8,5</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> x=<span class="number">0</span>; x&lt;arr.length; x++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(arr[x]%<span class="number">2</span>==<span class="number">0</span>) &#123;</span><br><span class="line">				arr[x]*=<span class="number">2</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://mateshao.oss-cn-shenzhen.aliyuncs.com/Java%E5%9F%BA%E7%A1%80/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%80%BC%E4%BC%A0%E9%80%92.png"></p>
-<p><img src="https://mateshao.oss-cn-shenzhen.aliyuncs.com/Java%E5%9F%BA%E7%A1%80/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%80%BC%E4%BC%A0%E9%80%92.png"></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/后端//" class="article-tag-list-link color3">后端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/05/22/Java%E5%9F%BA%E7%A1%8006-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/">展开全文 >></a>
     </p>
     
 
