@@ -248,9 +248,14 @@
   
   <div class="article-entry" itemprop="articleBody">
     
+    
+    
+    
+    
     <h1 id="搭建企业镜像私服Harbor"><a href="#搭建企业镜像私服Harbor" class="headerlink" title="搭建企业镜像私服Harbor"></a>搭建企业镜像私服Harbor</h1>
     
     <a class="article-more-a" href="/2020/08/17/docker-11-Rancher%E6%9D%A5%E4%BA%86/#more">more >></a>
+    
     
     
 
@@ -346,6 +351,10 @@
   </header>
   
   <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+    
     
     <h2 id="接口测试"><a href="#接口测试" class="headerlink" title="接口测试"></a>接口测试</h2><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ol>
 <li><p>了解项目开发中为什么要采用接口 </p>
@@ -459,6 +468,10 @@
   </header>
   
   <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+    
     
     <h1 id="Jmeter-介绍"><a href="#Jmeter-介绍" class="headerlink" title="Jmeter 介绍"></a>Jmeter 介绍</h1><h1 id="1-Jmeter-是什么？"><a href="#1-Jmeter-是什么？" class="headerlink" title="1. Jmeter 是什么？"></a>1. Jmeter 是什么？</h1><h2 id="1-1-概念"><a href="#1-1-概念" class="headerlink" title="1.1 概念"></a>1.1 概念</h2><blockquote>
 <p>Jmeter：是Apche公司使用Java平台开发的一款测试工具。</p>
@@ -857,6 +870,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
+    
+    
+    
+    
     <a id="more"></a>
 <h3 id="一、安装Docker"><a href="#一、安装Docker" class="headerlink" title="一、安装Docker"></a>一、安装Docker</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1、yum 包更新到最新 </span></span><br><span class="line">yum update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2、安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的 </span></span><br><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3、 设置yum源</span></span><br><span class="line">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line"><span class="meta">#</span><span class="bash"> 4、 安装docker，出现输入的界面都按 y </span></span><br><span class="line">yum install -y docker-ce</span><br><span class="line"><span class="meta">#</span><span class="bash"> 5、 查看docker版本，验证是否验证成功</span></span><br><span class="line">docker -v</span><br></pre></td></tr></table></figure>
 
@@ -957,6 +974,10 @@
   </header>
   
   <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+    
     
     <a id="more"></a>
 <h2 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a>Docker Compose</h2><h3 id="一、安装Docker-Compose"><a href="#一、安装Docker-Compose" class="headerlink" title="一、安装Docker Compose"></a>一、安装Docker Compose</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Compose目前已经完全支持Linux、Mac OS和Windows，在我们安装Compose之前，需要先安装Docker。下面我 们以编译好的二进制包方式安装在Linux系统中。 </span></span><br><span class="line">curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置文件可执行权限 </span></span><br><span class="line">chmod +x /usr/local/bin/docker-compose</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看版本信息 </span></span><br><span class="line">docker-compose -version</span><br></pre></td></tr></table></figure>
@@ -1092,6 +1113,10 @@
   </header>
   
   <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+    
     
     <a id="more"></a>
 <h2 id="Docker-应用部署"><a href="#Docker-应用部署" class="headerlink" title="Docker 应用部署"></a>Docker 应用部署</h2><h3 id="一、部署MySQL"><a href="#一、部署MySQL" class="headerlink" title="一、部署MySQL"></a>一、部署MySQL</h3><ol>
@@ -1315,6 +1340,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
+    
+    
+    
+    
     <a id="more"></a>
 <h2 id="Docker-私有仓库"><a href="#Docker-私有仓库" class="headerlink" title="Docker 私有仓库"></a>Docker 私有仓库</h2><h3 id="一、私有仓库搭建"><a href="#一、私有仓库搭建" class="headerlink" title="一、私有仓库搭建"></a>一、私有仓库搭建</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1、拉取私有仓库镜像 </span></span><br><span class="line">docker pull registry</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2、启动私有仓库容器 </span></span><br><span class="line">docker run -id --name=registry -p 5000:5000 registry</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3、打开浏览器 输入地址http://私有仓库服务器ip:5000/v2/_catalog，看到&#123;<span class="string">&quot;repositories&quot;</span>:[]&#125; 表示私有仓库 搭建成功</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 4、修改daemon.json   </span></span><br><span class="line">vim /etc/docker/daemon.json    </span><br><span class="line"><span class="meta">#</span><span class="bash"> 在上述文件中添加一个key，保存退出。此步用于让 docker 信任私有仓库地址；注意将私有仓库服务器ip修改为自己私有仓库服务器真实ip </span></span><br><span class="line">&#123;&quot;insecure-registries&quot;:[&quot;私有仓库服务器ip:5000&quot;]&#125; </span><br><span class="line"><span class="meta">#</span><span class="bash"> 5、重启docker 服务 </span></span><br><span class="line">systemctl restart docker</span><br><span class="line">docker start registry</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -1418,6 +1447,10 @@
   </header>
   
   <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+    
     
     <a id="more"></a>
 <h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><table>
@@ -1615,9 +1648,14 @@
   
   <div class="article-entry" itemprop="articleBody">
     
+    
+    
+    
+    
     <h1 id="Docker部署SpringBoot"><a href="#Docker部署SpringBoot" class="headerlink" title="Docker部署SpringBoot"></a>Docker部署SpringBoot</h1>
     
     <a class="article-more-a" href="/2020/08/16/docker-06-docker%E9%83%A8%E7%BD%B2Springboot/#more">more >></a>
+    
     
     
 
@@ -1714,9 +1752,14 @@
   
   <div class="article-entry" itemprop="articleBody">
     
+    
+    
+    
+    
     <h2 id="cloud-04-docker-compose部署SpringCloud"><a href="#cloud-04-docker-compose部署SpringCloud" class="headerlink" title="cloud-04-docker-compose部署SpringCloud"></a>cloud-04-docker-compose部署SpringCloud</h2>
     
     <a class="article-more-a" href="/2020/08/11/docker-08-%E7%BC%96%E5%86%99dockerCompose/#more">more >></a>
+    
     
     
 

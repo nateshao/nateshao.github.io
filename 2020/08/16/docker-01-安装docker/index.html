@@ -263,6 +263,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
+    
+    
+    
+    
     <a id="more"></a>
 <h3 id="一、安装Docker"><a href="#一、安装Docker" class="headerlink" title="一、安装Docker"></a>一、安装Docker</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1、yum 包更新到最新 </span></span><br><span class="line">yum update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2、安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的 </span></span><br><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3、 设置yum源</span></span><br><span class="line">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line"><span class="meta">#</span><span class="bash"> 4、 安装docker，出现输入的界面都按 y </span></span><br><span class="line">yum install -y docker-ce</span><br><span class="line"><span class="meta">#</span><span class="bash"> 5、 查看docker版本，验证是否验证成功</span></span><br><span class="line">docker -v</span><br></pre></td></tr></table></figure>
 

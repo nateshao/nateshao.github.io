@@ -248,6 +248,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
+    
+    
+    
+    
     <h2 id="07-01-面向对象-构造方法Constructor概述和格式-掌握"><a href="#07-01-面向对象-构造方法Constructor概述和格式-掌握" class="headerlink" title="07.01_面向对象(构造方法Constructor概述和格式)(掌握)"></a>07.01_面向对象(构造方法Constructor概述和格式)(掌握)</h2><ul>
 <li>A:构造方法概述和作用<ul>
 <li>给对象的数据(属性)进行初始化</li>
@@ -640,6 +644,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
+    
+    
+    
+    
     <h3 id="Demo1-Array"><a href="#Demo1-Array" class="headerlink" title="Demo1_Array"></a>Demo1_Array</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* A:二维数组概述</span></span><br><span class="line"><span class="comment">* B:二维数组格式1</span></span><br><span class="line"><span class="comment">	* int[][] arr = new int[3][2]; </span></span><br><span class="line"><span class="comment">* C:二维数组格式1的解释</span></span><br><span class="line"><span class="comment">* D:注意事项</span></span><br><span class="line"><span class="comment">	* a:以下格式也可以表示二维数组</span></span><br><span class="line"><span class="comment">		* 1:数据类型 数组名[][] = new 数据类型[m][n];</span></span><br><span class="line"><span class="comment">		* 2:数据类型[] 数组名[] = new 数据类型[m][n];</span></span><br><span class="line"><span class="comment">	* B:注意下面定义的区别</span></span><br><span class="line"><span class="comment">	* </span></span><br><span class="line"><span class="comment">			int x;</span></span><br><span class="line"><span class="comment">			int y;</span></span><br><span class="line"><span class="comment">			int x,y;</span></span><br><span class="line"><span class="comment">			</span></span><br><span class="line"><span class="comment">			int[] x;</span></span><br><span class="line"><span class="comment">			int[] y[];</span></span><br><span class="line"><span class="comment">			</span></span><br><span class="line"><span class="comment">			int[] x,y[];	x是一维数组,y是二维数组</span></span><br><span class="line"><span class="comment">* E:案例演示</span></span><br><span class="line"><span class="comment">	* 定义二维数组，输出二维数组名称，一维数组名称，一个元素</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo1_Array</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[][] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][<span class="number">2</span>];</span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		这是一个二维数组</span></span><br><span class="line"><span class="comment">		这个二维数组中有3个一维数组</span></span><br><span class="line"><span class="comment">		每个一维数组中有2个元素</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">		[[I@7852e922									//二维数组的地址值</span></span><br><span class="line"><span class="comment">		[I@4e25154f									//一维数组的地址值</span></span><br><span class="line"><span class="comment">		0											//元素值</span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">		System.out.println(arr);					<span class="comment">//二维数组</span></span><br><span class="line">		System.out.println(arr[<span class="number">0</span>]);					<span class="comment">//二维数组中的第一个一维数组</span></span><br><span class="line">		System.out.println(arr[<span class="number">0</span>][<span class="number">0</span>]);				<span class="comment">//二维数组中的第一个一维数组的第一个元素</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h4 id="Demo2-Array"><a href="#Demo2-Array" class="headerlink" title="Demo2_Array"></a>Demo2_Array</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* A:画图演示</span></span><br><span class="line"><span class="comment">	* 画图讲解上面的二维数组名称，一维数组名称，一个元素的值的问题</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo2_Array</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[][] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][<span class="number">2</span>];</span><br><span class="line">		System.out.println(arr);					<span class="comment">//打印二维数组</span></span><br><span class="line">		System.out.println(arr[<span class="number">0</span>]);					<span class="comment">//打印二维数组中的第一个一维数组</span></span><br><span class="line">		System.out.println(arr[<span class="number">0</span>][<span class="number">0</span>]);				<span class="comment">//打印二维数组中的第一个一维数组中的第一个元素</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -748,6 +756,10 @@
   </header>
   
   <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+    
     
     <h2 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h2><blockquote>
 <p>主要以代码的形式分析</p>
@@ -869,6 +881,10 @@
   </header>
   
   <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+    
     
     <h1 id="第二讲"><a href="#第二讲" class="headerlink" title="第二讲"></a>第二讲</h1><ul>
 <li>2.1 线性表及其实现<blockquote>
@@ -1021,6 +1037,10 @@
   </header>
   
   <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+    
     
     <h1 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h1><h1 id="第一讲"><a href="#第一讲" class="headerlink" title="第一讲"></a>第一讲</h1><p>##1.1 什么是数据结构</p>
 <ul>
@@ -1179,6 +1199,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
+    
+    
+    
+    
     <h1 id="树与树的表示"><a href="#树与树的表示" class="headerlink" title="树与树的表示"></a>树与树的表示</h1><ul>
 <li>客观世界中许多事物存在层次关系<ul>
 <li>人类社会家谱</li>
@@ -1329,6 +1353,10 @@
   </header>
   
   <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+    
     
     <h2 id="04-01-Java语言基础-循环结构概述和for语句的格式及其使用"><a href="#04-01-Java语言基础-循环结构概述和for语句的格式及其使用" class="headerlink" title="04.01_Java语言基础(循环结构概述和for语句的格式及其使用)"></a>04.01_Java语言基础(循环结构概述和for语句的格式及其使用)</h2><ul>
 <li>A:循环结构的分类<ul>
@@ -1823,6 +1851,10 @@ E:打印nn乘法表</code></pre>
   
   <div class="article-entry" itemprop="articleBody">
     
+    
+    
+    
+    
     <h3 id="1：计算出十进制46对应的二进制，八进制，十六进制的值。"><a href="#1：计算出十进制46对应的二进制，八进制，十六进制的值。" class="headerlink" title="1：计算出十进制46对应的二进制，八进制，十六进制的值。"></a>1：计算出十进制46对应的二进制，八进制，十六进制的值。</h3><ul>
 <li>46 转二进制为：101110  ， 八进制为：53  ，十六进制为：2e<br>(可用计算器验证你算的是否正确)</li>
 </ul>
@@ -1961,6 +1993,10 @@ E:打印nn乘法表</code></pre>
   </header>
   
   <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+    
     
     <h3 id="01-01-计算机基础知识-计算机概述-了解"><a href="#01-01-计算机基础知识-计算机概述-了解" class="headerlink" title="01.01_计算机基础知识(计算机概述)(了解)"></a>01.01_计算机基础知识(计算机概述)(了解)</h3><ul>
 <li><p>A:什么是计算机?计算机在生活中的应用举例</p>
@@ -2531,6 +2567,10 @@ E:打印nn乘法表</code></pre>
   </header>
   
   <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+    
     
     <h2 id="03-01-Java语言基础-逻辑运算符的基本用法-掌握"><a href="#03-01-Java语言基础-逻辑运算符的基本用法-掌握" class="headerlink" title="03.01_Java语言基础(逻辑运算符的基本用法)(掌握)"></a>03.01_Java语言基础(逻辑运算符的基本用法)(掌握)</h2><ul>
 <li><p>A:逻辑运算符有哪些</p>

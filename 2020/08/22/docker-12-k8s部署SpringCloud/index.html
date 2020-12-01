@@ -263,6 +263,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
+    
+    
+    
+    
     <h1 id="K8S部署SpringCloud"><a href="#K8S部署SpringCloud" class="headerlink" title="K8S部署SpringCloud"></a>K8S部署SpringCloud</h1><a id="more"></a>
 <h1 id="编译应用"><a href="#编译应用" class="headerlink" title="编译应用"></a>编译应用</h1><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">前提安装了docker-compose</span><br><span class="line"><span class="comment"># 安装相关软件</span></span><br><span class="line">yum install -y git java  maven</span><br><span class="line"> </span><br><span class="line"><span class="comment"># clone 源码</span></span><br><span class="line">git clone https://gitee.com/nateshao/pig.git</span><br><span class="line"><span class="comment"># 编译源码</span></span><br><span class="line">mvn clean install -Dmaven.test.skip=true</span><br></pre></td></tr></table></figure>
 
