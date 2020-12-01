@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="前言对于后端程序员，特别是 Java 程序员来讲，排查线上问题是不可避免的。各种 CPU 飚高，内存溢出，频繁 GC 等等，这些都是令人头疼的问题。楼主同样也遇到过这些问题，那么，遇到这些问题该如何解决呢？ 首先，出现问题，肯定要先定位问题所在，然后分析问题原因，再然后解决问题，最后进行总结，防止下次再次出现。 今天的文章，就如我们的题目一样，讲的是基本操作，也就是一些排查线上问题的基本方法。为什">
+  <meta name="description" content="前言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM线上故障排查基本操作">
 <meta property="og:url" content="https://nate-lin.gitee.io/2020/11/23/JVM%E7%BA%BF%E4%B8%8A%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="千羽的编程时光">
-<meta property="og:description" content="前言对于后端程序员，特别是 Java 程序员来讲，排查线上问题是不可避免的。各种 CPU 飚高，内存溢出，频繁 GC 等等，这些都是令人头疼的问题。楼主同样也遇到过这些问题，那么，遇到这些问题该如何解决呢？ 首先，出现问题，肯定要先定位问题所在，然后分析问题原因，再然后解决问题，最后进行总结，防止下次再次出现。 今天的文章，就如我们的题目一样，讲的是基本操作，也就是一些排查线上问题的基本方法。为什">
+<meta property="og:description" content="前言">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-23T15:30:26.000Z">
-<meta property="article:modified_time" content="2020-11-23T15:31:47.650Z">
+<meta property="article:modified_time" content="2020-12-01T13:35:49.233Z">
 <meta property="article:author" content="千  羽">
 <meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
@@ -263,7 +263,8 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>对于后端程序员，特别是 Java 程序员来讲，排查线上问题是不可避免的。各种 CPU 飚高，内存溢出，频繁 GC 等等，这些都是令人头疼的问题。楼主同样也遇到过这些问题，那么，遇到这些问题该如何解决呢？</p>
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><a id="more"></a>
+<p>对于后端程序员，特别是 Java 程序员来讲，排查线上问题是不可避免的。各种 CPU 飚高，内存溢出，频繁 GC 等等，这些都是令人头疼的问题。楼主同样也遇到过这些问题，那么，遇到这些问题该如何解决呢？</p>
 <p>首先，出现问题，肯定要先定位问题所在，然后分析问题原因，再然后解决问题，最后进行总结，防止下次再次出现。</p>
 <p>今天的文章，就如我们的题目一样，讲的是基本操作，也就是一些排查线上问题的基本方法。为什么这么说呢？因为线上问题千奇百怪，就算是身经百战的专家也会遇到棘手的问题，因此不可能在一篇文章里说完，还有一个最重要的原因，当然就是楼主的水平不到位。</p>
 <p>但不到位归不到位，任何经验都是值得记录的，因此，楼主有必要将这些问题记录一下。</p>
@@ -481,7 +482,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-CPU-%E9%A3%9A%E9%AB%98"><span class="toc-number">2.</span> <span class="toc-text">1. CPU 飚高</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5"><span class="toc-number">3.</span> <span class="toc-text">2. 内存问题排查</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-CPU-%E9%A3%9A%E9%AB%98"><span class="toc-number"></span> <span class="toc-text">1. CPU 飚高</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5"><span class="toc-number"></span> <span class="toc-text">2. 内存问题排查</span></a>
                     </div>
                 </span>
             </div>
