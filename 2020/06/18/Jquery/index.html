@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  
-  <title>Jquery | 千羽的编程时光</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用JQuery完成页面定时弹出广告定时器:  ​    setInterval     clearInterval ​    setTimeout    clearTimeout 显示:  img.style.display  &#x3D; “block” 隐藏:  img.style.display  &#x3D; “none” img 对象 ​    style属性:  style对象 使用JQuery完成表格">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nate-lin.gitee.io","root":"/","images":"/images","scheme":"Muse","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="使用JQuery完成页面定时弹出广告定时器:  ​    setInterval     clearInterval ​    setTimeout    clearTimeout 显示:  img.style.display  &#x3D; “block” 隐藏:  img.style.display  &#x3D; “none” img 对象 ​    style属性:  style对象 使用JQuery完成表格">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jquery">
 <meta property="og:url" content="https://nate-lin.gitee.io/2020/06/18/Jquery/index.html">
@@ -18,298 +36,230 @@
 <meta property="article:tag" content="css">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternative" href="/atom.xml" title="千羽的编程时光" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/img/favicon.png">
-  
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-  
-<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-  
-<script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
-
-  <script>
-      var yiliaConfig = {
-          fancybox: true,
-          animate: false,
-          isHome: false,
-          isPost: true,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false,
-      }
-  </script>
-
-  
-      <script>
-          yiliaConfig.rootUrl = "/";
-      </script>
-  
-
-  
-      <script>
-          var _hmt = _hmt || [];
-          (function() {
-              var hm = document.createElement("script");
-              hm.src = "//hm.baidu.com/hm.js?3F0f5b55eba01e14f9c7b77d752a57535c";
-              var s = document.getElementsByTagName("script")[0]; 
-              s.parentNode.insertBefore(hm, s);
-          })();
-      </script>
-  
-
-  
-    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
-  
-<meta name="generator" content="Hexo 5.1.0"></head>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            <img src="/img/avatar.png" class="animated zoomIn">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/"></a></h1>
-        </hgroup>
-
-        
-                
 
 
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
-                        
-                        <li>Friends</li>
-                        
-                        
-                        <li>About Me</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
+<link rel="canonical" href="https://nate-lin.gitee.io/2020/06/18/Jquery/">
 
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">主页</a></li>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                            <li><a href="/tags/%E9%9A%8F%E7%AC%94">随笔</a></li>
-                        
-                            <li><a href="/tags/">标签云</a></li>
-                        
-                            <li><a href="/about/">关于我</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <li id="Email"><a class="Email" target="_blank" href="mailto:237497819@qq.com" title="Email"></a></li>
-                            
-                                <li id="新浪微博"><a class="新浪微博" target="_blank" href="http://weibo.com/3900066215/profile?topnav=1&wvr=6&is_all=1" title="新浪微博"></a></li>
-                            
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/xkcoding" title="GitHub"></a></li>
-                            
-                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
-                            
-                                <li id="知乎"><a class="知乎" target="_blank" href="https://www.zhihu.com/people/chen-yang-kai-62" title="知乎"></a></li>
-                            
-                                <li id="豆瓣"><a class="豆瓣" target="_blank" href="http://www.douban.com/people/xkcoding/" title="豆瓣"></a></li>
-                            
-                                <li id="网易云音乐"><a class="网易云音乐" target="_blank" href="http://music.163.com/#/user/home?id=110783547" title="网易云音乐"></a></li>
-                            
-                                <li id="QQ"><a class="QQ" target="_blank" href="tencent://message/?menu=yes&uin=237497819&websitename=im.qq.com" title="QQ"></a></li>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/BootStrap/" style="font-size: 10px;">BootStrap</a> <a href="/tags/Docker/" style="font-size: 18.57px;">Docker</a> <a href="/tags/HTML/" style="font-size: 11.43px;">HTML</a> <a href="/tags/Java/" style="font-size: 11.43px;">Java</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/Java%E5%9F%BA%E7%A1%80/" style="font-size: 20px;">Java基础</a> <a href="/tags/MySQL/" style="font-size: 15.71px;">MySQL</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/RabbitMQ/" style="font-size: 11.43px;">RabbitMQ</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/SpringBoot/" style="font-size: 14.29px;">SpringBoot</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/js/" style="font-size: 17.14px;">js</a> <a href="/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/tags/springcloud/" style="font-size: 11.43px;">springcloud</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 11.43px;">后端</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 10px;">大学</a> <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">性能测试</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" style="font-size: 11.43px;">接口测试</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 12.86px;">数据结构</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/" style="font-size: 11.43px;">笔记整理</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" style="font-size: 11.43px;">软件测试</a>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cheshouye.com/">车首页</a>
-                    
-                    </div>
-                </section>
-                
 
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">xkcoding是个二本院校的小小IT男，将来应该也是一名苦逼的码农，爱互联网，爱电影，爱游戏，爱动漫，爱coding，爱妞妞…</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>                
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Jquery | 千羽的编程时光</title>
+  
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="千羽的编程时光" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">千羽的编程时光</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今天的努力，明天的美好。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img src="/img/avatar.png" class="animated zoomIn">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/">主页</a></li>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                    <li><a href="/tags/%E9%9A%8F%E7%AC%94">随笔</a></li>
-                
-                    <li><a href="/tags/">标签云</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <li id="Email"><a class="Email" target="_blank" href="mailto:237497819@qq.com" title="Email"></a></li>
-                            
-                                <li id="新浪微博"><a class="新浪微博" target="_blank" href="http://weibo.com/3900066215/profile?topnav=1&wvr=6&is_all=1" title="新浪微博"></a></li>
-                            
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/xkcoding" title="GitHub"></a></li>
-                            
-                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
-                            
-                                <li id="知乎"><a class="知乎" target="_blank" href="https://www.zhihu.com/people/chen-yang-kai-62" title="知乎"></a></li>
-                            
-                                <li id="豆瓣"><a class="豆瓣" target="_blank" href="http://www.douban.com/people/xkcoding/" title="豆瓣"></a></li>
-                            
-                                <li id="网易云音乐"><a class="网易云音乐" target="_blank" href="http://music.163.com/#/user/home?id=110783547" title="网易云音乐"></a></li>
-                            
-                                <li id="QQ"><a class="QQ" target="_blank" href="tencent://message/?menu=yes&uin=237497819&websitename=im.qq.com" title="QQ"></a></li>
-                            
-                        </ul>
-            </nav>
-        </header>                
-    </div>
-</nav>
-      <div class="body-wrap"><article id="post-Jquery" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/06/18/Jquery/" class="article-date">
-      <time datetime="2020-06-18T01:45:10.000Z" itemprop="datePublished">2020-06-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+
+
+
+
+
+
+
+</div>
         
   
-    <h1 class="article-title" itemprop="name">
-      Jquery
-    </h1>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90%E9%A1%B5%E9%9D%A2%E5%AE%9A%E6%97%B6%E5%BC%B9%E5%87%BA%E5%B9%BF%E5%91%8A"><span class="nav-number">1.</span> <span class="nav-text">使用JQuery完成页面定时弹出广告</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90%E8%A1%A8%E6%A0%BC%E7%9A%84%E9%9A%94%E8%A1%8C%E6%8D%A2%E8%89%B2"><span class="nav-number">2.</span> <span class="nav-text">使用JQuery完成表格的隔行换色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90%E5%A4%8D%E9%80%89%E6%A1%86%E7%9A%84%E5%85%A8%E9%80%89%E6%95%88%E6%9E%9C"><span class="nav-number">3.</span> <span class="nav-text">使用JQuery完成复选框的全选效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90%E7%9C%81%E5%B8%82%E8%81%94%E5%8A%A8%E6%95%88%E6%9E%9C"><span class="nav-number">4.</span> <span class="nav-text">使用JQuery完成省市联动效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90%E4%B8%8B%E5%88%97%E5%88%97%E8%A1%A8%E5%B7%A6%E5%8F%B3%E9%80%89%E6%8B%A9"><span class="nav-number">5.</span> <span class="nav-text">使用JQuery完成下列列表左右选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90%E8%A1%A8%E5%8D%95%E7%9A%84%E6%A0%A1%E9%AA%8C-%E6%89%A9%E5%B1%95"><span class="nav-number">6.</span> <span class="nav-text">使用JQuery完成表单的校验(扩展)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8A%E6%97%A5%E7%9B%AE%E6%A0%87%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">今日目标：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%8C%E6%8F%A1JQuery%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">掌握JQuery的基本使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%8C%E6%8F%A1JQuery%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8-%E5%B1%82%E6%AC%A1%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">掌握JQuery的基本选择器,层次选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%9A%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90DOM%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">会使用JQuery完成DOM的基本操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90%E9%A1%B5%E9%9D%A2%E5%AE%9A%E6%97%B6%E5%BC%B9%E5%87%BA%E5%B9%BF%E5%91%8A"><span class="nav-number"></span> <span class="nav-text">1. 使用JQuery完成页面定时弹出广告</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">1.1 需求分析：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">1.2 技术分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E6%AD%A5%E9%AA%A4%E5%88%86%E6%9E%90%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">1.3 步骤分析：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">1.4 代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JQuery%E4%B8%AD%E7%9A%84%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number"></span> <span class="nav-text">JQuery中的选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">0.1.</span> <span class="nav-text">基本选择器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E6%A1%88%E4%BE%8B"><span class="nav-number">0.2.</span> <span class="nav-text">基本选择器的案例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JQ%E4%B8%AD%E7%9A%84%E5%B1%82%E7%BA%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">0.3.</span> <span class="nav-text">JQ中的层级选择器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JQ%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-number">0.4.</span> <span class="nav-text">JQ中的基本过滤器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JQ%E4%B8%AD%E7%9A%84%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">0.5.</span> <span class="nav-text">JQ中的属性选择器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JQ%E4%B8%AD%E7%9A%84%E8%A1%A8%E5%8D%95%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-number">0.6.</span> <span class="nav-text">JQ中的表单过滤器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8JQ%E5%AE%8C%E6%88%90%E8%A1%A8%E6%A0%BC%E7%9A%84%E9%9A%94%E8%A1%8C%E6%8D%A2%E8%89%B2"><span class="nav-number"></span> <span class="nav-text">使用JQ完成表格的隔行换色</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">需求分析:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">技术分析:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">步骤分析:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">代码实现:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90%E8%A1%A8%E5%8D%95%E7%9A%84%E5%85%A8%E9%80%89%E5%85%A8%E4%B8%8D%E9%80%89%E5%8A%9F%E8%83%BD"><span class="nav-number"></span> <span class="nav-text">使用JQuery完成表单的全选全不选功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-1"><span class="nav-number">1.</span> <span class="nav-text">需求分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90-1"><span class="nav-number">2.</span> <span class="nav-text">技术分析:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-1"><span class="nav-number">3.</span> <span class="nav-text">代码实现:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8JQ%E5%AE%8C%E6%88%90%E7%9C%81%E5%B8%82%E8%81%94%E5%8A%A8%E6%95%88%E6%9E%9C"><span class="nav-number"></span> <span class="nav-text">使用JQ完成省市联动效果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-2"><span class="nav-number">1.</span> <span class="nav-text">需求分析:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90-2"><span class="nav-number">2.</span> <span class="nav-text">技术分析:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E5%88%86%E6%9E%90-1"><span class="nav-number">3.</span> <span class="nav-text">步骤分析:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-2"><span class="nav-number">4.</span> <span class="nav-text">代码实现:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8JQ%E5%AE%8C%E6%88%90%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8%E5%B7%A6%E5%8F%B3%E9%80%89%E6%8B%A9"><span class="nav-number">5.</span> <span class="nav-text">使用JQ完成下拉列表左右选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-3"><span class="nav-number">6.</span> <span class="nav-text">需求分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90-3"><span class="nav-number">7.</span> <span class="nav-text">技术分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E5%88%86%E6%9E%90-2"><span class="nav-number">8.</span> <span class="nav-text">步骤分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-3"><span class="nav-number">9.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8A%E5%A4%A9%E5%86%85%E5%AE%B9%E6%80%BB%E7%BB%93"><span class="nav-number">10.</span> <span class="nav-text">今天内容总结:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8JQ%E5%AE%8C%E6%88%90%E8%A1%A8%E5%8D%95%E7%9A%84%E6%A0%A1%E9%AA%8C-%E6%89%A9%E5%B1%95"><span class="nav-number">11.</span> <span class="nav-text">使用JQ完成表单的校验(扩展)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-4"><span class="nav-number">12.</span> <span class="nav-text">需求分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90-4"><span class="nav-number">13.</span> <span class="nav-text">技术分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E5%88%86%E6%9E%90-3"><span class="nav-number">14.</span> <span class="nav-text">步骤分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-4"><span class="nav-number">15.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">千  羽</p>
+  <div class="site-description" itemprop="description"> </div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">94</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
   
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nate-lin.gitee.io/2020/06/18/Jquery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="千  羽">
+      <meta itemprop="description" content=" ">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="千羽的编程时光">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Jquery
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-06-18 09:45:10 / Modified: 09:56:50" itemprop="dateCreated datePublished" datetime="2020-06-18T09:45:10+08:00">2020-06-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
       </header>
-      
-      <div class="article-info article-info-post">
-        
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-    </div>
 
-
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
     
-    <div class="article-entry" itemprop="articleBody">
-      
-          
+    
+    
+    <div class="post-body" itemprop="articleBody">
         <h4 id="使用JQuery完成页面定时弹出广告"><a href="#使用JQuery完成页面定时弹出广告" class="headerlink" title="使用JQuery完成页面定时弹出广告"></a>使用JQuery完成页面定时弹出广告</h4><p>定时器: </p>
 <p>​    setInterval     clearInterval</p>
 <p>​    setTimeout    clearTimeout</p>
@@ -589,247 +539,102 @@
 <li>表单提交的事件</li>
 </ol>
 <h4 id="代码实现-4"><a href="#代码实现-4" class="headerlink" title="代码实现"></a>代码实现</h4>
-      
-    </div>
-    
-  </div>
-  
-    
-    <div class="copyright">
-        <p><span>Title:</span><a href="/2020/06/18/Jquery/">Jquery</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage"></a></p>
-        <p><span>Created:</span>2020-06-18, 09:45:10</p>
-        <p><span>Updated:</span>2020-06-18, 09:56:50</p>
-	
-	    <p>
-		<span>更新历史:</span><i class="fa fa-github"></i>
-		<a target="_blank" rel="noopener" href="https://github.com/xkcoding/Blog-Markdown-Archives-Backup/blame/master/_posts/2020-06-18.Jquery.md" title="顺序查看文章各部分修改记录" target = "_blank">Blame</a>,
-		<a target="_blank" rel="noopener" href="https://github.com/xkcoding/Blog-Markdown-Archives-Backup/commits/master/_posts/2020-06-18.Jquery.md" title="查看文章有关更新记录" target = "_blank">History</a><span class="raw">文本模式:</span><i class="fa fa-file-text-o"></i>
-		<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/xkcoding/Blog-Markdown-Archives-Backup/master/_posts/2020-06-18.Jquery.md" title="查看 & 下载文章 Markdown 原始文本" target = "_blank"> .md Raw</a>
-	    </p>
-	
-	<p>
-            <span>Full URL:</span><a class="post-url" href="/2020/06/18/Jquery/" title="Jquery">https://nate-lin.gitee.io/2020/06/18/Jquery/</a>
-            <span class="copy-path" data-clipboard-text="From https://nate-lin.gitee.io/2020/06/18/Jquery/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
-            <script src="/js/clipboard.min.js"></script>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
-        </p>
     </div>
 
+    
+    
+    
 
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/css/" rel="tag"># css</a>
+              <a href="/tags/js/" rel="tag"># js</a>
+          </div>
 
-    <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2020/06/18/BootStrap/">
-                    BootStrap
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/06/18/CSS-Js%E5%85%A5%E9%97%A8/" rel="prev" title="CSS-Js入门">
+                  <i class="fa fa-chevron-left"></i> CSS-Js入门
                 </a>
             </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2020/06/18/CSS-Js%E5%85%A5%E9%97%A8/">
-                    CSS-Js入门
+            <div class="post-nav-item">
+                <a href="/2020/06/18/BootStrap/" rel="next" title="BootStrap">
+                  BootStrap <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
-        
-    </nav>
-
-  
-</article>
-
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">Contents</strong>
-    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90%E9%A1%B5%E9%9D%A2%E5%AE%9A%E6%97%B6%E5%BC%B9%E5%87%BA%E5%B9%BF%E5%91%8A"><span class="toc-number">1.</span> <span class="toc-text">使用JQuery完成页面定时弹出广告</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90%E8%A1%A8%E6%A0%BC%E7%9A%84%E9%9A%94%E8%A1%8C%E6%8D%A2%E8%89%B2"><span class="toc-number">2.</span> <span class="toc-text">使用JQuery完成表格的隔行换色</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90%E5%A4%8D%E9%80%89%E6%A1%86%E7%9A%84%E5%85%A8%E9%80%89%E6%95%88%E6%9E%9C"><span class="toc-number">3.</span> <span class="toc-text">使用JQuery完成复选框的全选效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90%E7%9C%81%E5%B8%82%E8%81%94%E5%8A%A8%E6%95%88%E6%9E%9C"><span class="toc-number">4.</span> <span class="toc-text">使用JQuery完成省市联动效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90%E4%B8%8B%E5%88%97%E5%88%97%E8%A1%A8%E5%B7%A6%E5%8F%B3%E9%80%89%E6%8B%A9"><span class="toc-number">5.</span> <span class="toc-text">使用JQuery完成下列列表左右选择</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90%E8%A1%A8%E5%8D%95%E7%9A%84%E6%A0%A1%E9%AA%8C-%E6%89%A9%E5%B1%95"><span class="toc-number">6.</span> <span class="toc-text">使用JQuery完成表单的校验(扩展)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8A%E6%97%A5%E7%9B%AE%E6%A0%87%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">今日目标：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%8C%E6%8F%A1JQuery%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">掌握JQuery的基本使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%8C%E6%8F%A1JQuery%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8-%E5%B1%82%E6%AC%A1%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">掌握JQuery的基本选择器,层次选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%9A%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90DOM%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">会使用JQuery完成DOM的基本操作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90%E9%A1%B5%E9%9D%A2%E5%AE%9A%E6%97%B6%E5%BC%B9%E5%87%BA%E5%B9%BF%E5%91%8A"><span class="toc-number"></span> <span class="toc-text">1. 使用JQuery完成页面定时弹出广告</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">1.1 需求分析：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">1.2 技术分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E6%AD%A5%E9%AA%A4%E5%88%86%E6%9E%90%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">1.3 步骤分析：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">1.4 代码实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JQuery%E4%B8%AD%E7%9A%84%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">JQuery中的选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">0.1.</span> <span class="toc-text">基本选择器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E6%A1%88%E4%BE%8B"><span class="toc-number">0.2.</span> <span class="toc-text">基本选择器的案例</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JQ%E4%B8%AD%E7%9A%84%E5%B1%82%E7%BA%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">0.3.</span> <span class="toc-text">JQ中的层级选择器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JQ%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">0.4.</span> <span class="toc-text">JQ中的基本过滤器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JQ%E4%B8%AD%E7%9A%84%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">0.5.</span> <span class="toc-text">JQ中的属性选择器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JQ%E4%B8%AD%E7%9A%84%E8%A1%A8%E5%8D%95%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">0.6.</span> <span class="toc-text">JQ中的表单过滤器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8JQ%E5%AE%8C%E6%88%90%E8%A1%A8%E6%A0%BC%E7%9A%84%E9%9A%94%E8%A1%8C%E6%8D%A2%E8%89%B2"><span class="toc-number"></span> <span class="toc-text">使用JQ完成表格的隔行换色</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">需求分析:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">技术分析:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">步骤分析:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">代码实现:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8JQuery%E5%AE%8C%E6%88%90%E8%A1%A8%E5%8D%95%E7%9A%84%E5%85%A8%E9%80%89%E5%85%A8%E4%B8%8D%E9%80%89%E5%8A%9F%E8%83%BD"><span class="toc-number"></span> <span class="toc-text">使用JQuery完成表单的全选全不选功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-1"><span class="toc-number">1.</span> <span class="toc-text">需求分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90-1"><span class="toc-number">2.</span> <span class="toc-text">技术分析:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-1"><span class="toc-number">3.</span> <span class="toc-text">代码实现:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8JQ%E5%AE%8C%E6%88%90%E7%9C%81%E5%B8%82%E8%81%94%E5%8A%A8%E6%95%88%E6%9E%9C"><span class="toc-number"></span> <span class="toc-text">使用JQ完成省市联动效果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-2"><span class="toc-number">1.</span> <span class="toc-text">需求分析:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90-2"><span class="toc-number">2.</span> <span class="toc-text">技术分析:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4%E5%88%86%E6%9E%90-1"><span class="toc-number">3.</span> <span class="toc-text">步骤分析:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-2"><span class="toc-number">4.</span> <span class="toc-text">代码实现:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8JQ%E5%AE%8C%E6%88%90%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8%E5%B7%A6%E5%8F%B3%E9%80%89%E6%8B%A9"><span class="toc-number">5.</span> <span class="toc-text">使用JQ完成下拉列表左右选择</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-3"><span class="toc-number">6.</span> <span class="toc-text">需求分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90-3"><span class="toc-number">7.</span> <span class="toc-text">技术分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4%E5%88%86%E6%9E%90-2"><span class="toc-number">8.</span> <span class="toc-text">步骤分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-3"><span class="toc-number">9.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8A%E5%A4%A9%E5%86%85%E5%AE%B9%E6%80%BB%E7%BB%93"><span class="toc-number">10.</span> <span class="toc-text">今天内容总结:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8JQ%E5%AE%8C%E6%88%90%E8%A1%A8%E5%8D%95%E7%9A%84%E6%A0%A1%E9%AA%8C-%E6%89%A9%E5%B1%95"><span class="toc-number">11.</span> <span class="toc-text">使用JQ完成表单的校验(扩展)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90-4"><span class="toc-number">12.</span> <span class="toc-text">需求分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90-4"><span class="toc-number">13.</span> <span class="toc-text">技术分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4%E5%88%86%E6%9E%90-3"><span class="toc-number">14.</span> <span class="toc-text">步骤分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-4"><span class="toc-number">15.</span> <span class="toc-text">代码实现</span></a></li></ol>
+          </div>
+    </footer>
+  </article>
 </div>
-<style>
-    .left-col .switch-btn {
-        display: none;
-    }
-    .left-col .switch-area {
-        display: none;
-    }
-</style>
 
-<input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+
+
+
+
+
 <script>
-    var valueHide = "Hide";
-    var valueShow = "Show";
-
-    if ($(".left-col").is(":hidden")) {
-        $("#tocButton").attr("value", valueShow);
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
     }
-
-    $("#tocButton").click(function() {
-        if ($("#toc").is(":hidden")) {
-            $("#tocButton").attr("value", valueHide);
-            $("#toc").slideDown(320);
-            $(".switch-btn, .switch-area").fadeOut(300);
-        }
-        else {
-            $("#tocButton").attr("value", valueShow);
-            $("#toc").slideUp(350);
-            $(".switch-btn, .switch-area").fadeIn(500);
-        }
-    })
-
-    if ($(".toc").length < 1) {
-        $("#toc, #tocButton").hide();
-        $(".switch-btn, .switch-area").show();
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
     }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
 </script>
-
-
-
-
-    <div class="share">
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more"></a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
-    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-    </div>
-    <script>
-        window._bd_share_config={
-            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-    </script>
 </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
 
 
-
-    
-      <div class="duoshuo" id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2020/06/18/Jquery/" data-title="Jquery" data-url="https://nate-lin.gitee.io/2020/06/18/Jquery/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:"blogxkcoding"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//cd.xkcoding.com/js/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
-    <!-- 多说公共JS代码 end -->
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">千  羽</span>
 </div>
-
-    
-
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2020/06/18/BootStrap/" title="Pre: BootStrap">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2020/06/18/CSS-Js%E5%85%A5%E9%97%A8/" title="Next: CSS-Js入门">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/12/01/%E5%9B%9B%E7%BA%A7%E6%8A%80%E5%B7%A7/">四级技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/29/%E5%95%86%E4%B8%9A%E7%BD%91%E7%BB%9C%E4%BB%8B%E7%BB%8D/">商业网络介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/23/JVM%E7%BA%BF%E4%B8%8A%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">JVM线上故障排查基本操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/23/%E5%AF%B9%E4%BA%8EArraylist%E7%9A%84%E4%B8%80%E4%BA%9B%E7%96%91%E9%97%AE/">对于Arraylist的一些疑问</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/01/Java%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">Java后端学习路线</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/21/%E5%8D%83%E7%BE%BD%E8%BF%99%E4%B8%A4%E5%B9%B4/">千羽这两年..</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/25/%E6%8E%A8%E8%8D%90%E7%AE%97%E6%B3%95/">推荐算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/07/cloud-02-feign-gateway-bus/">cloud-02-feign-gateway-bus</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/07/%E5%8D%83%E7%BE%BDJava%E5%BC%80%E5%8F%91%E7%9A%84%E5%AE%9E%E4%B9%A0%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">千羽Java开发的实习经验分享</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/03/Java%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E4%B9%8B%E7%81%AB%E7%84%B0%E5%9B%BE/">Java性能分析之火焰图</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/RabbitMQ-02-RabbitMQ%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">RabbitMQ-02-RabbitMQ集群搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/RabbitMQ-01-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/">RabbitMQ-01-基础入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/cloud-01-Eureka-Ribbon-hystrix/">cloud-01-Eureka-Ribbon-hystrix</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/%E5%88%86%E5%B8%83%E5%BC%8FRPC%E6%A1%86%E6%9E%B6-Dubbo/">分布式RPC框架-Dubbo</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/%E4%BD%A0%E5%9B%9E%E5%8E%BB%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8BRESTful%E9%A3%8E%E6%A0%BC/">你回去了解一下RESTful风格</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/keymap-win%E8%BD%ACmac/">keymap-win转mac</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/js-07-typeof-null-undefined/">js-07-typeof-null-undefined</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/js-04-break%E5%92%8Ccontinue/">js-04-break和continue</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/js-06-%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5/">js-06-判断语句</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/js-05-%E5%AD%97%E7%AC%A6%E4%B8%B2/">js-05-字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/js-03-%E5%AF%B9%E8%B1%A1/">js-03-对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/js-02-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">js-02-基本语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/js-01-%E5%85%A5%E9%97%A8/">js-01-入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/22/docker-12-k8s%E9%83%A8%E7%BD%B2SpringCloud/">docker-12-k8s部署SpringCloud</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/22/SpringBoot%E6%95%B4%E5%90%88Shiro/">SpringBoot整合Shiro</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/19/Java%E5%9F%BA%E7%A1%8028-%E5%B7%A9%E5%9B%BA/">Java基础28-巩固</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/18/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">性能测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/17/docker-09-%E5%86%99Dockerfile%E5%B9%B6%E4%B8%8A%E4%BC%A0DockerHub/">docker-09-写Dockerfile并上传DockerHub</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/17/docker-11-Rancher%E6%9D%A5%E4%BA%86/">docker-11-Rancker来了</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/17/docker-10-%E6%90%AD%E5%BB%BA%E4%BC%81%E4%B8%9A%E9%95%9C%E5%83%8F%E7%A7%81%E6%9C%8D/">docker-10-搭建企业镜像私服</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/17/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95-01-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">接口测试-01-基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/17/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95-02-Jmeter/">接口测试-02-Jmeter</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/docker-02-docker%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2/">docker-02-docker应用部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/docker-01-%E5%AE%89%E8%A3%85docker/">docker-01-安装docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/docker-05-docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/">docker-05-docker 私有仓库</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/docker-03-dockerfile/">docker-03-dockerfile</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/docker-04-docker-compose/">docker-04-docker-compose</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/docker-06-docker%E9%83%A8%E7%BD%B2Springboot/">docker-06-docker部署Springboot</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/11/docker-08-%E7%BC%96%E5%86%99dockerCompose/">docker-08-编写dockerCompose</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/14/MySQL%E8%BF%9B%E9%98%B604-%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BD%BF%E7%94%A8/">MySQL进阶04-索引的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/12/powermock%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/">初始Mockito</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/06/JDBC/">JDBC</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/06/MySQL%E8%BF%9B%E9%98%B603-MySQL%E4%BC%98%E5%8C%96/">MySQL进阶03-MySQL优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/04/MySQL%E8%BF%9B%E9%98%B602-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/">MySQL进阶02(存储引擎)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/04/MySQL%E8%BF%9B%E9%98%B601-%E7%B4%A2%E5%BC%95-%E8%A7%86%E5%9B%BE-%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/">MySQL进阶01(索引-视图-存储过程)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/25/Xmind%E6%B1%87%E6%80%BB%E6%89%80%E6%9C%89%E7%9F%A5%E8%AF%86%E7%82%B9/">Xmind汇总所有知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/24/docker-07-docker%E9%83%A8%E7%BD%B2SpringCloud/">docker-07-docker部署SpringCloud</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/21/%E9%9D%A2%E8%AF%95-%E7%AE%80%E5%8E%86%E5%88%B6%E4%BD%9C%E4%B8%93%E9%A2%98/">面试+简历制作专题</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/18/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E9%9C%80%E8%A6%81%E4%BC%9A%E4%BB%80%E4%B9%88/">后端工程师需要会什么?</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/18/MySql%E5%85%A5%E9%97%A8/">MySql入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/18/BootStrap/">BootStrap</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/18/Jquery/">Jquery</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/18/CSS-Js%E5%85%A5%E9%97%A8/">CSS-Js入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/18/HTML%E5%85%A5%E9%97%A8/">HTML入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/17/Eclipse%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%A7%E5%85%A8/">Eclipse快捷键大全</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8027-%E5%8F%8D%E5%B0%84-JDK%E6%96%B0%E7%89%B9%E6%80%A7/">Java基础27-反射-JDK新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8026-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">Java基础26-网络编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8025-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E4%B8%8B/">Java基础25-多线程-下</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8024-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E4%B8%8A/">Java基础24-多线程-上</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8023-%E9%80%92%E5%BD%92%E7%BB%83%E4%B9%A0/">Java基础23-递归练习</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8022-IO%E5%85%B6%E4%BB%96%E6%B5%81-Properties/">Java基础22-IO其他流-Properties</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8021-IO%E5%AD%97%E7%AC%A6%E6%B5%81/">Java基础21-IO字符流</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8020-IO%E5%AD%97%E8%8A%82%E6%B5%81/">Java基础20-IO字节流</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8019-%E5%BC%82%E5%B8%B8-IO%E6%B5%81/">Java基础19-异常-IO流</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8018-Map%E9%9B%86%E5%90%88/">Java基础18-Map集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8017-Set%E9%9B%86%E5%90%88/">Java基础17-Set集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8016-List%E9%9B%86%E5%90%88/">Java基础16-List集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8015-Colletion%E9%9B%86%E5%90%88/">Java基础15-Colletion集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8014-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Java基础14-正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8013-StringBuffer/">Java基础13-StringBuffer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8012-String%E7%B1%BB/">Java基础12-String类</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8011-Eclipse-Object/">Java基础11-Eclipse-Object</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/15/Java%E5%9F%BA%E7%A1%8010-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB/">Java基础10-面向对象-匿名内部类</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/15/Java%E5%9F%BA%E7%A1%8009-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%A4%9A%E6%80%81-%E6%8E%A5%E5%8F%A3/">Java基础09-面向对象-多态-接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/15/Java%E5%9F%BA%E7%A1%8008-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E7%BB%A7%E6%89%BF/">Java基础08-面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/12/%E4%BD%A0%E4%BC%9A%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%90%97/">你会单元测试吗</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/12/SpringBoot%E6%95%B4%E5%90%88JustAuth%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/">SpringBoot整合JustAuth第三方登录</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/07/Boot%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E6%B5%81%E7%A8%8B%E5%9B%BE/">Boot客户端管理系统流程图</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/27/%E4%BD%A0%E7%9C%9F%E7%9A%84%E4%BC%9AMysql%E5%90%97/">你真的会Mysql吗</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/22/Java%E5%9F%BA%E7%A1%8007-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E6%96%B9%E6%B3%95/">Java基础07-面向对象-方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/22/Java%E5%9F%BA%E7%A1%8006-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/">Java基础06-二维数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/22/Java%E5%9F%BA%E7%A1%8005-%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84/">Java基础05-一维数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%9502-%E6%A0%88%E5%A0%86-%E9%98%9F%E5%88%97/">数据结构与算法02-栈堆-队列</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%9501-%E6%A6%82%E5%BF%B5/">数据结构与算法01-概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%9503-%E6%A0%91-%E4%B8%8A/">数据结构与算法03-树-上</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/21/Java%E5%9F%BA%E7%A1%8004-for%E5%BE%AA%E7%8E%AF-%E6%96%B9%E6%B3%95/">Java基础04-for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/21/Java%E5%9F%BA%E7%A1%8002-%E8%BF%9B%E5%88%B6%E8%BF%90%E7%AE%97-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E5%8F%98%E9%87%8F/">Java基础02(进制运算&数据类型&变量)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/21/Java%E5%9F%BA%E7%A1%8001-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">Java基础01(计算机基础)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/21/Java%E5%9F%BA%E7%A1%8003-%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6/">Java基础03-逻辑运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/19/%E9%82%A3%E4%BA%9B%E5%B9%B4%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/">那些年踩过的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/16/SpringBoot-Vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/">SpringBoot-Vue前后端分离</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/11/SpringBoot%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A82/">SpringBoot快速入门2</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/12/SpringBoot%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A81/">SpringBoot快速入门1</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
-
-    <script>
-	(function(){
-	    var bp = document.createElement('script');
-	    bp.src = '//push.zhanzhang.baidu.com/push.js';
-	    var s = document.getElementsByTagName("script")[0];
-	    s.parentNode.insertBefore(bp, s);
-	})();
-    </script>
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                &copy; 2020 千  羽
-		
-
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258110797'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1258110797%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
-
-
-            </div>
-            <div class="footer-right">
-                本博客由<a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>程序搭建，托管在Github上
-            </div>
-        </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >Site Visitors: 
-                            <span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>, </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">Page Hits: 
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
-    </div>
-</footer>
-    </div>
-    
-<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
-
-
-
-
-<div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
-</div>
-
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
 </body>
 </html>
