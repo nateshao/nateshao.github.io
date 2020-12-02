@@ -249,7 +249,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.3k字</span>
+      <span class="post-count">2.4k字</span>
     </span>
   </span>
 
@@ -468,38 +468,62 @@
 <h3 id="08-11-面向对象-继承中的面试题-掌握"><a href="#08-11-面向对象-继承中的面试题-掌握" class="headerlink" title="08.11_面向对象(继承中的面试题)(掌握)"></a>08.11_面向对象(继承中的面试题)(掌握)</h3><ul>
 <li><p>A:案例演示</p>
 </li>
-<li><p>看程序写结果1<br>class Fu{<br>  public int num = 10;<br>  public Fu(){</p>
-<pre><code>  System.out.println(&quot;fu&quot;);</code></pre>
-<p>  }<br>}<br>class Zi extends Fu{<br>  public int num = 20;<br>  public Zi(){</p>
-<pre><code>  System.out.println(&quot;zi&quot;);</code></pre>
-<p>  }<br>  public void show(){</p>
-<pre><code>  int num = 30;
-  System.out.println(num);
-  System.out.println(this.num);
-  System.out.println(super.num);</code></pre>
-<p>  }<br>}<br>class Test1_Extends {<br>  public static void main(String[] args) {</p>
-<pre><code>  Zi z = new Zi();
-  z.show();</code></pre>
-<p>  }<br>}</p>
-<p>看程序写结果2<br>class Fu {<br>  static {</p>
-<pre><code>  System.out.println(&quot;静态代码块Fu&quot;);</code></pre>
-<p>  }</p>
-<p>  {</p>
-<pre><code>  System.out.println(&quot;构造代码块Fu&quot;);</code></pre>
-<p>  }</p>
-<p>  public Fu() {</p>
-<pre><code>  System.out.println(&quot;构造方法Fu&quot;);</code></pre>
-<p>  }<br>}</p>
-<p>class Zi extends Fu {<br>  static {</p>
-<pre><code>  System.out.println(&quot;静态代码块Zi&quot;);</code></pre>
-<p>  }</p>
-<p>  {</p>
-<pre><code>  System.out.println(&quot;构造代码块Zi&quot;);</code></pre>
-<p>  }</p>
-<p>  public Zi() {</p>
-<pre><code>  System.out.println(&quot;构造方法Zi&quot;);</code></pre>
-<p>  }<br>}</p>
-<p>Zi z = new Zi(); 请执行结果。</p>
+<li><pre><code>  看程序写结果1
+  class Fu&#123;
+      public int num = 10;
+      public Fu()&#123;
+          System.out.println(&quot;fu&quot;);
+      &#125;
+  &#125;
+  class Zi extends Fu&#123;
+      public int num = 20;
+      public Zi()&#123;
+          System.out.println(&quot;zi&quot;);
+      &#125;
+      public void show()&#123;
+          int num = 30;
+          System.out.println(num);
+          System.out.println(this.num);
+          System.out.println(super.num);
+      &#125;
+  &#125;
+  class Test1_Extends &#123;
+      public static void main(String[] args) &#123;
+          Zi z = new Zi();
+          z.show();
+      &#125;
+  &#125;
+
+  看程序写结果2
+  class Fu &#123;
+      static &#123;
+          System.out.println(&quot;静态代码块Fu&quot;);
+      &#125;
+
+      &#123;
+          System.out.println(&quot;构造代码块Fu&quot;);
+      &#125;
+
+      public Fu() &#123;
+          System.out.println(&quot;构造方法Fu&quot;);
+      &#125;
+  &#125;
+
+  class Zi extends Fu &#123;
+      static &#123;
+          System.out.println(&quot;静态代码块Zi&quot;);
+      &#125;
+
+      &#123;
+          System.out.println(&quot;构造代码块Zi&quot;);
+      &#125;
+
+      public Zi() &#123;
+          System.out.println(&quot;构造方法Zi&quot;);
+      &#125;
+  &#125;
+
+  Zi z = new Zi(); 请执行结果。</code></pre>
 </li>
 </ul>
 <h3 id="08-12-面向对象-继承中成员方法关系-掌握"><a href="#08-12-面向对象-继承中成员方法关系-掌握" class="headerlink" title="08.12_面向对象(继承中成员方法关系)(掌握)"></a>08.12_面向对象(继承中成员方法关系)(掌握)</h3><ul>
@@ -995,11 +1019,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">其他</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">笔记整理</a>
+                <a href="javascript:void(0)" class="js-tag color3">其他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1007,7 +1031,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color5">笔记整理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1059,11 +1083,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口测试</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能测试</a>
+                <a href="javascript:void(0)" class="js-tag color5">接口测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1071,11 +1095,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color5">BootStrap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BootStrap</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -1438,9 +1438,18 @@
 <h3 id="04-06-Java语言基础-循环结构while语句的格式和基本使用"><a href="#04-06-Java语言基础-循环结构while语句的格式和基本使用" class="headerlink" title="04.06_Java语言基础(循环结构while语句的格式和基本使用)"></a>04.06_Java语言基础(循环结构while语句的格式和基本使用)</h3><ul>
 <li><p>A:循环结构while语句的格式：</p>
 </li>
-<li><p>while循环的基本格式：<br>while(判断条件语句) {<br>  循环体语句;<br>}</p>
-<p>完整格式：</p>
-<p>初始化语句;<br>while(判断条件语句) {<br>   循环体语句;<br>   控制条件语句;<br>}</p>
+<li><pre><code>  while循环的基本格式：
+  while(判断条件语句) &#123;
+      循环体语句;
+  &#125;
+
+  完整格式：
+
+  初始化语句;
+  while(判断条件语句) &#123;
+       循环体语句;
+       控制条件语句;
+  &#125;</code></pre>
 </li>
 <li><p>B:执行流程：</p>
 <ul>
@@ -2231,10 +2240,8 @@ E:打印nn乘法表</code></pre>
 </li>
 <li>B:什么是JDK<ul>
 <li>JDK是提供给Java开发人员使用的，其中包含了java的开发工具，也包括了JRE。所以安装了JDK，就不用在单独安装JRE了。</li>
-<li>其中的开发工具：编译工具(javac.exe)  打包工具(jar.exe)等<ul>
+<li>其中的开发工具：编译工具(javac.exe)  打包工具(jar.exe)等</li>
 <li>JDK:JRE+JAVA的开发工具。</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>C:为什么JDK中包含一个JRE<ul>
@@ -2619,7 +2626,8 @@ E:打印nn乘法表</code></pre>
 <li>&amp;&amp;和&amp;的区别?<ul>
 <li>a:最终结果一样。</li>
 <li>b:&amp;&amp;具有短路效果。左边是false，右边不执行。</li>
-<li>&amp;是无论左边是false还是true,右边都会执行</li>
+<li><pre><code>&amp;是无论左边是false还是true,右边都会执行</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -2718,7 +2726,7 @@ E:打印nn乘法表</code></pre>
 </ul>
 <h3 id="03-05-Java语言基础-位运算符的基本用法2及面试题-了解"><a href="#03-05-Java语言基础-位运算符的基本用法2及面试题-了解" class="headerlink" title="03.05_Java语言基础(位运算符的基本用法2及面试题)(了解)"></a>03.05_Java语言基础(位运算符的基本用法2及面试题)(了解)</h3><ul>
 <li>A:案例演示 &gt;&gt;,&gt;&gt;&gt;,&lt;&lt;的用法:<ul>
-<li>&lt;&lt;:左移    左边最高位丢弃，右边补齐0</li>
+<li> &lt;&lt;:左移    左边最高位丢弃，右边补齐0</li>
 <li><blockquote>
 <blockquote>
 <p>:右移    最高位是0，左边补齐0;最高为是1，左边补齐1</p>
@@ -2733,13 +2741,14 @@ E:打印nn乘法表</code></pre>
 </blockquote>
 </blockquote>
 </li>
-<li>最有效率的算出2 * 8的结果</li>
+<li> 最有效率的算出2 * 8的结果</li>
 </ul>
 </li>
 </ul>
 <h3 id="03-06-Java语言基础-三元运算符的基本用法-掌握"><a href="#03-06-Java语言基础-三元运算符的基本用法-掌握" class="headerlink" title="03.06_Java语言基础(三元运算符的基本用法)(掌握)"></a>03.06_Java语言基础(三元运算符的基本用法)(掌握)</h3><ul>
 <li>A:三元运算符的格式</li>
-<li>(关系表达式) ? 表达式1 : 表达式2;</li>
+<li><pre><code>    (关系表达式) ? 表达式1 : 表达式2;</code></pre>
+</li>
 <li>B:三元运算符的执行流程 </li>
 <li>C:案例演示<ul>
 <li>获取两个数中的最大值</li>
@@ -3090,8 +3099,10 @@ E:打印nn乘法表</code></pre>
 </ul>
 <h3 id="03-23-Java语言基础-选择结构if语句和switch语句的区别-掌握"><a href="#03-23-Java语言基础-选择结构if语句和switch语句的区别-掌握" class="headerlink" title="03.23_Java语言基础(选择结构if语句和switch语句的区别)(掌握)"></a>03.23_Java语言基础(选择结构if语句和switch语句的区别)(掌握)</h3><ul>
 <li>A:总结switch语句和if语句的各自使用场景</li>
-<li>switch建议判断固定值的时候用</li>
-<li>if建议判断区间或范围的时候用</li>
+<li><pre><code>switch建议判断固定值的时候用</code></pre>
+</li>
+<li><pre><code>if建议判断区间或范围的时候用</code></pre>
+</li>
 <li>B:案例演示<ul>
 <li>分别用switch语句和if语句实现下列需求：<ul>
 <li>键盘录入月份，输出对应的季节</li>
@@ -3304,11 +3315,11 @@ E:打印nn乘法表</code></pre>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">其他</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">笔记整理</a>
+                <a href="javascript:void(0)" class="js-tag color3">其他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3316,7 +3327,7 @@ E:打印nn乘法表</code></pre>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color5">笔记整理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3368,11 +3379,11 @@ E:打印nn乘法表</code></pre>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口测试</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能测试</a>
+                <a href="javascript:void(0)" class="js-tag color5">接口测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3380,11 +3391,11 @@ E:打印nn乘法表</code></pre>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color5">BootStrap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BootStrap</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
