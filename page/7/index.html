@@ -225,6 +225,616 @@
 
 
   
+    <article id="post-Java基础24-多线程-上" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8024-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E4%B8%8A/" target="_blank">Java基础24-多线程-上</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/06/16/Java%E5%9F%BA%E7%A1%8024-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E4%B8%8A/" class="archive-article-date">
+        <time datetime="2020-06-16T04:22:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+    
+    
+    <h2 id="24-01-多线程-多线程的引入-了解"><a href="#24-01-多线程-多线程的引入-了解" class="headerlink" title="24.01_多线程(多线程的引入)(了解)"></a>24.01_多线程(多线程的引入)(了解)</h2><ul>
+<li>1.什么是线程<ul>
+<li>线程是程序执行的一条路径, 一个进程中可以包含多条线程</li>
+<li>多线程并发执行可以提高程序的效率, 可以同时完成多项工作</li>
+</ul>
+</li>
+<li>2.多线程的应用场景<ul>
+<li>红蜘蛛同时共享屏幕给多个电脑</li>
+<li>迅雷开启多条线程一起下载</li>
+<li>QQ同时和多个人一起视频</li>
+<li>服务器同时处理多个客户端请求</li>
+</ul>
+</li>
+</ul>
+<h3 id="24-02-多线程-多线程并行和并发的区别-了解"><a href="#24-02-多线程-多线程并行和并发的区别-了解" class="headerlink" title="24.02_多线程(多线程并行和并发的区别)(了解)"></a>24.02_多线程(多线程并行和并发的区别)(了解)</h3><ul>
+<li>并行就是两个任务同时运行，就是甲任务进行的同时，乙任务也在进行。(需要多核CPU)</li>
+<li>并发是指两个任务都请求运行，而处理器只能按受一个任务，就把这两个任务安排轮流进行，由于时间间隔较短，使人感觉两个任务都在运行。</li>
+<li>比如我跟两个网友聊天，左手操作一个电脑跟甲聊，同时右手用另一台电脑跟乙聊天，这就叫并行。</li>
+<li>如果用一台电脑我先给甲发个消息，然后立刻再给乙发消息，然后再跟甲聊，再跟乙聊。这就叫并发。</li>
+</ul>
+<h2 id="24-03-多线程-Java程序运行原理和JVM的启动是多线程的吗-了解"><a href="#24-03-多线程-Java程序运行原理和JVM的启动是多线程的吗-了解" class="headerlink" title="24.03_多线程(Java程序运行原理和JVM的启动是多线程的吗)(了解)"></a>24.03_多线程(Java程序运行原理和JVM的启动是多线程的吗)(了解)</h2><ul>
+<li><p>A:Java程序运行原理</p>
+<ul>
+<li>Java命令会启动java虚拟机，启动JVM，等于启动了一个应用程序，也就是启动了一个进程。该进程会自动启动一个 “主线程” ，然后主线程去调用某个类的 main 方法。</li>
+</ul>
+</li>
+<li><p>B:JVM的启动是多线程的吗</p>
+<ul>
+<li>JVM启动至少启动了垃圾回收线程和主线程，所以是多线程的。</li>
+</ul>
+</li>
+</ul>
+<h3 id="24-04-多线程-多线程程序实现的方式1-掌握"><a href="#24-04-多线程-多线程程序实现的方式1-掌握" class="headerlink" title="24.04_多线程(多线程程序实现的方式1)(掌握)"></a>24.04_多线程(多线程程序实现的方式1)(掌握)</h3><ul>
+<li><p>1.继承Thread</p>
+<ul>
+<li><p>定义类继承Thread</p>
+</li>
+<li><p>重写run方法</p>
+</li>
+<li><p>把新线程要做的事写在run方法中</p>
+</li>
+<li><p>创建线程对象</p>
+</li>
+<li><p>开启新线程, 内部会自动执行run方法</p>
+</li>
+<li><pre><code>  public class Demo2_Thread &#123;
+
+      /**
+       * @param args
+       */
+      public static void main(String[] args) &#123;
+          MyThread mt = new MyThread();                            //4,创建自定义类的对象
+          mt.start();                                                //5,开启线程
+
+          for(int i = 0; i &lt; 3000; i++) &#123;
+              System.out.println(&quot;bb&quot;);
+          &#125;
+      &#125;
+
+  &#125;
+  class MyThread extends Thread &#123;                                    //1,定义类继承Thread
+      public void run() &#123;                                            //2,重写run方法
+          for(int i = 0; i &lt; 3000; i++) &#123;                            //3,将要执行的代码,写在run方法中
+              System.out.println(&quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;);
+          &#125;
+      &#125;
+  &#125;</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="24-05-多线程-多线程程序实现的方式2-掌握"><a href="#24-05-多线程-多线程程序实现的方式2-掌握" class="headerlink" title="24.05_多线程(多线程程序实现的方式2)(掌握)"></a>24.05_多线程(多线程程序实现的方式2)(掌握)</h3><ul>
+<li><p>2.实现Runnable</p>
+<ul>
+<li><p>定义类实现Runnable接口</p>
+</li>
+<li><p>实现run方法</p>
+</li>
+<li><p>把新线程要做的事写在run方法中</p>
+</li>
+<li><p>创建自定义的Runnable的子类对象</p>
+</li>
+<li><p>创建Thread对象, 传入Runnable</p>
+</li>
+<li><p>调用start()开启新线程, 内部会自动调用Runnable的run()方法</p>
+<pre><code>  public class Demo3_Runnable &#123;
+      /**
+       * @param args
+       */
+      public static void main(String[] args) &#123;
+          MyRunnable mr = new MyRunnable();                        //4,创建自定义类对象
+          //Runnable target = new MyRunnable();
+          Thread t = new Thread(mr);                                //5,将其当作参数传递给Thread的构造函数
+          t.start();                                                //6,开启线程
+
+          for(int i = 0; i &lt; 3000; i++) &#123;
+              System.out.println(&quot;bb&quot;);
+          &#125;
+      &#125;
+  &#125;
+
+  class MyRunnable implements Runnable &#123;                            //1,自定义类实现Runnable接口
+      @Override
+      public void run() &#123;                                            //2,重写run方法
+          for(int i = 0; i &lt; 3000; i++) &#123;                            //3,将要执行的代码,写在run方法中
+              System.out.println(&quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;);
+          &#125;
+      &#125;
+
+  &#125;</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="24-06-多线程-实现Runnable的原理-了解"><a href="#24-06-多线程-实现Runnable的原理-了解" class="headerlink" title="24.06_多线程(实现Runnable的原理)(了解)"></a>24.06_多线程(实现Runnable的原理)(了解)</h3><ul>
+<li>查看源码<ul>
+<li>1,看Thread类的构造函数,传递了Runnable接口的引用 </li>
+<li>2,通过init()方法找到传递的target给成员变量的target赋值</li>
+<li>3,查看run方法,发现run方法中有判断,如果target不为null就会调用Runnable接口子类对象的run方法</li>
+</ul>
+</li>
+</ul>
+<h3 id="24-07-多线程-两种方式的区别-掌握"><a href="#24-07-多线程-两种方式的区别-掌握" class="headerlink" title="24.07_多线程(两种方式的区别)(掌握)"></a>24.07_多线程(两种方式的区别)(掌握)</h3><ul>
+<li><p>查看源码的区别:</p>
+<ul>
+<li>a.继承Thread : 由于子类重写了Thread类的run(), 当调用start()时, 直接找子类的run()方法</li>
+<li>b.实现Runnable : 构造函数中传入了Runnable的引用, 成员变量记住了它,<br>start()调用run()方法时内部判断成员变量Runnable的引用是否为空,<br>不为空编译时看的是Runnable的run(),运行时执行的是子类的run()方法</li>
+</ul>
+</li>
+<li><p>继承Thread</p>
+<ul>
+<li>好处是:可以直接使用Thread类中的方法,代码简单</li>
+<li>弊端是:如果已经有了父类,就不能用这种方法</li>
+</ul>
+</li>
+<li><p>实现Runnable接口</p>
+<ul>
+<li>好处是:即使自己定义的线程类有了父类也没关系,因为有了父类也可以实现接口,而且接口是可以多实现的</li>
+<li>弊端是:不能直接使用Thread中的方法需要先获取到线程对象后,才能得到Thread的方法,代码复杂<h3 id="24-08-多线程-匿名内部类实现线程的两种方式-掌握"><a href="#24-08-多线程-匿名内部类实现线程的两种方式-掌握" class="headerlink" title="24.08_多线程(匿名内部类实现线程的两种方式)(掌握)"></a>24.08_多线程(匿名内部类实现线程的两种方式)(掌握)</h3></li>
+</ul>
+</li>
+<li><p>继承Thread类</p>
+<pre><code>  new Thread() &#123;                                                    //1,new 类()&#123;&#125;继承这个类
+      public void run() &#123;                                            //2,重写run方法
+          for(int i = 0; i &lt; 3000; i++) &#123;                            //3,将要执行的代码,写在run方法中
+              System.out.println(&quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;);
+          &#125;
+      &#125;
+  &#125;.start();</code></pre>
+</li>
+<li><p>实现Runnable接口</p>
+<pre><code>  new Thread(new Runnable()&#123;                                        //1,new 接口()&#123;&#125;实现这个接口
+      public void run() &#123;                                            //2,重写run方法
+          for(int i = 0; i &lt; 3000; i++) &#123;                            //3,将要执行的代码,写在run方法中
+              System.out.println(&quot;bb&quot;);
+          &#125;
+      &#125;
+  &#125;).start(); </code></pre>
+</li>
+</ul>
+<h3 id="24-09-多线程-获取名字和设置名字-掌握"><a href="#24-09-多线程-获取名字和设置名字-掌握" class="headerlink" title="24.09_多线程(获取名字和设置名字)(掌握)"></a>24.09_多线程(获取名字和设置名字)(掌握)</h3><ul>
+<li><p>1.获取名字</p>
+<ul>
+<li>通过getName()方法获取线程对象的名字</li>
+</ul>
+</li>
+<li><p>2.设置名字</p>
+<ul>
+<li><p>通过构造函数可以传入String类型的名字</p>
+</li>
+<li><pre><code>  new Thread(&quot;xxx&quot;) &#123;
+      public void run() &#123;
+          for(int i = 0; i &lt; 1000; i++) &#123;
+              System.out.println(this.getName() + &quot;....aaaaaaaaaaaaaaaaaaaaaaa&quot;);
+          &#125;
+      &#125;
+  &#125;.start();
+
+  new Thread(&quot;yyy&quot;) &#123;
+      public void run() &#123;
+          for(int i = 0; i &lt; 1000; i++) &#123;
+              System.out.println(this.getName() + &quot;....bb&quot;);
+          &#125;
+      &#125;
+  &#125;.start(); </code></pre>
+</li>
+<li><p>通过setName(String)方法可以设置线程对象的名字</p>
+</li>
+<li><pre><code>  Thread t1 = new Thread() &#123;
+      public void run() &#123;
+          for(int i = 0; i &lt; 1000; i++) &#123;
+              System.out.println(this.getName() + &quot;....aaaaaaaaaaaaaaaaaaaaaaa&quot;);
+          &#125;
+      &#125;
+  &#125;;
+
+  Thread t2 = new Thread() &#123;
+      public void run() &#123;
+          for(int i = 0; i &lt; 1000; i++) &#123;
+              System.out.println(this.getName() + &quot;....bb&quot;);
+          &#125;
+      &#125;
+  &#125;;
+  t1.setName(&quot;芙蓉姐姐&quot;);
+  t2.setName(&quot;凤姐&quot;);
+
+  t1.start();
+  t2.start();</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="24-10-多线程-获取当前线程的对象-掌握"><a href="#24-10-多线程-获取当前线程的对象-掌握" class="headerlink" title="24.10_多线程(获取当前线程的对象)(掌握)"></a>24.10_多线程(获取当前线程的对象)(掌握)</h3><ul>
+<li><p>Thread.currentThread(), 主线程也可以获取</p>
+<ul>
+<li><pre><code>  new Thread(new Runnable() &#123;
+      public void run() &#123;
+          for(int i = 0; i &lt; 1000; i++) &#123;
+              System.out.println(Thread.currentThread().getName() + &quot;...aaaaaaaaaaaaaaaaaaaaa&quot;);
+          &#125;
+      &#125;
+  &#125;).start();
+
+  new Thread(new Runnable() &#123;
+      public void run() &#123;
+          for(int i = 0; i &lt; 1000; i++) &#123;
+              System.out.println(Thread.currentThread().getName() + &quot;...bb&quot;);
+          &#125;
+      &#125;
+  &#125;).start();
+  Thread.currentThread().setName(&quot;我是主线程&quot;);                    //获取主函数线程的引用,并改名字
+  System.out.println(Thread.currentThread().getName());        //获取主函数线程的引用,并获取名字</code></pre>
+<h3 id="24-11-多线程-休眠线程-掌握"><a href="#24-11-多线程-休眠线程-掌握" class="headerlink" title="24.11_多线程(休眠线程)(掌握)"></a>24.11_多线程(休眠线程)(掌握)</h3></li>
+</ul>
+</li>
+<li><p>Thread.sleep(毫秒,纳秒), 控制当前线程休眠若干毫秒1秒= 1000毫秒 1秒 = 1000 * 1000 * 1000纳秒 1000000000</p>
+<pre><code>      new Thread() &#123;
+          public void run() &#123;
+              for(int i = 0; i &lt; 10; i++) &#123;
+                  System.out.println(getName() + &quot;...aaaaaaaaaaaaaaaaaaaaaa&quot;);
+                  try &#123;
+                      Thread.sleep(10);
+                  &#125; catch (InterruptedException e) &#123;
+                      e.printStackTrace();
+                  &#125;
+              &#125;
+          &#125;
+      &#125;.start();
+
+      new Thread() &#123;
+          public void run() &#123;
+              for(int i = 0; i &lt; 10; i++) &#123;
+                  System.out.println(getName() + &quot;...bb&quot;);
+                  try &#123;
+                      Thread.sleep(10);
+                  &#125; catch (InterruptedException e) &#123;
+                      e.printStackTrace();
+                  &#125;
+              &#125;
+          &#125;
+      &#125;.start();</code></pre>
+<h3 id="24-12-多线程-守护线程-掌握"><a href="#24-12-多线程-守护线程-掌握" class="headerlink" title="24.12_多线程(守护线程)(掌握)"></a>24.12_多线程(守护线程)(掌握)</h3></li>
+<li><p>setDaemon(), 设置一个线程为守护线程, 该线程不会单独执行, 当其他非守护线程都执行结束后, 自动退出</p>
+<ul>
+<li><pre><code>  Thread t1 = new Thread() &#123;
+      public void run() &#123;
+          for(int i = 0; i &lt; 50; i++) &#123;
+              System.out.println(getName() + &quot;...aaaaaaaaaaaaaaaaaaaaaa&quot;);
+              try &#123;
+                  Thread.sleep(10);
+              &#125; catch (InterruptedException e) &#123;
+                  e.printStackTrace();
+              &#125;
+          &#125;
+      &#125;
+  &#125;;
+
+  Thread t2 = new Thread() &#123;
+      public void run() &#123;
+          for(int i = 0; i &lt; 5; i++) &#123;
+              System.out.println(getName() + &quot;...bb&quot;);
+              try &#123;
+                  Thread.sleep(10);
+              &#125; catch (InterruptedException e) &#123;
+                  e.printStackTrace();
+              &#125;
+          &#125;
+      &#125;
+  &#125;;
+
+  t1.setDaemon(true);                        //将t1设置为守护线程
+
+  t1.start();
+  t2.start();</code></pre>
+<h3 id="24-13-多线程-加入线程-掌握"><a href="#24-13-多线程-加入线程-掌握" class="headerlink" title="24.13_多线程(加入线程)(掌握)"></a>24.13_多线程(加入线程)(掌握)</h3></li>
+</ul>
+</li>
+<li><p>join(), 当前线程暂停, 等待指定的线程执行结束后, 当前线程再继续</p>
+</li>
+<li><p>join(int), 可以等待指定的毫秒之后继续</p>
+<ul>
+<li><pre><code>  final Thread t1 = new Thread() &#123;
+      public void run() &#123;
+          for(int i = 0; i &lt; 50; i++) &#123;
+              System.out.println(getName() + &quot;...aaaaaaaaaaaaaaaaaaaaaa&quot;);
+              try &#123;
+                  Thread.sleep(10);
+              &#125; catch (InterruptedException e) &#123;
+                  e.printStackTrace();
+              &#125;
+          &#125;
+      &#125;
+  &#125;;
+
+  Thread t2 = new Thread() &#123;
+      public void run() &#123;
+          for(int i = 0; i &lt; 50; i++) &#123;
+              if(i == 2) &#123;
+                  try &#123;
+                      //t1.join();                        //插队,加入
+                      t1.join(30);                        //加入,有固定的时间,过了固定时间,继续交替执行
+                      Thread.sleep(10);
+                  &#125; catch (InterruptedException e) &#123;
+
+                      e.printStackTrace();
+                  &#125;
+              &#125;
+              System.out.println(getName() + &quot;...bb&quot;);
+
+          &#125;
+      &#125;
+  &#125;;
+
+  t1.start();
+  t2.start();</code></pre>
+<h3 id="24-14-多线程-礼让线程-了解"><a href="#24-14-多线程-礼让线程-了解" class="headerlink" title="24.14_多线程(礼让线程)(了解)"></a>24.14_多线程(礼让线程)(了解)</h3></li>
+</ul>
+</li>
+<li><p>yield让出cpu</p>
+</li>
+</ul>
+<h3 id="24-15-多线程-设置线程的优先级-了解"><a href="#24-15-多线程-设置线程的优先级-了解" class="headerlink" title="24.15_多线程(设置线程的优先级)(了解)"></a>24.15_多线程(设置线程的优先级)(了解)</h3><ul>
+<li>setPriority()设置线程的优先级</li>
+</ul>
+<h3 id="24-16-多线程-同步代码块-掌握"><a href="#24-16-多线程-同步代码块-掌握" class="headerlink" title="24.16_多线程(同步代码块)(掌握)"></a>24.16_多线程(同步代码块)(掌握)</h3><ul>
+<li><p>1.什么情况下需要同步</p>
+<ul>
+<li>当多线程并发, 有多段代码同时执行时, 我们希望某一段代码执行的过程中CPU不要切换到其他线程工作. 这时就需要同步.</li>
+<li>如果两段代码是同步的, 那么同一时间只能执行一段, 在一段代码没执行结束之前, 不会执行另外一段代码.</li>
+</ul>
+</li>
+<li><p>2.同步代码块</p>
+<ul>
+<li><p>使用synchronized关键字加上一个锁对象来定义一段代码, 这就叫同步代码块</p>
+</li>
+<li><p>多个同步代码块如果使用相同的锁对象, 那么他们就是同步的</p>
+<pre><code>  class Printer &#123;
+      Demo d = new Demo();
+      public static void print1() &#123;
+          synchronized(d)&#123;                //锁对象可以是任意对象,但是被锁的代码需要保证是同一把锁,不能用匿名对象
+              System.out.print(&quot;黑&quot;);
+              System.out.print(&quot;马&quot;);
+              System.out.print(&quot;程&quot;);
+              System.out.print(&quot;序&quot;);
+              System.out.print(&quot;员&quot;);
+              System.out.print(&quot;\r\n&quot;);
+          &#125;
+      &#125;
+
+      public static void print2() &#123;    
+          synchronized(d)&#123;    
+              System.out.print(&quot;传&quot;);
+              System.out.print(&quot;智&quot;);
+              System.out.print(&quot;播&quot;);
+              System.out.print(&quot;客&quot;);
+              System.out.print(&quot;\r\n&quot;);
+          &#125;
+      &#125;
+  &#125;</code></pre>
+<h3 id="24-17-多线程-同步方法-掌握"><a href="#24-17-多线程-同步方法-掌握" class="headerlink" title="24.17_多线程(同步方法)(掌握)"></a>24.17_多线程(同步方法)(掌握)</h3></li>
+</ul>
+</li>
+<li><p>使用synchronized关键字修饰一个方法, 该方法中所有的代码都是同步的</p>
+<pre><code>  class Printer &#123;
+      public static void print1() &#123;
+          synchronized(Printer.class)&#123;                //锁对象可以是任意对象,但是被锁的代码需要保证是同一把锁,不能用匿名对象
+              System.out.print(&quot;黑&quot;);
+              System.out.print(&quot;马&quot;);
+              System.out.print(&quot;程&quot;);
+              System.out.print(&quot;序&quot;);
+              System.out.print(&quot;员&quot;);
+              System.out.print(&quot;\r\n&quot;);
+          &#125;
+      &#125;
+      /*
+       * 非静态同步函数的锁是:this
+       * 静态的同步函数的锁是:字节码对象
+       */
+      public static synchronized void print2() &#123;    
+          System.out.print(&quot;传&quot;);
+          System.out.print(&quot;智&quot;);
+          System.out.print(&quot;播&quot;);
+          System.out.print(&quot;客&quot;);
+          System.out.print(&quot;\r\n&quot;);
+      &#125;
+  &#125;</code></pre>
+</li>
+</ul>
+<h3 id="24-18-多线程-线程安全问题-掌握"><a href="#24-18-多线程-线程安全问题-掌握" class="headerlink" title="24.18_多线程(线程安全问题)(掌握)"></a>24.18_多线程(线程安全问题)(掌握)</h3><ul>
+<li><p>多线程并发操作同一数据时, 就有可能出现线程安全问题</p>
+</li>
+<li><p>使用同步技术可以解决这种问题, 把操作数据的代码进行同步, 不要多个线程一起操作</p>
+<pre><code>      public class Demo2_Synchronized &#123;
+
+          /**
+           * @param args
+           * 需求:铁路售票,一共100张,通过四个窗口卖完.
+           */
+          public static void main(String[] args) &#123;
+              TicketsSeller t1 = new TicketsSeller();
+              TicketsSeller t2 = new TicketsSeller();
+              TicketsSeller t3 = new TicketsSeller();
+              TicketsSeller t4 = new TicketsSeller();
+
+              t1.setName(&quot;窗口1&quot;);
+              t2.setName(&quot;窗口2&quot;);
+              t3.setName(&quot;窗口3&quot;);
+              t4.setName(&quot;窗口4&quot;);
+              t1.start();
+              t2.start();
+              t3.start();
+              t4.start();
+          &#125;
+
+      &#125;
+
+      class TicketsSeller extends Thread &#123;
+          private static int tickets = 100;
+          static Object obj = new Object();
+          public TicketsSeller() &#123;
+              super();
+
+          &#125;
+          public TicketsSeller(String name) &#123;
+              super(name);
+          &#125;
+          public void run() &#123;
+              while(true) &#123;
+                  synchronized(obj) &#123;
+                      if(tickets &lt;= 0) 
+                          break;
+                      try &#123;
+                          Thread.sleep(10);//线程1睡,线程2睡,线程3睡,线程4睡
+                      &#125; catch (InterruptedException e) &#123;
+
+                          e.printStackTrace();
+                      &#125;
+                      System.out.println(getName() + &quot;...这是第&quot; + tickets-- + &quot;号票&quot;);
+                  &#125;
+              &#125;
+          &#125;
+      &#125;</code></pre>
+</li>
+</ul>
+<h3 id="24-19-多线程-火车站卖票的例子用实现Runnable接口-掌握"><a href="#24-19-多线程-火车站卖票的例子用实现Runnable接口-掌握" class="headerlink" title="24.19_多线程(火车站卖票的例子用实现Runnable接口)(掌握)"></a>24.19_多线程(火车站卖票的例子用实现Runnable接口)(掌握)</h3><h3 id="24-20-多线程-死锁-了解"><a href="#24-20-多线程-死锁-了解" class="headerlink" title="24.20_多线程(死锁)(了解)"></a>24.20_多线程(死锁)(了解)</h3><ul>
+<li><p>多线程同步的时候, 如果同步代码嵌套, 使用相同锁, 就有可能出现死锁</p>
+<ul>
+<li><p>尽量不要嵌套使用</p>
+<pre><code>  private static String s1 = &quot;筷子左&quot;;
+  private static String s2 = &quot;筷子右&quot;;
+  public static void main(String[] args) &#123;
+      new Thread() &#123;
+          public void run() &#123;
+              while(true) &#123;
+                  synchronized(s1) &#123;
+                      System.out.println(getName() + &quot;...拿到&quot; + s1 + &quot;等待&quot; + s2);
+                      synchronized(s2) &#123;
+                          System.out.println(getName() + &quot;...拿到&quot; + s2 + &quot;开吃&quot;);
+                      &#125;
+                  &#125;
+              &#125;
+          &#125;
+      &#125;.start();
+
+      new Thread() &#123;
+          public void run() &#123;
+              while(true) &#123;
+                  synchronized(s2) &#123;
+                      System.out.println(getName() + &quot;...拿到&quot; + s2 + &quot;等待&quot; + s1);
+                      synchronized(s1) &#123;
+                          System.out.println(getName() + &quot;...拿到&quot; + s1 + &quot;开吃&quot;);
+                      &#125;
+                  &#125;
+              &#125;
+          &#125;
+      &#125;.start();
+  &#125;</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="24-21-多线程-以前的线程安全的类回顾-掌握"><a href="#24-21-多线程-以前的线程安全的类回顾-掌握" class="headerlink" title="24.21_多线程(以前的线程安全的类回顾)(掌握)"></a>24.21_多线程(以前的线程安全的类回顾)(掌握)</h3><ul>
+<li>A:回顾以前说过的线程安全问题<ul>
+<li>看源码：Vector,StringBuffer,Hashtable,Collections.synchroinzed(xxx)</li>
+<li>Vector是线程安全的,ArrayList是线程不安全的</li>
+<li>StringBuffer是线程安全的,StringBuilder是线程不安全的</li>
+<li>Hashtable是线程安全的,HashMap是线程不安全的</li>
+</ul>
+</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/后端//" class="article-tag-list-link color3">后端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8024-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E4%B8%8A/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java基础23-递归练习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -3106,391 +3716,6 @@ fw.close();</code></pre>
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8015-Colletion%E9%9B%86%E5%90%88/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java基础14-正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8014-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_blank">Java基础14-正则表达式</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/06/16/Java%E5%9F%BA%E7%A1%8014-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-06-16T02:06:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    
-    
-    
-    
-    <h3 id="14-01-常见对象-正则表达式的概述和简单使用"><a href="#14-01-常见对象-正则表达式的概述和简单使用" class="headerlink" title="14.01_常见对象(正则表达式的概述和简单使用)"></a>14.01_常见对象(正则表达式的概述和简单使用)</h3><ul>
-<li><p>A:正则表达式</p>
-<ul>
-<li>是指一个用来描述或者匹配一系列符合某个语法规则的字符串的单个字符串。其实就是一种规则。有自己特殊的应用。</li>
-<li>作用:比如注册邮箱,邮箱有用户名和密码,一般会对其限制长度,这个限制长度的事情就是正则表达式做的</li>
-</ul>
-</li>
-<li><p>B:案例演示</p>
-<ul>
-<li><p>需求：校验qq号码.</p>
-<ul>
-<li>1:要求必须是5-15位数字</li>
-<li>2:0不能开头</li>
-<li>3:必须都是数字</li>
-</ul>
-</li>
-<li><p>a:非正则表达式实现</p>
-</li>
-<li><p>b:正则表达式实现</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="14-02-常见对象-字符类演示"><a href="#14-02-常见对象-字符类演示" class="headerlink" title="14.02_常见对象(字符类演示)"></a>14.02_常见对象(字符类演示)</h3><ul>
-<li>A:字符类<ul>
-<li>[abc] a、b 或 c（简单类） </li>
-<li>[^abc] 任何字符，除了 a、b 或 c（否定） </li>
-<li>[a-zA-Z] a到 z 或 A到 Z，两头的字母包括在内（范围） </li>
-<li>[0-9] 0到9的字符都包括<h3 id="14-03-常见对象-预定义字符类演示"><a href="#14-03-常见对象-预定义字符类演示" class="headerlink" title="14.03_常见对象(预定义字符类演示)"></a>14.03_常见对象(预定义字符类演示)</h3></li>
-</ul>
-</li>
-<li>A:预定义字符类<ul>
-<li>. 任何字符。</li>
-<li>\d 数字：[0-9]</li>
-<li>\w 单词字符：[a-zA-Z_0-9]<h3 id="14-04-常见对象-数量词"><a href="#14-04-常见对象-数量词" class="headerlink" title="14.04_常见对象(数量词)"></a>14.04_常见对象(数量词)</h3></li>
-</ul>
-</li>
-<li>A:Greedy 数量词 <ul>
-<li>X? X，一次或一次也没有</li>
-<li>X* X，零次或多次</li>
-<li>X+ X，一次或多次</li>
-<li>X{n} X，恰好 n 次 </li>
-<li>X{n,} X，至少 n 次 </li>
-<li>X{n,m} X，至少 n 次，但是不超过 m 次 </li>
-</ul>
-</li>
-</ul>
-<h3 id="14-05-常见对象-正则表达式的分割功能"><a href="#14-05-常见对象-正则表达式的分割功能" class="headerlink" title="14.05_常见对象(正则表达式的分割功能)"></a>14.05_常见对象(正则表达式的分割功能)</h3><ul>
-<li>A:正则表达式的分割功能<ul>
-<li>String类的功能：public String[] split(String regex)</li>
-</ul>
-</li>
-<li>B:案例演示<ul>
-<li>正则表达式的分割功能</li>
-</ul>
-</li>
-</ul>
-<h3 id="14-06-常见对象-把给定字符串中的数字排序"><a href="#14-06-常见对象-把给定字符串中的数字排序" class="headerlink" title="14.06_常见对象(把给定字符串中的数字排序)"></a>14.06_常见对象(把给定字符串中的数字排序)</h3><ul>
-<li>A:案例演示<ul>
-<li>需求：我有如下一个字符串:”91 27 46 38 50”，<br>请写代码实现最终输出结果是：”27 38 46 50 91”</li>
-</ul>
-</li>
-</ul>
-<h3 id="14-07-常见对象-正则表达式的替换功能"><a href="#14-07-常见对象-正则表达式的替换功能" class="headerlink" title="14.07_常见对象(正则表达式的替换功能)"></a>14.07_常见对象(正则表达式的替换功能)</h3><ul>
-<li>A:正则表达式的替换功能<ul>
-<li>String类的功能：public String replaceAll(String regex,String replacement)</li>
-</ul>
-</li>
-<li>B:案例演示<ul>
-<li>正则表达式的替换功能</li>
-</ul>
-</li>
-</ul>
-<h3 id="14-08-常见对象-正则表达式的分组功能"><a href="#14-08-常见对象-正则表达式的分组功能" class="headerlink" title="14.08_常见对象(正则表达式的分组功能)"></a>14.08_常见对象(正则表达式的分组功能)</h3><ul>
-<li><p>A:正则表达式的分组功能</p>
-<ul>
-<li>捕获组可以通过从左到右计算其开括号来编号。例如，在表达式 ((A)(B(C))) 中，存在四个这样的组： </li>
-</ul>
-</li>
-<li><pre><code>  1     ((A)(B(C))) 
-  2     (A 
-  3     (B(C)) 
-  4     (C) 
-
-  组零始终代表整个表达式。</code></pre>
-</li>
-<li><p>B:案例演示<br>  a:切割</p>
-<pre><code>  需求：请按照叠词切割： &quot;sdqqfgkkkhjppppkl&quot;;</code></pre>
-<p>  b:替换</p>
-<pre><code>  需求：我我....我...我.要...要要...要学....学学..学.编..编编.编.程.程.程..程
-  将字符串还原成:“我要学编程”。</code></pre>
-<h3 id="14-09-常见对象-Pattern和Matcher的概述"><a href="#14-09-常见对象-Pattern和Matcher的概述" class="headerlink" title="14.09_常见对象(Pattern和Matcher的概述)"></a>14.09_常见对象(Pattern和Matcher的概述)</h3></li>
-<li><p>A:Pattern和Matcher的概述</p>
-</li>
-<li><p>B:模式和匹配器的典型调用顺序</p>
-<ul>
-<li><p>通过JDK提供的API，查看Pattern类的说明</p>
-</li>
-<li><p>典型的调用顺序是 </p>
-</li>
-<li><p>Pattern p = Pattern.compile(“a*b”);</p>
-</li>
-<li><p>Matcher m = p.matcher(“aaaaab”);</p>
-</li>
-<li><p>boolean b = m.matches();</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="14-10-常见对象-正则表达式的获取功能"><a href="#14-10-常见对象-正则表达式的获取功能" class="headerlink" title="14.10_常见对象(正则表达式的获取功能)"></a>14.10_常见对象(正则表达式的获取功能)</h3><ul>
-<li>A:正则表达式的获取功能<ul>
-<li>Pattern和Matcher的结合使用</li>
-</ul>
-</li>
-<li>B:案例演示<ul>
-<li>需求：把一个字符串中的手机号码获取出来</li>
-</ul>
-</li>
-</ul>
-<h3 id="14-11-常见对象-Math类概述和方法使用"><a href="#14-11-常见对象-Math类概述和方法使用" class="headerlink" title="14.11_常见对象(Math类概述和方法使用)"></a>14.11_常见对象(Math类概述和方法使用)</h3><ul>
-<li>A:Math类概述<ul>
-<li>Math 类包含用于执行基本数学运算的方法，如初等指数、对数、平方根和三角函数。 </li>
-</ul>
-</li>
-<li>B:成员方法<ul>
-<li>public static int abs(int a)</li>
-<li>public static double ceil(double a)</li>
-<li>public static double floor(double a)</li>
-<li>public static int max(int a,int b) min自学</li>
-<li>public static double pow(double a,double b)</li>
-<li>public static double random()</li>
-<li>public static int round(float a) 参数为double的自学</li>
-<li>public static double sqrt(double a)</li>
-</ul>
-</li>
-</ul>
-<h3 id="14-12-常见对象-Random类的概述和方法使用"><a href="#14-12-常见对象-Random类的概述和方法使用" class="headerlink" title="14.12_常见对象(Random类的概述和方法使用)"></a>14.12_常见对象(Random类的概述和方法使用)</h3><ul>
-<li>A:Random类的概述<ul>
-<li>此类用于产生随机数如果用相同的种子创建两个 Random 实例，</li>
-<li>则对每个实例进行相同的方法调用序列，它们将生成并返回相同的数字序列。</li>
-</ul>
-</li>
-<li>B:构造方法<ul>
-<li>public Random()</li>
-<li>public Random(long seed)</li>
-</ul>
-</li>
-<li>C:成员方法<ul>
-<li>public int nextInt()</li>
-<li>public int nextInt(int n)(重点掌握)</li>
-</ul>
-</li>
-</ul>
-<h3 id="14-13-常见对象-System类的概述和方法使用"><a href="#14-13-常见对象-System类的概述和方法使用" class="headerlink" title="14.13_常见对象(System类的概述和方法使用)"></a>14.13_常见对象(System类的概述和方法使用)</h3><ul>
-<li>A:System类的概述<ul>
-<li>System 类包含一些有用的类字段和方法。它不能被实例化。 </li>
-</ul>
-</li>
-<li>B:成员方法<ul>
-<li>public static void gc()</li>
-<li>public static void exit(int status)</li>
-<li>public static long currentTimeMillis()</li>
-<li>pubiic static void arraycopy(Object src, int srcPos, Object dest, int destPos, int length) </li>
-</ul>
-</li>
-<li>C:案例演示<ul>
-<li>System类的成员方法使用</li>
-</ul>
-</li>
-</ul>
-<h3 id="14-14-常见对象-BigInteger类的概述和方法使用"><a href="#14-14-常见对象-BigInteger类的概述和方法使用" class="headerlink" title="14.14_常见对象(BigInteger类的概述和方法使用)"></a>14.14_常见对象(BigInteger类的概述和方法使用)</h3><ul>
-<li>A:BigInteger的概述<ul>
-<li>可以让超过Integer范围内的数据进行运算</li>
-</ul>
-</li>
-<li>B:构造方法<ul>
-<li>public BigInteger(String val)</li>
-</ul>
-</li>
-<li>C:成员方法<ul>
-<li>public BigInteger add(BigInteger val)</li>
-<li>public BigInteger subtract(BigInteger val)</li>
-<li>public BigInteger multiply(BigInteger val)</li>
-<li>public BigInteger divide(BigInteger val)</li>
-<li>public BigInteger[] divideAndRemainder(BigInteger val)</li>
-</ul>
-</li>
-</ul>
-<h3 id="14-15-常见对象-BigDecimal类的概述和方法使用"><a href="#14-15-常见对象-BigDecimal类的概述和方法使用" class="headerlink" title="14.15_常见对象(BigDecimal类的概述和方法使用)"></a>14.15_常见对象(BigDecimal类的概述和方法使用)</h3><ul>
-<li><p>A:BigDecimal的概述</p>
-<ul>
-<li><p>由于在运算的时候，float类型和double很容易丢失精度，演示案例。</p>
-</li>
-<li><p>所以，为了能精确的表示、计算浮点数，Java提供了BigDecimal</p>
-</li>
-<li><p>不可变的、任意精度的有符号十进制数。</p>
-</li>
-</ul>
-</li>
-<li><p>B:构造方法</p>
-<ul>
-<li>public BigDecimal(String val)</li>
-</ul>
-</li>
-<li><p>C:成员方法</p>
-<ul>
-<li>public BigDecimal add(BigDecimal augend)</li>
-<li>public BigDecimal subtract(BigDecimal subtrahend)</li>
-<li>public BigDecimal multiply(BigDecimal multiplicand)</li>
-<li>public BigDecimal divide(BigDecimal divisor)</li>
-</ul>
-</li>
-<li><p>D:案例演示</p>
-<ul>
-<li>BigDecimal类的构造方法和成员方法使用</li>
-</ul>
-</li>
-</ul>
-<h3 id="14-16-常见对象-Date类的概述和方法使用-掌握"><a href="#14-16-常见对象-Date类的概述和方法使用-掌握" class="headerlink" title="14.16_常见对象(Date类的概述和方法使用)(掌握)"></a>14.16_常见对象(Date类的概述和方法使用)(掌握)</h3><ul>
-<li>A:Date类的概述<ul>
-<li>类 Date 表示特定的瞬间，精确到毫秒。 </li>
-</ul>
-</li>
-<li>B:构造方法<ul>
-<li>public Date()</li>
-<li>public Date(long date)</li>
-</ul>
-</li>
-<li>C:成员方法<ul>
-<li>public long getTime()</li>
-<li>public void setTime(long time)</li>
-</ul>
-</li>
-</ul>
-<h3 id="14-17-常见对象-SimpleDateFormat类实现日期和字符串的相互转换-掌握"><a href="#14-17-常见对象-SimpleDateFormat类实现日期和字符串的相互转换-掌握" class="headerlink" title="14.17_常见对象(SimpleDateFormat类实现日期和字符串的相互转换)(掌握)"></a>14.17_常见对象(SimpleDateFormat类实现日期和字符串的相互转换)(掌握)</h3><ul>
-<li>A:DateFormat类的概述<ul>
-<li>DateFormat 是日期/时间格式化子类的抽象类，它以与语言无关的方式格式化并解析日期或时间。是抽象类，所以使用其子类SimpleDateFormat</li>
-</ul>
-</li>
-<li>B:SimpleDateFormat构造方法<ul>
-<li>public SimpleDateFormat()</li>
-<li>public SimpleDateFormat(String pattern)</li>
-</ul>
-</li>
-<li>C:成员方法<ul>
-<li>public final String format(Date date)</li>
-<li>public Date parse(String source)</li>
-</ul>
-</li>
-</ul>
-<h3 id="14-18-常见对象-你来到这个世界多少天案例-掌握"><a href="#14-18-常见对象-你来到这个世界多少天案例-掌握" class="headerlink" title="14.18_常见对象(你来到这个世界多少天案例)(掌握)"></a>14.18_常见对象(你来到这个世界多少天案例)(掌握)</h3><ul>
-<li>A:案例演示<ul>
-<li>需求：算一下你来到这个世界多少天?</li>
-</ul>
-</li>
-</ul>
-<p>###14.19_常见对象(Calendar类的概述和获取日期的方法)(掌握)</p>
-<ul>
-<li>A:Calendar类的概述<ul>
-<li>Calendar 类是一个抽象类，它为特定瞬间与一组诸如 YEAR、MONTH、DAY_OF_MONTH、HOUR 等日历字段之间的转换提供了一些方法，并为操作日历字段（例如获得下星期的日期）提供了一些方法。</li>
-</ul>
-</li>
-<li>B:成员方法<ul>
-<li>public static Calendar getInstance()</li>
-<li>public int get(int field)</li>
-</ul>
-</li>
-</ul>
-<h3 id="14-20-常见对象-Calendar类的add-和set-方法-掌握"><a href="#14-20-常见对象-Calendar类的add-和set-方法-掌握" class="headerlink" title="14.20_常见对象(Calendar类的add()和set()方法)(掌握)"></a>14.20_常见对象(Calendar类的add()和set()方法)(掌握)</h3><ul>
-<li>A:成员方法<ul>
-<li>public void add(int field,int amount)</li>
-<li>public final void set(int year,int month,int date)</li>
-</ul>
-</li>
-<li>B:案例演示<ul>
-<li>Calendar类的成员方法使用</li>
-</ul>
-</li>
-</ul>
-<h3 id="14-21-常见对象-如何获取任意年份是平年还是闰年-掌握"><a href="#14-21-常见对象-如何获取任意年份是平年还是闰年-掌握" class="headerlink" title="14.21_常见对象(如何获取任意年份是平年还是闰年)(掌握)"></a>14.21_常见对象(如何获取任意年份是平年还是闰年)(掌握)</h3><ul>
-<li>A:案例演示<ul>
-<li>需求：键盘录入任意一个年份，判断该年是闰年还是平年</li>
-</ul>
-</li>
-</ul>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/后端//" class="article-tag-list-link color3">后端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8014-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">展开全文 >></a>
     </p>
     
 

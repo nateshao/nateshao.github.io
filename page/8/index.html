@@ -225,6 +225,391 @@
 
 
   
+    <article id="post-Java基础14-正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8014-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_blank">Java基础14-正则表达式</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/06/16/Java%E5%9F%BA%E7%A1%8014-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2020-06-16T02:06:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+    
+    
+    <h3 id="14-01-常见对象-正则表达式的概述和简单使用"><a href="#14-01-常见对象-正则表达式的概述和简单使用" class="headerlink" title="14.01_常见对象(正则表达式的概述和简单使用)"></a>14.01_常见对象(正则表达式的概述和简单使用)</h3><ul>
+<li><p>A:正则表达式</p>
+<ul>
+<li>是指一个用来描述或者匹配一系列符合某个语法规则的字符串的单个字符串。其实就是一种规则。有自己特殊的应用。</li>
+<li>作用:比如注册邮箱,邮箱有用户名和密码,一般会对其限制长度,这个限制长度的事情就是正则表达式做的</li>
+</ul>
+</li>
+<li><p>B:案例演示</p>
+<ul>
+<li><p>需求：校验qq号码.</p>
+<ul>
+<li>1:要求必须是5-15位数字</li>
+<li>2:0不能开头</li>
+<li>3:必须都是数字</li>
+</ul>
+</li>
+<li><p>a:非正则表达式实现</p>
+</li>
+<li><p>b:正则表达式实现</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-02-常见对象-字符类演示"><a href="#14-02-常见对象-字符类演示" class="headerlink" title="14.02_常见对象(字符类演示)"></a>14.02_常见对象(字符类演示)</h3><ul>
+<li>A:字符类<ul>
+<li>[abc] a、b 或 c（简单类） </li>
+<li>[^abc] 任何字符，除了 a、b 或 c（否定） </li>
+<li>[a-zA-Z] a到 z 或 A到 Z，两头的字母包括在内（范围） </li>
+<li>[0-9] 0到9的字符都包括<h3 id="14-03-常见对象-预定义字符类演示"><a href="#14-03-常见对象-预定义字符类演示" class="headerlink" title="14.03_常见对象(预定义字符类演示)"></a>14.03_常见对象(预定义字符类演示)</h3></li>
+</ul>
+</li>
+<li>A:预定义字符类<ul>
+<li>. 任何字符。</li>
+<li>\d 数字：[0-9]</li>
+<li>\w 单词字符：[a-zA-Z_0-9]<h3 id="14-04-常见对象-数量词"><a href="#14-04-常见对象-数量词" class="headerlink" title="14.04_常见对象(数量词)"></a>14.04_常见对象(数量词)</h3></li>
+</ul>
+</li>
+<li>A:Greedy 数量词 <ul>
+<li>X? X，一次或一次也没有</li>
+<li>X* X，零次或多次</li>
+<li>X+ X，一次或多次</li>
+<li>X{n} X，恰好 n 次 </li>
+<li>X{n,} X，至少 n 次 </li>
+<li>X{n,m} X，至少 n 次，但是不超过 m 次 </li>
+</ul>
+</li>
+</ul>
+<h3 id="14-05-常见对象-正则表达式的分割功能"><a href="#14-05-常见对象-正则表达式的分割功能" class="headerlink" title="14.05_常见对象(正则表达式的分割功能)"></a>14.05_常见对象(正则表达式的分割功能)</h3><ul>
+<li>A:正则表达式的分割功能<ul>
+<li>String类的功能：public String[] split(String regex)</li>
+</ul>
+</li>
+<li>B:案例演示<ul>
+<li>正则表达式的分割功能</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-06-常见对象-把给定字符串中的数字排序"><a href="#14-06-常见对象-把给定字符串中的数字排序" class="headerlink" title="14.06_常见对象(把给定字符串中的数字排序)"></a>14.06_常见对象(把给定字符串中的数字排序)</h3><ul>
+<li>A:案例演示<ul>
+<li>需求：我有如下一个字符串:”91 27 46 38 50”，<br>请写代码实现最终输出结果是：”27 38 46 50 91”</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-07-常见对象-正则表达式的替换功能"><a href="#14-07-常见对象-正则表达式的替换功能" class="headerlink" title="14.07_常见对象(正则表达式的替换功能)"></a>14.07_常见对象(正则表达式的替换功能)</h3><ul>
+<li>A:正则表达式的替换功能<ul>
+<li>String类的功能：public String replaceAll(String regex,String replacement)</li>
+</ul>
+</li>
+<li>B:案例演示<ul>
+<li>正则表达式的替换功能</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-08-常见对象-正则表达式的分组功能"><a href="#14-08-常见对象-正则表达式的分组功能" class="headerlink" title="14.08_常见对象(正则表达式的分组功能)"></a>14.08_常见对象(正则表达式的分组功能)</h3><ul>
+<li><p>A:正则表达式的分组功能</p>
+<ul>
+<li>捕获组可以通过从左到右计算其开括号来编号。例如，在表达式 ((A)(B(C))) 中，存在四个这样的组： </li>
+</ul>
+</li>
+<li><pre><code>  1     ((A)(B(C))) 
+  2     (A 
+  3     (B(C)) 
+  4     (C) 
+
+  组零始终代表整个表达式。</code></pre>
+</li>
+<li><p>B:案例演示<br>  a:切割</p>
+<pre><code>  需求：请按照叠词切割： &quot;sdqqfgkkkhjppppkl&quot;;</code></pre>
+<p>  b:替换</p>
+<pre><code>  需求：我我....我...我.要...要要...要学....学学..学.编..编编.编.程.程.程..程
+  将字符串还原成:“我要学编程”。</code></pre>
+<h3 id="14-09-常见对象-Pattern和Matcher的概述"><a href="#14-09-常见对象-Pattern和Matcher的概述" class="headerlink" title="14.09_常见对象(Pattern和Matcher的概述)"></a>14.09_常见对象(Pattern和Matcher的概述)</h3></li>
+<li><p>A:Pattern和Matcher的概述</p>
+</li>
+<li><p>B:模式和匹配器的典型调用顺序</p>
+<ul>
+<li><p>通过JDK提供的API，查看Pattern类的说明</p>
+</li>
+<li><p>典型的调用顺序是 </p>
+</li>
+<li><p>Pattern p = Pattern.compile(“a*b”);</p>
+</li>
+<li><p>Matcher m = p.matcher(“aaaaab”);</p>
+</li>
+<li><p>boolean b = m.matches();</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-10-常见对象-正则表达式的获取功能"><a href="#14-10-常见对象-正则表达式的获取功能" class="headerlink" title="14.10_常见对象(正则表达式的获取功能)"></a>14.10_常见对象(正则表达式的获取功能)</h3><ul>
+<li>A:正则表达式的获取功能<ul>
+<li>Pattern和Matcher的结合使用</li>
+</ul>
+</li>
+<li>B:案例演示<ul>
+<li>需求：把一个字符串中的手机号码获取出来</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-11-常见对象-Math类概述和方法使用"><a href="#14-11-常见对象-Math类概述和方法使用" class="headerlink" title="14.11_常见对象(Math类概述和方法使用)"></a>14.11_常见对象(Math类概述和方法使用)</h3><ul>
+<li>A:Math类概述<ul>
+<li>Math 类包含用于执行基本数学运算的方法，如初等指数、对数、平方根和三角函数。 </li>
+</ul>
+</li>
+<li>B:成员方法<ul>
+<li>public static int abs(int a)</li>
+<li>public static double ceil(double a)</li>
+<li>public static double floor(double a)</li>
+<li>public static int max(int a,int b) min自学</li>
+<li>public static double pow(double a,double b)</li>
+<li>public static double random()</li>
+<li>public static int round(float a) 参数为double的自学</li>
+<li>public static double sqrt(double a)</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-12-常见对象-Random类的概述和方法使用"><a href="#14-12-常见对象-Random类的概述和方法使用" class="headerlink" title="14.12_常见对象(Random类的概述和方法使用)"></a>14.12_常见对象(Random类的概述和方法使用)</h3><ul>
+<li>A:Random类的概述<ul>
+<li>此类用于产生随机数如果用相同的种子创建两个 Random 实例，</li>
+<li>则对每个实例进行相同的方法调用序列，它们将生成并返回相同的数字序列。</li>
+</ul>
+</li>
+<li>B:构造方法<ul>
+<li>public Random()</li>
+<li>public Random(long seed)</li>
+</ul>
+</li>
+<li>C:成员方法<ul>
+<li>public int nextInt()</li>
+<li>public int nextInt(int n)(重点掌握)</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-13-常见对象-System类的概述和方法使用"><a href="#14-13-常见对象-System类的概述和方法使用" class="headerlink" title="14.13_常见对象(System类的概述和方法使用)"></a>14.13_常见对象(System类的概述和方法使用)</h3><ul>
+<li>A:System类的概述<ul>
+<li>System 类包含一些有用的类字段和方法。它不能被实例化。 </li>
+</ul>
+</li>
+<li>B:成员方法<ul>
+<li>public static void gc()</li>
+<li>public static void exit(int status)</li>
+<li>public static long currentTimeMillis()</li>
+<li>pubiic static void arraycopy(Object src, int srcPos, Object dest, int destPos, int length) </li>
+</ul>
+</li>
+<li>C:案例演示<ul>
+<li>System类的成员方法使用</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-14-常见对象-BigInteger类的概述和方法使用"><a href="#14-14-常见对象-BigInteger类的概述和方法使用" class="headerlink" title="14.14_常见对象(BigInteger类的概述和方法使用)"></a>14.14_常见对象(BigInteger类的概述和方法使用)</h3><ul>
+<li>A:BigInteger的概述<ul>
+<li>可以让超过Integer范围内的数据进行运算</li>
+</ul>
+</li>
+<li>B:构造方法<ul>
+<li>public BigInteger(String val)</li>
+</ul>
+</li>
+<li>C:成员方法<ul>
+<li>public BigInteger add(BigInteger val)</li>
+<li>public BigInteger subtract(BigInteger val)</li>
+<li>public BigInteger multiply(BigInteger val)</li>
+<li>public BigInteger divide(BigInteger val)</li>
+<li>public BigInteger[] divideAndRemainder(BigInteger val)</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-15-常见对象-BigDecimal类的概述和方法使用"><a href="#14-15-常见对象-BigDecimal类的概述和方法使用" class="headerlink" title="14.15_常见对象(BigDecimal类的概述和方法使用)"></a>14.15_常见对象(BigDecimal类的概述和方法使用)</h3><ul>
+<li><p>A:BigDecimal的概述</p>
+<ul>
+<li><p>由于在运算的时候，float类型和double很容易丢失精度，演示案例。</p>
+</li>
+<li><p>所以，为了能精确的表示、计算浮点数，Java提供了BigDecimal</p>
+</li>
+<li><p>不可变的、任意精度的有符号十进制数。</p>
+</li>
+</ul>
+</li>
+<li><p>B:构造方法</p>
+<ul>
+<li>public BigDecimal(String val)</li>
+</ul>
+</li>
+<li><p>C:成员方法</p>
+<ul>
+<li>public BigDecimal add(BigDecimal augend)</li>
+<li>public BigDecimal subtract(BigDecimal subtrahend)</li>
+<li>public BigDecimal multiply(BigDecimal multiplicand)</li>
+<li>public BigDecimal divide(BigDecimal divisor)</li>
+</ul>
+</li>
+<li><p>D:案例演示</p>
+<ul>
+<li>BigDecimal类的构造方法和成员方法使用</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-16-常见对象-Date类的概述和方法使用-掌握"><a href="#14-16-常见对象-Date类的概述和方法使用-掌握" class="headerlink" title="14.16_常见对象(Date类的概述和方法使用)(掌握)"></a>14.16_常见对象(Date类的概述和方法使用)(掌握)</h3><ul>
+<li>A:Date类的概述<ul>
+<li>类 Date 表示特定的瞬间，精确到毫秒。 </li>
+</ul>
+</li>
+<li>B:构造方法<ul>
+<li>public Date()</li>
+<li>public Date(long date)</li>
+</ul>
+</li>
+<li>C:成员方法<ul>
+<li>public long getTime()</li>
+<li>public void setTime(long time)</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-17-常见对象-SimpleDateFormat类实现日期和字符串的相互转换-掌握"><a href="#14-17-常见对象-SimpleDateFormat类实现日期和字符串的相互转换-掌握" class="headerlink" title="14.17_常见对象(SimpleDateFormat类实现日期和字符串的相互转换)(掌握)"></a>14.17_常见对象(SimpleDateFormat类实现日期和字符串的相互转换)(掌握)</h3><ul>
+<li>A:DateFormat类的概述<ul>
+<li>DateFormat 是日期/时间格式化子类的抽象类，它以与语言无关的方式格式化并解析日期或时间。是抽象类，所以使用其子类SimpleDateFormat</li>
+</ul>
+</li>
+<li>B:SimpleDateFormat构造方法<ul>
+<li>public SimpleDateFormat()</li>
+<li>public SimpleDateFormat(String pattern)</li>
+</ul>
+</li>
+<li>C:成员方法<ul>
+<li>public final String format(Date date)</li>
+<li>public Date parse(String source)</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-18-常见对象-你来到这个世界多少天案例-掌握"><a href="#14-18-常见对象-你来到这个世界多少天案例-掌握" class="headerlink" title="14.18_常见对象(你来到这个世界多少天案例)(掌握)"></a>14.18_常见对象(你来到这个世界多少天案例)(掌握)</h3><ul>
+<li>A:案例演示<ul>
+<li>需求：算一下你来到这个世界多少天?</li>
+</ul>
+</li>
+</ul>
+<p>###14.19_常见对象(Calendar类的概述和获取日期的方法)(掌握)</p>
+<ul>
+<li>A:Calendar类的概述<ul>
+<li>Calendar 类是一个抽象类，它为特定瞬间与一组诸如 YEAR、MONTH、DAY_OF_MONTH、HOUR 等日历字段之间的转换提供了一些方法，并为操作日历字段（例如获得下星期的日期）提供了一些方法。</li>
+</ul>
+</li>
+<li>B:成员方法<ul>
+<li>public static Calendar getInstance()</li>
+<li>public int get(int field)</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-20-常见对象-Calendar类的add-和set-方法-掌握"><a href="#14-20-常见对象-Calendar类的add-和set-方法-掌握" class="headerlink" title="14.20_常见对象(Calendar类的add()和set()方法)(掌握)"></a>14.20_常见对象(Calendar类的add()和set()方法)(掌握)</h3><ul>
+<li>A:成员方法<ul>
+<li>public void add(int field,int amount)</li>
+<li>public final void set(int year,int month,int date)</li>
+</ul>
+</li>
+<li>B:案例演示<ul>
+<li>Calendar类的成员方法使用</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-21-常见对象-如何获取任意年份是平年还是闰年-掌握"><a href="#14-21-常见对象-如何获取任意年份是平年还是闰年-掌握" class="headerlink" title="14.21_常见对象(如何获取任意年份是平年还是闰年)(掌握)"></a>14.21_常见对象(如何获取任意年份是平年还是闰年)(掌握)</h3><ul>
+<li>A:案例演示<ul>
+<li>需求：键盘录入任意一个年份，判断该年是闰年还是平年</li>
+</ul>
+</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/后端//" class="article-tag-list-link color3">后端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/06/16/Java%E5%9F%BA%E7%A1%8014-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java基础13-StringBuffer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2918,112 +3303,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/06/07/Boot%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E6%B5%81%E7%A8%8B%E5%9B%BE/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-你真的会Mysql吗" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/05/27/%E4%BD%A0%E7%9C%9F%E7%9A%84%E4%BC%9AMysql%E5%90%97/" target="_blank">你真的会Mysql吗</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/05/27/%E4%BD%A0%E7%9C%9F%E7%9A%84%E4%BC%9AMysql%E5%90%97/" class="archive-article-date">
-        <time datetime="2020-05-27T15:58:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    
-    
-    
-    
-    <p><a target="_blank" rel="noopener" href="http://www.itfzy.cn/post/mysql/classical-problem/">MySQL经典题目</a><br><a target="_blank" rel="noopener" href="http://xuesql.cn/">学SQL</a><br><em>二话不说，先来<span style="color:red;font-size: 30px;">Look Look</span>一张图吧！</em></p>
-<p><img src="https://mateshao.oss-cn-shenzhen.aliyuncs.com/Mysql/MySql%E7%9F%A5%E8%AF%86%E7%82%B9.png"></p>
-<blockquote>
-<p>这是千羽自己去听了几分钟的课，然后做的思维导图。对于小编而言，第一阶段可还行（其实只会一点CRUD），但是到了第二阶段到第五阶段，小编确实编不下去了…(5555!)</p>
-</blockquote>
-<p>言归正传，事实上，数据库这东西，你越懂那便是越好，特别是作为Java后端程序员来说，每天都是要和数据库打交道的，</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据库//" class="article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/05/27/%E4%BD%A0%E7%9C%9F%E7%9A%84%E4%BC%9AMysql%E5%90%97/">展开全文 >></a>
     </p>
     
 
