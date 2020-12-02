@@ -225,6 +225,122 @@
 
 
   
+    <article id="post-docker-09-写Dockerfile并上传DockerHub" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/08/17/docker-09-%E5%86%99Dockerfile%E5%B9%B6%E4%B8%8A%E4%BC%A0DockerHub/" target="_blank">docker-09-写Dockerfile并上传DockerHub</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/08/17/docker-09-%E5%86%99Dockerfile%E5%B9%B6%E4%B8%8A%E4%BC%A0DockerHub/" class="archive-article-date">
+        <time datetime="2020-08-17T15:34:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+    
+    
+    <a id="more"></a>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/docker%E6%88%90%E5%8A%9F%E6%88%AA%E5%9B%BE.png" alt="docker成功截图"></p>
+<h1 id="教你写Dockerfile并上传DockerHub"><a href="#教你写Dockerfile并上传DockerHub" class="headerlink" title="教你写Dockerfile并上传DockerHub"></a>教你写Dockerfile并上传DockerHub</h1><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/curl.png"></p>
+<h2 id="DockerFile"><a href="#DockerFile" class="headerlink" title="DockerFile"></a>DockerFile</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> centos <span class="comment">#制作base image 基础镜像，尽量使用官方的image作为base image</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> version=<span class="string">&quot;1.0&quot;</span> <span class="comment">#容器元信息，帮助信息，Metadata，类似于代码注释</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> maintainer=<span class="string">&quot;shaotongjie335@163.com&quot;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#对于复杂的RUN命令，避免无用的分层，多条命令用反斜线换行，合成一条命令！</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> yum update &amp;&amp; yum install -y vim \</span></span><br><span class="line"><span class="bash">    Python-dev <span class="comment">#反斜线换行</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /root <span class="comment">#相当于linux的cd命令，改变目录，尽量使用绝对路径！！！不要用RUN cd</span></span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /<span class="built_in">test</span> <span class="comment"># 如果没有就自动创建</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> test.tar.gz /  <span class="comment"># 添加到根目录并解压</span></span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> hello <span class="built_in">test</span>/  <span class="comment"># 等同于上述ADD效果</span></span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">ADD</span><span class="bash">与COPY</span></span><br><span class="line">   - 优先使用<span class="keyword">COPY</span><span class="bash">命令</span></span><br><span class="line">    -<span class="keyword">ADD</span><span class="bash">除了COPY功能还有解压功能</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">ENV</span> <span class="comment"># 环境变量，尽可能使用ENV增加可维护性</span></span><br><span class="line"><span class="keyword">ENV</span> MYSQL_VERSION <span class="number">5.6</span> <span class="comment"># 设置一个mysql常量</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="编写DockerFile文件"><a href="#编写DockerFile文件" class="headerlink" title="编写DockerFile文件"></a>编写DockerFile文件</h2><p>vim DockerFile</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> nginx:<span class="number">1.17</span>.<span class="number">6</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">ENV</span> LANG en_US.UTF-<span class="number">8</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> index.html /usr/share/nginx/html</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">80</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">443</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment"># 构建镜像</span></span><br><span class="line"> </span><br><span class="line">docker build . -t hello-k8s:<span class="number">0.0</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/hello-k8s.png"></p>
+<p>那么如何将构建好的镜像上传到中央仓库呢？</p>
+<h2 id="注册DockerHub账号和密码"><a href="#注册DockerHub账号和密码" class="headerlink" title="注册DockerHub账号和密码"></a>注册<a href="%5Bhttps://hub.docker.com%5D(https://hub.docker.com/)">DockerHub</a>账号和密码</h2><p>可以在<a href="%5B%5Bwww.**yopmail**.com%5D(https://www.baidu.com/link?url=9wkV_ao-n0C-L7zoZjW3v078RjoLD_wbpn5RXCu5nJGCuTZFiCeB_kdweIfqJXO8&wd=&eqid=84883aac0028b04a000000035f315276)">YOPmail</a> 注册临时邮箱</p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/docker-login.png" alt="docker-login"></p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注册docker id后，在linux中登录dockerhub</span></span><br><span class="line">docker login</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 注意要保证image名字 必须是  仓库名/镜像名称:版本</span></span><br><span class="line">docker tag hello-k8s:<span class="number">0.0</span>.<span class="number">1</span> pig4cloud/hello-k8s:<span class="number">0.0</span>.<span class="number">1</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment"># 推送docker image到dockerhub</span></span><br><span class="line">docker push pig4cloud/hello-k8s:<span class="number">0.0</span>.<span class="number">1</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment"># 去dockerhub中检查镜像</span></span><br><span class="line"><span class="comment"># 先删除本地镜像，然后再测试下载pull 镜像文件</span></span><br><span class="line">docker rmi pig4cloud/hello-k8s:<span class="number">0.0</span>.<span class="number">1</span></span><br><span class="line"> </span><br><span class="line">docker pull pig4cloud/hello-k8s:<span class="number">0.0</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/%E4%B8%8A%E4%BC%A0%E6%88%90%E5%8A%9F.png" alt="上传成功"></p>
+<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/%E4%B8%8B%E8%BD%BD%E6%88%90%E5%8A%9F.png" alt="下载成功"></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Docker//" class="article-tag-list-link color2">Docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/08/17/docker-09-%E5%86%99Dockerfile%E5%B9%B6%E4%B8%8A%E4%BC%A0DockerHub/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-docker-10-搭建企业镜像私服" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1700,110 +1816,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/08/16/docker-05-docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker-06-docker部署Springboot" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/08/16/docker-06-docker%E9%83%A8%E7%BD%B2Springboot/" target="_blank">docker-06-docker部署Springboot</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/08/16/docker-06-docker%E9%83%A8%E7%BD%B2Springboot/" class="archive-article-date">
-        <time datetime="2020-08-16T14:53:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    
-    
-    
-    
-    <h1 id="Docker部署SpringBoot"><a href="#Docker部署SpringBoot" class="headerlink" title="Docker部署SpringBoot"></a>Docker部署SpringBoot</h1>
-    
-    <a class="article-more-a" href="/2020/08/16/docker-06-docker%E9%83%A8%E7%BD%B2Springboot/#more">more >></a>
-    
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Docker//" class="article-tag-list-link color2">Docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/16/docker-06-docker%E9%83%A8%E7%BD%B2Springboot/">展开全文 >></a>
     </p>
     
 

@@ -6,7 +6,7 @@
   <link href="https://nate-lin.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://nate-lin.gitee.io/"/>
-  <updated>2020-12-02T13:40:30.212Z</updated>
+  <updated>2020-12-02T15:04:17.595Z</updated>
   <id>https://nate-lin.gitee.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一个项目同时提交到GitHub和Gitee</title>
+    <link href="https://nate-lin.gitee.io/2020/12/02/%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%E5%90%8C%E6%97%B6%E6%8F%90%E4%BA%A4%E5%88%B0GitHub%E5%92%8CGitee/"/>
+    <id>https://nate-lin.gitee.io/2020/12/02/%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%E5%90%8C%E6%97%B6%E6%8F%90%E4%BA%A4%E5%88%B0GitHub%E5%92%8CGitee/</id>
+    <published>2020-12-02T15:00:53.000Z</published>
+    <updated>2020-12-02T15:04:17.595Z</updated>
+    
+    <content type="html"><![CDATA[<p>众所周知，<code>GitHub</code> 是全球最大的同性交友网站[Doge]，里面不缺乏大神写的优秀的开源项目，可是 <code>GitHub</code> 有一个致命的弊端，就是国内访问速度太慢了。为了解决这个问题，一个优秀的国产代码托管平台 <code>Gitee</code>（码云）应用而生，但是 <code>Gitee</code> 并没有 <code>GitHub</code> 那么有知名度。那么我们想我的代码既能放到最知名的<code>GitHub</code>上，同时也要兼容访问和下载速度，那怎么办呢？</p><p>答案就是同时将代码提交到 <code>GitHub</code> 和 <code>Gitee</code> 上，那该如何去做呢？接下来我将一步步从头新建一个项目，然后同时提交到 <code>GitHub</code> 和 <code>Gitee</code> 两个仓库。</p><p>首先，你的先注册 <code>GitHub</code> 和 <code>Gitee</code> 这两个网站，注册好以后还需将你的 <code>SSH keys</code> 同时添加到这两个网站，这两步请自行完成！</p><p>一切准备工作就绪以后我们就可以开始了。</p><h5 id="1-在-GitHub-上新建一个空仓库"><a href="#1-在-GitHub-上新建一个空仓库" class="headerlink" title="1. 在 GitHub 上新建一个空仓库"></a>1. 在 <code>GitHub</code> 上新建一个空仓库</h5><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/20200709131021919.png" alt="在这里插入图片描述"></p><h5 id="2-在-Gitee-上新建一个关联-GitHub-的空仓库"><a href="#2-在-Gitee-上新建一个关联-GitHub-的空仓库" class="headerlink" title="2. 在 Gitee 上新建一个关联 GitHub 的空仓库"></a>2. 在 <code>Gitee</code> 上新建一个关联 <code>GitHub</code> 的空仓库</h5><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/20200709131758753.png" alt="在这里插入图片描述"></p><h5 id="3-将GitHub-的空仓库克隆到本地"><a href="#3-将GitHub-的空仓库克隆到本地" class="headerlink" title="3. 将GitHub 的空仓库克隆到本地"></a>3. 将<code>GitHub</code> 的空仓库克隆到本地</h5><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/20200709132929583.png" alt="在这里插入图片描述"></p><h5 id="4-修改-Git-的配置文件"><a href="#4-修改-Git-的配置文件" class="headerlink" title="4. 修改 Git 的配置文件"></a>4. 修改 <code>Git</code> 的配置文件</h5><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/20200709133017623.png" alt="在这里插入图片描述"></p><h5 id="5-将项目同时提交到-GitHub-和-Gitee-两个仓库"><a href="#5-将项目同时提交到-GitHub-和-Gitee-两个仓库" class="headerlink" title="5. 将项目同时提交到 GitHub 和 Gitee 两个仓库"></a>5. 将项目同时提交到 <code>GitHub</code> 和 <code>Gitee</code> 两个仓库</h5><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/20200709133239265.png" alt="在这里插入图片描述"></p><h5 id="5-验证-GitHub-和-Gitee-两个仓库"><a href="#5-验证-GitHub-和-Gitee-两个仓库" class="headerlink" title="5. 验证 GitHub 和 Gitee 两个仓库"></a>5. 验证 <code>GitHub</code> 和 <code>Gitee</code> 两个仓库</h5><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/20200709133817984.png" alt="在这里插入图片描述"></p><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/2020070913385025.png" alt="在这里插入图片描述"></p><p>最后再提一嘴，通过 <code>git</code> 的配置我们还可以同时提交多个仓库，除了 <code>GitHub</code> 和 <code>Gitee</code> 之外，还有 <code>GitLab</code>、<code>Bitbucket</code> 或是你自己搭建的 <code>Git</code> 服务器。不过这里建议你提交远程仓库最多不要超过两个，私有仓库没必要，公共的有这两个就够用了，毕竟多提交一个仓库就多一分耗时嘛。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;众所周知，&lt;code&gt;GitHub&lt;/code&gt; 是全球最大的同性交友网站[Doge]，里面不缺乏大神写的优秀的开源项目，可是 &lt;code&gt;GitHub&lt;/code&gt; 有一个致命的弊端，就是国内访问速度太慢了。为了解决这个问题，一个优秀的国产代码托管平台 &lt;code&gt;Git</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>千羽的简历</title>
@@ -401,30 +421,6 @@
       
       
     <summary type="html">&lt;h3 id=&quot;JavaScript-break-和-continue-语句&quot;&gt;&lt;a href=&quot;#JavaScript-break-和-continue-语句&quot; class=&quot;headerlink&quot; title=&quot;JavaScript break 和 continue 语句&quot;&gt;</summary>
-      
-    
-    
-    
-    <category term="前端" scheme="https://nate-lin.gitee.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="js" scheme="https://nate-lin.gitee.io/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js-06-判断语句</title>
-    <link href="https://nate-lin.gitee.io/2020/08/23/js-06-%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5/"/>
-    <id>https://nate-lin.gitee.io/2020/08/23/js-06-%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5/</id>
-    <published>2020-08-23T02:08:50.000Z</published>
-    <updated>2020-08-23T02:18:33.738Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="JavaScript-if…else-语句"><a href="#JavaScript-if…else-语句" class="headerlink" title="JavaScript if…else 语句"></a>JavaScript if…else 语句</h3><blockquote><p>条件语句用于基于不同的条件来执行不同的动作。</p></blockquote><h3 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h3><ul><li>通常在写代码时，您总是需要为不同的决定来执行不同的动作。您可以在代码中使用条件语句来完成该任务。</li></ul><blockquote><p>在 JavaScript 中，我们可使用以下条件语句：</p></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if 语句 - 只有当指定条件为 true 时，使用该语句来执行代码</span><br><span class="line">if...else 语句 - 当条件为 true 时执行代码，当条件为 false 时执行其他代码</span><br><span class="line">if...else if....else 语句- 使用该语句来选择多个代码块之一来执行</span><br><span class="line">switch 语句 - 使用该语句来选择多个代码块之一来执行</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="JavaScript-switch-语句"><a href="#JavaScript-switch-语句" class="headerlink" title="JavaScript switch 语句"></a>JavaScript switch 语句</h3><blockquote><p>switch 语句用于基于不同的条件来执行不同的动作。</p></blockquote><h3 id="JavaScript-switch-语句-1"><a href="#JavaScript-switch-语句-1" class="headerlink" title="JavaScript switch 语句"></a>JavaScript switch 语句</h3><blockquote><p>请使用 switch 语句来选择要执行的多个代码块之一。</p></blockquote><ul><li>语法<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">switch(n)</span><br><span class="line">&#123;</span><br><span class="line">    case 1:</span><br><span class="line">        执行代码块 1</span><br><span class="line">        break;</span><br><span class="line">    case 2:</span><br><span class="line">        执行代码块 2</span><br><span class="line">        break;</span><br><span class="line">    default:</span><br><span class="line">        与 case 1 和 case 2 不同时执行的代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li>工作原理：<ol><li>首先设置表达式 n（通常是一个变量）。</li><li>随后表达式的值会与结构中的每个 case 的值做比较。</li><li>如果存在匹配，则与该 case 关联的代码块会被执行。</li><li>请使用 break 来阻止代码自动地向下一个 case 运行。</li></ol></li></ul><blockquote><p>实例:显示今天的星期名称。请注意 Sunday=0, Monday=1, Tuesday=2, 等等：</p></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var d=new Date().getDay(); </span><br><span class="line">switch (d) </span><br><span class="line">&#123; </span><br><span class="line">  case 0:x=&quot;今天是星期日&quot;; </span><br><span class="line">  break; </span><br><span class="line">  case 1:x=&quot;今天是星期一&quot;; </span><br><span class="line">  break; </span><br><span class="line">  case 2:x=&quot;今天是星期二&quot;; </span><br><span class="line">  break; </span><br><span class="line">  case 3:x=&quot;今天是星期三&quot;; </span><br><span class="line">  break; </span><br><span class="line">  case 4:x=&quot;今天是星期四&quot;; </span><br><span class="line">  break; </span><br><span class="line">  case 5:x=&quot;今天是星期五&quot;; </span><br><span class="line">  break; </span><br><span class="line">  case 6:x=&quot;今天是星期六&quot;; </span><br><span class="line">  break; </span><br><span class="line">&#125;</span><br><span class="line">x 的运行结果：</span><br><span class="line"></span><br><span class="line">今天是星期二</span><br></pre></td></tr></table></figure><h3 id="default-关键词"><a href="#default-关键词" class="headerlink" title="default 关键词"></a>default 关键词</h3><blockquote><p>请使用 default 关键词来规定匹配不存在时做的事情：</p></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">实例</span><br><span class="line">如果今天不是星期六或星期日，则会输出默认的消息：</span><br><span class="line"></span><br><span class="line">var d=new Date().getDay();</span><br><span class="line">switch (d)</span><br><span class="line">&#123;</span><br><span class="line">    case 6:x=&quot;今天是星期六&quot;;</span><br><span class="line">    break;</span><br><span class="line">    case 0:x=&quot;今天是星期日&quot;;</span><br><span class="line">    break;</span><br><span class="line">    default:</span><br><span class="line">    x=&quot;期待周末&quot;;</span><br><span class="line">&#125;</span><br><span class="line">document.getElementById(&quot;demo&quot;).innerHTML=x;</span><br><span class="line">x 的运行结果：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">期待周末</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;JavaScript-if…else-语句&quot;&gt;&lt;a href=&quot;#JavaScript-if…else-语句&quot; class=&quot;headerlink&quot; title=&quot;JavaScript if…else 语句&quot;&gt;&lt;/a&gt;JavaScript if…else 语句&lt;/</summary>
       
     
     

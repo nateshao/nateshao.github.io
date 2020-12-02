@@ -225,6 +225,143 @@
 
 
   
+    <article id="post-js-06-判断语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/08/23/js-06-%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5/" target="_blank">js-06-判断语句</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/08/23/js-06-%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5/" class="archive-article-date">
+        <time datetime="2020-08-23T02:08:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+    
+    
+    <h3 id="JavaScript-if…else-语句"><a href="#JavaScript-if…else-语句" class="headerlink" title="JavaScript if…else 语句"></a>JavaScript if…else 语句</h3><blockquote>
+<p>条件语句用于基于不同的条件来执行不同的动作。</p>
+</blockquote>
+<h3 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h3><ul>
+<li>通常在写代码时，您总是需要为不同的决定来执行不同的动作。您可以在代码中使用条件语句来完成该任务。</li>
+</ul>
+<blockquote>
+<p>在 JavaScript 中，我们可使用以下条件语句：</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if 语句 - 只有当指定条件为 true 时，使用该语句来执行代码</span><br><span class="line">if...else 语句 - 当条件为 true 时执行代码，当条件为 false 时执行其他代码</span><br><span class="line">if...else if....else 语句- 使用该语句来选择多个代码块之一来执行</span><br><span class="line">switch 语句 - 使用该语句来选择多个代码块之一来执行</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="JavaScript-switch-语句"><a href="#JavaScript-switch-语句" class="headerlink" title="JavaScript switch 语句"></a>JavaScript switch 语句</h3><blockquote>
+<p>switch 语句用于基于不同的条件来执行不同的动作。</p>
+</blockquote>
+<h3 id="JavaScript-switch-语句-1"><a href="#JavaScript-switch-语句-1" class="headerlink" title="JavaScript switch 语句"></a>JavaScript switch 语句</h3><blockquote>
+<p>请使用 switch 语句来选择要执行的多个代码块之一。</p>
+</blockquote>
+<ul>
+<li>语法<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">switch(n)</span><br><span class="line">&#123;</span><br><span class="line">    case 1:</span><br><span class="line">        执行代码块 1</span><br><span class="line">        break;</span><br><span class="line">    case 2:</span><br><span class="line">        执行代码块 2</span><br><span class="line">        break;</span><br><span class="line">    default:</span><br><span class="line">        与 case 1 和 case 2 不同时执行的代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>工作原理：<ol>
+<li>首先设置表达式 n（通常是一个变量）。</li>
+<li>随后表达式的值会与结构中的每个 case 的值做比较。</li>
+<li>如果存在匹配，则与该 case 关联的代码块会被执行。</li>
+<li>请使用 break 来阻止代码自动地向下一个 case 运行。</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>实例:显示今天的星期名称。请注意 Sunday=0, Monday=1, Tuesday=2, 等等：</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var d=new Date().getDay(); </span><br><span class="line">switch (d) </span><br><span class="line">&#123; </span><br><span class="line">  case 0:x=&quot;今天是星期日&quot;; </span><br><span class="line">  break; </span><br><span class="line">  case 1:x=&quot;今天是星期一&quot;; </span><br><span class="line">  break; </span><br><span class="line">  case 2:x=&quot;今天是星期二&quot;; </span><br><span class="line">  break; </span><br><span class="line">  case 3:x=&quot;今天是星期三&quot;; </span><br><span class="line">  break; </span><br><span class="line">  case 4:x=&quot;今天是星期四&quot;; </span><br><span class="line">  break; </span><br><span class="line">  case 5:x=&quot;今天是星期五&quot;; </span><br><span class="line">  break; </span><br><span class="line">  case 6:x=&quot;今天是星期六&quot;; </span><br><span class="line">  break; </span><br><span class="line">&#125;</span><br><span class="line">x 的运行结果：</span><br><span class="line"></span><br><span class="line">今天是星期二</span><br></pre></td></tr></table></figure>
+<h3 id="default-关键词"><a href="#default-关键词" class="headerlink" title="default 关键词"></a>default 关键词</h3><blockquote>
+<p>请使用 default 关键词来规定匹配不存在时做的事情：</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">实例</span><br><span class="line">如果今天不是星期六或星期日，则会输出默认的消息：</span><br><span class="line"></span><br><span class="line">var d=new Date().getDay();</span><br><span class="line">switch (d)</span><br><span class="line">&#123;</span><br><span class="line">    case 6:x=&quot;今天是星期六&quot;;</span><br><span class="line">    break;</span><br><span class="line">    case 0:x=&quot;今天是星期日&quot;;</span><br><span class="line">    break;</span><br><span class="line">    default:</span><br><span class="line">    x=&quot;期待周末&quot;;</span><br><span class="line">&#125;</span><br><span class="line">document.getElementById(&quot;demo&quot;).innerHTML=x;</span><br><span class="line">x 的运行结果：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">期待周末</span><br></pre></td></tr></table></figure>
+
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端//" class="article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/08/23/js-06-%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-js-05-字符串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1646,122 +1783,6 @@ console.log('你好！');
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/08/18/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker-09-写Dockerfile并上传DockerHub" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/08/17/docker-09-%E5%86%99Dockerfile%E5%B9%B6%E4%B8%8A%E4%BC%A0DockerHub/" target="_blank">docker-09-写Dockerfile并上传DockerHub</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/08/17/docker-09-%E5%86%99Dockerfile%E5%B9%B6%E4%B8%8A%E4%BC%A0DockerHub/" class="archive-article-date">
-        <time datetime="2020-08-17T15:34:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    
-    
-    
-    
-    <a id="more"></a>
-<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/docker%E6%88%90%E5%8A%9F%E6%88%AA%E5%9B%BE.png" alt="docker成功截图"></p>
-<h1 id="教你写Dockerfile并上传DockerHub"><a href="#教你写Dockerfile并上传DockerHub" class="headerlink" title="教你写Dockerfile并上传DockerHub"></a>教你写Dockerfile并上传DockerHub</h1><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/curl.png"></p>
-<h2 id="DockerFile"><a href="#DockerFile" class="headerlink" title="DockerFile"></a>DockerFile</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> centos <span class="comment">#制作base image 基础镜像，尽量使用官方的image作为base image</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> version=<span class="string">&quot;1.0&quot;</span> <span class="comment">#容器元信息，帮助信息，Metadata，类似于代码注释</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> maintainer=<span class="string">&quot;shaotongjie335@163.com&quot;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#对于复杂的RUN命令，避免无用的分层，多条命令用反斜线换行，合成一条命令！</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> yum update &amp;&amp; yum install -y vim \</span></span><br><span class="line"><span class="bash">    Python-dev <span class="comment">#反斜线换行</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /root <span class="comment">#相当于linux的cd命令，改变目录，尽量使用绝对路径！！！不要用RUN cd</span></span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /<span class="built_in">test</span> <span class="comment"># 如果没有就自动创建</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> test.tar.gz /  <span class="comment"># 添加到根目录并解压</span></span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> hello <span class="built_in">test</span>/  <span class="comment"># 等同于上述ADD效果</span></span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">ADD</span><span class="bash">与COPY</span></span><br><span class="line">   - 优先使用<span class="keyword">COPY</span><span class="bash">命令</span></span><br><span class="line">    -<span class="keyword">ADD</span><span class="bash">除了COPY功能还有解压功能</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">ENV</span> <span class="comment"># 环境变量，尽可能使用ENV增加可维护性</span></span><br><span class="line"><span class="keyword">ENV</span> MYSQL_VERSION <span class="number">5.6</span> <span class="comment"># 设置一个mysql常量</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="编写DockerFile文件"><a href="#编写DockerFile文件" class="headerlink" title="编写DockerFile文件"></a>编写DockerFile文件</h2><p>vim DockerFile</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> nginx:<span class="number">1.17</span>.<span class="number">6</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">ENV</span> LANG en_US.UTF-<span class="number">8</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> index.html /usr/share/nginx/html</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">80</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">443</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment"># 构建镜像</span></span><br><span class="line"> </span><br><span class="line">docker build . -t hello-k8s:<span class="number">0.0</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/hello-k8s.png"></p>
-<p>那么如何将构建好的镜像上传到中央仓库呢？</p>
-<h2 id="注册DockerHub账号和密码"><a href="#注册DockerHub账号和密码" class="headerlink" title="注册DockerHub账号和密码"></a>注册<a href="%5Bhttps://hub.docker.com%5D(https://hub.docker.com/)">DockerHub</a>账号和密码</h2><p>可以在<a href="%5B%5Bwww.**yopmail**.com%5D(https://www.baidu.com/link?url=9wkV_ao-n0C-L7zoZjW3v078RjoLD_wbpn5RXCu5nJGCuTZFiCeB_kdweIfqJXO8&wd=&eqid=84883aac0028b04a000000035f315276)">YOPmail</a> 注册临时邮箱</p>
-<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/docker-login.png" alt="docker-login"></p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注册docker id后，在linux中登录dockerhub</span></span><br><span class="line">docker login</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 注意要保证image名字 必须是  仓库名/镜像名称:版本</span></span><br><span class="line">docker tag hello-k8s:<span class="number">0.0</span>.<span class="number">1</span> pig4cloud/hello-k8s:<span class="number">0.0</span>.<span class="number">1</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment"># 推送docker image到dockerhub</span></span><br><span class="line">docker push pig4cloud/hello-k8s:<span class="number">0.0</span>.<span class="number">1</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment"># 去dockerhub中检查镜像</span></span><br><span class="line"><span class="comment"># 先删除本地镜像，然后再测试下载pull 镜像文件</span></span><br><span class="line">docker rmi pig4cloud/hello-k8s:<span class="number">0.0</span>.<span class="number">1</span></span><br><span class="line"> </span><br><span class="line">docker pull pig4cloud/hello-k8s:<span class="number">0.0</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/%E4%B8%8A%E4%BC%A0%E6%88%90%E5%8A%9F.png" alt="上传成功"></p>
-<p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/%E4%B8%8B%E8%BD%BD%E6%88%90%E5%8A%9F.png" alt="下载成功"></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Docker//" class="article-tag-list-link color2">Docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/17/docker-09-%E5%86%99Dockerfile%E5%B9%B6%E4%B8%8A%E4%BC%A0DockerHub/">展开全文 >></a>
     </p>
     
 

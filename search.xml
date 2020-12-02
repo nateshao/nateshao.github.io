@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>一个项目同时提交到GitHub和Gitee</title>
+      <link href="2020/12/02/%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%E5%90%8C%E6%97%B6%E6%8F%90%E4%BA%A4%E5%88%B0GitHub%E5%92%8CGitee/"/>
+      <url>2020/12/02/%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%E5%90%8C%E6%97%B6%E6%8F%90%E4%BA%A4%E5%88%B0GitHub%E5%92%8CGitee/</url>
+      
+        <content type="html"><![CDATA[<p>众所周知，<code>GitHub</code> 是全球最大的同性交友网站[Doge]，里面不缺乏大神写的优秀的开源项目，可是 <code>GitHub</code> 有一个致命的弊端，就是国内访问速度太慢了。为了解决这个问题，一个优秀的国产代码托管平台 <code>Gitee</code>（码云）应用而生，但是 <code>Gitee</code> 并没有 <code>GitHub</code> 那么有知名度。那么我们想我的代码既能放到最知名的<code>GitHub</code>上，同时也要兼容访问和下载速度，那怎么办呢？</p><p>答案就是同时将代码提交到 <code>GitHub</code> 和 <code>Gitee</code> 上，那该如何去做呢？接下来我将一步步从头新建一个项目，然后同时提交到 <code>GitHub</code> 和 <code>Gitee</code> 两个仓库。</p><p>首先，你的先注册 <code>GitHub</code> 和 <code>Gitee</code> 这两个网站，注册好以后还需将你的 <code>SSH keys</code> 同时添加到这两个网站，这两步请自行完成！</p><p>一切准备工作就绪以后我们就可以开始了。</p><h5 id="1-在-GitHub-上新建一个空仓库"><a href="#1-在-GitHub-上新建一个空仓库" class="headerlink" title="1. 在 GitHub 上新建一个空仓库"></a>1. 在 <code>GitHub</code> 上新建一个空仓库</h5><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/20200709131021919.png" alt="在这里插入图片描述"></p><h5 id="2-在-Gitee-上新建一个关联-GitHub-的空仓库"><a href="#2-在-Gitee-上新建一个关联-GitHub-的空仓库" class="headerlink" title="2. 在 Gitee 上新建一个关联 GitHub 的空仓库"></a>2. 在 <code>Gitee</code> 上新建一个关联 <code>GitHub</code> 的空仓库</h5><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/20200709131758753.png" alt="在这里插入图片描述"></p><h5 id="3-将GitHub-的空仓库克隆到本地"><a href="#3-将GitHub-的空仓库克隆到本地" class="headerlink" title="3. 将GitHub 的空仓库克隆到本地"></a>3. 将<code>GitHub</code> 的空仓库克隆到本地</h5><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/20200709132929583.png" alt="在这里插入图片描述"></p><h5 id="4-修改-Git-的配置文件"><a href="#4-修改-Git-的配置文件" class="headerlink" title="4. 修改 Git 的配置文件"></a>4. 修改 <code>Git</code> 的配置文件</h5><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/20200709133017623.png" alt="在这里插入图片描述"></p><h5 id="5-将项目同时提交到-GitHub-和-Gitee-两个仓库"><a href="#5-将项目同时提交到-GitHub-和-Gitee-两个仓库" class="headerlink" title="5. 将项目同时提交到 GitHub 和 Gitee 两个仓库"></a>5. 将项目同时提交到 <code>GitHub</code> 和 <code>Gitee</code> 两个仓库</h5><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/20200709133239265.png" alt="在这里插入图片描述"></p><h5 id="5-验证-GitHub-和-Gitee-两个仓库"><a href="#5-验证-GitHub-和-Gitee-两个仓库" class="headerlink" title="5. 验证 GitHub 和 Gitee 两个仓库"></a>5. 验证 <code>GitHub</code> 和 <code>Gitee</code> 两个仓库</h5><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/20200709133817984.png" alt="在这里插入图片描述"></p><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/2020070913385025.png" alt="在这里插入图片描述"></p><p>最后再提一嘴，通过 <code>git</code> 的配置我们还可以同时提交多个仓库，除了 <code>GitHub</code> 和 <code>Gitee</code> 之外，还有 <code>GitLab</code>、<code>Bitbucket</code> 或是你自己搭建的 <code>Git</code> 服务器。不过这里建议你提交远程仓库最多不要超过两个，私有仓库没必要，公共的有这两个就够用了，毕竟多提交一个仓库就多一分耗时嘛。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>千羽的简历</title>
       <link href="2020/12/02/%E5%8D%83%E7%BE%BD%E7%9A%84%E7%AE%80%E5%8E%86/"/>
       <url>2020/12/02/%E5%8D%83%E7%BE%BD%E7%9A%84%E7%AE%80%E5%8E%86/</url>
