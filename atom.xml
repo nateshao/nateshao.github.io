@@ -6,7 +6,7 @@
   <link href="https://nateshao.github.io/atom.xml" rel="self"/>
   
   <link href="https://nateshao.github.io/"/>
-  <updated>2020-12-03T03:13:44.157Z</updated>
+  <updated>2020-12-19T14:39:27.423Z</updated>
   <id>https://nateshao.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo整合简历</title>
+    <link href="https://nateshao.github.io/2020/12/19/hexo%E6%95%B4%E5%90%88%E7%AE%80%E5%8E%86/"/>
+    <id>https://nateshao.github.io/2020/12/19/hexo%E6%95%B4%E5%90%88%E7%AE%80%E5%8E%86/</id>
+    <published>2020-12-19T14:39:15.000Z</published>
+    <updated>2020-12-19T14:39:27.423Z</updated>
+    
+    <content type="html"><![CDATA[<center><h1>个人简历</center><h3 id="1，clone-项目（cv）到本地（哪里都可以）"><a href="#1，clone-项目（cv）到本地（哪里都可以）" class="headerlink" title="1，clone 项目（cv）到本地（哪里都可以）"></a>1，clone 项目（cv）到本地（哪里都可以）</h3><blockquote><p>git clone <a href="https://gitee.com/nateshao/nateshao-cv.git">https://gitee.com/nateshao/nateshao-cv.git</a></p></blockquote><p>然后依次执行一下命令</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">npm run dev  # 访问localhost:8080</span><br><span class="line"></span><br><span class="line">## 编译部署   ##会形成一个dist文件</span><br><span class="line">npm run build   //或者 yarn run build</span><br></pre></td></tr></table></figure><p>打开浏览器，访问：localhost:8080</p><p>就可以看到效果啦</p><p>在完成上一步之后，接下来就可以整合hexo 啦</p><h3 id="2，整合hexo-部署"><a href="#2，整合hexo-部署" class="headerlink" title="2，整合hexo 部署"></a>2，整合hexo 部署</h3><p>依次执行以下步骤</p><ol><li><p>在根目录下，新建一个页面  <code>hexo new page cv</code>   。然后删除<code>\source\cv</code> 下的<code>index.md</code>文件</p></li><li><p>在<code>hexo</code>根目录下_config.yml找到 <code>skip_render</code>,写成这个格式：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">skip_render:</span><br><span class="line">  - &#x27;cv/**&#x27;   #  将cv下的文件不被hexo g 生成（渲染）</span><br></pre></td></tr></table></figure><p>在主题目录下_config.yml 设置一下menu路径</p><p>如：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- name: 个人简历</span><br><span class="line">  url: /cv</span><br><span class="line">  icon: fas fa-cv</span><br></pre></td></tr></table></figure><p>然后复制<code>nateshao-cv/dist</code>下的所有文件（<code>html+css+images+favicon.ico</code>）到根目录下\source\cv</p></li></ol><p>   然后 执行以下命令：</p>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean  ## 这一步一定不能少！！！</span><br><span class="line">hexo g</span><br><span class="line">hexo s </span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><h2 id="变更"><a href="#变更" class="headerlink" title="变更"></a>变更</h2><p>   如果修改为自己的信息</p><p>   则有以下步骤，</p><p>   在clone下来的nateshao-cv，</p><p>   建议采用<code>vscode</code>  , 采用全局键Ctrl + Shift + F</p><p>   查找想修改一下什么内容就修改啦，</p><p>   然后</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;center&gt;&lt;h1&gt;个人简历
+
+&lt;/center&gt;
+
+&lt;h3 id=&quot;1，clone-项目（cv）到本地（哪里都可以）&quot;&gt;&lt;a href=&quot;#1，clone-项目（cv）到本地（哪里都可以）&quot; class=&quot;headerlink&quot; title=&quot;1，clone 项目（cv）到</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>一个项目同时提交到GitHub和Gitee</title>
@@ -394,30 +418,6 @@
       
       
     <summary type="html">&lt;h3 id=&quot;JavaScript-typeof-null-和-undefined&quot;&gt;&lt;a href=&quot;#JavaScript-typeof-null-和-undefined&quot; class=&quot;headerlink&quot; title=&quot;JavaScript typeof, null,</summary>
-      
-    
-    
-    
-    <category term="前端" scheme="https://nateshao.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="js" scheme="https://nateshao.github.io/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js-04-break和continue</title>
-    <link href="https://nateshao.github.io/2020/08/23/js-04-break%E5%92%8Ccontinue/"/>
-    <id>https://nateshao.github.io/2020/08/23/js-04-break%E5%92%8Ccontinue/</id>
-    <published>2020-08-23T02:15:47.000Z</published>
-    <updated>2020-08-23T02:16:46.214Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="JavaScript-break-和-continue-语句"><a href="#JavaScript-break-和-continue-语句" class="headerlink" title="JavaScript break 和 continue 语句"></a>JavaScript break 和 continue 语句</h3><ul><li>break 语句用于跳出循环。</li><li>continue 用于跳过循环中的一个迭代。</li></ul><h3 id="break-语句"><a href="#break-语句" class="headerlink" title="break 语句"></a>break 语句</h3><ul><li>break 语句可用于跳出循环。</li><li>continue 语句跳出循环后，会继续执行该循环之后的代码（如果有的话）：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">实例</span><br><span class="line">for (i=0;i<span class="tag">&lt;<span class="name">10;i++)</span></span></span><br><span class="line"><span class="tag">&#123;</span></span><br><span class="line"><span class="tag">    <span class="attr">if</span> (<span class="attr">i</span>==<span class="string">3)</span></span></span><br><span class="line"><span class="tag">    &#123;</span></span><br><span class="line"><span class="tag">        <span class="attr">break</span>;</span></span><br><span class="line"><span class="tag">    &#125;</span></span><br><span class="line">    x=x + &quot;The number is &quot; + i + &quot;&lt;br&gt;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><h3 id="continue-语句"><a href="#continue-语句" class="headerlink" title="continue 语句"></a>continue 语句</h3><ul><li>continue 语句中断循环中的迭代，如果出现了指定的条件，然后继续循环中的下一个迭代。<br>该例子跳过了值 3：</li></ul><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">实例</span><br><span class="line">for (i=0;i<span class="tag">&lt;<span class="name">=10;i++)</span></span></span><br><span class="line"><span class="tag">&#123;</span></span><br><span class="line"><span class="tag">    <span class="attr">if</span> (<span class="attr">i</span>==<span class="string">3)</span> <span class="attr">continue</span>;</span></span><br><span class="line">    x=x + &quot;The number is &quot; + i + &quot;&lt;br&gt;&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="JavaScript-标签"><a href="#JavaScript-标签" class="headerlink" title="JavaScript 标签"></a>JavaScript 标签</h3><ul><li>continue 语句（带有或不带标签引用）只能用在循环中。</li><li>break 语句（不带标签引用），只能用在循环或 switch 中。</li><li>通过标签引用，break 语句可用于跳出任何 JavaScript 代码块：</li></ul><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    cars=[<span class="string">&quot;BMW&quot;</span>,<span class="string">&quot;Volvo&quot;</span>,<span class="string">&quot;Saab&quot;</span>,<span class="string">&quot;Ford&quot;</span>];</span></span><br><span class="line">    list:&#123;</span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.write(cars[<span class="number">0</span>] + <span class="string">&quot;&lt;br&gt;&quot;</span>); </span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.write(cars[<span class="number">1</span>] + <span class="string">&quot;&lt;br&gt;&quot;</span>); </span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.write(cars[<span class="number">2</span>] + <span class="string">&quot;&lt;br&gt;&quot;</span>); </span></span><br><span class="line"><span class="javascript">        <span class="keyword">break</span> list;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.write(cars[<span class="number">3</span>] + <span class="string">&quot;&lt;br&gt;&quot;</span>); </span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.write(cars[<span class="number">4</span>] + <span class="string">&quot;&lt;br&gt;&quot;</span>); </span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.write(cars[<span class="number">5</span>] + <span class="string">&quot;&lt;br&gt;&quot;</span>); </span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">运行结果</span><br><span class="line">BMW</span><br><span class="line">Volvo</span><br><span class="line">Saab</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;JavaScript-break-和-continue-语句&quot;&gt;&lt;a href=&quot;#JavaScript-break-和-continue-语句&quot; class=&quot;headerlink&quot; title=&quot;JavaScript break 和 continue 语句&quot;&gt;</summary>
       
     
     

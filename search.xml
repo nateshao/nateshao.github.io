@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>hexo整合简历</title>
+      <link href="2020/12/19/hexo%E6%95%B4%E5%90%88%E7%AE%80%E5%8E%86/"/>
+      <url>2020/12/19/hexo%E6%95%B4%E5%90%88%E7%AE%80%E5%8E%86/</url>
+      
+        <content type="html"><![CDATA[<center><h1>个人简历</center><h3 id="1，clone-项目（cv）到本地（哪里都可以）"><a href="#1，clone-项目（cv）到本地（哪里都可以）" class="headerlink" title="1，clone 项目（cv）到本地（哪里都可以）"></a>1，clone 项目（cv）到本地（哪里都可以）</h3><blockquote><p>git clone <a href="https://gitee.com/nateshao/nateshao-cv.git">https://gitee.com/nateshao/nateshao-cv.git</a></p></blockquote><p>然后依次执行一下命令</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">npm run dev  # 访问localhost:8080</span><br><span class="line"></span><br><span class="line">## 编译部署   ##会形成一个dist文件</span><br><span class="line">npm run build   //或者 yarn run build</span><br></pre></td></tr></table></figure><p>打开浏览器，访问：localhost:8080</p><p>就可以看到效果啦</p><p>在完成上一步之后，接下来就可以整合hexo 啦</p><h3 id="2，整合hexo-部署"><a href="#2，整合hexo-部署" class="headerlink" title="2，整合hexo 部署"></a>2，整合hexo 部署</h3><p>依次执行以下步骤</p><ol><li><p>在根目录下，新建一个页面  <code>hexo new page cv</code>   。然后删除<code>\source\cv</code> 下的<code>index.md</code>文件</p></li><li><p>在<code>hexo</code>根目录下_config.yml找到 <code>skip_render</code>,写成这个格式：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">skip_render:</span><br><span class="line">  - &#x27;cv/**&#x27;   #  将cv下的文件不被hexo g 生成（渲染）</span><br></pre></td></tr></table></figure><p>在主题目录下_config.yml 设置一下menu路径</p><p>如：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- name: 个人简历</span><br><span class="line">  url: /cv</span><br><span class="line">  icon: fas fa-cv</span><br></pre></td></tr></table></figure><p>然后复制<code>nateshao-cv/dist</code>下的所有文件（<code>html+css+images+favicon.ico</code>）到根目录下\source\cv</p></li></ol><p>   然后 执行以下命令：</p>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean  ## 这一步一定不能少！！！</span><br><span class="line">hexo g</span><br><span class="line">hexo s </span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><h2 id="变更"><a href="#变更" class="headerlink" title="变更"></a>变更</h2><p>   如果修改为自己的信息</p><p>   则有以下步骤，</p><p>   在clone下来的nateshao-cv，</p><p>   建议采用<code>vscode</code>  , 采用全局键Ctrl + Shift + F</p><p>   查找想修改一下什么内容就修改啦，</p><p>   然后</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>一个项目同时提交到GitHub和Gitee</title>
       <link href="2020/12/02/%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%E5%90%8C%E6%97%B6%E6%8F%90%E4%BA%A4%E5%88%B0GitHub%E5%92%8CGitee/"/>
       <url>2020/12/02/%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%E5%90%8C%E6%97%B6%E6%8F%90%E4%BA%A4%E5%88%B0GitHub%E5%92%8CGitee/</url>
