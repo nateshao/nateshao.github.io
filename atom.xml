@@ -6,7 +6,7 @@
   <link href="https://nateshao.github.io/atom.xml" rel="self"/>
   
   <link href="https://nateshao.github.io/"/>
-  <updated>2020-12-19T14:39:27.423Z</updated>
+  <updated>2020-12-20T12:53:43.916Z</updated>
   <id>https://nateshao.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo绑定域名</title>
+    <link href="https://nateshao.github.io/2020/12/20/hexo%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/"/>
+    <id>https://nateshao.github.io/2020/12/20/hexo%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/</id>
+    <published>2020-12-20T12:53:19.000Z</published>
+    <updated>2020-12-20T12:53:43.916Z</updated>
+    
+    <content type="html"><![CDATA[<center><h1>[Hexo个人博客]域名绑定<blockquote><p>这几天产生一个想法，就是每一次输入自己的nateshao.github.io来访问自己的博客，域名太长了。所有采用了自己的域名来绑定<a href="http://www.nateshao.cn/">www.nateshao.cn</a><br>花3分钟阅读这篇简明教程，为自己的个人博客绑定一个个性域名吧。</p></blockquote><h1 id="购买个性域名"><a href="#购买个性域名" class="headerlink" title="购买个性域名"></a>购买个性域名</h1><p>这里推荐<a href="https://link.jianshu.com/?t=https://www.aliyun.com/">阿里云</a>，毕竟国内大公司，既亲切又靠谱。另外还有很多人推荐的<a href="https://link.jianshu.com/?t=https://sg.godaddy.com/">godaddy</a>也可以。本篇以阿里云为例。</p><ul><li>首先注册阿里云账号，如果有淘宝账号的，可以直接登录。</li><li>登录以后，先进行实名认证（购买域名要用到,如何实名验证，这里就跳过了）。</li></ul><h1 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h1><ul><li>win+R快捷键打开“运行”窗口，输入cmd运行<strong>命令行控制台</strong>。<br>或者如下图搜索cmd打开：ping  yourname.github.io，就可以得到ip啦。<img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/3.png" alt="3"></li><li>进入域名解析列表并对购买的域名进行解析。</li></ul><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/1.png" alt="1"></p><ul><li>删除默认的并添加以下解析，如图：</li></ul><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/2.png" alt="2"></p><h2 id="新建CNAME文件"><a href="#新建CNAME文件" class="headerlink" title="新建CNAME文件"></a>新建CNAME文件</h2><p>在你的本地博客站点路径下的source文件夹里，创建一个名为<strong>CNAME</strong>的文件（注意要大写），里面写上你之前购买的域名。<img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/raj2J1.png" alt="4"></p><p><em>注：如果不做这一步，每次<code>hexo d</code>部署到github上以后，对应仓库的域名设置里的域名会被重置回原来的username.github.io，你需要再次设置成你的域名，很麻烦。</em></p><h2 id="设置域名"><a href="#设置域名" class="headerlink" title="设置域名"></a>设置域名</h2><p>配置好了以后，登录github，进入到博客站点对应的仓库，对域名进行设置：</p><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/5.png" alt="5"></p><p><img src="https://nateshao-blog.oss-cn-shenzhen.aliyuncs.com/img/6.png" alt="6"></p><p>另外说一句，在你绑定了新域名之后，原来的你的用户名.github.io。并没有失效，而是会自动跳转到你的新域名。</p><p>到此，域名就与你的博客站点绑定上了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;center&gt;&lt;h1&gt;[Hexo个人博客]域名绑定
+
+&lt;blockquote&gt;
+&lt;p&gt;这几天产生一个想法，就是每一次输入自己的nateshao.github.io来访问自己的博客，域名太长了。所有采用了自己的域名来绑定&lt;a href=&quot;http://www.nateshao.c</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>hexo整合简历</title>
@@ -402,30 +425,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>js-07-typeof-null-undefined</title>
-    <link href="https://nateshao.github.io/2020/08/23/js-07-typeof-null-undefined/"/>
-    <id>https://nateshao.github.io/2020/08/23/js-07-typeof-null-undefined/</id>
-    <published>2020-08-23T02:20:40.000Z</published>
-    <updated>2020-08-23T02:21:28.470Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="JavaScript-typeof-null-和-undefined"><a href="#JavaScript-typeof-null-和-undefined" class="headerlink" title="JavaScript typeof, null, 和 undefined"></a>JavaScript typeof, null, 和 undefined</h3><ul><li>JavaScript typeof, null, undefined, valueOf()。<h3 id="typeof-操作符"><a href="#typeof-操作符" class="headerlink" title="typeof 操作符"></a>typeof 操作符</h3></li><li>使用 typeof 操作符来检测变量的数据类型<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typeof &quot;John&quot;                // 返回 string</span><br><span class="line">typeof 3.14                  // 返回 number</span><br><span class="line">typeof false                 // 返回 boolean</span><br><span class="line">typeof [1,2,3,4]             // 返回 object</span><br><span class="line">typeof &#123;name:&#x27;John&#x27;, age:34&#125; // 返回 object</span><br></pre></td></tr></table></figure></li></ul><p><strong>在JavaScript中，数组是一种特殊的对象类型。 因此 typeof [1,2,3,4] 返回 object。</strong></p><h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><ul><li>在 JavaScript 中 null 表示 “什么都没有”。</li><li>null是一个只有一个值的特殊类型。表示一个空对象引用。</li><li>用 typeof 检测 null 返回是object。<blockquote><p>var person = null;           // 值为 null(空), 但类型为对象</p></blockquote></li><li>var person = undefined;     // 值为 undefined, 类型为 undefined<h3 id="undefined"><a href="#undefined" class="headerlink" title="undefined"></a>undefined</h3></li><li>在 JavaScript 中, undefined 是一个没有设置值的变量。</li><li>typeof 一个没有值的变量会返回 undefined。<blockquote><p>var person;                  // 值为 undefined(空), 类型是undefined</p></blockquote></li><li>任何变量都可以通过设置值为 undefined 来清空。 类型为 undefined.<h3 id="undefined-和-null-的区别"><a href="#undefined-和-null-的区别" class="headerlink" title="undefined 和 null 的区别"></a>undefined 和 null 的区别</h3></li><li>null 和 undefined 的值相等，但类型不等：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typeof undefined             // undefined</span><br><span class="line">typeof null                  // object</span><br><span class="line">null === undefined           // false</span><br><span class="line">null == undefined            // true</span><br></pre></td></tr></table></figure></li></ul><p>1、定义</p><ul><li>（1）undefined：是所有没有赋值变量的默认值，自动赋值。</li><li>（2）null：主动释放一个变量引用的对象，表示一个变量不再指向任何对象地址。<br>2、何时使用null?</li></ul><blockquote><p>当使用完一个比较大的对象时，需要对其进行释放内存时，设置为 null。</p></blockquote><p>3、null 与 undefined 的异同点是什么呢？</p><ul><li><p>共同点：都是原始类型，保存在栈中变量本地。</p></li><li><p>不同点：</p></li></ul><p>（1）undefined——表示变量声明过但并未赋过值。</p><p>它是所有未赋值变量默认值，例如：</p><p>var a;    // a 自动被赋值为 undefined<br>（2）null——表示一个变量将来可能指向一个对象。</p><p>一般用于主动释放指向对象的引用，例如：</p><p>var emps = [‘ss’,’nn’];<br>emps = null;     // 释放指向数组的引用<br>4、延伸——垃圾回收站</p><blockquote><p>它是专门释放对象内存的一个程序。</p></blockquote><p> （1）在底层，后台伴随当前程序同时运行；引擎会定时自动调用垃圾回收期；<br> （2）总有一个对象不再被任何变量引用时，才释放。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;JavaScript-typeof-null-和-undefined&quot;&gt;&lt;a href=&quot;#JavaScript-typeof-null-和-undefined&quot; class=&quot;headerlink&quot; title=&quot;JavaScript typeof, null,</summary>
-      
-    
-    
-    
-    <category term="前端" scheme="https://nateshao.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-    <category term="js" scheme="https://nateshao.github.io/tags/js/"/>
     
   </entry>
   
